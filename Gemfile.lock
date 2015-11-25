@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    delayer (0.0.2)
+    instance_storage (1.0.0)
+    pluggaloid (1.0.2)
+      delayer
+      instance_storage (>= 1.0.0, < 2.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pluggaloid (>= 1.0.1, < 2.0)
