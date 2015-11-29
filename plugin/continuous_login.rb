@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 Plugin.create :continuous_login do
-  save_file = File.join(__dir__, 'count.json')
+  save_file = File.join(__dir__, 'count.dat')
   counter = FileTest.exist?(save_file) ? Marshal.load(File.open(save_file, &:read)) : {}
 
   on_join_player do |name|
