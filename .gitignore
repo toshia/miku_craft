@@ -1,0 +1,11 @@
+/.bundle/
+/banned-ips.json
+/banned-players.json
+/eula.txt
+/logs/
+/minecraft_server.jar
+/ops.json
+/server.properties
+/usercache.json
+/vendor/
+/whitelist.json
