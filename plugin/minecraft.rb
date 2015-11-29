@@ -43,8 +43,8 @@ Plugin.create :minecraft do
     Plugin.call :minecraft_run_command, "execute #{user_name} ~ ~ ~ #{command}"
   end
 
-  on_minecraft_give_item do |user_name, item_name, count|
-    Plugin.call :minecraft_run_command, "give #{user_name} #{item_name} #{count}"
+  on_minecraft_give_item do |user_name, item_name, count, damage, datatag|
+    Plugin.call :minecraft_run_command, "give #{user_name} #{item_name} #{count} #{damage} #{datatag}"
   end
 
   on_minecraft_tell do |user_name, message|

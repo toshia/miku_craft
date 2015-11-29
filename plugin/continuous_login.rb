@@ -17,14 +17,18 @@ Plugin.create :continuous_login do
 
   on_give_continuous_login_bonus do |name, days|
     Plugin.call(:minecraft_tell, name, "ログイン#{days}日目！棒をプレゼント")
-    Plugin.call(:minecraft_give_item, name, 'minecraft:stick', 1)
-    if (days % 7) == 0
-      Plugin.call(:minecraft_tell, name, "#{days}日記念！鉄をプレゼント")
-      Plugin.call(:minecraft_give_item, name, 'minecraft:iron_ingot', 1)
+    Plugin.call(:minecraft_give_item, name, 'minecraft:stick', 1, 0, '')
+    if (days % 5) == 0
+      Plugin.call(:minecraft_tell, name, "#{days}日記念！経験値ボトルをプレゼント")
+      Plugin.call(:minecraft_give_item, name, 'minecraft:experience_bottle', 1, 0, '')
     end
     if (days % 30) == 0
+      Plugin.call(:minecraft_tell, name, "#{days}日記念！マインカートをプレゼント")
+      Plugin.call(:minecraft_give_item, name, 'minecraft:minecart', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+    end
+    if (days % 50) == 0
       Plugin.call(:minecraft_tell, name, "#{days}日記念！ダイヤのクワをプレゼント")
-      Plugin.call(:minecraft_give_item, name, 'minecraft:diamond_hoe', 1)
+      Plugin.call(:minecraft_give_item, name, 'minecraft:diamond_hoe', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
     end
   end
 end
