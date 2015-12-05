@@ -16,19 +16,36 @@ Plugin.create :continuous_login do
   end
 
   on_give_continuous_login_bonus do |name, days|
-    Plugin.call(:minecraft_tell, name, "ログイン#{days}日目！棒をプレゼント")
-    Plugin.call(:minecraft_give_item, name, 'minecraft:stick', 1, 0, '')
-    if (days % 5) == 0
-      Plugin.call(:minecraft_tell, name, "#{days}日記念！経験値ボトルをプレゼント")
-      Plugin.call(:minecraft_give_item, name, 'minecraft:experience_bottle', 1, 0, '')
-    end
-    if (days % 30) == 0
-      Plugin.call(:minecraft_tell, name, "#{days}日記念！マインカートをプレゼント")
-      Plugin.call(:minecraft_give_item, name, 'minecraft:minecart', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
-    end
-    if (days % 50) == 0
-      Plugin.call(:minecraft_tell, name, "#{days}日記念！ダイヤのクワをプレゼント")
-      Plugin.call(:minecraft_give_item, name, 'minecraft:diamond_hoe', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+    case
+    when (days % 31) == 0
+      Plugin.call(:giftbox_keep,
+                  name,
+                  "#{days}日記念！ダイヤのクワをプレゼント",
+                  'minecraft:diamond_hoe', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+    when (days % 17) == 0
+      Plugin.call(:giftbox_keep,
+                  name,
+                  "#{days}日記念！マインカートをプレゼント",
+                  'minecraft:minecart', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+    when (days % 7) == 0
+      Plugin.call(:giftbox_keep,
+                  name,
+                  "#{days}日記念！プレミアム牛めしをプレゼント",
+                  'minecraft:rabbit_stew', 1, 0, '{display:{Name: "プレミアム牛めし(並)",Lore:["380円"]}}')
+      Plugin.call(:giftbox_keep,
+                  name,
+                  nil,
+                  'minecraft:mushroom_stew', 1, 0, '{display:{Name: "味噌汁"}}')
+    when (days % 5) == 0
+      Plugin.call(:giftbox_keep,
+                  name,
+                  "#{days}日記念！経験値ボトルをプレゼント",
+                  'minecraft:experience_bottle', 1, 0, '')
+    else
+      Plugin.call(:giftbox_keep,
+                  name,
+                  "ログイン#{days}日目！棒をプレゼント",
+                  'minecraft:stick', 1, 0, '')
     end
   end
 end
