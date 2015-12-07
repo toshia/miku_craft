@@ -28,10 +28,11 @@ Plugin.create :continuous_login do
                   "#{days}日記念！マインカートをプレゼント",
                   'minecraft:minecart', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
     when (days % 7) == 0
+      food = Matsuya.order.gsub(/[　（）]/, '　'=>'', '（'=>'(', '）'=>')')
       Plugin.call(:giftbox_keep,
                   name,
-                  "#{days}日記念！プレミアム牛めしをプレゼント",
-                  'minecraft:rabbit_stew', 1, 0, '{display:{Name: "プレミアム牛めし(並)",Lore:["380円"]}}')
+                  "#{days}日記念！#{food}をプレゼント",
+                  'minecraft:rabbit_stew', 1, 0, %[{display:{Name: "#{food}",Lore:["#{days}日記念"]}}])
       Plugin.call(:giftbox_keep,
                   name,
                   nil,
