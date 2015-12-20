@@ -24,6 +24,12 @@ module Plugin::Campaign
     .on_daily_login{ |name, campaign|
       Plugin.call(:minecraft_tell, name, '人権週間キャンペーン開催中(12/10まで)！一日乗車券をプレゼント！')
       Plugin.call(:minecraft_give_item, name, 'minecraft:paper', 1, 0, "{display:{Name:\"一日乗車券\"}}")
+    },
+    Campaign.new(name: "mikutter#{Time.now.year - 2009}周年記念キャンペーン",
+                 range: Range.new(Date.new(2015, 12, 20), Date.new(2015, 12, 25), false))
+      .on_daily_login{ |name, campaign|
+      Plugin.call(:minecraft_tell, name, "#{campaign.name}！誕生日ケーキをプレゼント！")
+      Plugin.call(:minecraft_give_item, name, 'minecraft:cake', 1, 0, '{display:{Name: "誕生日ケーキ",Lore:["mikutterの誕生日記念"]}}')
     }
   ]
 
