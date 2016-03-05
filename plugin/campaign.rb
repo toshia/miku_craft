@@ -76,6 +76,14 @@ module Plugin::Campaign
         },
       ].sample.()
     },
+    Campaign.new(name: "あしゅりーおじさん600ユーロスられ記念",
+                 range: Range.new(Date.new(YEAR, 3, 7), Date.new(YEAR, 3, 10), false))
+      .on_daily_login{ |name, campaign|
+      Plugin.call(:minecraft_tell, name, 'あしゅりーおじさん600ユーロスられ記念！ドイツのトリタペストリーをプレゼント！')
+      (0..13).to_a.sample(2).each do |bg|
+        Plugin.call(:minecraft_give_item, name, 'minecraft:banner', 1, 0, %<{display:{Name: "ドイツのトリタペストリー"},BlockEntityTag:{Base:#{bg},Patterns:[{Pattern:cre,Color:14},{Pattern:hh,Color:#{bg}},{Pattern:mr,Color:#{bg}},{Pattern:mr,Color:15},{Pattern:bt,Color:#{bg}},{Pattern:mc,Color:15},{Pattern:ts,Color:#{bg}}]}}>)
+      end
+    },
   ]
 
   def self.active_campaigns
