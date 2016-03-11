@@ -84,7 +84,21 @@ module Plugin::Campaign
         Plugin.call(:minecraft_give_item, name, 'minecraft:banner', 1, 0, %<{display:{Name: "ドイツのトリタペストリー"},BlockEntityTag:{Base:#{bg},Patterns:[{Pattern:cre,Color:14},{Pattern:hh,Color:#{bg}},{Pattern:mr,Color:#{bg}},{Pattern:mr,Color:15},{Pattern:bt,Color:#{bg}},{Pattern:mc,Color:15},{Pattern:ts,Color:#{bg}}]}}>)
       end
     },
-  ]
+
+    Campaign.new(name: "re4k垢BAN記念イベント",
+                 range: Range.new(Date.new(YEAR, 3, 12), Date.new(YEAR, 3, 19), false))
+      .on_daily_login{ |name, campaign|
+      Plugin.call(:minecraft_tell, name, "#{campaign}開催中(3/19まで)！re4kをプレゼント！")
+      Plugin.call(:minecraft_give_item, name, 'minecraft:packed_ice', 1, 0, %<{display:{Name:"re4k",Lore:["レニウム垢BAN記念","#{Time.now.strftime("%Y/%m/%d")}"]},ench:[{id:51,lvl:1}]}>)
+    },
+
+    Campaign.new(name: "Favstar プレミアムユーザ垢BAN記念イベント",
+                 range: Range.new(Date.new(YEAR, 3, 12), Date.new(YEAR, 3, 19), false))
+      .on_daily_login{ |name, campaign|
+      Plugin.call(:minecraft_tell, name, "#{campaign}開催中(3/19まで)！喫茶室長が羊毛ブロックは燃えないと勘違いしていた記念に、燃えない羊毛をプレゼント！")
+      Plugin.call(:minecraft_give_item, name, 'minecraft:stained_hardened_clay', 1, (0..15).to_a.sample, %<{display:{Name:"燃えない羊毛",Lore:["Favstar プレミアムユーザ垢BAN記念","#{Time.now.strftime("%Y/%m/%d")}"]},ench:[{id:1,lvl:1}]}>)
+    },
+]
 
   def self.active_campaigns
     today = Date.today
