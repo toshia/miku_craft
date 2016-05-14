@@ -16,6 +16,10 @@ module Plugin::Campaign
     def daily(name)
       @daily.(name, self)
     end
+
+    def to_s
+      @name
+    end
   end
 
   YEAR = Time.now.year
@@ -42,7 +46,7 @@ module Plugin::Campaign
         },
         -> {
           Plugin.call(:minecraft_tell, name, "#{campaign.name}！破魔矢をプレゼント！")
-          Plugin.call(:minecraft_give_item, name, 'minecraft:arrow', 1, 0, %<{display:{Name: "破魔矢",Lore:["メリーお正月！"]},AttributeModifiers:[{AttributeName: "generic.attackDamage",Name: "generic.attackDamage",Amount: 6,Operation: 0,UUIDMost: 96348,UUIDLeast: 877567}]}>)
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', 1, 0, %<{display:{Name: "破魔矢",Lore:["メリーお正月！"]},Potion:strong_healing}>)
         },
         -> {
           Plugin.call(:minecraft_tell, name, "#{campaign.name}！羽子板をプレゼント！")
@@ -88,16 +92,88 @@ module Plugin::Campaign
     Campaign.new(name: "re4k垢BAN記念イベント",
                  range: Range.new(Date.new(YEAR, 3, 12), Date.new(YEAR, 3, 19), false))
       .on_daily_login{ |name, campaign|
-      Plugin.call(:minecraft_tell, name, "#{campaign}開催中(3/19まで)！re4kをプレゼント！")
+      Plugin.call(:minecraft_tell, name, "#{campaign.name}開催中(3/19まで)！re4kをプレゼント！")
       Plugin.call(:minecraft_give_item, name, 'minecraft:packed_ice', 1, 0, %<{display:{Name:"re4k",Lore:["レニウム垢BAN記念","#{Time.now.strftime("%Y/%m/%d")}"]},ench:[{id:51,lvl:1}]}>)
     },
 
     Campaign.new(name: "Favstar プレミアムユーザ垢BAN記念イベント",
                  range: Range.new(Date.new(YEAR, 3, 12), Date.new(YEAR, 3, 19), false))
       .on_daily_login{ |name, campaign|
-      Plugin.call(:minecraft_tell, name, "#{campaign}開催中(3/19まで)！喫茶室長が羊毛ブロックは燃えないと勘違いしていた記念に、燃えない羊毛をプレゼント！")
+      Plugin.call(:minecraft_tell, name, "#{campaign.name}開催中(3/19まで)！喫茶室長が羊毛ブロックは燃えないと勘違いしていた記念に、燃えない羊毛をプレゼント！")
       Plugin.call(:minecraft_give_item, name, 'minecraft:stained_hardened_clay', 1, (0..15).to_a.sample, %<{display:{Name:"燃えない羊毛",Lore:["Favstar プレミアムユーザ垢BAN記念","#{Time.now.strftime("%Y/%m/%d")}"]},ench:[{id:1,lvl:1}]}>)
     },
+
+    Campaign.new(name: "Minecraft 1.9バージョンアップキャンペーン(5/30まで)",
+                 range: Range.new(Date.new(2016, 5, 16), Date.new(2016, 5, 30), false))
+      .on_daily_login{ |name, campaign|
+      rarity = {
+        r: rand(32..64),
+        sr: rand(16..48),
+        ssr: rand(8..32),
+        ur: rand(1..8)}
+      levels5 = [*[1]*4096, *[2]*(rarity[:r]**2), *[3]*(rarity[:sr]**2), *[4]*(rarity[:ssr]**2), *[5]*(rarity[:ur]**2)]
+      swords = [*['wooden_sword']*4096, *['stone_sword']*(rarity[:r]**2), *['iron_sword']*(rarity[:sr]**2), *['golden_sword']*(rarity[:ssr]**2), *['diamond_sword']*(rarity[:ur]**2)]
+      axes = [*['wooden_axe']*4096, *['stone_axe']*(rarity[:r]**2), *['iron_axe']*(rarity[:sr]**2), *['golden_axe']*(rarity[:ssr]**2), *['diamond_axe']*(rarity[:ur]**2)]
+      pickaxes = [*['wooden_pickaxe']*4096, *['stone_pickaxe']*(rarity[:r]**2), *['iron_pickaxe']*(rarity[:sr]**2), *['golden_pickaxe']*(rarity[:ssr]**2), *['diamond_pickaxe']*(rarity[:ur]**2)]
+      [
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ずんだアローをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:r], 0, %<{Potion:regeneration,display:{Name:"ずんだアロー",Lore:["当たった相手をずんだ餅に変えてしまう矢"]}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ずんだアロー・改をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:sr], 0, %<{Potion:long_regeneration,display:{Name:"ずんだアロー・改",Lore:["当たった相手をずんだ餅に変えてしまう矢"]}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ずんだアロー・極をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:ssr], 0, %<{Potion:strong_regeneration,display:{Name:"ずんだアロー・極",Lore:["当たった相手をずんだ餅に変えてしまう矢"]}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！毒矢をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:r], 0, %<{Potion:poison,display:{Name:"毒矢"}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！レイニースピンをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:r], 0, %<{Potion:weakness,display:{Name:"レイニースピン"}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ストームスピンをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:sr], 0, %<{Potion:long_weakness,display:{Name:"ストームスピン"}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！トライバーストをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:r], 0, %<{Potion:slowness,display:{Name:"トライバースト"}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ノックバーストをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:sr], 0, %<{Potion:long_slowness,display:{Name:"ノックバースト"}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！破魔矢をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:ur], 0, %<{Potion:strong_healing,display:{Name:"破魔矢",Lore:["Minecraft1.9リリース記念・お正月イベント復刻"]}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！チャージバーストをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:tipped_arrow', rarity[:ur], 0, %<{Potion:strong_harming,display:{Name:"チャージバースト"}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！イッテンキューソードをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, swords.sample, 1, 0, %<{display:{Name:"イッテンキューソード"},ench:[{id:34,lvl:#{levels5.sample}},{id:70,lvl:1}]}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！イッテンキューアックス・採掘をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, axes.sample, 1, 0, %<{display:{Name:"イッテンキューアックス・採掘"},ench:[{id:32,lvl:#{levels5.sample}},{id:34,lvl:#{levels5.sample}},{id:70,lvl:1}]}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！イッテンキューアックス・攻撃をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, axes.sample, 1, 0, %<{display:{Name:"イッテンキューアックス・攻撃"},ench:[{id:16,lvl:#{levels5.sample}},{id:34,lvl:#{levels5.sample}},{id:70,lvl:1}]}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！イッテンキューピッケルをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, pickaxes.sample, 1, 0, %<{display:{Name:"イッテンキューピッケル"},ench:[{id:32,lvl:#{levels5.sample}},{id:34,lvl:#{levels5.sample}},{id:70,lvl:1}]}>)
+        },
+      ].sample.()
+    }
 ]
 
   def self.active_campaigns
