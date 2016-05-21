@@ -173,6 +173,27 @@ module Plugin::Campaign
           Plugin.call(:minecraft_give_item, name, pickaxes.sample, 1, 0, %<{display:{Name:"イッテンキューピッケル"},ench:[{id:32,lvl:#{levels5.sample}},{id:34,lvl:#{levels5.sample}},{id:70,lvl:1}]}>)
         },
       ].sample.()
+    },
+    Campaign.new(name: "伊勢志摩サミットキャンペーン(5/28まで)",
+                 range: Range.new(Date.new(2016, 5, 22), Date.new(2016, 5, 28), false))
+      .on_daily_login{ |name, campaign|
+      [ -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ゲバ棒をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:stick', 1, 0, %<{display:{Name: "ゲバ棒",Lore:["#{campaign.name}"]}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！ヘルメットをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:golden_helmet', 1, 0, %<{display:{Name:"ヘルメット",Lore:["#{campaign.name}"]},ench:[{id:3,lvl:5}]}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！火炎瓶をプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:lingering_potion', 4, 0, %<{Potion:strong_harming,display:{Name:"火炎瓶",Lore:["#{campaign.name}"]}}>)
+        },
+        -> {
+          Plugin.call(:minecraft_tell, name, "#{campaign.name}！革命家ヘルメットをプレゼント！")
+          Plugin.call(:minecraft_give_item, name, 'minecraft:skull', 1, 3, %<{display:{Name:"革命家ヘルメット",Lore:[#{campaign.name}]},SkullOwner:"brsywe",ench:[{id:3,lvl:5}]}>)
+        }
+      ].sample.()
     }
 ]
 
