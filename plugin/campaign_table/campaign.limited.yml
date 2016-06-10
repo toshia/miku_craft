@@ -1,0 +1,28 @@
+- name: mikutter 3.4リリース記念
+  start: [2016, 6, 12]
+  end:   [2016, 6, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:fireworks'
+      NBT:
+        display:
+          Name: 'リリース記念花火'
+          Lore: ['mikutter 3.4リリース記念']
+        Fireworks:
+          Flight: 2
+          Explosions:
+            - Type: 0
+              Flicker: 0
+              Trail: 0
+              Colors: [16726258]
+              FadeColors: [16777215]
+            - Type: 1
+              Flicker: 0
+              Trail: 0
+              Colors: [3595775]
+              FadeColors: [16777215]
+            - Type: 4
+              Flicker: 1
+              Trail: 0
+              Colors: [16777215]
+              FadeColors: [16318262]

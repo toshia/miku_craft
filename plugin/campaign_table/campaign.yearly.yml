@@ -362,19 +362,6 @@
           Lore: ["Favstar プレミアムユーザ垢BAN記念"]
         ench: [{id: 1,lvl: 1}]
 
-- name: テストキャンペーン
-  start: [6, 10]
-  end:   [6, 30]
-  type: item_random
-  table:
-    - id: 'minecraft:stained_hardened_clay'
-      variant: "rand(0..15)"
-      NBT:
-        display:
-          Name: "燃えない羊毛"
-          Lore: ["hogehoge"]
-        ench: [{id: 1,lvl: 1}]
-
 - name: 人権週間キャンペーン
   start: [12, 4]
   end:   [12, 10]

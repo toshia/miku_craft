@@ -21,10 +21,10 @@ module Plugin::Campaign
         type = Array(record.type).first.to_sym
         campaign_class = @types.find{|cc| cc.type == type }
         raise "Campaign type `#{record.type}' does not found in `#{record.name}'" unless campaign_class
-        year = today.year
+        date_default = [today.year, today.month, today.day]
         campaign_class.new(name: record.name,
-                           range: Range.new(Date.new(year, *record.start),
-                                            Date.new(year, *record.end),
+                           range: Range.new(Date.new(*(date_default[0...(3-record.start.size)] + record.start)),
+                                            Date.new(*(date_default[0...(3-record.end.size)] + record.end)),
                                             false),
                            variable: record.variable || Hashie::Mash.new,
                            table: record.table,
