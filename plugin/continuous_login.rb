@@ -1,9 +1,25 @@
 # -*- coding: utf-8 -*-
+require 'date'
+
 Plugin.create :continuous_login do
   save_file = File.join(__dir__, 'count.dat')
   counter = FileTest.exist?(save_file) ? Marshal.load(File.open(save_file, &:read)) : {}
+  last_check = Date.today.freeze
 
   on_join_player do |name|
+    Plugin.call(:scan_continuous_login_bonus, name)
+  end
+
+  on_server_raw_output do |pipe, line|
+    if Date.today != last_check
+      last_check = Date.today.freeze
+      Plugin.filtering(:active_players, []).first.each do |player_name|
+        Plugin.call(:scan_continuous_login_bonus, player_name)
+      end
+    end
+  end
+
+  on_scan_continuous_login_bonus do |name|
     counter[name] ||= {last: Date.today - 1, count: 0}
     if Date.today != counter[name][:last]
       counter[name][:last] = Date.today
