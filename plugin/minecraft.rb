@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'open3'
+require 'timeout'
 
 Plugin.create :minecraft do
   mc_stdin = mc_stdout = mc_stderr = wait_thr = stdout_thread = stderr_thread = watch_thread = nil
@@ -26,16 +27,34 @@ Plugin.create :minecraft do
   end
 
   at_exit do
+    puts "Unwatch server..."
     watch_thread.kill
-    puts "Exit server..."
-    mc_stdin.puts "save-all"
-    mc_stdin.puts "stop"
-    puts "stopping server..."
-    wait_thr.join
-    puts "stop server."
+    puts "Saving server..."
+    begin
+      Timeout.timeout(10) { mc_stdin.puts "save-all" }
+      puts "Saved."
+    rescue Timeout::Error
+      puts "Failed!"
+    end
+    puts "Stop server..."
+    begin
+      Timeout.timeout(10) { mc_stdin.puts "stop" }
+      puts "Stopped."
+    rescue Timeout::Error
+      puts "Failed!"
+    end
     [stdout_thread, stderr_thread].map(&:kill)
     [mc_stdin, mc_stdout, mc_stderr].map(&:close)
-    puts "exit"
+    puts "Waiting shutdown server..."
+    begin
+      Timeout.timeout(10) { wait_thr.join }
+      puts "Shutdown."
+    rescue Timeout::Error
+      puts "Timeout! Send SIGKILL to minecraft server(pid: #{wait_thr.pid})."
+      Process.kill(:KILL, wait_thr.pid)
+      puts "Killed ##{wait_thr.pid}"
+    end
+    puts "bye."
   end
 
   on_minecraft_execute do |user_name, command|
@@ -51,6 +70,7 @@ Plugin.create :minecraft do
   end
 
   on_minecraft_run_command do |command|
+    puts "command run: #{command}"
     mc_stdin.puts command
   end
 
