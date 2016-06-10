@@ -3,9 +3,11 @@ GEM
   specs:
     delayer (0.0.2)
     egison (1.0.0)
+    hashie (3.4.4)
     instance_storage (1.0.0)
     matsuya (0.2.3)
       egison (~> 1.0)
+    minitest (5.9.0)
     moneta (0.8.0)
     pluggaloid (1.0.2)
       delayer
@@ -15,9 +17,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  hashie (>= 3.4.4, < 3.5.0)
   matsuya (>= 0.2.3, < 0.3)
+  minitest
   moneta (>= 0.8.0, < 0.9)
   pluggaloid (>= 1.0.1, < 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
