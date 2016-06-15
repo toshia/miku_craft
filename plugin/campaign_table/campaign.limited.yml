@@ -26,3 +26,33 @@
               Trail: 0
               Colors: [16777215]
               FadeColors: [16318262]
+- name: minecraft 1.10リリース記念
+  start: [2016, 6, 16]
+  end:   [2016, 6, 30]
+  type: item_random
+  table:
+    - id: 'minecraft:gold_ore'
+      NBT:
+        display:
+          Name: 'メサ産金鉱石'
+          Lore: 'minecraft 1.10リリース記念'
+    - id: 'minecraft:red_nether_brick'
+      NBT:
+        display:
+          Name: 'Red Nether Brick'
+          Lore: 'minecraft 1.10リリース記念'
+    - id: 'minecraft:nether_wart_block'
+      NBT:
+        display:
+          Name: 'ネザーウォートブロック'
+          Lore: 'minecraft 1.10リリース記念'
+    - id: 'minecraft:magma'
+      NBT:
+        display:
+          Name: '溶岩ブロック'
+          Lore: 'minecraft 1.10リリース記念'
+    - id: 'minecraft:bone_block'
+      NBT:
+        display:
+          Name: '骨ブロック'
+          Lore: 'minecraft 1.10リリース記念'
