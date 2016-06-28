@@ -56,3 +56,27 @@
         display:
           Name: '骨ブロック'
           Lore: 'minecraft 1.10リリース記念'
+
+- name: iron titanの村人死んだ記念(8/16まで)
+  start: [2016, 6, 29]
+  end:   [2016, 8, 16]
+  type: item_random
+  table:
+    - id: 'minecraft:iron_ingot'
+      NBT:
+        display:
+          Name: '鉄'
+          Lore: '生前彼らが生み出していた資源'
+    - id: 'minecraft:sugar'
+      NBT:
+        display:
+          Name: Salt
+        ench: [{id: 19, lvl: 2},{id: 17, lvl: 5}]
+    - id: 'minecraft:bone'
+      NBT:
+        display:
+          Name: '遺骨'
+    - id: 'minecraft:gunpowder'
+      NBT:
+        display:
+          Name: '抹香'
