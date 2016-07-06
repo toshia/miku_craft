@@ -80,3 +80,36 @@
       NBT:
         display:
           Name: '抹香'
+
+- name: 野々村被告有罪判決記念キャンペーン(7/21まで)
+  start: [2016, 7, 7]
+  end:   [2016, 7, 21]
+  type: item_random
+  table:
+    - id: 'minecraft:minecart'
+      NBT:
+        display:
+          Name: 'グリーン車'
+          Lore: 'ご指摘の通り、グリーン車の金額で先方に伺いました。'
+    - id: 'minecraft:water_bucket'
+      NBT:
+        display:
+          Name: '城崎温泉'
+          Lore:
+            - '行ったことがあるかと言われれば行ったことある気持ちになります。'
+            - '行ったことないと言われれば行ってない気持ちにもなります。'
+    - id: 'minecraft:minecart'
+      NBT:
+        display:
+          Name: 'グリーン車'
+          Lore: 'ご指摘の通り、グリーン車の金額で先方に伺いました。'
+    - id: 'minecraft:book'
+      NBT:
+        display:
+          Name: '判決書'
+          Lore: 'そういう問題ッヒョオッホーーー！！'
+    - id: 'minecraft:iron_bars'
+      NBT:
+        display:
+          Name: '鉄格子'
+          Lore: '誰がね゛え！　誰が誰に投票ジデモ゛オンナジヤ、オンナジヤ思っでえ！'
