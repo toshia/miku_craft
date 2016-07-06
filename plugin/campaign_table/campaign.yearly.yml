@@ -362,6 +362,18 @@
           Lore: ["Favstar プレミアムユーザ垢BAN記念"]
         ench: [{id: 1,lvl: 1}]
 
+- name: 七夕キャンペーン
+  start: [7, 7]
+  end:   [7, 7]
+  type: item_random
+  table:
+    - id: 'minecraft:name_tag'
+      NBT:
+        display:
+          Name: "短冊"
+          Lore: ["右クリックすると、MOBが短冊になってしまう不思議な札"]
+
+
 - name: 人権週間キャンペーン
   start: [12, 4]
   end:   [12, 10]
