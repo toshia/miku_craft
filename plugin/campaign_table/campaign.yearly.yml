@@ -31,8 +31,8 @@
             Name: "generic.attackDamage"
             Amount: 16
             Operation: 0
-            UUIDMost: 9742
-            UUIDLeast: 466013
+            UUIDMost: 114514
+            UUIDLeast: 35
         HideFlags: 2
     - id: 'minecraft:skull'
       variant: 3
@@ -48,6 +48,7 @@
             Operation: 0
             UUIDMost: 77658
             UUIDLeast: 855423
+            Slot: head
         ench:
           - {id: 6,lvl: 1}
         HideFlags: 1
@@ -372,6 +373,81 @@
         display:
           Name: "短冊"
           Lore: ["右クリックすると、MOBが短冊になってしまう不思議な札"]
+
+- name: 前祭
+  start: [7, 10]
+  end:   [7, 17]
+  description: 祇園祭・前祭キャンペーン(前祭の山鉾巡行は17日です)
+  type: item_random
+  table:
+    - id: 'minecraft:boat'
+      NBT:
+        display:
+          Name: "舁山"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:spruce_boat'
+      NBT:
+        display:
+          Name: "鉾"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:birch_boat'
+      NBT:
+        display:
+          Name: "曳山"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:jungle_boat'
+      NBT:
+        display:
+          Name: "船鉾"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:acacia_boat'
+      NBT:
+        display:
+          Name: "傘鉾"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:skull'
+      variant: 3
+      NBT:
+        display:
+          Name: "御神体メット"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+        SkullOwner: "<%= user_name %>"
+        AttributeModifiers:
+          - AttributeName: "generic.maxHealth"
+            Name: "generic.maxHealth"
+            Amount: 2
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 420
+            Slot: head
+        ench:
+          - {id: 1,lvl: 4}
+- name: 後祭
+  start: [7, 18]
+  end:   [7, 24]
+  description: 祇園祭・後祭キャンペーン(後祭の山鉾巡行は24日です)
+  type: item_random
+  table:
+    - id: 'minecraft:boat'
+      NBT:
+        display:
+          Name: "舁山"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:birch_boat'
+      NBT:
+        display:
+          Name: "曳山"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:jungle_boat'
+      NBT:
+        display:
+          Name: "船鉾"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+    - id: 'minecraft:dark_oak_boat'
+      NBT:
+        display:
+          Name: "花傘"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
 
 
 - name: 人権週間キャンペーン
