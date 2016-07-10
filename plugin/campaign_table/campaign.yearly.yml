@@ -375,8 +375,8 @@
           Lore: ["右クリックすると、MOBが短冊になってしまう不思議な札"]
 
 - name: 前祭
-  start: [7, 10]
-  end:   [7, 17]
+  start: [7, 11]
+  end:   [7, 18]
   description: 祇園祭・前祭キャンペーン(前祭の山鉾巡行は17日です)
   type: item_random
   table:
