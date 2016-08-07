@@ -450,6 +450,16 @@
           Name: "花傘"
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
 
+- name: 山の日キャンペーン
+  start: [8, 11]
+  end:   [8, 11]
+  type: item_random
+  table:
+    - id: 'minecraft:dirt'
+      NBT:
+        display:
+          Name: "山を構成する土ブロック"
+
 - name: 京都五山送り火キャンペーン(8/19まで)
   start: [8, 13]
   end:   [8, 19]
