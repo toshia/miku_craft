@@ -68,7 +68,7 @@
           Name: "首綱"
           Lore: ["自殺強化月間記念"]
     - id: 'minecraft:flint_and_steel'
-      NBT:
+      NBT: &chakkaman
         display:
           Name: "チャッカマン"
           Lore: ["自殺強化月間記念"]
@@ -80,6 +80,7 @@
             Operation: 0
             UUIDMost: 30253
             UUIDLeast: 21008
+            Slot: mainhand
         HideFlags: 3
     - id: 'minecraft:anvil'
       NBT:
@@ -449,6 +450,49 @@
           Name: "花傘"
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
 
+- name: 京都五山送り火キャンペーン(8/19まで)
+  start: [8, 13]
+  end:   [8, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:dark_oak_boat'
+      NBT:
+        display:
+          Name: "船形"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+    - id: 'minecraft:flint_and_steel'
+      NBT:
+        <<: *chakkaman
+        display:
+          Name: "チャッカマン"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+    - id: 'minecraft:netherrack'
+      NBT:
+        display:
+          Name: "火床"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+    - id: 'minecraft:enchanted_book'
+      NBT:
+        StoredEnchantments:
+          - id: 1
+            lvl: 8
+          - id: 20
+            lvl: 8
+          - id: 50
+            lvl: 8
+        display:
+          Name: "わざマシン38"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+    - id: 'minecraft:lingering_potion'
+      amount: 4
+      NBT:
+        CustomPotionEffects:
+          - Id: 25
+            Amplifier: 2
+            Duration: 600
+        display:
+          Name: "ドローン"
+          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
 
 - name: 人権週間キャンペーン
   start: [12, 4]
