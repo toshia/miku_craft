@@ -113,3 +113,59 @@
         display:
           Name: '鉄格子'
           Lore: '誰がね゛え！　誰が誰に投票ジデモ゛オンナジヤ、オンナジヤ思っでえ！'
+
+- name: 宮内庁と夢のコラボ！お気持ち表明キャンペーン
+  start: [2016, 8, 8]
+  end:   [2016, 8, 8]
+  type: item_random
+  table:
+    - id: 'record_13'
+      NBT:
+        display:
+          Name: 'お気持ち.mp4'
+    - id: 'record_cat'
+      NBT:
+        display:
+          Name: 'お気持ち.mp4'
+    - id: 'record_blocks'
+      NBT:
+        display:
+          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
+    - id: 'record_chirp'
+      NBT:
+        display:
+          Name: 'お気持ち.gif'
+          Lore: 'スゥー…お気持ちです'
+    - id: 'record_far'
+      NBT:
+        display:
+          Name: 'お気持ち.avi'
+          Lore: 'スゥー…お気持ちです'
+    - id: 'record_mall'
+      NBT:
+        display:
+          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
+    - id: 'record_mellohi'
+      NBT:
+        display:
+          Name: 'お気持ち.wmv'
+    - id: 'record_stal'
+      NBT:
+        display:
+          Name: 'お気持ち.wmv'
+    - id: 'record_strad'
+      NBT:
+        display:
+          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
+    - id: 'record_ward'
+      NBT:
+        display:
+          Name: 'お気持ち.flv'
+    - id: 'record_11'
+      NBT:
+        display:
+          Name: 'お気持ち.webm'
+    - id: 'record_wait'
+      NBT:
+        display:
+          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
