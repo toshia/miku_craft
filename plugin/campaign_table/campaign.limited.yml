@@ -169,3 +169,17 @@
       NBT:
         display:
           Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
+
+- name: お盆休みキャンペーン2016
+  start: [2016, 8, 11]
+  end:   [2016, 8, 16]
+  type: item_random
+  table:
+    - id: 'minecraft:carrot'
+      NBT:
+        display:
+          Name: "茄子"
+    - id: 'minecraft:stick'
+      NBT:
+        display:
+          Name: "胡瓜"
