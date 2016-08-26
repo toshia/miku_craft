@@ -504,6 +504,202 @@
           Name: "ドローン"
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
 
+- name: 初音ミクコラボ(9/3まで)
+  start: [8, 28]
+  end:   [9, 3]
+  type: item_random
+  table:
+    - id: 'minecraft:diamond_sword'
+      variant: 1550
+      NBT:
+        display:
+          Name: "ネギ"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+        AttributeModifiers:
+          - AttributeName: "generic.attackDamage"
+            Name: "generic.attackDamage"
+            Amount: 6
+            Operation: 0
+            UUIDMost: 114514
+            UUIDLeast: 732452
+            Slot: mainhand
+          - AttributeName: "generic.attackSpeed"
+            Name: "generic.attackDamage"
+            Amount: 0.6
+            Operation: 0
+            UUIDMost: 114514
+            UUIDLeast: 29317714
+            Slot: mainhand
+    - id: 'minecraft:skull'
+      variant: 3
+      NBT:
+        display:
+          Name: "みくみくメット"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>", "設置しないように注意!"]
+        SkullOwner:
+          Id: "87e4fd7b-0b54-4a9b-b94a-2d93df66d8e2"
+          Properties:
+            textures:
+              - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTc5M2UxODkwMmJhNjZlYzIzMzVkY2M5M2U3NTZiNjc1YTlhNTFmYmI3ZmRkZjlhOWU4OWUzNThlMTY2NSJ9fX0="
+        AttributeModifiers:
+          - AttributeName: "generic.maxHealth"
+            Name: "generic.maxHealth"
+            Amount: 8
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 85049605
+            Slot: head
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount: 3
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 23801140
+            Slot: head
+          - AttributeName: "generic.luck"
+            Name: "generic.luck"
+            Amount: 0.05
+            Operation: 1
+            UUIDMost: 115414
+            UUIDLeast: 70201781
+            Slot: head
+        ench:
+          - id: 0
+            lvl: 2
+          - id: 4
+            lvl: 10
+    - id: 'minecraft:leather_chestplate'
+      NBT:
+        display:
+          Name: "ミクコス"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          color: 0xffffff
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount: 8
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 5673198
+            Slot: chest
+          - AttributeName: "generic.armorToughness"
+            Name: "generic.armorToughness"
+            Amount: 2
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 54009968
+            Slot: chest
+          - AttributeName: "generic.luck"
+            Name: "generic.luck"
+            Amount: 0.05
+            Operation: 1
+            UUIDMost: 115414
+            UUIDLeast: 15877499
+            Slot: chest
+    - id: 'minecraft:leather_leggings'
+      NBT:
+        display:
+          Name: "スカート"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          color: 0x6b696e
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount: 6
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 33231182
+            Slot: legs
+          - AttributeName: "generic.armorToughness"
+            Name: "generic.armorToughness"
+            Amount: 2
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 91991959
+            Slot: legs
+          - AttributeName: "generic.luck"
+            Name: "generic.luck"
+            Amount: 0.05
+            Operation: 1
+            UUIDMost: 115414
+            UUIDLeast: 7384076
+            Slot: legs
+    - id: 'minecraft:leather_boots'
+      NBT:
+        display:
+          Name: "ニーソ"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          color: 0x4a4853
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount: 3
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 55957601
+            Slot: feet
+          - AttributeName: "generic.armorToughness"
+            Name: "generic.armorToughness"
+            Amount: 2
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 78987466
+            Slot: feet
+          - AttributeName: "generic.luck"
+            Name: "generic.luck"
+            Amount: 0.05
+            Operation: 1
+            UUIDMost: 115414
+            UUIDLeast: 74492578
+            Slot: feet
+    - id: 'minecraft:shield'
+      NBT:
+        display:
+          Name: "みくみくシールド"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+        BlockEntityTag:
+          Base: 6
+          Patterns:
+            - {Color: 12, Pattern: "tt"}
+            - {Color: 12, Pattern: "bt"}
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount: 1
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 25653989
+            Slot: offhand
+          - AttributeName: "generic.armorToughness"
+            Name: "generic.armorToughness"
+            Amount: 1
+            Operation: 0
+            UUIDMost: 115414
+            UUIDLeast: 41312553
+            Slot: offhand
+    - id: 'minecraft:potion'
+      amount: 1
+      NBT:
+        display:
+          Name: "初音ミクちゃんのおぱんつドリップコーヒー"
+          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+        CustomPotionEffects:
+          - Id: 10
+            Amplifier: 1
+            Duration: 36000
+          - Id: 11
+            Amplifier: 0
+            Duration: 36000
+          - Id: 20
+            Amplifier: 0
+            Duration: 40000
+          - Id: 21
+            Amplifier: 0
+            Duration: 24000
+          - Id: 22
+            Amplifier: 0
+            Duration: 32000
+
 - name: 人権週間キャンペーン
   start: [12, 4]
   end:   [12, 10]
@@ -529,3 +725,4 @@
   end:   [12, 31]
   type: item_random
   table: *nenmatsunenshi_camapign_table
+
