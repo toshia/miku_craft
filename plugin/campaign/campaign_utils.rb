@@ -99,11 +99,12 @@ module Plugin::Campaign
     def daily(user_name:, login_count:)
       item = @table.sample
       context = CampaignArgs.new(user_name, login_count).context
+      item_id = ERB.new(item.id).result(context)
       r_name = name(context)
       Plugin.call(:giftbox_keep,
                   user_name,
-                  "#{description(context) || r_name}！#{item.dig(:NBT, :display, :Name) || item.id}をプレゼント",
-                  item.id,
+                  "#{description(context) || r_name}！#{item.dig(:NBT, :display, :Name) || item_id}をプレゼント",
+                  item_id,
                   context.eval(item.amount.to_s) || 1,
                   context.eval(item.variant.to_s) || 0,
                   item.NBT&.to_mcjson(context) || '{}')
