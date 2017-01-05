@@ -26,6 +26,7 @@
               Trail: 0
               Colors: [16777215]
               FadeColors: [16318262]
+
 - name: minecraft 1.10リリース記念
   start: [2016, 6, 16]
   end:   [2016, 6, 30]
@@ -183,3 +184,32 @@
       NBT:
         display:
           Name: "胡瓜"
+
+- name: mikutter 3.5リリース記念
+  start: [2017, 1, 6]
+  end:   [2017, 1, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:fireworks'
+      NBT:
+        display:
+          Name: 'リリース記念花火'
+          Lore: ['mikutter 3.5リリース記念']
+        Fireworks:
+          Flight: 2
+          Explosions:
+            - Type: 0
+              Flicker: 0
+              Trail: 0
+              Colors: [16726258]
+              FadeColors: [16777215]
+            - Type: 1
+              Flicker: 0
+              Trail: 0
+              Colors: [3595775]
+              FadeColors: [16777215]
+            - Type: 4
+              Flicker: 1
+              Trail: 0
+              Colors: [16777215]
+              FadeColors: [16318262]
