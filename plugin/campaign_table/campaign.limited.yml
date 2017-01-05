@@ -213,3 +213,67 @@
               Trail: 0
               Colors: [16777215]
               FadeColors: [16318262]
+
+- name: minecraft 1.11.2アップデート記念
+  start: [2017, 1, 6]
+  end:   [2017, 1, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:elytra'
+      NBT:
+        display:
+          Name: 'ゴキブリの羽'
+          Lore: ['minecraft 1.11.2リリース記念']
+        ench: [{id: 10, lvl: 1},{id: 71, lvl: 1}]
+    - id: 'minecraft:shulker_shell'
+      amount: "rand(1..4)"
+      NBT:
+        display:
+          Name: '風呂にあるヌメヌメした椅子'
+          Lore: ['minecraft 1.11.2リリース記念']
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_shulker_box'
+      NBT:
+        display:
+          Name: 'カラーボックス'
+          Lore: ['minecraft 1.11.2リリース記念']
+    - id: 'minecraft:observer'
+      NBT:
+        display:
+          Name: 'オブザーバブロック'
+          Lore: ['minecraft 1.11.2リリース記念']
+    - id: 'minecraft:bed'
+      NBT:
+        display:
+          Name: 'ベッド'
+          Lore:
+            - 'minecraft 1.11.2リリース記念'
+            - '遠くから右クリックした時に警告文が表示されるようになったよ'
+    - id: 'minecraft:cauldron'
+      NBT:
+        display:
+          Name: '大釜'
+          Lore:
+            - 'minecraft 1.11.2リリース記念'
+            - '効果音が追加されたよ'
+    - id: 'minecraft:shield'
+      NBT:
+        display:
+          Name: 'つよい盾'
+          Lore:
+            - 'minecraft 1.11.2リリース記念'
+            - 'ダメージを100%カットする'
+        ench: [{id: 10, lvl: 1},{id: 71, lvl: 1}]
+    - id: 'minecraft:golden_sword'
+      NBT:
+        display:
+          Name: "Secret Sword Ⅱ"
+          Lore:
+            - 'minecraft 1.11.2リリース記念'
+        ench: [{id: 10, lvl: 1},{id: 71, lvl: 1},{id: 22, lvl: 10}]
+    - id: 'minecraft:iron_nugget'
+      NBT:
+        display:
+          Name: 'ゴミ'
+          Lore:
+            - 'minecraft 1.11.2リリース記念'
+            - 'minecraft史上最も価値のないアイテム'
