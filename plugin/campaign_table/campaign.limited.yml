@@ -277,3 +277,77 @@
           Lore:
             - 'minecraft 1.11.2リリース記念'
             - 'minecraft史上最も価値のないアイテム'
+
+- name: minecraft 1.12.2アップデート記念
+  start: [2017, 10, 22]
+  end:   [2017, 11, 5]
+  type: item_random
+  table:
+    - id: 'minecraft:bone_block'
+      NBT:
+        display:
+          Name: '骨ブロック'
+          Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、シロフォンの音が鳴る']
+    - id: 'minecraft:gold_block'
+      NBT:
+        display:
+          Name: '金ブロック'
+          Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、ベルの音が鳴る']
+    - id: 'minecraft:packed_ice'
+      NBT:
+        display:
+          Name: '溶けない氷'
+          Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、鐘の音が鳴る']
+    - id: 'minecraft:clay'
+      NBT:
+        display:
+          Name: '粘土ブロック'
+          Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、フルートの音が鳴る']
+    - id: 'minecraft:wool'
+      variant: "rand(0..15)"
+      amount: 3
+      NBT:
+        display:
+          Name: '燃える羊毛'
+          Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、ギターの音が鳴る','色味が少し明るくなった','ベッドを作るさい、ベッドの色が使った羊毛の色になる']
+    - id: 'minecraft:concrete_powder'
+      variant: "rand(0..15)"
+      amount: 8
+      NBT:
+        display:
+          Name: 'コンクリートパウダー'
+          Lore: ['minecraft 1.12.2リリース記念','16色ある','砂のように自然落下する。','水に触れるとコンクリートに変化し、自然落下しなくなる']
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_glazed_terracotta'
+      amount: 12
+      NBT:
+        display:
+          Name: '彩釉テラコッタ'
+          Lore: ['minecraft 1.12.2リリース記念','16種類ある','彩釉の読み方を100回調べたが憶えられない','色付き粘土を製錬する事でその色の彩釉テラコッタを入手することができる']
+    - id: 'minecraft:stained_hardened_clay'
+      variant: "rand(0..15)"
+      NBT:
+        display:
+          Name: "燃えない羊毛"
+          Lore: ['minecraft 1.12.2リリース記念','テラコッタという名前に変更された','地図上に色が表示されるようになった','かまどで焼くと、彩釉テラコッタになる']
+        ench: [{id: 1,lvl: 1}]
+    - id: 'minecraft:bed'
+      variant: "rand(0..15)"
+      NBT:
+        display:
+          Name: 'ベッド'
+          Lore:
+            - 'minecraft 1.12.2リリース記念'
+            - '素材の羊毛の色に応じてベッドの色が変わる'
+            - '中立なゾンビピッグマンの近くで眠れるようになった'
+            - '高所からベッドに落下した場合、落下ダメージが軽減される'
+        ench: [{id: 2,lvl: 1}]
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_shulker_box'
+      NBT:
+        display:
+          Name: 'シュルカーボックス'
+          Lore: ['minecraft 1.12.2リリース記念','色が変更された']
+    - id: 'minecraft:noteblock'
+      NBT:
+        display:
+          Name: '音符ブロック'
+          Lore: ['minecraft 1.12.2リリース記念','骨、金、燃える羊毛、粘土、溶けない氷の上に置いた時の音色が変わった']
