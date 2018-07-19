@@ -351,3 +351,26 @@
         display:
           Name: '音符ブロック'
           Lore: ['minecraft 1.12.2リリース記念','骨、金、燃える羊毛、粘土、溶けない氷の上に置いた時の音色が変わった']
+
+- name: minecraftの薄い本vol.14「レズと青い鳥」カウントダウンキャンペーン
+  start: [2018, 7, 20]
+  end:   [2018, 8, 11]
+  type: item_random
+  table:
+    - id: 'minecraft:paper'
+      NBT:
+        display:
+          Name: 'ビラ'
+          Lore: ['C94 3日目東ケ-20aにて、minecraftの薄い本vol.14「レズと青い鳥」を頒布します。','詳しくはWebで']
+
+- name: "Minecraft 1.13カウントダウンキャンペーン"
+  start: [2018, 7, 20]
+  end:   [2018, 8, 11]
+  type: item_random
+  table:
+    - id: 'minecraft:paper'
+      NBT:
+        display:
+          Name: 'はよ入稿しろ'
+          Lore: ['MC1.13は、喫茶室長がmikutterの薄い本を入稿したらアップデートします']
+
