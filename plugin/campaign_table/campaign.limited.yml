@@ -419,13 +419,13 @@
             - 'minecraft 1.13　装備祭！'
         Enchantments:
           - id: "minecraft:loyalty"
-            lvl: "<%= rand(0..5) %>"
+            lvl: "<%= 3.times.map{rand(0..5)}.min %>"
           - id: "minecraft:channeling"
-            lvl: "<%= rand(0..1) %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= rand(0..10) %>"
-          - id: "minecraft:mending"
             lvl: "<%= 3.times.map{rand(0..1)}.max %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= 3.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
     - id: 'minecraft:trident'
       NBT:
         display:
@@ -434,13 +434,13 @@
             - 'minecraft 1.13　装備祭！'
         Enchantments:
           - id: "minecraft:loyalty"
-            lvl: "<%= rand(0..5) %>"
+            lvl: "<%= 3.times.map{rand(0..5)}.min %>"
           - id: "minecraft:riptide"
             lvl: "<%= rand(0..5) %>"
           - id: "minecraft:unbreaking"
-            lvl: "<%= rand(0..10) %>"
+            lvl: "<%= 3.times.map{rand(0..10)}.min %>"
           - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.max %>"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
     - id: 'minecraft:trident'
       NBT:
         display:
@@ -449,11 +449,11 @@
             - 'minecraft 1.13　装備祭！'
         Enchantments:
           - id: "minecraft:loyalty"
-            lvl: "<%= rand(0..5) %>"
+            lvl: "<%= 3.times.map{rand(0..5)}.min %>"
           - id: "minecraft:impaling"
             lvl: "<%= rand(0..10) %>"
           - id: "minecraft:unbreaking"
-            lvl: "<%= rand(0..10) %>"
+            lvl: "<%= 3.times.map{rand(0..10)}.min %>"
           - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.max %>"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
 
