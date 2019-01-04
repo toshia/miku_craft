@@ -100,14 +100,42 @@ module Plugin::Campaign
       item = @table.sample
       context = CampaignArgs.new(user_name, login_count).context
       item_id = ERB.new(item.id).result(context)
+      item_name = item.dig(:NBT, :display, :Name) || item_id
       r_name = name(context)
+      variant = item.variant
+      if variant && !item.dig(:NBT, :Damage)
+        if item[:NBT].is_a?(Hash)
+          item[:NBT][:Damage] = context.eval(variant.to_s)
+        else
+          item[:NBT] = {Damage: context.eval(variant.to_s)}
+        end
+      end
+      case item.dig(:NBT, :display, :Name)
+      when String
+        item[:NBT][:display][:Name] = Hashie::Mash.new(text: item[:NBT][:display][:Name]).to_mcjson(context)
+      when Hash
+        item[:NBT][:display][:Name] = item[:NBT][:display][:Name].to_mcjson(context)
+      end
+      if item.dig(:NBT, :Enchantments)
+        item[:NBT][:Enchantments] = item[:NBT][:Enchantments].map{|ench|
+          case ench[:lvl]
+          when String
+            r = ERB.new(ench[:lvl]).result(context)
+            p [ench[:lvl], r, r.to_i]
+            ench.merge(lvl: r.to_i)
+          else
+            ench
+          end
+        }.select{|ench|
+          ench[:lvl] != 0
+        }
+      end
       Plugin.call(:giftbox_keep,
                   user_name,
-                  "#{description(context) || r_name}！#{item.dig(:NBT, :display, :Name) || item_id}をプレゼント",
-                  item_id,
-                  context.eval(item.amount.to_s) || 1,
-                  context.eval(item.variant.to_s) || 0,
-                  item.NBT&.to_mcjson(context) || '{}')
+                  "#{description(context) || r_name}！#{item_name}をプレゼント",
+                  id: item_id,
+                  count: context.eval(item.amount.to_s) || 1,
+                  tag: item.NBT&.to_mcjson(context) || '{}')
     end
   end
 

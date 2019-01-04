@@ -9,7 +9,7 @@ end
 
 class Hash
   def to_mcjson(bind)
-    '{' + self.map{|k,v| "#{k}:#{v.to_mcjson(bind)}"}.join(',') + '}'
+    '{' + self.map{|k,v| "#{k.to_mcjson(bind)}:#{v.to_mcjson(bind)}"}.join(',') + '}'
   end
 end
 

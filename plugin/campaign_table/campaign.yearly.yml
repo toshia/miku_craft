@@ -3,7 +3,7 @@
   end:   [1, 5]
   type: item_random
   table: &nenmatsunenshi_camapign_table
-    - id: 'minecraft:reeds'
+    - id: 'minecraft:sea_pickle'
       NBT:
         display:
           Name: "門松"

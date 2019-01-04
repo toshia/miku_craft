@@ -6,14 +6,13 @@ Plugin.create :giftbox do
   FileUtils.mkdir_p(save_dir)
   store = Moneta.new(:File, dir: File.join(save_dir, 'giftbox'))
 
-  on_giftbox_keep do |name, message, item_name, amount, damage, tag|
+  on_giftbox_keep do |name, message, id:, count: 1, tag: {}|
     box = store[name] || []
     box << {
       message: message,
       item: {
-        name: item_name,
-        amount: amount,
-        damage: damage,
+        name: id,
+        amount: count,
         tag: tag } }
     store[name] = box
     if Plugin.filtering(:active_players, []).first.include? name
@@ -32,7 +31,7 @@ Plugin.create :giftbox do
         box.each do |gift|
           Plugin.call(:minecraft_tell, name, gift[:message]) if gift[:message].is_a? String
           item = gift[:item]
-          Plugin.call(:minecraft_give_item, name, item[:name], item[:amount], item[:damage], item[:tag])
+          Plugin.call(:minecraft_give_item, name, item[:name], item[:amount], item[:tag])
         end
         store[name] = []
       end

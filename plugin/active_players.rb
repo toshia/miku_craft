@@ -45,6 +45,23 @@ Plugin.create :active_players do
     Plugin.call(:giftbox_keep,
                 name,
                 "#{Time.now}頃にサーバがクラッシュしました。記念に詫び石をプレゼントします！",
-                'minecraft:flint', 1, 0, %<{display:{Name:"詫び石",Lore:["ヽ('ω')ﾉ三ヽ('ω')ﾉ"]},AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:#{victim.size},Operation:0,UUIDMost:62013,UUIDLeast:896789}]}>)
+                id: 'minecraft:flint',
+                count: 1,
+                tag: {
+                  display: {
+                    Name:"詫び石",
+                    Lore:["ヽ('ω')ﾉ三ヽ('ω')ﾉ"]
+                  },
+                  AttributeModifiers: [
+                    {
+                      AttributeName: "generic.attackDamage",
+                      Name: "generic.attackDamage",
+                      Amount: victim.size,
+                      Operation: 0,
+                      UUIDMost:62013,
+                      UUIDLeast:896789
+                    }
+                  ]
+                })
   end
 end

@@ -25,6 +25,8 @@ Plugin.create :continuous_login do
       counter[name][:last] = Date.today
       counter[name][:count] += 1
       Plugin.call(:give_continuous_login_bonus, name, counter[name][:count])
+    elsif ENV['DEBUG'].to_i != 0
+      Plugin.call(:give_continuous_login_bonus, name, counter[name][:count])
     end
     File.open(save_file, 'wb') do |out|
       Marshal.dump(counter, out)
@@ -37,32 +39,59 @@ Plugin.create :continuous_login do
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！ダイヤのクワをプレゼント",
-                  'minecraft:diamond_hoe', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+                  id: 'minecraft:diamond_hoe',
+                  count: 1,
+                  tag: {
+                    display: {
+                      Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                    }
+                  })
     when (days % 17) == 0
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！マインカートをプレゼント",
-                  'minecraft:minecart', 1, 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+                  id: 'minecraft:minecart',
+                  count: 1,# 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+                  tag: {
+                    display: {
+                      Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                    }
+                  })
     when (days % 7) == 0
       food = Matsuya.order.gsub(/[　（）]/, '　'=>'', '（'=>'(', '）'=>')')
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！#{food}をプレゼント",
-                  'minecraft:rabbit_stew', 1, 0, %[{display:{Name: "#{food}",Lore:["#{days}日記念"]}}])
+                  id: 'minecraft:rabbit_stew',
+                  count: 1,
+                  tag: {
+                    display: {
+                      Name: "#{food}",
+                      Lore:["#{days}日記念"]
+                    }
+                  })
       Plugin.call(:giftbox_keep,
                   name,
                   nil,
-                  'minecraft:mushroom_stew', 1, 0, '{display:{Name: "味噌汁"}}')
+                  id: 'minecraft:mushroom_stew',
+                  count: 1,
+                  tag: {
+                    display: {
+                      Name: '味噌汁'
+                    }
+                  })
     when (days % 5) == 0
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！経験値ボトルをプレゼント",
-                  'minecraft:experience_bottle', 1, 0, '')
+                  id: 'minecraft:experience_bottle',
+                  count: 1)
     else
       Plugin.call(:giftbox_keep,
                   name,
                   "ログイン#{days}日目！棒をプレゼント",
-                  'minecraft:stick', 1, 0, '')
+                  id: 'minecraft:stick',
+                  count: 1)
     end
   end
 end
