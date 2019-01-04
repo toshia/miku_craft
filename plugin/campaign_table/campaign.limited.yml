@@ -1,286 +1,6 @@
-- name: mikutter 3.4リリース記念
-  start: [2016, 6, 12]
-  end:   [2016, 6, 19]
-  type: item_random
-  table:
-    - id: 'minecraft:fireworks'
-      NBT:
-        display:
-          Name: 'リリース記念花火'
-          Lore: ['mikutter 3.4リリース記念']
-        Fireworks:
-          Flight: 2
-          Explosions:
-            - Type: 0
-              Flicker: 0
-              Trail: 0
-              Colors: [16726258]
-              FadeColors: [16777215]
-            - Type: 1
-              Flicker: 0
-              Trail: 0
-              Colors: [3595775]
-              FadeColors: [16777215]
-            - Type: 4
-              Flicker: 1
-              Trail: 0
-              Colors: [16777215]
-              FadeColors: [16318262]
-
-- name: minecraft 1.10リリース記念
-  start: [2016, 6, 16]
-  end:   [2016, 6, 30]
-  type: item_random
-  table:
-    - id: 'minecraft:gold_ore'
-      NBT:
-        display:
-          Name: 'メサ産金鉱石'
-          Lore: 'minecraft 1.10リリース記念'
-    - id: 'minecraft:red_nether_brick'
-      NBT:
-        display:
-          Name: 'Red Nether Brick'
-          Lore: 'minecraft 1.10リリース記念'
-    - id: 'minecraft:nether_wart_block'
-      NBT:
-        display:
-          Name: 'ネザーウォートブロック'
-          Lore: 'minecraft 1.10リリース記念'
-    - id: 'minecraft:magma'
-      NBT:
-        display:
-          Name: '溶岩ブロック'
-          Lore: 'minecraft 1.10リリース記念'
-    - id: 'minecraft:bone_block'
-      NBT:
-        display:
-          Name: '骨ブロック'
-          Lore: 'minecraft 1.10リリース記念'
-
-- name: iron titanの村人死んだ記念(8/16まで)
-  start: [2016, 6, 29]
-  end:   [2016, 8, 16]
-  type: item_random
-  table:
-    - id: 'minecraft:iron_ingot'
-      NBT:
-        display:
-          Name: '鉄'
-          Lore: '生前彼らが生み出していた資源'
-    - id: 'minecraft:sugar'
-      NBT:
-        display:
-          Name: Salt
-        ench: [{id: 19, lvl: 2},{id: 17, lvl: 5}]
-    - id: 'minecraft:bone'
-      NBT:
-        display:
-          Name: '遺骨'
-    - id: 'minecraft:gunpowder'
-      NBT:
-        display:
-          Name: '抹香'
-
-- name: 野々村被告有罪判決記念キャンペーン(7/21まで)
-  start: [2016, 7, 7]
-  end:   [2016, 7, 21]
-  type: item_random
-  table:
-    - id: 'minecraft:minecart'
-      NBT:
-        display:
-          Name: 'グリーン車'
-          Lore: 'ご指摘の通り、グリーン車の金額で先方に伺いました。'
-    - id: 'minecraft:water_bucket'
-      NBT:
-        display:
-          Name: '城崎温泉'
-          Lore:
-            - '行ったことがあるかと言われれば行ったことある気持ちになります。'
-            - '行ったことないと言われれば行ってない気持ちにもなります。'
-    - id: 'minecraft:minecart'
-      NBT:
-        display:
-          Name: 'グリーン車'
-          Lore: 'ご指摘の通り、グリーン車の金額で先方に伺いました。'
-    - id: 'minecraft:book'
-      NBT:
-        display:
-          Name: '判決書'
-          Lore: 'そういう問題ッヒョオッホーーー！！'
-    - id: 'minecraft:iron_bars'
-      NBT:
-        display:
-          Name: '鉄格子'
-          Lore: '誰がね゛え！　誰が誰に投票ジデモ゛オンナジヤ、オンナジヤ思っでえ！'
-
-- name: 宮内庁と夢のコラボ！お気持ち表明キャンペーン
-  start: [2016, 8, 8]
-  end:   [2016, 8, 8]
-  type: item_random
-  table:
-    - id: 'record_13'
-      NBT:
-        display:
-          Name: 'お気持ち.mp4'
-    - id: 'record_cat'
-      NBT:
-        display:
-          Name: 'お気持ち.mp4'
-    - id: 'record_blocks'
-      NBT:
-        display:
-          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
-    - id: 'record_chirp'
-      NBT:
-        display:
-          Name: 'お気持ち.gif'
-          Lore: 'スゥー…お気持ちです'
-    - id: 'record_far'
-      NBT:
-        display:
-          Name: 'お気持ち.avi'
-          Lore: 'スゥー…お気持ちです'
-    - id: 'record_mall'
-      NBT:
-        display:
-          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
-    - id: 'record_mellohi'
-      NBT:
-        display:
-          Name: 'お気持ち.wmv'
-    - id: 'record_stal'
-      NBT:
-        display:
-          Name: 'お気持ち.wmv'
-    - id: 'record_strad'
-      NBT:
-        display:
-          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
-    - id: 'record_ward'
-      NBT:
-        display:
-          Name: 'お気持ち.flv'
-    - id: 'record_11'
-      NBT:
-        display:
-          Name: 'お気持ち.webm'
-    - id: 'record_wait'
-      NBT:
-        display:
-          Name: '誰がねﾞえ!誰が即位ｼﾞﾃﾞﾓﾞｵﾝﾅｼﾞﾔ､ｵﾝﾅｼﾞﾔ思っでえ!'
-
-- name: お盆休みキャンペーン2016
-  start: [2016, 8, 11]
-  end:   [2016, 8, 16]
-  type: item_random
-  table:
-    - id: 'minecraft:carrot'
-      NBT:
-        display:
-          Name: "茄子"
-    - id: 'minecraft:stick'
-      NBT:
-        display:
-          Name: "胡瓜"
-
-- name: mikutter 3.5リリース記念
-  start: [2017, 1, 6]
-  end:   [2017, 1, 12]
-  type: item_random
-  table:
-    - id: 'minecraft:fireworks'
-      NBT:
-        display:
-          Name: 'リリース記念花火'
-          Lore: ['mikutter 3.5リリース記念']
-        Fireworks:
-          Flight: 2
-          Explosions:
-            - Type: 0
-              Flicker: 0
-              Trail: 0
-              Colors: [16726258]
-              FadeColors: [16777215]
-            - Type: 1
-              Flicker: 0
-              Trail: 0
-              Colors: [3595775]
-              FadeColors: [16777215]
-            - Type: 4
-              Flicker: 1
-              Trail: 0
-              Colors: [16777215]
-              FadeColors: [16318262]
-
-- name: minecraft 1.11.2アップデート記念
-  start: [2017, 1, 6]
-  end:   [2017, 1, 19]
-  type: item_random
-  table:
-    - id: 'minecraft:elytra'
-      NBT:
-        display:
-          Name: 'ゴキブリの羽'
-          Lore: ['minecraft 1.11.2リリース記念']
-        ench: [{id: 10, lvl: 1},{id: 71, lvl: 1}]
-    - id: 'minecraft:shulker_shell'
-      amount: "rand(1..4)"
-      NBT:
-        display:
-          Name: '風呂にあるヌメヌメした椅子'
-          Lore: ['minecraft 1.11.2リリース記念']
-    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_shulker_box'
-      NBT:
-        display:
-          Name: 'カラーボックス'
-          Lore: ['minecraft 1.11.2リリース記念']
-    - id: 'minecraft:observer'
-      NBT:
-        display:
-          Name: 'オブザーバブロック'
-          Lore: ['minecraft 1.11.2リリース記念']
-    - id: 'minecraft:bed'
-      NBT:
-        display:
-          Name: 'ベッド'
-          Lore:
-            - 'minecraft 1.11.2リリース記念'
-            - '遠くから右クリックした時に警告文が表示されるようになったよ'
-    - id: 'minecraft:cauldron'
-      NBT:
-        display:
-          Name: '大釜'
-          Lore:
-            - 'minecraft 1.11.2リリース記念'
-            - '効果音が追加されたよ'
-    - id: 'minecraft:shield'
-      NBT:
-        display:
-          Name: 'つよい盾'
-          Lore:
-            - 'minecraft 1.11.2リリース記念'
-            - 'ダメージを100%カットする'
-        ench: [{id: 10, lvl: 1},{id: 71, lvl: 1}]
-    - id: 'minecraft:golden_sword'
-      NBT:
-        display:
-          Name: "Secret Sword Ⅱ"
-          Lore:
-            - 'minecraft 1.11.2リリース記念'
-        ench: [{id: 10, lvl: 1},{id: 71, lvl: 1},{id: 22, lvl: 10}]
-    - id: 'minecraft:iron_nugget'
-      NBT:
-        display:
-          Name: 'ゴミ'
-          Lore:
-            - 'minecraft 1.11.2リリース記念'
-            - 'minecraft史上最も価値のないアイテム'
-
-- name: minecraft 1.12.2アップデート記念
+- name: minecraft 1.12アップデート記念
   start: [2017, 10, 22]
-  end:   [2017, 11, 5]
+  end:   [2017, 10, 31]
   type: item_random
   table:
     - id: 'minecraft:bone_block'
@@ -303,15 +23,13 @@
         display:
           Name: '粘土ブロック'
           Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、フルートの音が鳴る']
-    - id: 'minecraft:wool'
-      variant: "rand(0..15)"
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_wool'
       amount: 3
       NBT:
         display:
           Name: '燃える羊毛'
           Lore: ['minecraft 1.12.2リリース記念','音符ブロックの下に置くと、ギターの音が鳴る','色味が少し明るくなった','ベッドを作るさい、ベッドの色が使った羊毛の色になる']
-    - id: 'minecraft:concrete_powder'
-      variant: "rand(0..15)"
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_concrete_powder'
       amount: 8
       NBT:
         display:
@@ -323,15 +41,13 @@
         display:
           Name: '彩釉テラコッタ'
           Lore: ['minecraft 1.12.2リリース記念','16種類ある','彩釉の読み方を100回調べたが憶えられない','色付き粘土を製錬する事でその色の彩釉テラコッタを入手することができる']
-    - id: 'minecraft:stained_hardened_clay'
-      variant: "rand(0..15)"
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_glazed_terracotta'
       NBT:
         display:
           Name: "燃えない羊毛"
           Lore: ['minecraft 1.12.2リリース記念','テラコッタという名前に変更された','地図上に色が表示されるようになった','かまどで焼くと、彩釉テラコッタになる']
         ench: [{id: 1,lvl: 1}]
-    - id: 'minecraft:bed'
-      variant: "rand(0..15)"
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_bed'
       NBT:
         display:
           Name: 'ベッド'
@@ -346,31 +62,398 @@
         display:
           Name: 'シュルカーボックス'
           Lore: ['minecraft 1.12.2リリース記念','色が変更された']
-    - id: 'minecraft:noteblock'
+    - id: 'minecraft:note_block'
       NBT:
         display:
           Name: '音符ブロック'
           Lore: ['minecraft 1.12.2リリース記念','骨、金、燃える羊毛、粘土、溶けない氷の上に置いた時の音色が変わった']
 
-- name: minecraftの薄い本vol.14「レズと青い鳥」カウントダウンキャンペーン
-  start: [2018, 7, 20]
-  end:   [2018, 8, 11]
+- name: minecraft 1.13アップデート記念（3/23まで）
+  start: [2019, 1, 5]
+  end:   [2019, 3, 23]
   type: item_random
   table:
-    - id: 'minecraft:paper'
+    - id: 'minecraft:ice'
+      amount: 81
       NBT:
         display:
-          Name: 'ビラ'
-          Lore: ['C94 3日目東ケ-20aにて、minecraftの薄い本vol.14「レズと青い鳥」を頒布します。','詳しくはWebで']
+          Name: '氷ブロック'
+          Lore: ['minecraft 1.13リリース記念','これを9個固めたものを9個固めると','新アイテムになるぞ！試してみよう！']
+    - id: 'minecraft:pumpkin'
+      NBT:
+        display:
+          Name: 'かぼちゃ'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - '設置して鋏で右クリックすると、顔のあるかぼちゃになる'
+    - id: 'minecraft:conduit'
+      NBT:
+        display:
+          Name: 'conduit'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - '説明がめんどいが大当たりです'
+    - id: 'minecraft:heart_of_the_sea'
+      NBT:
+        display:
+          Name: 'Heart of the Sea'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - 'conduitを作るための素材'
+    - id: 'minecraft:nautilus_shell'
+      amount: 8
+      NBT:
+        display:
+          Name: 'Nautilus Shell'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - 'conduitを作るための素材'
+    - id: 'minecraft:seagrass'
+      NBT:
+        display:
+          Name: 'Seagrass'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - '草'
+    - id: 'minecraft:sea_pickle'
+      amount: 4
+      NBT:
+        display:
+          Name: 'Sea Pickle'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - '水中で使えるライト'
+            - '同じ場所に複数個置くと明るさが増す'
+            - 'カマドで精錬するとLime Dyeになる'
+    - id: 'minecraft:shulker_box'
+      NBT:
+        display:
+          Name: 'シュルカーボックス（無色）'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - '無色が追加された'
+    - id: 'minecraft:purple_shulker_box'
+      NBT:
+        display:
+          Name: 'シュルカーボックス（紫色）'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - '紫色が追加された'
+    - id: 'minecraft:turtle_egg'
+      NBT:
+        display:
+          Name: '亀の卵'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - 'いい感じの場所に設置すると亀が生まれる'
+            - 'Silk Touchで回収できる'
+    - id: 'minecraft:phantom_membrane'
+      NBT:
+        display:
+          Name: 'きっしょ'
+          Lore:
+            - 'minecraft 1.13アップデート記念'
+            - 'エリトラの修理に使える'
+            - 'ゆっくり落ちるポーションの材料になる'
 
-- name: "Minecraft 1.13カウントダウンキャンペーン"
-  start: [2018, 7, 20]
-  end:   [2018, 8, 11]
+- name: minecraft 1.13木材強化記念前半戦！（2/24まで）
+  start: [2019, 1, 6]
+  end:   [2019, 2, 24]
   type: item_random
   table:
-    - id: 'minecraft:paper'
+    - id: 'minecraft:<%= %w<stone oak spruce birch jungle acacia dark_oak>.sample %>_button'
       NBT:
         display:
-          Name: 'はよ入稿しろ'
-          Lore: ['MC1.13は、喫茶室長がmikutterの薄い本を入稿したらアップデートします']
+          Name: 'ボタン'
+          Lore:
+            - 'minecraft 1.13木材強化記念　前半戦！'
+            - '木材の種類に応じたボタンが用意された'
+            - 'ブロックの底面に付けられるようになった'
+    - id: 'minecraft:<%= %w<stone heavy_weighted light_weighted oak spruce birch jungle acacia dark_oak>.sample %>_pressure_plate'
+      NBT:
+        display:
+          Name: '感圧版'
+          Lore:
+            - 'minecraft 1.13木材強化記念　前半戦！'
+            - '木材の種類に応じた感圧版が用意された'
+    - id: 'minecraft:<%= %w<iron oak spruce birch jungle acacia dark_oak>.sample %>_trapdoor'
+      NBT:
+        display:
+          Name: 'トラップドア'
+          Lore:
+            - 'minecraft 1.13木材強化記念　前半戦！'
+            - '木材の種類に応じたトラップドアが用意された'
+            - 'ブロックの上に設置できるようになった'
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_log'
+      NBT:
+        display:
+          Name: '原木'
+          Lore:
+            - 'minecraft 1.13　珊瑚祭！'
+            - '斧で右クリックすると、皮を剥げる'
+    - id: 'minecraft:stripped_<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_log'
+      NBT:
+        display:
+          Name: '皮を剥いだ原木'
+          Lore:
+            - 'minecraft 1.13　珊瑚祭！'
+            - '原木を斧で右クリックするとこうなる'
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_wood'
+      NBT:
+        display:
+          Name: '全面原木'
+          Lore:
+            - 'minecraft 1.13　珊瑚祭！'
+            - 'すべての面が皮になってて気持ち悪い'
+            - '斧で右クリックすると、皮を剥げる'
+    - id: 'minecraft:stripped_<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_wood'
+      NBT:
+        display:
+          Name: 'すべすべの木'
+          Lore:
+            - 'minecraft 1.13　珊瑚祭！'
+            - '気持ち悪いやつを斧で右クリックするとこうなる'
+
+- name: minecraft 1.13木材強化記念後半戦！（4/8まで）後半戦は新アイテムのみ！
+  start: [2019, 2, 25]
+  end:   [2019, 4, 8]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<spruce birch jungle acacia dark_oak>.sample %>_button'
+      NBT:
+        display:
+          Name: 'ボタン'
+          Lore:
+            - 'minecraft 1.13木材強化記念　後半戦！'
+            - '木材の種類に応じたボタンが用意された'
+            - 'ブロックの底面に付けられるようになった'
+    - id: 'minecraft:<%= %w<spruce birch jungle acacia dark_oak>.sample %>_pressure_plate'
+      NBT:
+        display:
+          Name: '感圧版'
+          Lore:
+            - 'minecraft 1.13木材強化記念　後半戦！'
+            - '木材の種類に応じた感圧版が用意された'
+    - id: 'minecraft:<%= %w<spruce birch jungle acacia dark_oak>.sample %>_trapdoor'
+      NBT:
+        display:
+          Name: 'トラップドア'
+          Lore:
+            - 'minecraft 1.13木材強化記念　後半戦！'
+            - '木材の種類に応じたトラップドアが用意された'
+            - 'ブロックの上に設置できるようになった'
+    - id: 'minecraft:stripped_<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_log'
+      NBT:
+        display:
+          Name: '皮を剥いだ原木'
+          Lore:
+            - 'minecraft 1.13木材強化記念　後半戦！'
+            - '原木を斧で右クリックするとこうなる'
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_wood'
+      NBT:
+        display:
+          Name: '全面原木'
+          Lore:
+            - 'minecraft 1.13木材強化記念　後半戦！'
+            - 'すべての面が皮になってて気持ち悪い'
+            - '斧で右クリックすると、皮を剥げる'
+    - id: 'minecraft:stripped_<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_wood'
+      NBT:
+        display:
+          Name: 'すべすべの木'
+          Lore:
+            - 'minecraft 1.13木材強化記念　後半戦！'
+            - '気持ち悪いやつを斧で右クリックするとこうなる'
+
+- name: minecraft 1.13　珊瑚祭！（1/21まで）
+  start: [2019, 1, 7]
+  end:   [2019, 1, 21]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<tube brain bubble fire horn>.sample %>_coral'
+      NBT:
+        display:
+          Name: 'Coral'
+          Lore:
+            - 'minecraft 1.13　珊瑚祭！'
+            - '水中に設置できる装飾アイテム'
+            - '陸上に設置するとすぐに枯れてしまう'
+            - 'Silk Touchで回収できる'
+    - id: 'minecraft:<%= %w<tube brain bubble fire horn>.sample %>_coral_block'
+      NBT:
+        display:
+          Name: 'Coral Block'
+          Lore:
+            - 'minecraft 1.13　珊瑚祭！'
+            - '陸上に設置するとすぐに枯れてしまう'
+            - 'Silk Touchで回収しないと枯れてしまう'
+- name: minecraft 1.13　昆布祭！（1/29まで）
+  start: [2019, 1, 8]
+  end:   [2019, 1, 29]
+  type: item_random
+  table:
+    - id: 'minecraft:dried_kelp_block'
+      NBT:
+        display:
+          Name: '乾燥昆布ブロック'
+          Lore:
+            - 'minecraft 1.13　昆布祭！'
+            - 'クラフトすると、9つの乾燥昆布になる'
+            - 'カマドの燃料にできる'
+    - id: 'minecraft:dried_kelp'
+      amount: 9
+      NBT:
+        display:
+          Name: '乾燥昆布'
+          Lore:
+            - 'minecraft 1.13　昆布祭！'
+            - '9つクラフトすると乾燥昆布ブロックになる'
+    - id: 'minecraft:kelp'
+      amount: 9
+      NBT:
+        display:
+          Name: '乾燥昆布'
+          Lore:
+            - 'minecraft 1.13　昆布祭！'
+            - 'カマドで精錬すると乾燥昆布になる'
+
+- name: minecraft 1.13　プリズマリン祭！（1/30まで）
+  start: [2019, 1, 9]
+  end:   [2019, 1, 30]
+  type: item_random
+  table:
+    - id: 'minecraft:prismarine'
+      amount: 4
+      NBT:
+        display:
+          Name: 'Prismarine'
+          Lore:
+            - 'minecraft 1.13　プリズマリン祭！'
+            - 'Conduitの起動に使うようになった'
+            - 'ハーフブロックが追加された'
+            - '階段ブロックが追加された'
+    - id: 'minecraft:prismarine_bricks'
+      amount: 4
+      NBT:
+        display:
+          Name: 'Prismarine Bricks'
+          Lore:
+            - 'minecraft 1.13　プリズマリン祭！'
+            - 'Conduitの起動に使うようになった'
+            - 'ハーフブロックが追加された'
+            - '階段ブロックが追加された'
+    - id: 'minecraft:dark_prismarine'
+      amount: 4
+      NBT:
+        display:
+          Name: 'ダーク♂Prismarine'
+          Lore:
+            - 'minecraft 1.13　プリズマリン祭！'
+            - 'Conduitの起動に使うようになった'
+            - 'ハーフブロックが追加された'
+            - '階段ブロックが追加された'
+
+# 期待値: 59
+- name: minecraft 1.13　階段祭！
+  start: [2019, 1, 10]
+  end:   [2019, 3, 10]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<oak cobblestone brick stone_brick nether_brick sandstone spruce birch jungle quartz acacia dark_oak red_sandstone purpur prismarine prismarine_brick dark_prismarine>.sample %>_stairs'
+      NBT:
+        display:
+          Name: '階段'
+          Lore:
+            - 'minecraft 1.13　階段祭！'
+            - 'プリズマリン系が追加され、17種類になった'
+
+# 期待値: 63
+- name: minecraft 1.13　ハーフブロック祭！（5/13まで）
+  start: [2019, 3, 11]
+  end:   [2019, 5, 13]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<red_sandstone purpur sandstone petrified_oak cobblestone brick stone_brick nether_brick quartz oak spruce birch jungle acacia dark_oak prismarine prismarine_brick dark_prismarine>.sample %>_slab'
+      NBT:
+        display:
+          Name: 'ハーフブロック'
+          Lore:
+            - 'minecraft 1.13　ハーフブロック祭！'
+            - 'プリズマリン系が追加され、18種類になった'
+
+- name: minecraft 1.13　装備祭！（2/22まで）
+  start: [2019, 1, 11]
+  end:   [2019, 2, 22]
+  type: item_random
+  table:
+    - id: 'minecraft:tipped_arrow'
+      amount: 64
+      NBT:
+        Potion: slow_falling
+        display:
+          Name: 'ゆっくり落ちろ矢'
+          Lore:
+            - 'minecraft 1.13　装備祭！'
+            - 'ゆっくり落ちる状態異常になる矢'
+    - id: 'minecraft:tipped_arrow'
+      amount: 64
+      NBT:
+        Potion: turtle_master
+        display:
+          Name: '亀の矢'
+          Lore:
+            - 'minecraft 1.13　装備祭！'
+            - 'まあ見た通りやな'
+    - id: 'minecraft:turtle_helmet'
+      NBT:
+        display:
+          Name: '亀のヘルメット'
+          Lore:
+            - 'minecraft 1.13　装備祭！'
+            - '亀の甲羅で作ったヘルメット'
+    - id: 'minecraft:trident'
+      NBT:
+        display:
+          Name: 'グングニル'
+          Lore:
+            - 'minecraft 1.13　装備祭！'
+        Enchantments:
+          - id: "minecraft:loyalty"
+            lvl: "<%= rand(0..5) %>"
+          - id: "minecraft:channeling"
+            lvl: "<%= rand(0..1) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= rand(0..10) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.max %>"
+    - id: 'minecraft:trident'
+      NBT:
+        display:
+          Name: 'ゲイボルグ'
+          Lore:
+            - 'minecraft 1.13　装備祭！'
+        Enchantments:
+          - id: "minecraft:loyalty"
+            lvl: "<%= rand(0..5) %>"
+          - id: "minecraft:riptide"
+            lvl: "<%= rand(0..5) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= rand(0..10) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.max %>"
+    - id: 'minecraft:trident'
+      NBT:
+        display:
+          Name: 'ロンギヌスの槍'
+          Lore:
+            - 'minecraft 1.13　装備祭！'
+        Enchantments:
+          - id: "minecraft:loyalty"
+            lvl: "<%= rand(0..5) %>"
+          - id: "minecraft:impaling"
+            lvl: "<%= rand(0..10) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= rand(0..10) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.max %>"
 
