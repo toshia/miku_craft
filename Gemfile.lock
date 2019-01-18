@@ -24,4 +24,4 @@ DEPENDENCIES
   pluggaloid (>= 1.0.1, < 2.0)
 
 BUNDLED WITH
-   1.11.2
+   2.0.1
