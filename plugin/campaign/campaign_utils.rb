@@ -121,7 +121,6 @@ module Plugin::Campaign
           case ench[:lvl]
           when String
             r = ERB.new(ench[:lvl]).result(context)
-            p [ench[:lvl], r, r.to_i]
             ench.merge(lvl: r.to_i)
           else
             ench
