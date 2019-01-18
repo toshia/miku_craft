@@ -457,3 +457,14 @@
           - id: "minecraft:mending"
             lvl: "<%= 3.times.map{rand(0..1)}.min %>"
 
+- name: 松屋の牛めし配布不具合でご迷惑をおかけしました
+  start: [2019, 1, 20]
+  end:   [2019, 1, 20]
+  type: item_random
+  table:
+    - id: 'minecraft:paper'
+      NBT:
+        display:
+          Name: '食券'
+          Lore:
+            - '豚焼コンビ(単品)'
