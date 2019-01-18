@@ -31,7 +31,9 @@ Plugin.create :giftbox do
         box.each do |gift|
           Plugin.call(:minecraft_tell, name, gift[:message]) if gift[:message].is_a? String
           item = gift[:item]
-          Plugin.call(:minecraft_give_item, name, item[:name], item[:amount], item[:tag])
+          tag = item[:tag]
+          tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
+          Plugin.call(:minecraft_give_item, name, item[:name], item[:amount], tag)
         end
         store[name] = []
       end

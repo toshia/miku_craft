@@ -66,7 +66,7 @@ Plugin.create :continuous_login do
                   count: 1,
                   tag: {
                     display: {
-                      Name: "#{food}",
+                      Name: Hashie::Mash.new(text: food.to_s).to_mcjson(binding),
                       Lore:["#{days}日記念"]
                     }
                   })
@@ -77,7 +77,7 @@ Plugin.create :continuous_login do
                   count: 1,
                   tag: {
                     display: {
-                      Name: '味噌汁'
+                      Name: Hashie::Mash.new(text: '味噌汁').to_mcjson(binding)
                     }
                   })
     when (days % 5) == 0
