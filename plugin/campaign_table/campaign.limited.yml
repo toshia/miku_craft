@@ -468,3 +468,16 @@
           Name: '食券'
           Lore:
             - '豚焼コンビ(単品)'
+
+- name: 4月13日のサーバ停止でご迷惑をおかけしました
+  start: [2019, 4, 14]
+  end:   [2019, 4, 21]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak>.sample %>_sapling'
+      NBT:
+        display:
+          Name: '詫び原木'
+          Lore:
+            - '好きなだけ木を使ってくれ'
+
