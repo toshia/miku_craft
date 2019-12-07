@@ -354,8 +354,7 @@
   description: 喫茶室長が羊毛ブロックは燃えないと勘違いしていた記念
   type: item_random
   table:
-    - id: 'minecraft:stained_hardened_clay'
-      variant: "rand(0..15)"
+    - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>].sample %>_terracotta'
       NBT:
         display:
           Name: "燃えない羊毛"
@@ -381,7 +380,7 @@
   description: 祇園祭・前祭キャンペーン(前祭の山鉾巡行は17日です)
   type: item_random
   table:
-    - id: 'minecraft:boat'
+    - id: 'minecraft:oak_boat'
       NBT:
         display:
           Name: "舁山"
@@ -430,7 +429,7 @@
   description: 祇園祭・後祭キャンペーン(後祭の山鉾巡行は24日です)
   type: item_random
   table:
-    - id: 'minecraft:boat'
+    - id: 'minecraft:oak_boat'
       NBT:
         display:
           Name: "舁山"

@@ -15,7 +15,7 @@ end
 
 class String
   def to_mcjson(bind)
-    ERB.new(self).result(bind).inspect
+    '"' + ERB.new(self).result(bind).gsub('"', '\"') + '"'
   end
 end
 
