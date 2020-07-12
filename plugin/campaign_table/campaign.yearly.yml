@@ -405,7 +405,7 @@
         display:
           Name: "傘鉾"
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
-    - id: 'minecraft:skull'
+    - id: 'minecraft:player_head'
       variant: 3
       NBT:
         display:
@@ -530,7 +530,7 @@
             UUIDMost: 114514
             UUIDLeast: 29317714
             Slot: mainhand
-    - id: 'minecraft:skull'
+    - id: 'minecraft:player_head'
       variant: 3
       NBT:
         display:
