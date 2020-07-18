@@ -110,11 +110,13 @@ module Plugin::Campaign
           item[:NBT] = {Damage: context.eval(variant.to_s)}
         end
       end
-      case item.dig(:NBT, :display, :Name)
-      when String
-        item[:NBT][:display][:Name] = Hashie::Mash.new(text: item[:NBT][:display][:Name]).to_mcjson(context)
-      when Hash
-        item[:NBT][:display][:Name] = item[:NBT][:display][:Name].to_mcjson(context)
+      item.dig(:NBT, :display, :Name)&.yield_self do |text|
+        item[:NBT][:display][:Name] = rich_text(text, context)
+      end
+      if item.dig(:NBT, :display, :Lore).is_a?(Array)
+        item.dig[:NBT][:display][:Lore] = item.dig(:NBT, :display, :Lore).map do |lore|
+          rich_text(lore, context)
+        end
       end
       if item.dig(:NBT, :Enchantments)
         item[:NBT][:Enchantments] = item[:NBT][:Enchantments].map{|ench|
@@ -135,6 +137,17 @@ module Plugin::Campaign
                   id: item_id,
                   count: context.eval(item.amount.to_s) || 1,
                   tag: item.NBT&.to_mcjson(context) || '{}')
+    end
+
+    private
+
+    def rich_text(text, context)
+      case text
+      when String
+        Hashie::Mash.new(text: text).to_mcjson(context)
+      when Hash
+        text.to_mcjson(context)
+      end
     end
   end
 
