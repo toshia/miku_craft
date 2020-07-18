@@ -114,7 +114,7 @@ module Plugin::Campaign
         item[:NBT][:display][:Name] = rich_text(text, context)
       end
       if item.dig(:NBT, :display, :Lore).is_a?(Array)
-        item.dig[:NBT][:display][:Lore] = item.dig(:NBT, :display, :Lore).map do |lore|
+        item[:NBT][:display][:Lore] = item.dig(:NBT, :display, :Lore).map do |lore|
           rich_text(lore, context)
         end
       end
