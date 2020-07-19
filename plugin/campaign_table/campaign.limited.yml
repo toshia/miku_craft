@@ -481,3 +481,112 @@
           Lore:
             - '好きなだけ木を使ってくれ'
 
+- name: &go_to_nether "Go To ネザーキャンペーン！"
+  start: [2020, 7, 20]
+  end:   [2020, 7, 26]
+  type: item_random
+  table:
+    - id: 'minecraft:netherite_scrap'
+      amount: 2
+      NBT:
+        display:
+          Name: 'ネザライトスクラップ'
+          Lore:
+            - *go_to_nether
+            - 4つ集めて金と組み合わせたらネザライトインゴットが作れるよ
+    - id: 'minecraft:golden_helmet'
+      NBT:
+        display:
+          Name: '金のヘルメット'
+          Lore:
+            - *go_to_nether
+            - ネザー旅行に便利なエンチャントを揃えました
+        Enchantments:
+          - id: "minecraft:fire_protection"
+            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
+          - id: "minecraft:blast_protection"
+            lvl: "<%= 5.times.map{rand(0..13)}.min %>"
+          - id: "minecraft:projectile_protection"
+            lvl: "<%= 5.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:protection"
+            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
+    - id: 'minecraft:golden_chestplate'
+      NBT:
+        display:
+          Name: '金の鎧'
+          Lore:
+            - *go_to_nether
+            - ネザー旅行に便利なエンチャントを揃えました
+        Enchantments:
+          - id: "minecraft:fire_protection"
+            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
+          - id: "minecraft:blast_protection"
+            lvl: "<%= 5.times.map{rand(0..13)}.min %>"
+          - id: "minecraft:projectile_protection"
+            lvl: "<%= 5.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:protection"
+            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
+    - id: 'minecraft:golden_leggings'
+      NBT:
+        display:
+          Name: '金のおぱんちゅ'
+          Lore:
+            - *go_to_nether
+            - ネザー旅行に便利なエンチャントを揃えました
+        Enchantments:
+          - id: "minecraft:fire_protection"
+            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
+          - id: "minecraft:blast_protection"
+            lvl: "<%= 5.times.map{rand(0..13)}.min %>"
+          - id: "minecraft:projectile_protection"
+            lvl: "<%= 5.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:protection"
+            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
+    - id: 'minecraft:golden_boots'
+      NBT:
+        display:
+          Name: '金の靴'
+          Lore:
+            - *go_to_nether
+            - ネザー旅行に便利なエンチャントを揃えました
+        Enchantments:
+          - id: "minecraft:fire_protection"
+            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:soul_speed"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:frost_walker"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
+          - id: "minecraft:feather_falling"
+            lvl: "<%= 5.times.map{rand(0..7)}.min %>"
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "次亜塩素酸水"
+          Lore:
+            - *go_to_nether
+            - ネザーでの水分補給にぴったりのドリンクです
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - Id: 12
+            Duration:
+              advice: to_i
+              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
