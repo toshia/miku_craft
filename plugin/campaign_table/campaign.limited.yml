@@ -590,3 +590,187 @@
             Duration:
               advice: to_i
               value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+
+- name: &tokyo2020 "東京オリンピック2020中止記念キャンペーン！"
+  start: [2020, 7, 22]
+  end:   [2020, 8, 9]
+  type: item_random
+  table:
+    - id: 'minecraft:bow'
+      NBT:
+        display:
+          Name: 'リカーブボウ'
+          Lore:
+            - *tokyo2020
+            - 弓を使う競技のやつです
+        Enchantments:
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= rand(0..1) %>"
+          - id: "minecraft:infinity"
+            lvl: "<%= rand(0..1) %>"
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "ドーピング剤（ウエイトリフティング）"
+          Lore:
+            - *tokyo2020
+            - ウエイトリフティング選手が使うドーピング剤です
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - &tokyo2020_potion_strength
+            Id: 5
+            Amplifier:
+              advice: to_i
+              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Duration:
+              advice: to_i
+              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+    - id: 'minecraft:dark_oak_boat'
+      NBT:
+        display:
+          Name: "カヌー"
+          Lore:
+            - *tokyo2020
+            - 主に滋賀県で使われている乗り物です
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "ドーピング剤（トライアスロン）"
+          Lore:
+            - *tokyo2020
+            - トライアスロン選手が使うドーピング剤です
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - &tokyo2020_potion_speed
+            Id: 1
+            Amplifier:
+              advice: to_i
+              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Duration:
+              advice: to_i
+              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - &tokyo2020_potion_jump_boost
+            Id: 8
+            Amplifier:
+              advice: to_i
+              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Duration:
+              advice: to_i
+              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - &tokyo2020_potion_regeneration
+            Id: 10
+            Amplifier:
+              advice: to_i
+              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Duration:
+              advice: to_i
+              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - &tokyo2020_potion_water_breathing
+            Id: 13
+            Duration:
+              advice: to_i
+              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "ドーピング剤（トランポリン）"
+          Lore:
+            - *tokyo2020
+            - トランポリン選手が使うドーピング剤です
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - *tokyo2020_potion_jump_boost
+          - &tokyo2020_potion_levitation
+            Id: 25
+            Amplifier:
+              advice: to_i
+              value: "<%= (1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)) * [1, -1].sample %>"
+            Duration:
+              advice: to_i
+              value: "<%= 200 + 100 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+    - id: 'minecraft:<%= %w[wooden stone iron diamond golden netherite].sample %>_sword'
+      NBT:
+        display:
+          Name: "剣（フェンシング）"
+          Lore:
+            - *tokyo2020
+        AttributeModifiers:
+          - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
+            Amount:
+              advice: to_i
+              value: "<%= (1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)) %>"
+            Operation: 0
+            UUIDMost: 114514
+            UUIDLeast: 566400782
+            Slot: mainhand
+          - AttributeName: "generic.attack_speed"
+            Name: "generic.attack_speed"
+            Amount: 1.2
+            Operation: 0
+            UUIDMost: 114514
+            UUIDLeast: 1013931856
+            Slot: mainhand
+        Enchantments:
+          - id: "minecraft:sharpness"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:smite"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:bane_of_arthropods"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:impaling"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+    - id: 'minecraft:turtle_helmet'
+      NBT:
+        display:
+          Name: '水泳帽'
+          Lore:
+            - *tokyo2020
+            - 競泳などの競技で使われる水着です
+        Enchantments:
+          - id: "minecraft:respiration"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:protection"
+            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:feather_falling"
+            lvl: "<%= rand(0..1) %>"
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "ドーピング剤（競泳）"
+          Lore:
+            - *tokyo2020
+            - 競泳選手が使うドーピング剤です
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - *tokyo2020_potion_jump_boost
+          - *tokyo2020_potion_water_breathing
+          - &tokyo2020_potion_dolphins_grace
+            Id: 30
+            Duration:
+              advice: to_i
+              value: "<%= 360 + 600 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+    - id: 'minecraft:leather_horse_armor'
+      NBT:
+        display:
+          Name: "馬鎧（馬術）"
+          Lore:
+            - *tokyo2020
