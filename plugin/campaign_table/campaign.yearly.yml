@@ -9,8 +9,8 @@
           Name: "門松"
           Lore: ["メリーお正月！"]
         AttributeModifiers:
-          - AttributeName: "generic.attackDamage"
-            Name: "generic.attackDamage"
+          - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
             Amount: 6
             Operation: 0
             UUIDMost: 96348
@@ -27,8 +27,8 @@
           Name: "羽子板"
           Lore: ["メリーお正月！"]
         AttributeModifiers:
-          - AttributeName: "generic.attackDamage"
-            Name: "generic.attackDamage"
+          - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
             Amount: 16
             Operation: 0
             UUIDMost: 114514
@@ -42,8 +42,8 @@
           Lore: ["メリーお正月！"]
         SkullOwner: "<%= user_name %>"
         AttributeModifiers:
-          - AttributeName: "generic.maxHealth"
-            Name: "generic.maxHealth"
+          - AttributeName: "generic.max_health"
+            Name: "generic.max_health"
             Amount: 2
             Operation: 0
             UUIDMost: 77658
@@ -74,8 +74,8 @@
           - id: fire_aspect,
             lvl: "<%= rand(0..10) %>"
         AttributeModifiers:
-          - AttributeName: "generic.attackDamage"
-            Name: "generic.attackDamage"
+          - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
             Amount: 4
             Operation: 0
             UUIDMost: 30253
@@ -88,20 +88,20 @@
           Name: "金床"
           Lore: ["自殺強化月間記念"]
         AttributeModifiers:
-          - AttributeName: "generic.knockbackResistance"
-            Name: "generic.knockbackResistance"
+          - AttributeName: "generic.knockback_resistance"
+            Name: "generic.knockback_resistance"
             Amount: 0.25
             Operation: 0
             UUIDMost: 65999
             UUIDLeast: 969951
-          - AttributeName: "generic.movementSpeed"
-            Name: "generic.movementSpeed"
+          - AttributeName: "generic.movement_speed"
+            Name: "generic.movement_speed"
             Amount: -0.05
             Operation: 0
             UUIDMost: 11251
             UUIDLeast: 684314
-          - AttributeName: "generic.attackDamage"
-            Name: "generic.attackDamage"
+          - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
             Amount: 5
             Operation: 0
             UUIDMost: 44111
@@ -413,8 +413,8 @@
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
         SkullOwner: "<%= user_name %>"
         AttributeModifiers:
-          - AttributeName: "generic.maxHealth"
-            Name: "generic.maxHealth"
+          - AttributeName: "generic.max_health"
+            Name: "generic.max_health"
             Amount: 2
             Operation: 0
             UUIDMost: 115414
@@ -516,15 +516,15 @@
           Name: "ネギ"
           Lore: ["初音ミクコラボ<%= Time.now.year%>"]
         AttributeModifiers:
-          - AttributeName: "generic.attackDamage"
-            Name: "generic.attackDamage"
+          - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
             Amount: 6
             Operation: 0
             UUIDMost: 114514
             UUIDLeast: 732452
             Slot: mainhand
-          - AttributeName: "generic.attackSpeed"
-            Name: "generic.attackDamage"
+          - AttributeName: "generic.attack_speed"
+            Name: "generic.attack_speed"
             Amount: 0.6
             Operation: 0
             UUIDMost: 114514
@@ -542,8 +542,8 @@
             textures:
               - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTc5M2UxODkwMmJhNjZlYzIzMzVkY2M5M2U3NTZiNjc1YTlhNTFmYmI3ZmRkZjlhOWU4OWUzNThlMTY2NSJ9fX0="
         AttributeModifiers:
-          - AttributeName: "generic.maxHealth"
-            Name: "generic.maxHealth"
+          - AttributeName: "generic.max_health"
+            Name: "generic.max_health"
             Amount: 8
             Operation: 0
             UUIDMost: 115414
@@ -582,8 +582,8 @@
             UUIDMost: 115414
             UUIDLeast: 5673198
             Slot: chest
-          - AttributeName: "generic.armorToughness"
-            Name: "generic.armorToughness"
+          - AttributeName: "generic.armor_toughness"
+            Name: "generic.armor_toughness"
             Amount: 2
             Operation: 0
             UUIDMost: 115414
@@ -610,8 +610,8 @@
             UUIDMost: 115414
             UUIDLeast: 33231182
             Slot: legs
-          - AttributeName: "generic.armorToughness"
-            Name: "generic.armorToughness"
+          - AttributeName: "generic.armor_toughness"
+            Name: "generic.armor_toughness"
             Amount: 2
             Operation: 0
             UUIDMost: 115414
@@ -638,8 +638,8 @@
             UUIDMost: 115414
             UUIDLeast: 55957601
             Slot: feet
-          - AttributeName: "generic.armorToughness"
-            Name: "generic.armorToughness"
+          - AttributeName: "generic.armor_toughness"
+            Name: "generic.armor_toughness"
             Amount: 2
             Operation: 0
             UUIDMost: 115414
@@ -670,8 +670,8 @@
             UUIDMost: 115414
             UUIDLeast: 25653989
             Slot: offhand
-          - AttributeName: "generic.armorToughness"
-            Name: "generic.armorToughness"
+          - AttributeName: "generic.armor_toughness"
+            Name: "generic.armor_toughness"
             Amount: 1
             Operation: 0
             UUIDMost: 115414
