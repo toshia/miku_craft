@@ -766,3 +766,16 @@
           Name: 'きも（レバー）'
           Lore:
             - *go_to_eat
+
+- name: &super_smash_bros "大乱闘スマッシュブラザーズ SPECIAL スティーブ・アレックス参戦記念キャンペーン"
+  start: [2020, 10, 16]
+  end:   [2020, 10, 25]
+  type: item_random
+  table:
+    - id: 'minecraft:cooked_beef'
+      amount: 1
+      NBT:
+        display:
+          Name: 'ポケットモンスター'
+          Lore:
+            - *super_smash_bros
