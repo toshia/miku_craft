@@ -718,33 +718,33 @@
           Name: 'もも貴族焼（たれ）'
           Lore:
             - *go_to_eat
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もも貴族焼（塩）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もも貴族焼（スパイス）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（たれ）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（塩）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（スパイス）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ちからこぶ塩" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "三角（ぼんじり）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "手羽先" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくね塩" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ささみ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ハート塩" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "砂ずり（砂肝）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "かわ塩" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "やげんなんこつ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ひざなんこつ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "せせり" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ちからこぶたれ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "みたれ（もも肉）" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくねチーズ焼" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくねたれ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "かわたれ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ハートたれ" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "骨付まつばのスパイス焼" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ピーマン肉詰" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ささみわさび焼" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね肉明太マヨネーズ風焼" } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もちもちチーズ焼" } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もも貴族焼（塩）",         Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もも貴族焼（スパイス）",   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（たれ）",       Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（塩）",         Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（スパイス）",   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ちからこぶ塩",             Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "三角（ぼんじり）",         Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "手羽先",                   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくね塩",                 Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ささみ",                   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ハート塩",                 Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "砂ずり（砂肝）",           Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "かわ塩",                   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "やげんなんこつ",           Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ひざなんこつ",             Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "せせり",                   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ちからこぶたれ",           Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "みたれ（もも肉）",         Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくねチーズ焼",           Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくねたれ",               Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "かわたれ",                 Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ハートたれ",               Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "骨付まつばのスパイス焼",   Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ピーマン肉詰",             Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ささみわさび焼",           Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね肉明太マヨネーズ風焼", Lore: [*go_to_eat] } } }
+    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もちもちチーズ焼",         Lore: [*go_to_eat] } } }
     - id: 'minecraft:cooked_beef'
       amount: 1
       NBT:
