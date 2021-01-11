@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'erb'
+require 'securerandom'
 
 class Array
   def to_mcjson(bind)
@@ -20,7 +21,12 @@ end
 
 class String
   def to_mcjson(bind)
-    '"' + ERB.new(self).result(bind).gsub('"', '\"') + '"'
+    v = ERB.new(self).result(bind)
+    if v == 'MINECRAFT_UUID'
+      "[I;%d,%d,%d,%d]" % SecureRandom.random_bytes(16).unpack("i4")
+    else
+      '"' + v.gsub('"', '\"') + '"'
+    end
   end
 end
 
