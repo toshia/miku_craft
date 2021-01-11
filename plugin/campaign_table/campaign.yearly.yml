@@ -52,7 +52,7 @@
         HideFlags: 1
 
 - name: &make_america_great_again ドナルド・トランプ永久凍結記念イベント
-  start: [2021, 1, 11]
+  start: [2021, 1, 12]
   end:   [2021, 1, 20]
   type: item_random
   table:
