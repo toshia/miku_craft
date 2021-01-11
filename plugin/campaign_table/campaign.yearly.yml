@@ -50,6 +50,53 @@
             UUIDLeast: 855423
             Slot: head
         HideFlags: 1
+
+- name: &make_america_great_again ドナルド・トランプ永久凍結記念イベント
+  start: [2021, 1, 11]
+  end:   [2021, 1, 20]
+  type: item_random
+  table:
+    - id: 'minecraft:packed_ice'
+      NBT:
+        display:
+          Name: "realDonaldTrump"
+          Lore: [*make_america_great_again]
+        Enchantments:
+          - id: frost_walker
+            lvl: 5
+    - id: 'minecraft:blue_ice'
+      NBT:
+        display:
+          Name: "realDonaldTrump"
+          Lore: [*make_america_great_again]
+        Enchantments:
+          - id: frost_walker
+            lvl: 10
+    - id: 'minecraft:leather_helmet'
+      NBT:
+        display:
+          Name: "MAGA cap"
+          Lore: [*make_america_great_again]
+          color: 0xff0000
+        Enchantments:
+          - id: loyalty
+            lvl: 1
+          - id: lure
+            lvl: "<%= rand(0..3) %>"
+          - id: feather_falling
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: frost_walker
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: projectile_protection
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1%>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: head
+
 - name: 自殺強化月間
   start: [3, 1]
   end: [3, 31]

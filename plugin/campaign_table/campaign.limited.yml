@@ -890,7 +890,7 @@
 
 - name: "@realDonaldTrump 一時凍結記念キャンペーン (トランプ任期終了は1月20日！)"
   start: [2021, 1, 8]
-  end:   [2021, 1, 20]
+  end:   [2021, 1, 11]
   type: item_random
   table:
     - id: 'minecraft:ice'
