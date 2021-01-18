@@ -13,6 +13,8 @@ class Hash
     if has_key?('advice') && has_key?('value')
       value = fetch('value').to_mcjson(bind)
       JSON.parse(value).__send__(fetch('advice'))
+    elsif self['_type'] == 'intarray' && has_key?('value')
+      '[I;%{content}]' % { content: self['value'].map(&'%d'.method(:%)).join(',') }
     else
       '{' + self.map{|k,v| "#{k.to_mcjson(bind)}:#{v.to_mcjson(bind)}"}.join(',') + '}'
     end

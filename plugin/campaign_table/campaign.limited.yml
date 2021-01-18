@@ -888,16 +888,44 @@
           - id: "minecraft:punch"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
 
-- name: "@realDonaldTrump 一時凍結記念キャンペーン (トランプ任期終了は1月20日！)"
-  start: [2021, 1, 8]
-  end:   [2021, 1, 11]
+- name: &covid19_death_2M_in_world "新型コロナウィルス感染症死者世界200万人突破記念キャンペーン！"
+  start: [2021, 1, 19]
+  end:   [2021, 1, 26]
   type: item_random
   table:
-    - id: 'minecraft:ice'
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
       amount: 1
       NBT:
         display:
-          Name: '氷ブロック'
+          Name: "SARS-CoV-2"
           Lore:
-            - '@realDonaldTrump 一時凍結記念キャンペーン (トランプ任期終了は1月20日！)'
-
+            - *covid19_death_2M_in_world
+            - 飲むと新型コロナウィルス感染症で死にます
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - Id: 2
+            Duration: 2147483647
+          - Id: 4
+            Duration: 2147483647
+          - Id: 9
+            Duration: 2147483647
+          - Id: 20
+            Amplifier: 2
+            Duration: 2147483647
+    - id: 'minecraft:player_head'
+      amount: 1
+      NBT:
+        display:
+          Name: "マスク"
+          Lore:
+            - *covid19_death_2M_in_world
+            - "装備せずに外に出ると、大変なことになるぞ"
+        SkullOwner:
+          Id:
+            _type: intarray
+            value: [-782859848,-672904883,-1799219801,-293348862]
+          Properties:
+            textures:
+              - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
