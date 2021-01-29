@@ -888,9 +888,54 @@
           - id: "minecraft:punch"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
 
-- name: &covid19_death_2M_in_world "新型コロナウィルス感染症死者世界200万人突破記念キャンペーン！"
-  start: [2021, 1, 19]
-  end:   [2021, 1, 26]
+# 1000人刻みで開催していく
+- name: &covid19_death_5K_in_japan "新型コロナウィルス感染症死者国内5000人突破記念キャンペーン！"
+  start: [2021, 1, 30]
+  end:   [2021, 2, 5]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "SARS-CoV-2"
+          Lore:
+            - *covid19_death_5K_in_japan
+            - 飲むと新型コロナウィルス感染症で死にます
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - Id: 2
+            Duration: 2147483647
+          - Id: 4
+            Duration: 2147483647
+          - Id: 9
+            Duration: 2147483647
+          - Id: 20
+            Amplifier: 2
+            Duration: 2147483647
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "イソジン"
+          Lore:
+            - *covid19_death_5K_in_japan
+            - 主に大阪で使用されているコロナ治療薬です
+        CustomPotionColor: 6574154
+        CustomPotionEffects:
+          - Id: 7
+          - Id: 23
+            Amplifier: 3
+          - Id: 17
+            Amplifier: 1
+            Duration: 2147483647
+
+# 10万人刻みで開催していく
+- name: &covid19_death_2M_in_world "新型コロナウィルス感染症死者世界210万人突破記念キャンペーン！"
+  start: [2021, 1, 30]
+  end:   [2021, 2,  5]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
