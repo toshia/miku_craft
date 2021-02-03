@@ -888,6 +888,45 @@
           - id: "minecraft:punch"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
 
+# 1000万人刻みで開催していく
+- name: &covid19_infection_100M_in_world "新型コロナウィルス感染症感染者世界1億人突破記念キャンペーン！"
+  start: [2021, 2, 4]
+  end:   [2021, 2, 10]
+  type: item_random
+  table:
+    - id: 'minecraft:elytra'
+      amount: 1
+      NBT:
+        Damage: 432
+        display:
+          Name: "ボロ雑巾"
+          Lore:
+            - *covid19_infection_100M_in_world
+            - "意味わからんくらい感染が拡がっているので意味わからんものを差し上げます"
+        Enchantments:
+          - id: "minecraft:fire_protection"
+            lvl: "<%= 7.times.map{rand(0..8)}.min %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << [1, rand(4)].min } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
+          - id: "minecraft:blast_protection"
+            lvl: "<%= 7.times.map{rand(0..13)}.min %>"
+          - id: "minecraft:projectile_protection"
+            lvl: "<%= 7.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:protection"
+            lvl: "<%= 7.times.map{rand(0..20)}.min %>"
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount:
+              advice: to_i
+              value: "<%= Enumerator.new{|y| loop{ y << [1, rand(3)].min } }.find_index(1) + 1 %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
+
+
 # 1000人刻みで開催していく
 - name: &covid19_death_5K_in_japan "新型コロナウィルス感染症死者国内5000人突破記念キャンペーン！"
   start: [2021, 1, 30]
@@ -933,7 +972,7 @@
             Duration: 2147483647
 
 # 10万人刻みで開催していく
-- name: &covid19_death_2M_in_world "新型コロナウィルス感染症死者世界210万人突破記念キャンペーン！"
+- name: &covid19_death_2M10K_in_world "新型コロナウィルス感染症死者世界210万人突破記念キャンペーン！"
   start: [2021, 1, 30]
   end:   [2021, 2,  5]
   type: item_random
@@ -944,7 +983,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_death_2M_in_world
+            - *covid19_death_2M10K_in_world
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -965,7 +1004,50 @@
         display:
           Name: "マスク"
           Lore:
-            - *covid19_death_2M_in_world
+            - *covid19_death_2M10K_in_world
+            - "装備せずに外に出ると、大変なことになるぞ"
+        SkullOwner:
+          Id:
+            _type: intarray
+            value: [-782859848,-672904883,-1799219801,-293348862]
+          Properties:
+            textures:
+              - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
+
+# 10万人刻みで開催していく
+- name: &covid19_death_2M20K_in_world "新型コロナウィルス感染症死者世界220万人突破記念キャンペーン！"
+  start: [2021, 2, 4]
+  end:   [2021, 2, 10]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "SARS-CoV-2"
+          Lore:
+            - *covid19_death_2M20K_in_world
+            - 飲むと新型コロナウィルス感染症で死にます
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - Id: 2
+            Duration: 2147483647
+          - Id: 4
+            Duration: 2147483647
+          - Id: 9
+            Duration: 2147483647
+          - Id: 20
+            Amplifier: 2
+            Duration: 2147483647
+    - id: 'minecraft:player_head'
+      amount: 1
+      NBT:
+        display:
+          Name: "マスク"
+          Lore:
+            - *covid19_death_2M20K_in_world
             - "装備せずに外に出ると、大変なことになるぞ"
         SkullOwner:
           Id:
