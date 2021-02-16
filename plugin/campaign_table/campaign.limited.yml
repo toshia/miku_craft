@@ -972,9 +972,9 @@
             UUID: MINECRAFT_UUID
             Slot: chest
 
-- name: &covid19_death_6K_in_japan "新型コロナウィルス感染症死者国内6000人突破記念キャンペーン！"
-  start: [2021, 2, 6]
-  end:   [2021, 2, 12]
+- name: &covid19_death_7K_in_japan "新型コロナウィルス感染症死者国内7000人突破記念キャンペーン！"
+  start: [2021, 2, 18]
+  end:   [2021, 2, 24]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -983,7 +983,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_death_6K_in_japan
+            - *covid19_death_7K_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1004,7 +1004,7 @@
         display:
           Name: "イソジン"
           Lore:
-            - *covid19_death_6K_in_japan
+            - *covid19_death_7K_in_japan
             - 主に大阪で使用されているコロナ治療薬です
         CustomPotionColor: 6574154
         CustomPotionEffects:
@@ -1016,9 +1016,9 @@
             Duration: 2147483647
 
 # 10万人刻みで開催していく
-- name: &covid19_death_2M10K_in_world "新型コロナウィルス感染症死者世界210万人突破記念キャンペーン！"
-  start: [2021, 1, 30]
-  end:   [2021, 2,  5]
+- name: &covid19_death_2M20K_in_world "新型コロナウィルス感染症死者世界220万人突破記念キャンペーン！"
+  start: [2021, 2, 4]
+  end:   [2021, 2, 5]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -1027,7 +1027,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_death_2M10K_in_world
+            - *covid19_death_2M20K_in_world
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1048,7 +1048,7 @@
         display:
           Name: "マスク"
           Lore:
-            - *covid19_death_2M10K_in_world
+            - *covid19_death_2M20K_in_world
             - "装備せずに外に出ると、大変なことになるぞ"
         SkullOwner:
           Id:
@@ -1058,24 +1058,24 @@
             textures:
               - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
 
-# 10万人刻みで開催していく
-- name: &covid19_death_2M20K_in_world "新型コロナウィルス感染症死者世界220万人突破記念キャンペーン！"
-  start: [2021, 2, 4]
-  end:   [2021, 2, 10]
+- name: &covid19_BNT162b2 "新型コロナウイルスワクチン「コミナティ筋注」国内摂取開始記念キャンペーン！"
+  start: [2021, 2, 18]
+  end:   [2021, 3, 17]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
       amount: 1
       NBT:
         display:
-          Name: "SARS-CoV-2"
+          Name: "BNT162b2"
           Lore:
-            - *covid19_death_2M20K_in_world
-            - 飲むと新型コロナウィルス感染症で死にます
+            - *covid19_BNT162b2
+            - 摂取すると新型コロナウィルスに感染しても、死ぬことがなくなります
         CustomPotionColor:
           advice: to_i
           value: "<%= rand(0..0xff_ff_ff) %>"
         CustomPotionEffects:
+          - {Id: 10, Amplifier: 3, Duration: 2147483647}
           - Id: 2
             Duration: 2147483647
           - Id: 4
@@ -1085,18 +1085,4 @@
           - Id: 20
             Amplifier: 2
             Duration: 2147483647
-    - id: 'minecraft:player_head'
-      amount: 1
-      NBT:
-        display:
-          Name: "マスク"
-          Lore:
-            - *covid19_death_2M20K_in_world
-            - "装備せずに外に出ると、大変なことになるぞ"
-        SkullOwner:
-          Id:
-            _type: intarray
-            value: [-782859848,-672904883,-1799219801,-293348862]
-          Properties:
-            textures:
-              - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
+
