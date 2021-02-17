@@ -1063,17 +1063,23 @@
   end:   [2021, 3, 17]
   type: item_random
   table:
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+    - id: 'minecraft:dispenser'
       amount: 1
+      NBT:
+        display:
+          Name: "注射器"
+          Lore:
+            - *covid19_BNT162b2
+            - BNT162b2を入れてRS信号を入力するとワクチンを摂取できます
+    - id: 'minecraft:tipped_arrow'
+      amount: 6
       NBT:
         display:
           Name: "BNT162b2"
           Lore:
             - *covid19_BNT162b2
             - 摂取すると新型コロナウィルスに感染しても、死ぬことがなくなります
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
+            - 注射器を使って摂取してください
         CustomPotionEffects:
           - {Id: 10, Amplifier: 3, Duration: 2147483647}
           - Id: 2
