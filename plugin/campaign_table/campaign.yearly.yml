@@ -52,7 +52,7 @@
         HideFlags: 1
 
 - name: &make_america_great_again ドナルド・トランプ永久凍結記念イベント
-  start: [2021, 1, 12]
+  start: [2021, 1, 9]
   end:   [2021, 1, 20]
   type: item_random
   table:
@@ -156,7 +156,28 @@
         Enchantments:
           - id: knockback
             lvl: 1
-        HideFlags: 3}
+        HideFlags: 3
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "SARS-CoV-2"
+          Lore:
+            - 自殺強化月間記念
+            - 飲むと新型コロナウィルス感染症で死にます
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects:
+          - Id: 2
+            Duration: 2147483647
+          - Id: 4
+            Duration: 2147483647
+          - Id: 9
+            Duration: 2147483647
+          - Id: 20
+            Amplifier: 2
+            Duration: 2147483647
 - name: あしゅりーおじさん600ユーロスられ記念
   start: [3, 7]
   end: [3, 10]
