@@ -3,16 +3,22 @@ require 'open3'
 require 'timeout'
 
 Plugin.create :minecraft do
+  defevent :server_raw_output, prototype: [Symbol, Pluggaloid::STREAM]
+
   mc_stdin = mc_stdout = mc_stderr = wait_thr = stdout_thread = stderr_thread = watch_thread = nil
   on_boot_server do
     mc_stdin, mc_stdout, mc_stderr, wait_thr = Open3.popen3('java -Xmx4096M -Xms1024M -jar /server.jar nogui')
     stdout_thread = Thread.new do
-      mc_stdout.each do |res|
-        Plugin.call(:server_raw_output, :stdout, res) end end
+      generate(:server_raw_output, :stdout) do |yielder|
+        mc_stdout.each(&yielder.method(:<<))
+      end
+    end
 
     stderr_thread = Thread.new do
-      mc_stderr.each do |res|
-        Plugin.call(:server_raw_output, :stderr, res) end end
+      generate(:server_raw_output, :stderr) do |yielder|
+        mc_stderr.each(&yielder.method(:<<))
+      end
+    end
 
     watch_thread = Thread.new {
       wait_thr.join
@@ -74,8 +80,8 @@ Plugin.create :minecraft do
     mc_stdin.puts command
   end
 
-  on_server_raw_output do |pipe, line|
-    puts "#{pipe}: #{line}"
+  subscribe(:server_raw_output, :stdout).each do |line|
+    puts "stdout: #{line}"
     case line
     when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) joined the game\Z>
       Plugin.call(:join_player, $1)
@@ -84,6 +90,10 @@ Plugin.create :minecraft do
     when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) fell from a high place\Z>
       Plugin.call(:die, $1)
     end
+  end
+
+  subscribe(:server_raw_output, :stderr).each do |line|
+    puts "stderr: #{line}"
   end
 
   Plugin.call(:boot_server)
