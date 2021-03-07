@@ -1,27 +1,27 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    delayer (0.0.2)
+    delayer (1.1.2)
     egison (1.0.0)
-    hashie (3.4.4)
+    hashie (4.1.0)
     instance_storage (1.0.0)
-    matsuya (0.2.3)
+    matsuya (0.4.0)
       egison (~> 1.0)
-    minitest (5.9.0)
-    moneta (0.8.0)
-    pluggaloid (1.0.2)
-      delayer
+    minitest (5.14.4)
+    moneta (1.4.1)
+    pluggaloid (1.5.0)
+      delayer (>= 1.1.0, < 2.0)
       instance_storage (>= 1.0.0, < 2.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  hashie (>= 3.4.4, < 3.5.0)
-  matsuya (>= 0.2.3, < 0.3)
+  hashie (>= 4.1.0, < 4.2)
+  matsuya (>= 0.4.0, < 1)
   minitest
-  moneta (>= 0.8.0, < 0.9)
-  pluggaloid (>= 1.0.1, < 2.0)
+  moneta (>= 1.4.0, < 1.5)
+  pluggaloid (>= 1.5.0, < 2)
 
 BUNDLED WITH
-   2.0.1
+   2.2.4
