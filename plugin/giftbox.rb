@@ -15,17 +15,17 @@ Plugin.create :giftbox do
         amount: count,
         tag: tag } }
     store[name] = box
-    if Plugin.filtering(:active_players, []).first.include? name
+    if collect(:active_players).include?(name)
       Plugin.call(:giftbox_give, name)
     end
   end
 
-  on_join_player do |name|
+  subscribe(:active_players__add).each do |name|
     Plugin.call(:giftbox_give, name)
   end
 
   on_giftbox_give do |name|
-    if Plugin.filtering(:active_players, []).first.include? name
+    if collect(:active_players).include?(name)
       box = store[name] || []
       unless box.empty?
         box.each do |gift|

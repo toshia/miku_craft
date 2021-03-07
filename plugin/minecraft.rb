@@ -82,14 +82,6 @@ Plugin.create :minecraft do
 
   subscribe(:server_raw_output, :stdout).each do |line|
     puts "stdout: #{line}"
-    case line
-    when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) joined the game\Z>
-      Plugin.call(:join_player, $1)
-    when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) left the game\Z>
-      Plugin.call(:left_player, $1)
-    when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) fell from a high place\Z>
-      Plugin.call(:die, $1)
-    end
   end
 
   subscribe(:server_raw_output, :stderr).each do |line|

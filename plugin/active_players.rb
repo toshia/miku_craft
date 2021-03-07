@@ -3,9 +3,11 @@ require 'time'
 require 'set'
 
 Plugin.create :active_players do
+  defevent :active_players, prototype: [Pluggaloid::COLLECT]
+  defevent :server_raw_output, prototype: [Symbol, Pluggaloid::STREAM]
+
   log_file_name = File.join(__dir__, 'login.log')
   log_file = File.open(log_file_name, 'ab')
-  active_players = Set.new
 
   log_file.puts "#{Time.now.iso8601} boot miku_craft"
 
@@ -18,27 +20,32 @@ Plugin.create :active_players do
     log_file.close
   end
 
-  on_join_player do |name|
-    log_file.puts "#{Time.now.iso8601} join #{name}"
-    active_players << name
-  end
-
-  on_left_player do |name|
-    log_file.puts "#{Time.now.iso8601} left #{name}"
-    active_players.delete name
-  end
-
-  on_minecraft_server_crashed do
-    active_players.each do |player|
-      Plugin.call(:left_player, player)
-      Plugin.call(:give_wabiishi, name, active_players)
+  collection(:active_players) do |mutation|
+    subscribe(:server_raw_output, :stdout).each do |line|
+      case line
+      when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) joined the game\Z>
+        name = Regexp.last_match(1)
+        log_file.puts "#{Time.now.iso8601} join #{name}"
+        mutation.rewind do |ary|
+          ary << name unless ary.include?(name)
+          ary
+        end
+      when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) left the game\Z>
+        name = Regexp.last_match(1)
+        log_file.puts "#{Time.now.iso8601} left #{name}"
+        mutation.delete(name)
+      end
     end
-    active_players.clear
-    log_file.puts "#{Time.now.iso8601} crash server"
-  end
 
-  filter_active_players do |players|
-    [active_players + players]
+    on_minecraft_server_crashed do
+      mutation.rewind do |ary|
+        ary.each do |name|
+          Plugin.call(:give_wabiishi, name, collect(:active_players))
+        end
+        log_file.puts "#{Time.now.iso8601} crash server"
+        []
+      end
+    end
   end
 
   on_give_wabiishi do |name, victim|

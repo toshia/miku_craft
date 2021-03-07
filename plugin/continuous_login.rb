@@ -2,11 +2,13 @@
 require 'date'
 
 Plugin.create :continuous_login do
+  defevent :active_players, prototype: [Pluggaloid::COLLECT]
+
   save_file = File.join(__dir__, 'count.dat')
   counter = FileTest.exist?(save_file) ? Marshal.load(File.open(save_file, &:read)) : {}
   @last_check = Date.today.freeze
 
-  on_join_player do |name|
+  subscribe(:active_players__add).each do |name|
     Plugin.call(:scan_continuous_login_bonus, name)
   end
 
@@ -15,7 +17,7 @@ Plugin.create :continuous_login do
     Delayer.new(delay: tomorrow.to_time) do
       if tomorrow != @last_check
         @last_check = tomorrow
-        Plugin.filtering(:active_players, []).first.each do |player_name|
+        collect(:active_players).each do |player_name|
           Plugin.call(:scan_continuous_login_bonus, player_name)
         end
       end
