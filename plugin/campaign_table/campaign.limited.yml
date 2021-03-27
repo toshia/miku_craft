@@ -1080,9 +1080,9 @@
             UUID: MINECRAFT_UUID
             Slot: chest
 
-- name: &covid19_death_7K_in_japan "新型コロナウィルス感染症死者国内8000人突破記念キャンペーン！"
-  start: [2021, 3, 2]
-  end:   [2021, 3, 10]
+- name: &covid19_death_9K_in_japan "新型コロナウィルス感染症死者国内9000人突破記念キャンペーン！"
+  start: [2021, 3, 28]
+  end:   [2021, 4, 3]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -1091,7 +1091,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_death_7K_in_japan
+            - *covid19_death_9K_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1111,7 +1111,7 @@
         display:
           Name: "クルーズ船"
           Lore:
-            - *covid19_death_7K_in_japan
+            - *covid19_death_9K_in_japan
 
 # 10万人刻みで開催していく
 - name: &covid19_death_2M20K_in_world "新型コロナウィルス感染症死者世界220万人突破記念キャンペーン！"
