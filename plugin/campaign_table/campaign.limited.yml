@@ -997,9 +997,9 @@
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
 
 # 10万人刻みで開催していく
-- name: &covid19_infection_400K_in_japan "新型コロナウィルス感染症感染者国内40万人突破記念キャンペーン！"
-  start: [2021, 2, 7]
-  end:   [2021, 2, 13]
+- name: &covid19_infection_500K_in_japan "新型コロナウィルス感染症感染者国内50万人突破記念キャンペーン！"
+  start: [2021, 4, 16]
+  end:   [2021, 4, 22]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -1008,7 +1008,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_infection_400K_in_japan
+            - *covid19_infection_500K_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1019,7 +1019,7 @@
         display:
           Name: 'コロナビーム'
           Lore:
-            - *covid19_infection_400K_in_japan
+            - *covid19_infection_500K_in_japan
             - 敵をコロナに感染させます
         Enchantments:
           - id: "minecraft:quick_charge"
@@ -1041,6 +1041,30 @@
               Potion: "minecraft:water"
               CustomPotionEffects: *custom_potion_effects_SARS_CoV_2
         Charged: 1
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "イソジン"
+          Lore:
+            - *covid19_infection_500K_in_japan
+            - 主に大阪で使用されているコロナ治療薬です
+        CustomPotionColor: 6574154
+        CustomPotionEffects:
+          - Id: 7
+          - Id: 23
+            Amplifier: 3
+          - Id: 17
+            Amplifier: 1
+            Duration: 2147483647
+    - id: 'minecraft:<%= [*["dead", nil].sample, %w[tube brain bubble fire horn].sample, "coral", "fan"].join("_") %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "うちわ"
+          Lore:
+            - *covid19_infection_500K_in_japan
+            - 兵庫県で用いられる、コロナ感染対策グッズです
 
 # 1000万人刻みで開催していく
 - name: &covid19_infection_100M_in_world "新型コロナウィルス感染症感染者世界1億人突破記念キャンペーン！"
