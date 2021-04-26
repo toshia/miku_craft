@@ -878,6 +878,60 @@
           Lore:
             - *emergency_state_5
 
+- name: &blackout "大江戸灯火管制コラボキャンペーン！"
+  start: [2021, 4, 29]
+  end:   [2021, 5, 9]
+  type: item_random
+  table:
+    - id: 'minecraft:soul_lantern'
+      amount: 1
+      NBT:
+        display:
+          Name: 'ランタン'
+          Lore:
+            - *blackout
+            - '20時以降は明かりを消しましょう'
+    - id: 'minecraft:elytra'
+      amount: 1
+      NBT:
+        display:
+          Name: "B-29"
+          Lore:
+            - *blackout
+            - '20時以降は明かりを消しましょう'
+        Enchantments:
+          - id: "minecraft:blast_protection"
+            lvl: "<%= 7.times.map{rand(0..13)}.min %>"
+          - id: "minecraft:projectile_protection"
+            lvl: "<%= 9.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:protection"
+            lvl: "<%= 11.times.map{rand(0..20)}.min %>"
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount:
+              advice: to_i
+              value: "<%= Enumerator.new{|y| loop{ y << [1, rand(3)].min } }.find_index(1) + 1 %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
+    - id: 'minecraft:bamboo'
+      NBT:
+        display:
+          Name: '竹槍'
+          Lore:
+            - *blackout
+            - 'B-29を撃ち落とすために用いられた決戦兵器です'
+        Enchantments:
+          - id: "minecraft:loyalty"
+            lvl: "<%= 3.times.map{rand(0..5)}.min %>"
+          - id: "minecraft:impaling"
+            lvl: "<%= rand(0..10) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= 3.times.map{rand(0..10)}.min %>"
+          - id: "minecraft:mending"
+            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
+
 # 10万人刻みで開催していく
 - name: &covid19_infection_500K_in_japan "新型コロナウィルス感染症感染者国内50万人突破記念キャンペーン！"
   start: [2021, 4, 16]
