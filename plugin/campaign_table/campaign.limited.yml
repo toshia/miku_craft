@@ -780,9 +780,9 @@
           Lore:
             - *super_smash_bros
 
-- name: &emergency_state_3 "緊急事態宣言コラボキャンペーン（延長戦）！"
-  start: [2021, 2, 4]
-  end:   [2021, 3, 7]
+- name: &emergency_state_5 "緊急事態宣言コラボキャンペーン！"
+  start: [2021, 4, 26]
+  end:   [2021, 5, 11]
   type: item_random
   table:
     - id: 'minecraft:milk_bucket'
@@ -791,7 +791,7 @@
         display:
           Name: 'レムデシビル'
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
             - '飲むとコロナが治る治療薬です'
     - id: 'minecraft:milk_bucket'
       amount: 1
@@ -799,7 +799,7 @@
         display:
           Name: 'デキサメタゾン'
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
             - '飲むとコロナが治る治療薬です'
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
       amount: 1
@@ -807,7 +807,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -828,7 +828,7 @@
         display:
           Name: '密閉'
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
             - '密です！密です！密です！ソーシャルディスタンス！！！'
     - id: 'minecraft:honeycomb'
       amount: 1
@@ -836,7 +836,7 @@
         display:
           Name: '密集'
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
             - '密です！密です！密です！ソーシャルディスタンス！！！'
     - id: 'minecraft:honey_block'
       amount: 1
@@ -844,7 +844,7 @@
         display:
           Name: '密接'
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
             - '密です！密です！密です！ソーシャルディスタンス！！！'
     - id: 'minecraft:gold_nugget'
       amount: 1
@@ -852,30 +852,13 @@
         display:
           Name: '時短要請協力金'
           Lore:
-            - *emergency_state_3
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "次亜塩素酸水"
-          Lore:
-            - *emergency_state_3
-            - 'ネザーでの水分補給にぴったりのドリンクです'
-            - '(Go To ネザーキャンペーン復刻景品)'
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 12
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            - *emergency_state_5
     - id: 'minecraft:bow'
       NBT:
         display:
           Name: 'ソーシャルディスタンス'
           Lore:
-            - *emergency_state_3
+            - *emergency_state_5
         Enchantments:
           - id: "minecraft:unbreaking"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
@@ -887,114 +870,13 @@
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
           - id: "minecraft:punch"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
-
-- name: &emergency_state_4 "緊急事態宣言コラボキャンペーン（延長戦）（延長戦）！"
-  start: [2021, 3, 6]
-  end:   [2021, 3, 21]
-  type: item_random
-  table:
-    - id: 'minecraft:milk_bucket'
+    - id: 'minecraft:pufferfish'
       amount: 1
       NBT:
         display:
-          Name: 'レムデシビル'
+          Name: 'マンボウ'
           Lore:
-            - *emergency_state_4
-            - '飲むとコロナが治る治療薬です'
-    - id: 'minecraft:milk_bucket'
-      amount: 1
-      NBT:
-        display:
-          Name: 'デキサメタゾン'
-          Lore:
-            - *emergency_state_4
-            - '飲むとコロナが治る治療薬です'
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "SARS-CoV-2"
-          Lore:
-            - *emergency_state_4
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects: &custom_potion_effects_SARS_CoV_2
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-    - id: 'minecraft:honey_bottle'
-      amount: 1
-      NBT:
-        display:
-          Name: '密閉'
-          Lore:
-            - *emergency_state_4
-            - '密です！密です！密です！ソーシャルディスタンス！！！'
-    - id: 'minecraft:honeycomb'
-      amount: 1
-      NBT:
-        display:
-          Name: '密集'
-          Lore:
-            - *emergency_state_4
-            - '密です！密です！密です！ソーシャルディスタンス！！！'
-    - id: 'minecraft:honey_block'
-      amount: 1
-      NBT:
-        display:
-          Name: '密接'
-          Lore:
-            - *emergency_state_4
-            - '密です！密です！密です！ソーシャルディスタンス！！！'
-    - id: 'minecraft:gold_nugget'
-      amount: 1
-      NBT:
-        display:
-          Name: '時短要請協力金'
-          Lore:
-            - *emergency_state_4
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "次亜塩素酸水"
-          Lore:
-            - *emergency_state_4
-            - 'ネザーでの水分補給にぴったりのドリンクです'
-            - '(Go To ネザーキャンペーン復刻景品)'
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 12
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-    - id: 'minecraft:bow'
-      NBT:
-        display:
-          Name: 'ソーシャルディスタンス'
-          Lore:
-            - *emergency_state_4
-        Enchantments:
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-          - id: "minecraft:infinity"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-          - id: "minecraft:knockback"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
-          - id: "minecraft:punch"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
+            - *emergency_state_5
 
 # 10万人刻みで開催していく
 - name: &covid19_infection_500K_in_japan "新型コロナウィルス感染症感染者国内50万人突破記念キャンペーン！"
@@ -1137,10 +1019,10 @@
           Lore:
             - *covid19_death_9K_in_japan
 
-# 10万人刻みで開催していく
-- name: &covid19_death_2M20K_in_world "新型コロナウィルス感染症死者世界220万人突破記念キャンペーン！"
-  start: [2021, 2, 4]
-  end:   [2021, 2, 5]
+# 100万人刻みで開催していく
+- name: &covid19_death_3M_in_world "新型コロナウィルス感染症死者世界300万人突破記念キャンペーン！"
+  start: [2021, 4, 26]
+  end:   [2021, 5, 3]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -1149,7 +1031,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_death_2M20K_in_world
+            - *covid19_death_3M_in_world
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1170,7 +1052,7 @@
         display:
           Name: "マスク"
           Lore:
-            - *covid19_death_2M20K_in_world
+            - *covid19_death_3M_in_world
             - "装備せずに外に出ると、大変なことになるぞ"
         SkullOwner:
           Id:

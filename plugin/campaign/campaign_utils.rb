@@ -134,9 +134,10 @@ module Plugin::Campaign
       Plugin.call(:giftbox_keep,
                   user_name,
                   "#{description(context) || r_name}！#{item_name}をプレゼント",
-                  id: item_id,
-                  count: context.eval(item.amount.to_s) || 1,
-                  tag: item.NBT&.to_mcjson(context) || '{}')
+                  {
+                    id: item_id,
+                    count: context.eval(item.amount.to_s) || 1,
+                    tag: item.NBT&.to_mcjson(context) || '{}' })
     end
 
     private

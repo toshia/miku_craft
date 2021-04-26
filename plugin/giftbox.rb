@@ -6,14 +6,16 @@ Plugin.create :giftbox do
   FileUtils.mkdir_p(save_dir)
   store = Moneta.new(:File, dir: File.join(save_dir, 'giftbox'))
 
-  on_giftbox_keep do |name, message, id:, count: 1, tag: {}|
+  on_giftbox_keep do |name, message, opts|
     box = store[name] || []
     box << {
       message: message,
       item: {
-        name: id,
-        amount: count,
-        tag: tag } }
+        name: opts[:id],
+        amount: opts[:count] || 1,
+        tag: opts[:tag] || {}
+      }
+    }
     store[name] = box
     if collect(:active_players).include?(name)
       Plugin.call(:giftbox_give, name)

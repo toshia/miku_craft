@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    delayer (1.1.2)
+    delayer (1.2.0)
     egison (1.0.0)
     hashie (4.1.0)
     instance_storage (1.0.0)
@@ -9,7 +9,7 @@ GEM
       egison (~> 1.0)
     minitest (5.14.4)
     moneta (1.4.1)
-    pluggaloid (1.5.0)
+    pluggaloid (1.6.0)
       delayer (>= 1.1.0, < 2.0)
       instance_storage (>= 1.0.0, < 2.0.0)
 
@@ -24,4 +24,4 @@ DEPENDENCIES
   pluggaloid (>= 1.5.0, < 2)
 
 BUNDLED WITH
-   2.2.4
+   2.2.16

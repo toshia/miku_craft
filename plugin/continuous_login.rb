@@ -46,59 +46,77 @@ Plugin.create :continuous_login do
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！ダイヤのクワをプレゼント",
-                  id: 'minecraft:diamond_hoe',
-                  count: 1,
-                  tag: {
-                    display: {
-                      Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                  {
+                    id: 'minecraft:diamond_hoe',
+                    count: 1,
+                    tag: {
+                      display: {
+                        Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                      }
                     }
-                  })
+                  }
+                 )
     when (days % 17) == 0
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！マインカートをプレゼント",
-                  id: 'minecraft:minecart',
-                  count: 1,# 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
-                  tag: {
-                    display: {
-                      Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                  {
+                    id: 'minecraft:minecart',
+                    count: 1,# 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
+                    tag: {
+                      display: {
+                        Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                      }
                     }
-                  })
+                  }
+                 )
     when (days % 7) == 0
       food = Matsuya.order.gsub(/[　（）]/, '　'=>'', '（'=>'(', '）'=>')')
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！#{food}をプレゼント",
-                  id: 'minecraft:rabbit_stew',
-                  count: 1,
-                  tag: {
-                    display: {
-                      Name: Hashie::Mash.new(text: food.to_s).to_mcjson(binding),
-                      Lore:["#{days}日記念"]
+                  {
+                    id: 'minecraft:rabbit_stew',
+                    count: 1,
+                    tag: {
+                      display: {
+                        Name: Hashie::Mash.new(text: food.to_s).to_mcjson(binding),
+                        Lore:["#{days}日記念"]
+                      }
                     }
-                  })
+                  }
+                 )
       Plugin.call(:giftbox_keep,
                   name,
                   nil,
-                  id: 'minecraft:mushroom_stew',
-                  count: 1,
-                  tag: {
-                    display: {
-                      Name: Hashie::Mash.new(text: '味噌汁').to_mcjson(binding)
+                  {
+                    id: 'minecraft:mushroom_stew',
+                    count: 1,
+                    tag: {
+                      display: {
+                        Name: Hashie::Mash.new(text: '味噌汁').to_mcjson(binding)
+                      }
                     }
-                  })
+                  }
+                 )
     when (days % 5) == 0
       Plugin.call(:giftbox_keep,
                   name,
                   "#{days}日記念！経験値ボトルをプレゼント",
-                  id: 'minecraft:experience_bottle',
-                  count: 1)
+                  {
+                    id: 'minecraft:experience_bottle',
+                    count: 1
+                  }
+                 )
     else
       Plugin.call(:giftbox_keep,
                   name,
                   "ログイン#{days}日目！棒をプレゼント",
-                  id: 'minecraft:stick',
-                  count: 1)
+                  {
+                    id: 'minecraft:stick',
+                    count: 1
+                  }
+                 )
     end
   end
 end
