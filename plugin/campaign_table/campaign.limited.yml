@@ -782,7 +782,7 @@
 
 - name: &emergency_state_5 "緊急事態宣言コラボキャンペーン！"
   start: [2021, 4, 26]
-  end:   [2021, 5, 11]
+  end:   [2021, 6, 20]
   type: item_random
   table:
     - id: 'minecraft:milk_bucket'
