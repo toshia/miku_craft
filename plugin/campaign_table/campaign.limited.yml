@@ -1150,3 +1150,208 @@
             Amplifier: 2
             Duration: 2147483647
 
+- name: &mc117_amethyst minecraft 1.17アップデート記念　Amethyst祭り
+  start: [2021, 6, 11]
+  end:   [2021, 7, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:small_amethyst_bud'
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+    - id: 'minecraft:medium_amethyst_bud'
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+    - id: 'minecraft:large_amethyst_bud'
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+    - id: 'minecraft:amethyst_cluster'
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "破壊するとamethystが入手できます"
+            - "fortuneつきつるはしでドロップ数増えます"
+    - id: 'minecraft:amethyst_shard'
+      amount:
+        advice: to_i
+        value: "<%= rand(2..12) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "4つをクラフトするとblock of amethystになります"
+    - id: 'minecraft:amethyst_block'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "乗ったり投擲物を当てたりするときれいな音が鳴ります"
+    - id: 'minecraft:spyglass'
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "amethystとcopper ingotでクラフトできます"
+            - "手に持って右クリックすると、遠くがよく見えます"
+    - id: 'minecraft:tinted_glass'
+      amount:
+        advice: to_i
+        value: "<%= rand(4..28) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "amethystとglassでクラフトできます"
+            - "普通のglassと違って光を通しません"
+
+- name: &mc117_plants minecraft 1.17アップデート記念　植物祭り
+  start: [2021, 6, 11]
+  end:   [2021, 7, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:azalea'
+      NBT:
+        display:
+          Lore:
+            - *mc117_plants
+            - "bone mealをかけたら木が生えます"
+            - "放置では木にならず、骨粉が必要です"
+    - id: 'minecraft:flowering_azalea'
+      NBT:
+        display:
+          Lore:
+            - *mc117_plants
+            - "bone mealをかけたら木が生えます"
+            - "放置では木にならず、骨粉が必要です"
+
+- name: &mc117_copper minecraft 1.17アップデート記念　銅祭り
+  start: [2021, 6, 11]
+  end:   [2021, 7, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:copper_ingot'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+    - id: 'minecraft:lightning_rod'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "周囲32×4×32ブロック以内に落ちる雷はlightning rodに落ちます"
+    - id: 'minecraft:spyglass'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "amethystとcopper ingotでクラフトできます"
+            - "手に持って右クリックすると、遠くがよく見えます"
+    - id: 'minecraft:copper_block'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+    - id: 'minecraft:<%= %w[exposed weathered oxidized].sample %>_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "設置して斧で右クリックすると錆が1段階取れます"
+    - id: 'minecraft:cut_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "block of copper4つをクラフトすると作れます"
+    - id: 'minecraft:<%= %w[exposed weathered oxidized].sample %>_cut_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "同じ錆具合の銅ブロック4つをクラフトすると作れます"
+    - id: 'minecraft:waxed_copper_block'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "普通の銅ブロックと違って錆びません"
+            - "設置して斧で右クリックすると時間経過で錆びるようになります"
+    - id: 'minecraft:waxed_<%= %w[exposed weathered].sample %>_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "普通の銅ブロックと違って時間経過で錆が進行しません"
+            - "設置して斧で右クリックすると時間経過で錆びるようになります"
+    - id: 'minecraft:waxed_oxidized_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "普通の銅ブロックと違って時間経過で錆が進行しません"
+            - "設置して斧で右クリックすると時間経過で錆びるようになります"
+            - "まあこれ以上錆びないんですが…"
+    - id: 'minecraft:waxed_cut_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "block of copper4つをクラフトすると作れます"
+            - "普通の銅ブロックと違って錆びません"
+            - "設置して斧で右クリックすると時間経過で錆びるようになります"
+    - id: 'minecraft:waxed_<%= %w[exposed weathered].sample %>_cut_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "同じ錆具合の銅ブロック4つをクラフトすると作れます"
+            - "普通の銅ブロックと違って時間経過で錆が進行しません"
+            - "設置して斧で右クリックすると時間経過で錆びるようになります"
+    - id: 'minecraft:waxed_oxidized_cut_copper'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "同じ錆具合の銅ブロック4つをクラフトすると作れます"
+            - "普通の銅ブロックと違って時間経過で錆が進行しません"
+            - "設置して斧で右クリックすると時間経過で錆びるようになります"
+            - "まあこれ以上錆びないんですが…"
+    - id: 'minecraft:copper_ore'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+    - id: 'minecraft:deepslate_copper_ore'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+    - id: 'minecraft:raw_copper'
+      amount: 9
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "精錬するとcopper ingotになります"
+            - "9つまとめてクラフトすると、block of raw copperになります"
+    - id: 'minecraft:raw_copper_block'
+      NBT:
+        display:
+          Lore:
+            - *mc117_copper
+            - "クラフトすると、raw copperになります"
+ 
+
