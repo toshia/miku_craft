@@ -145,9 +145,9 @@ module Plugin::Campaign
     def rich_text(text, context)
       case text
       when String
-        Hashie::Mash.new(text: text).to_mcjson(context)
+        Hashie::Mash.new(text: text).to_mcjson(context).to_s
       when Hash
-        text.to_mcjson(context)
+        text.to_mcjson(context).to_s
       end
     end
   end

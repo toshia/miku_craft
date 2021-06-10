@@ -29,14 +29,35 @@ Plugin.create :giftbox do
   on_giftbox_give do |name|
     if collect(:active_players).include?(name)
       box = store[name] || []
-      unless box.empty?
-        box.each do |gift|
-          Plugin.call(:minecraft_tell, name, gift[:message]) if gift[:message].is_a? String
-          item = gift[:item]
-          tag = item[:tag]
+      case box.size
+      when 0
+        next
+      when 1
+        case box
+        in {item: {name: item_name, amount: amount, tag: tag}}
           tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
-          Plugin.call(:minecraft_give_item, name, item[:name], item[:amount], tag)
+          Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
         end
+      when 2..
+        box.map do |gift|
+          case gift
+              in {item: {name: item_name, amount: amount, tag: tag}}
+            Hashie::Mash.new({id: item_name, Count: amount, tag: tag}).tap do
+              tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
+              Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
+            end
+          end
+        end.each_slice(6) do |gifts|
+             Plugin.call(:minecraft_give_item, name, 'minecraft:bundle', 1,
+                         Hashie::Mash.new({ Items: gifts }).to_mcjson(binding))
+        end
+      end
+
+      box.each do |gift|
+        Plugin.call(:minecraft_tell, name, gift[:message]) if gift[:message].is_a? String
+      end
+
+      unless box.empty?
         store[name] = []
       end
     end

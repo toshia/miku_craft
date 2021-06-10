@@ -4,7 +4,7 @@ require 'securerandom'
 
 class Array
   def to_mcjson(bind)
-    '[' + self.map{|x| x.to_mcjson(bind) }.join(',') + ']'
+    MCJsonString.new('[' + self.map{|x| x.to_mcjson(bind) }.join(',') + ']')
   end
 end
 
@@ -12,11 +12,11 @@ class Hash
   def to_mcjson(bind)
     if has_key?('advice') && has_key?('value')
       value = fetch('value').to_mcjson(bind)
-      JSON.parse(value).__send__(fetch('advice'))
+      MCJsonString.new(JSON.parse(value).__send__(fetch('advice')).to_s)
     elsif self['_type'] == 'intarray' && has_key?('value')
-      '[I;%{content}]' % { content: self['value'].map(&'%d'.method(:%)).join(',') }
+      MCJsonString.new('[I;%{content}]' % { content: self['value'].map(&'%d'.method(:%)).join(',') })
     else
-      '{' + self.map{|k,v| "#{k.to_mcjson(bind)}:#{v.to_mcjson(bind)}"}.join(',') + '}'
+      MCJsonString.new('{' + self.map{|k,v| "#{k.to_mcjson(bind)}:#{v.to_mcjson(bind)}"}.join(',') + '}')
     end
   end
 end
@@ -25,15 +25,21 @@ class String
   def to_mcjson(bind)
     v = ERB.new(self).result(bind)
     if v == 'MINECRAFT_UUID'
-      "[I;%d,%d,%d,%d]" % SecureRandom.random_bytes(16).unpack("i4")
+      MCJsonString.new("[I;%d,%d,%d,%d]" % SecureRandom.random_bytes(16).unpack("i4"))
     else
-      '"' + v.gsub('"', '\"') + '"'
+      MCJsonString.new('"' + v.gsub('"', '\"') + '"')
     end
   end
 end
 
 class Numeric
   def to_mcjson(_)
-    inspect
+    MCJsonString.new(inspect)
+  end
+end
+
+class MCJsonString < String
+  def to_mcjson(_)
+    self
   end
 end
