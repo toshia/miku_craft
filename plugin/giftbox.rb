@@ -46,7 +46,6 @@ Plugin.create :giftbox do
               in {item: {name: item_name, amount: amount, tag: tag}}
             Hashie::Mash.new({id: item_name, Count: amount, tag: tag}).tap do
               tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
-              Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
             end
           else
             nil
