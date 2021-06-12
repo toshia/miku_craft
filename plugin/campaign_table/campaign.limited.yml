@@ -1151,7 +1151,7 @@
             Duration: 2147483647
 
 - name: &mc117_amethyst minecraft 1.17アップデート記念　Amethyst祭り
-  start: [2021, 6, 11]
+  start: [2021, 6, 14]
   end:   [2021, 7, 14]
   type: item_random
   table:
@@ -1214,8 +1214,8 @@
             - "普通のglassと違って光を通しません"
 
 - name: &mc117_plants minecraft 1.17アップデート記念　植物祭り
-  start: [2021, 6, 11]
-  end:   [2021, 7, 14]
+  start: [2021, 6, 15]
+  end:   [2021, 7, 15]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -1234,8 +1234,8 @@
             - "放置では木にならず、骨粉が必要です"
 
 - name: &mc117_copper minecraft 1.17アップデート記念　銅祭り
-  start: [2021, 6, 11]
-  end:   [2021, 7, 14]
+  start: [2021, 6, 16]
+  end:   [2021, 7, 16]
   type: item_random
   table:
     - id: 'minecraft:copper_ingot'
