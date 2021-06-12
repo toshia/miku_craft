@@ -37,6 +37,8 @@ Plugin.create :giftbox do
         in {item: {name: item_name, amount: amount, tag: tag}}
           tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
           Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
+        else
+          nil
         end
       when 2..
         box.map do |gift|
@@ -46,8 +48,10 @@ Plugin.create :giftbox do
               tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
               Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
             end
+          else
+            nil
           end
-        end.each_slice(6) do |gifts|
+        end.compact.each_slice(6) do |gifts|
              Plugin.call(:minecraft_give_item, name, 'minecraft:bundle', 1,
                          Hashie::Mash.new({ Items: gifts }).to_mcjson(binding))
         end
