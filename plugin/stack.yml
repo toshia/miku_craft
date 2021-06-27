@@ -1,0 +1,102 @@
+---
+minecraft:diamond_hoe: 1
+minecraft:minecart: 1
+minecraft:rabbit_stew: 1
+minecraft:mushroom_stew: 1
+minecraft:experience_bottle: 64
+minecraft:stick: 64
+minecraft:sea_pickle: 64
+minecraft:tipped_arrow: 64
+minecraft:wooden_sword: 1
+minecraft:player_head: 64
+minecraft:packed_ice: 64
+minecraft:blue_ice: 64
+minecraft:leather_helmet: 64
+minecraft:spider_eye: 64
+minecraft:lead: 64
+minecraft:flint_and_steel: 64
+minecraft:anvil: 64
+minecraft:potion: 1
+minecraft:splash_potion: 1
+minecraft:lingering_potion: 1
+minecraft:magenta_banner: 64
+minecraft:light_bluebanner: 64
+minecraft:yellow_banner: 64
+minecraft:lime_banner: 64
+minecraft:pink_banner: 64
+minecraft:gray_banner: 64
+minecraft:light_gray_banner: 64
+minecraft:cyan_banner: 64
+minecraft:purple_banner: 64
+minecraft:blue_banner: 64
+minecraft:brown_banner: 64
+minecraft:green_banner: 64
+minecraft:red_banner: 64
+minecraft:black_banner: 64
+
+minecraft:magenta_terracotta: 64
+minecraft:light_blueterracotta: 64
+minecraft:yellow_terracotta: 64
+minecraft:lime_terracotta: 64
+minecraft:pink_terracotta: 64
+minecraft:gray_terracotta: 64
+minecraft:light_gray_terracotta: 64
+minecraft:cyan_terracotta: 64
+minecraft:purple_terracotta: 64
+minecraft:blue_terracotta: 64
+minecraft:brown_terracotta: 64
+minecraft:green_terracotta: 64
+minecraft:red_terracotta: 64
+minecraft:black_terracotta: 64
+
+minecraft:name_tag: 64
+
+minecraft:dirt: 64
+minecraft:honey_bottle: 64
+minecraft:honeycomb: 64
+minecraft:honey_block: 64
+minecraft:gold_nugget: 64
+minecraft:bow: 1
+minecraft:pufferfish: 64
+minecraft:soul_lantern: 64
+minecraft:elytra: 1
+minecraft:bamboo: 1
+minecraft:crossbow: 1
+minecraft:dispenser: 64
+minecraft:small_amethyst_bud: 64
+minecraft:medium_amethyst_bud: 64
+minecraft:large_amethyst_bud: 64
+minecraft:amethyst_cluster: 64
+minecraft:amethyst_shard: 64
+minecraft:amethyst_block: 64
+minecraft:spyglass: 1
+minecraft:tinted_glass: 64
+minecraft:azalea: 64
+minecraft:flowering_azalea: 64
+minecraft:copper_ingot: 64
+minecraft:lightning_rod: 64
+
+minecraft:copper_block: 64
+minecraft:exposed_copper: 64
+minecraft:weathered_copper: 64
+minecraft:oxidized_copper: 64
+
+minecraft:cut_copper: 64
+minecraft:exposed_cut_copper: 64
+minecraft:weathered_cut_copper: 64
+minecraft:oxidized_cut_copper: 64
+
+minecraft:waxed_copper_block: 64
+minecraft:waxed_exposed_copper: 64
+minecraft:waxed_weathered_copper: 64
+minecraft:waxed_oxidized_copper: 64
+
+minecraft:waxed_cut_copper: 64
+minecraft:waxed_exposed_cut_copper: 64
+minecraft:waxed_weathered_cut_copper: 64
+minecraft:waxed_oxidized_cut_copper: 64
+
+minecraft:copper_ore: 64
+minecraft:deepslate_copper_ore: 64
+minecraft:raw_copper: 64
+minecraft:raw_copper_block: 64

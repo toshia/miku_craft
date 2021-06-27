@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 require 'fileutils'
 
+ITEM_STACK = YAML.load_file(File.join(__dir__, 'stack.yml'))
+
 Plugin.create :giftbox do
   save_dir = File.expand_path(File.join(__dir__, '..', 'config', 'giftbox'))
   FileUtils.mkdir_p(save_dir)
@@ -34,25 +36,50 @@ Plugin.create :giftbox do
         next
       when 1
         case box
-        in {item: {name: item_name, amount: amount, tag: tag}}
+        in [{item: {name: item_name, amount: amount, tag: tag}}]
           tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
           Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
+        in [{item: {name: item_name, amount: amount}}]
+          Plugin.call(:minecraft_give_item, name, item_name, amount, '{}')
         else
+          warn "unknown gift payload! #{box.inspect}"
           nil
         end
-      when 2..
-        box.map do |gift|
+      when (2..)
+        gifts = box.map do |gift|
           case gift
-              in {item: {name: item_name, amount: amount, tag: tag}}
-            Hashie::Mash.new({id: item_name, Count: amount, tag: tag}).tap do
-              tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
-            end
+          in {item: {name: item_name, amount: amount, tag: tag}}
+            tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
+            Hashie::Mash.new({id: item_name, Count: amount, tag: tag})
           else
             nil
           end
-        end.compact.each_slice(6) do |gifts|
-             Plugin.call(:minecraft_give_item, name, 'minecraft:bundle', 1,
-                         Hashie::Mash.new({ Items: gifts }).to_mcjson(binding))
+        end.compact.sort_by { -calc_weight(_1) }
+        capa = 1
+        chunks = []
+        chunk = []
+        while !gifts.empty?
+          i = gifts.find_index { capa >= calc_weight(_1) }
+          if i
+            gift = gifts.slice!(i)
+            capa -= calc_weight(gift)
+            chunk << gift
+          else
+            capa = 1
+            chunks << chunk.freeze
+            chunk = []
+          end
+        end
+        chunks << chunk.freeze unless chunk.empty?
+        chunks.each do |gifts|
+          case gifts.size
+          when 1
+            gift, = gifts
+            Plugin.call(:minecraft_give_item, name, gift['id'], gift['Count'], gift['tag'])
+          when (2..)
+            Plugin.call(:minecraft_give_item, name, 'minecraft:bundle', 1,
+                        Hashie::Mash.new({ Items: gifts }).to_mcjson(binding))
+          end
         end
       end
 
@@ -64,5 +91,9 @@ Plugin.create :giftbox do
         store[name] = []
       end
     end
+  end
+
+  def calc_weight(item)
+    Rational((item['Count'] || 1).to_i, ITEM_STACK[item['id'].to_s] || 1)
   end
 end
