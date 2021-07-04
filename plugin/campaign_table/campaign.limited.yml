@@ -933,9 +933,9 @@
             lvl: "<%= 3.times.map{rand(0..1)}.min %>"
 
 # 10万人刻みで開催していく
-- name: &covid19_infection_600K_in_japan "新型コロナウィルス感染症感染者国内60万人突破記念キャンペーン！"
-  start: [2021, 5, 3]
-  end:   [2021, 5, 9]
+- name: &covid19_infection_800K_in_japan "新型コロナウィルス感染症感染者国内80万人突破記念キャンペーン！"
+  start: [2021, 7, 5]
+  end:   [2021, 7, 11]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -944,7 +944,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_infection_600K_in_japan
+            - *covid19_infection_800K_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -955,7 +955,7 @@
         display:
           Name: 'コロナビーム'
           Lore:
-            - *covid19_infection_600K_in_japan
+            - *covid19_infection_800K_in_japan
             - 敵をコロナに感染させます
         Enchantments:
           - id: "minecraft:quick_charge"
@@ -983,7 +983,68 @@
         display:
           Name: "イソジン"
           Lore:
-            - *covid19_infection_600K_in_japan
+            - *covid19_infection_800K_in_japan
+            - 主に大阪で使用されているコロナ治療薬です
+        CustomPotionColor: 6574154
+        CustomPotionEffects:
+          - Id: 7
+          - Id: 23
+            Amplifier: 3
+          - Id: 17
+            Amplifier: 1
+            Duration: 2147483647
+
+- name: &covid19_infection_700K_in_japan "新型コロナウィルス感染症感染者国内70万人突破記念キャンペーン！"
+  start: [2021, 7, 5]
+  end:   [2021, 7, 11]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "SARS-CoV-2"
+          Lore:
+            - *covid19_infection_700K_in_japan
+            - 飲むと新型コロナウィルス感染症で死にます
+        CustomPotionColor:
+          advice: to_i
+          value: "<%= rand(0..0xff_ff_ff) %>"
+        CustomPotionEffects: *custom_potion_effects_SARS_CoV_2
+    - id: 'minecraft:crossbow'
+      NBT:
+        display:
+          Name: 'コロナビーム'
+          Lore:
+            - *covid19_infection_700K_in_japan
+            - 敵をコロナに感染させます
+        Enchantments:
+          - id: "minecraft:quick_charge"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:multishot"
+            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
+          - id: "minecraft:piercing"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:mending"
+            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
+          - id: "minecraft:infinity"
+            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
+        ChargedProjectiles:
+          - id: 'minecraft:tipped_arrow'
+            Count: 1
+            tag:
+              Potion: "minecraft:water"
+              CustomPotionEffects: *custom_potion_effects_SARS_CoV_2
+        Charged: 1
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        display:
+          Name: "イソジン"
+          Lore:
+            - *covid19_infection_700K_in_japan
             - 主に大阪で使用されているコロナ治療薬です
         CustomPotionColor: 6574154
         CustomPotionEffects:
@@ -999,7 +1060,7 @@
         display:
           Name: "うちわ"
           Lore:
-            - *covid19_infection_600K_in_japan
+            - *covid19_infection_700K_in_japan
             - 兵庫県で用いられる、コロナ感染対策グッズです
 
 # 1000万人刻みで開催していく
@@ -1212,6 +1273,25 @@
             - *mc117_amethyst
             - "amethystとglassでクラフトできます"
             - "普通のglassと違って光を通しません"
+    - id: 'minecraft:calcite'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "Amethyst Geodeの外側のブロック"
+    - id: 'minecraft:smooth_basalt'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_amethyst
+            - "Amethyst Geodeの外側のブロック"
+            - "Basaltを焼くことでも入手できます"
 
 - name: &mc117_plants minecraft 1.17アップデート記念　植物祭り
   start: [2021, 6, 15]
@@ -1353,5 +1433,19 @@
           Lore:
             - *mc117_copper
             - "クラフトすると、raw copperになります"
- 
 
+- name: &mc117_candle minecraft 1.17アップデート記念　キャンドル祭り
+  start: [2021, 7, 5]
+  end:   [2021, 8, 4]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray light_gray cyan purple blue brown green red black>.map { "#{_1}_" } ].sample %>candle'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc117_candle
+            - "設置してFlint and Steelで着火すると光源になります"
+            - "同じマスに4つまで設置できます"
