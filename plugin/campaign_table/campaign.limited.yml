@@ -1141,9 +1141,9 @@
             - *covid19_death_10K_in_japan
 
 # 100万人刻みで開催していく
-- name: &covid19_death_3M_in_world "新型コロナウィルス感染症死者世界300万人突破記念キャンペーン！"
-  start: [2021, 4, 26]
-  end:   [2021, 5, 3]
+- name: &covid19_death_4M_in_world "新型コロナウィルス感染症死者世界400万人突破記念キャンペーン！"
+  start: [2021, 7, 19]
+  end:   [2021, 7, 25]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -1152,7 +1152,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_death_3M_in_world
+            - *covid19_death_4M_in_world
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1173,7 +1173,7 @@
         display:
           Name: "マスク"
           Lore:
-            - *covid19_death_3M_in_world
+            - *covid19_death_4M_in_world
             - "装備せずに外に出ると、大変なことになるぞ"
         SkullOwner:
           Id:
