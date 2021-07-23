@@ -521,9 +521,9 @@
               advice: to_i
               value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
 
-- name: &tokyo2020 "東京オリンピック2020中止記念キャンペーン！"
-  start: [2020, 7, 22]
-  end:   [2020, 8, 9]
+- name: &tokyo2020 "東京オリンピック2020記念キャンペーン！"
+  start: [2021, 7, 24]
+  end:   [2021, 8, 8]
   type: item_random
   table:
     - id: 'minecraft:bow'
@@ -642,15 +642,13 @@
               advice: to_i
               value: "<%= (1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)) %>"
             Operation: 0
-            UUIDMost: 114514
-            UUIDLeast: 566400782
+            UUID: MINECRAFT_UUID
             Slot: mainhand
           - AttributeName: "generic.attack_speed"
             Name: "generic.attack_speed"
             Amount: 1.2
             Operation: 0
-            UUIDMost: 114514
-            UUIDLeast: 1013931856
+            UUID: MINECRAFT_UUID
             Slot: mainhand
         Enchantments:
           - id: "minecraft:sharpness"
@@ -673,12 +671,42 @@
         Enchantments:
           - id: "minecraft:respiration"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:protection"
-            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
           - id: "minecraft:unbreaking"
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
           - id: "minecraft:feather_falling"
             lvl: "<%= rand(0..1) %>"
+    - id: 'minecraft:leather_chestplate'
+      NBT:
+        display:
+          Name: '競泳水着'
+          Lore:
+            - *tokyo2020
+            - 競泳などの競技で使われる水着です
+          color: 0x333c5e
+        Enchantments:
+          - id: "minecraft:respiration"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:thorns"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount:
+              advice: to_i
+              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
+          - AttributeName: "generic.armor_toughness"
+            Name: "generic.armor_toughness"
+            Amount:
+              advice: to_i
+              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
       amount: 1
       NBT:
@@ -704,6 +732,74 @@
           Name: "馬鎧（馬術）"
           Lore:
             - *tokyo2020
+    - id: 'minecraft:leather_chestplate'
+      NBT:
+        display:
+          Name: '柔道着'
+          Lore:
+            - *tokyo2020
+            - 柔道で使われる服です
+          color:
+            advice: to_i
+            value: "<%= [0xcccccc, 0x3333cc].sample %>"
+        Enchantments:
+          - id: "minecraft:unbreaking"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:thorns"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount:
+              advice: to_i
+              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
+          - AttributeName: "generic.armor_toughness"
+            Name: "generic.armor_toughness"
+            Amount:
+              advice: to_i
+              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
+          - AttributeName: "generic.knockback_resistance"
+            Name: "generic.knockback_resistance"
+            Amount:
+              advice: to_f
+              value: "<%= Rational([Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1), 28].min, 32).to_f %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: chest
+    - id: 'minecraft:leather_boots'
+      NBT:
+        display:
+          Name: 'ズームX ヴェイパーフライ ネクスト％ 2'
+          Lore:
+            - *tokyo2020
+            - 陸上選手が履いている靴です
+          color: 0xfcfcfc
+        Enchantments:
+          - id: "minecraft:soul_speed"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+          - id: "minecraft:thorns"
+            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Name: "generic.armor"
+            Amount:
+              advice: to_i
+              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: feet
+          - AttributeName: "generic.movement_speed"
+            Name: "generic.movement_speed"
+            Amount: 0.0208
+            Operation: 0
+            UUID: MINECRAFT_UUID
+            Slot: feet
 
 - name: &go_to_eat "Go To Eatキャンペーン！"
   start: [2020, 10, 9]
