@@ -1034,10 +1034,10 @@
             Amplifier: 2
             Duration: 2147483647
 
-# 10万人刻みで開催していく
-- name: &covid19_infection_900K_in_japan "新型コロナウィルス感染症感染者国内90万人突破記念キャンペーン！"
-  start: [2021, 8, 1]
-  end:   [2021, 8, 8]
+# 100万人刻みで開催していく
+- name: &covid19_infection_1M_in_japan "新型コロナウィルス感染症感染者国内100万人突破記念キャンペーン！"
+  start: [2021, 8, 9]
+  end:   [2021, 8, 16]
   type: item_random
   table:
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
@@ -1046,7 +1046,7 @@
         display:
           Name: "SARS-CoV-2"
           Lore:
-            - *covid19_infection_900K_in_japan
+            - *covid19_infection_1M_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1058,7 +1058,7 @@
         display:
           Name: "SARS-CoV-2 (N501Y)"
           Lore:
-            - *covid19_infection_900K_in_japan
+            - *covid19_infection_1M_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1079,7 +1079,7 @@
         display:
           Name: "SARS-CoV-2 (E484K)"
           Lore:
-            - *covid19_infection_900K_in_japan
+            - *covid19_infection_1M_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1103,7 +1103,7 @@
         display:
           Name: "SARS-CoV-2 (L452R)"
           Lore:
-            - *covid19_infection_900K_in_japan
+            - *covid19_infection_1M_in_japan
             - 飲むと新型コロナウィルス感染症で死にます
         CustomPotionColor:
           advice: to_i
@@ -1121,14 +1121,12 @@
           - Id: 19
             Amplifier: 1
             Duration: 2147483647
-
-
     - id: 'minecraft:crossbow'
       NBT:
         display:
           Name: 'コロナビーム'
           Lore:
-            - *covid19_infection_900K_in_japan
+            - *covid19_infection_1M_in_japan
             - 敵をコロナに感染させます
         Enchantments:
           - id: "minecraft:quick_charge"
@@ -1150,22 +1148,18 @@
               Potion: "minecraft:water"
               CustomPotionEffects: *custom_potion_effects_SARS_CoV_2
         Charged: 1
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
+    - id: 'minecraft:gold_ingot'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
       NBT:
         display:
-          Name: "イソジン"
+          Name: '金メダル'
           Lore:
-            - *covid19_infection_900K_in_japan
-            - 主に大阪で使用されているコロナ治療薬です
-        CustomPotionColor: 6574154
-        CustomPotionEffects:
-          - Id: 7
-          - Id: 23
-            Amplifier: 3
-          - Id: 17
-            Amplifier: 1
-            Duration: 2147483647
+            - *covid19_infection_1M_in_japan
+            - '「ぜひ東京大会はCOVID19との戦いで'
+            - '金メダルを取りたいと思います」'
+
 
 # 1000万人刻みで開催していく
 - name: &covid19_infection_100M_in_world "新型コロナウィルス感染症感染者世界1億人突破記念キャンペーン！"
