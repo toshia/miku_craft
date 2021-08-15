@@ -46,7 +46,7 @@ Plugin.create :giftbox do
           nil
         end
       when (2..)
-        gifts = box.map do |gift|
+        gifts, capa_over = box.filter_map do |gift|
           case gift
           in {item: {name: item_name, amount: amount, tag: tag}}
             tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
@@ -54,9 +54,10 @@ Plugin.create :giftbox do
           else
             nil
           end
-        end.compact.sort_by { -calc_weight(_1) }
+        end.partition{ calc_weight(_1) <= 1 }
+        gifts.sort_by! { -calc_weight(_1) }
         capa = 1
-        chunks = []
+        chunks = (capa_over || []).map { [_1].freeze }
         chunk = []
         while !gifts.empty?
           i = gifts.find_index { capa >= calc_weight(_1) }
