@@ -50,9 +50,9 @@
             Slot: head
         HideFlags: 1
 
-- name: &make_america_great_again ドナルド・トランプ永久凍結記念イベント
-  start: [2021, 1, 9]
-  end:   [2021, 1, 20]
+- name: &make_america_great_again ドナルド・トランプ永久凍結<%= Time.now.year - 2021 %>記念イベント
+  start: [1, 9]
+  end:   [1, 20]
   type: item_random
   table:
     - id: 'minecraft:packed_ice'
