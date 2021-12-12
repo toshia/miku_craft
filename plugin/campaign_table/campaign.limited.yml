@@ -2541,3 +2541,223 @@
             - *mc118_ore_-33
             - "Y=-64～15で均一分布"
             - "Y=-64～-32で斜状分布（最大Y=-64）"
+
+- name: &mc118_lush_caves minecraft 1.18アップデート記念 繁茂した洞窟祭り
+  start: [2021, 12, 17]
+  end:   [2021, 12, 31]
+  type: item_random
+  table:
+    - id: 'minecraft:azalea'
+      NBT:
+        display:
+          Lore: &mc118_lush_caves_lore
+            - *mc118_lush_caves
+            - "繁茂した洞窟に生成されます"
+            - "繁茂した洞窟は、ツツジの木の下にあるよ"
+    - id: 'minecraft:flowering_azalea'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:small_dripleaf'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:big_dripleaf'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:hanging_roots'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:spore_blossom'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:glow_berries'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:glow_lichen'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:clay'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:moss_block'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:moss_carpet'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+    - id: 'minecraft:rooted_dirt'
+      NBT:
+        display:
+          Lore: *mc118_lush_caves_lore
+
+- name: &mc118_dripstone_caves minecraft 1.18アップデート記念 繁茂した洞窟祭り
+  start: [2021, 12, 31]
+  end:   [2022, 1, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:dripstone_block'
+      NBT:
+        display:
+          Lore: &mc118_dripstone_caves_lore
+            - *mc118_dripstone_caves
+            - "鍾乳洞に生成されます"
+    - id: 'minecraft:pointed_dripstone'
+      NBT:
+        display:
+          Lore: *mc118_dripstone_caves_lore
+
+- name: &mc118_etc minecraft 1.18アップデート記念 その他祭り
+  start: [2021, 12, 1]
+  end:   [2022, 1, 21]
+  type: item_random
+  table:
+    - id: 'minecraft:enchanting_table'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "レベル7の光を発するようになった"
+            - "GUI上のラピスラズリのアイコンが変わった"
+    - id: 'minecraft:glow_berries'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "ハサミを先端に使用すると、成長が止まるようになった"
+    - id: 'minecraft:kelp'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "ハサミを先端に使用すると、成長が止まるようになった"
+    - id: 'minecraft:twisting_vines'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "ハサミを先端に使用すると、成長が止まるようになった"
+    - id: 'minecraft:weeping_vines'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "ハサミを先端に使用すると、成長が止まるようになった"
+    - id: 'minecraft:copper_ore'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "ドロップ数が2-5個に増加"
+    - id: 'minecraft:stonecutter'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "銅ブロックを4つの切り込み入りの銅に加工できるようになった"
+    - id: 'minecraft:conduit'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "破壊に最適なツールがツルハシになった"
+    - id: 'minecraft:comparator'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変わった"
+    - id: 'minecraft:anvil'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "GUI内のハンマーのテクスチャが変更された"
+    - id: 'minecraft:carrot'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "成長段階がStage3のときのテクスチャが変更された"
+    - id: 'minecraft:cocoa_beans'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "カカオの実のテクスチャのstage0とstage1が変更された"
+    - id: 'minecraft:cartography_table'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:oak_door'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:spruce_door'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:iron_door'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:red_stained_glass'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:blue_stained_glass'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:glass_pane'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:lectern'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:crimson_stem'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:warped_stem'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+    - id: 'minecraft:stripped_dark_oak_log'
+      NBT:
+        display:
+          Lore:
+            - *mc118_etc
+            - "テクスチャが変更された"
+
+
