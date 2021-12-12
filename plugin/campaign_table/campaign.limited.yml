@@ -1864,3 +1864,680 @@
         display:
           Lore:
             - *mc117_stone
+
+- name: &mc118_ore_255 minecraft 1.18アップデート記念　Y255〜224の鉱石祭り
+  start: [2021, 12, 19]
+  end:   [2021, 12, 25]
+  type: item_random
+  table:
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_255
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_255
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_255
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_255
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+
+- name: &mc118_ore_223 minecraft 1.18アップデート記念　Y223〜192の鉱石祭り
+  start: [2021, 12, 26]
+  end:   [2022, 1, 1]
+  type: item_random
+  table:
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_223
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_223
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_223
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_223
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+
+- name: &mc118_ore_191 minecraft 1.18アップデート記念　Y191〜160の鉱石祭り
+  start: [2022, 1, 2]
+  end:   [2022, 1, 8]
+  type: item_random
+  table:
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_191
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_191
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_191
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_191
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_191
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+
+- name: &mc118_ore_159 minecraft 1.18アップデート記念　Y159〜128の鉱石祭り
+  start: [2022, 1, 9]
+  end:   [2022, 1, 15]
+  type: item_random
+  table:
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_159
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_159
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_159
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_159
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_159
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+
+- name: &mc118_ore_127 minecraft 1.18アップデート記念　Y127〜96の鉱石祭り
+  start: [2022, 1, 16]
+  end:   [2022, 1, 22]
+  type: item_random
+  table:
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_127
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_127
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_127
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_127
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:copper_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_127
+            - "Y=-16～112で斜状分布（最大Y=48）"
+
+- name: &mc118_ore_95 minecraft 1.18アップデート記念　Y95〜64の鉱石祭り
+  start: [2022, 1, 23]
+  end:   [2022, 1, 29]
+  type: item_random
+  table:
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_95
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_95
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_95
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:copper_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_95
+            - "Y=-16～112で斜状分布（最大Y=48）"
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_95
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+
+- name: &mc118_ore_63 minecraft 1.18アップデート記念　Y63〜32の鉱石祭り
+  start: [2022, 1, 30]
+  end:   [2022, 2, 5]
+  type: item_random
+  table:
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:copper_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-16～112で斜状分布（最大Y=48）"
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:lapis_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～64で均一分布"
+            - "Y=32～-32で斜状分布（最大Y=0）"
+
+- name: &mc118_ore_63 minecraft 1.18アップデート記念　Y31〜0の鉱石祭り
+  start: [2022, 2, 6]
+  end:   [2022, 2, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:coal_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..64) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=136～256で均一分布"
+            - "Y=0～192で斜状分布（最大Y=96）"
+    - id: 'minecraft:gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:copper_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-16～112で斜状分布（最大Y=48）"
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:lapis_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～64で均一分布"
+            - "Y=32～-32で斜状分布（最大Y=0）"
+    - id: 'minecraft:redstone_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～15で均一分布"
+            - "Y=-64～-32で斜状分布（最大Y=-64）"
+    - id: 'minecraft:diamond_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～16で斜状分布（最大Y=-64）"
+    - id: 'minecraft:lapis_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_63
+            - "Y=-64～64で均一分布"
+            - "Y=32～-32で斜状分布（最大Y=0）"
+
+- name: &mc118_ore_-1 minecraft 1.18アップデート記念　Y-1〜-32の鉱石祭り
+  start: [2022, 2, 13]
+  end:   [2022, 2, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:deepslate_emerald_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..4) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
+    - id: 'minecraft:deepslate_gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:deepslate_copper_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=-16～112で斜状分布（最大Y=48）"
+    - id: 'minecraft:deepslate_iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:deepslate_iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:deepslate_lapis_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=-64～64で均一分布"
+            - "Y=32～-32で斜状分布（最大Y=0）"
+    - id: 'minecraft:deepslate_redstone_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=-64～15で均一分布"
+            - "Y=-64～-32で斜状分布（最大Y=-64）"
+    - id: 'minecraft:deepslate_diamond_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=-64～16で斜状分布（最大Y=-64）"
+    - id: 'minecraft:deepslate_lapis_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-1
+            - "Y=-64～64で均一分布"
+            - "Y=32～-32で斜状分布（最大Y=0）"
+
+- name: &mc118_ore_-33 minecraft 1.18アップデート記念　Y-33〜-64の鉱石祭り
+  start: [2022, 2, 20]
+  end:   [2022, 2, 26]
+  type: item_random
+  table:
+    - id: 'minecraft:deepslate_gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:deepslate_iron_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..32) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=80～256で斜状分布（最大Y=256）"
+            - "Y=-24～57で斜状分布（最大Y=16）"
+            - "Y=-64～72で均一分布"
+    - id: 'minecraft:deepslate_redstone_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=-64～15で均一分布"
+            - "Y=-64～-32で斜状分布（最大Y=-64）"
+    - id: 'minecraft:deepslate_diamond_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=-64～16で斜状分布（最大Y=-64）"
+    - id: 'minecraft:deepslate_lapis_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..8) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=-64～64で均一分布"
+            - "Y=32～-32で斜状分布（最大Y=0）"
+    - id: 'minecraft:deepslate_gold_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=-64～32で斜状分布（最大Y=-16）"
+            - "Y=-64～-48で均一分布"
+            - "荒野においてはY=256以下で生成。"
+    - id: 'minecraft:deepslate_redstone_ore'
+      amount:
+        advice: to_i
+        value: "<%= rand(1..16) %>"
+      NBT:
+        display:
+          Lore:
+            - *mc118_ore_-33
+            - "Y=-64～15で均一分布"
+            - "Y=-64～-32で斜状分布（最大Y=-64）"
