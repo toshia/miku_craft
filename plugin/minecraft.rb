@@ -7,7 +7,7 @@ Plugin.create :minecraft do
 
   mc_stdin = mc_stdout = mc_stderr = wait_thr = stdout_thread = stderr_thread = watch_thread = nil
   on_boot_server do
-    mc_stdin, mc_stdout, mc_stderr, wait_thr = Open3.popen3('java -Xmx4096M -Xms1024M -Dlog4j2.formatMsgNoLookups=true -jar /server.jar nogui')
+    mc_stdin, mc_stdout, mc_stderr, wait_thr = Open3.popen3('java -Xmx4096M -Xms1024M -jar /server.jar nogui')
     stdout_thread = Thread.new do
       generate(:server_raw_output, :stdout) do |yielder|
         mc_stdout.each(&yielder.method(:<<))
