@@ -1275,9 +1275,9 @@
             textures:
               - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
 
-- name: &mc117_amethyst minecraft 1.17アップデート記念　Amethyst祭り
-  start: [2021, 6, 14]
-  end:   [2021, 7, 14]
+- name: &mc117_amethyst 【復刻】minecraft 1.17アップデート記念　Amethyst祭り
+  start: [2021, 12, 19]
+  end:   [2022, 1, 19]
   type: item_random
   table:
     - id: 'minecraft:small_amethyst_bud'
@@ -1357,9 +1357,9 @@
             - "Amethyst Geodeの外側のブロック"
             - "Basaltを焼くことでも入手できます"
 
-- name: &mc117_plants minecraft 1.17アップデート記念　植物祭り
-  start: [2021, 6, 15]
-  end:   [2021, 7, 15]
+- name: &mc117_plants 【復刻】minecraft 1.17アップデート記念　植物祭り
+  start: [2021, 12, 26]
+  end:   [2022, 1, 26]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -1377,9 +1377,9 @@
             - "bone mealをかけたら木が生えます"
             - "放置では木にならず、骨粉が必要です"
 
-- name: &mc117_copper minecraft 1.17アップデート記念　銅祭り
-  start: [2021, 6, 16]
-  end:   [2021, 7, 16]
+- name: &mc117_copper 【復刻】minecraft 1.17アップデート記念　銅祭り
+  start: [2022, 1, 2]
+  end:   [2022, 2, 2]
   type: item_random
   table:
     - id: 'minecraft:copper_ingot'
@@ -1498,9 +1498,9 @@
             - *mc117_copper
             - "クラフトすると、raw copperになります"
 
-- name: &mc117_candle minecraft 1.17アップデート記念　キャンドル祭り
-  start: [2021, 7, 5]
-  end:   [2021, 8, 4]
+- name: &mc117_candle 【復刻】minecraft 1.17アップデート記念　キャンドル祭り
+  start: [2022, 1, 9]
+  end:   [2022, 2, 9]
   type: item_random
   table:
     - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray light_gray cyan purple blue brown green red black>.map { "#{_1}_" } ].sample %>candle'
@@ -1514,9 +1514,9 @@
             - "設置してFlint and Steelで着火すると光源になります"
             - "同じマスに4つまで設置できます"
 
-- name: &mc117_plants2 minecraft 1.17アップデート記念　植物祭り2
-  start: [2021, 7, 12]
-  end:   [2021, 8, 11]
+- name: &mc117_plants2 【復刻】minecraft 1.17アップデート記念　植物祭り2
+  start: [2022, 1, 16]
+  end:   [2022, 2, 16]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -1582,9 +1582,9 @@
             - *mc117_plants2
             - "明るさレベル7なので、湧きつぶしには使えません"
 
-- name: &mc117_stone minecraft 1.17アップデート記念　原石祭り
-  start: [2021, 7, 17]
-  end:   [2021, 8, 18]
+- name: &mc117_stone 【復刻】minecraft 1.17アップデート記念　原石祭り
+  start: [2022, 1, 23]
+  end:   [2022, 2, 23]
   type: item_random
   table:
     - id: 'minecraft:coal'      # very common 16
@@ -2543,8 +2543,8 @@
             - "Y=-64～-32で斜状分布（最大Y=-64）"
 
 - name: &mc118_lush_caves minecraft 1.18アップデート記念 繁茂した洞窟祭り
-  start: [2021, 12, 17]
-  end:   [2021, 12, 31]
+  start: [2021, 12, 19]
+  end:   [2022, 1, 2]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -2599,7 +2599,7 @@
         display:
           Lore: *mc118_lush_caves_lore
 
-- name: &mc118_dripstone_caves minecraft 1.18アップデート記念 繁茂した洞窟祭り
+- name: &mc118_dripstone_caves minecraft 1.18アップデート記念 鍾乳洞祭り
   start: [2021, 12, 31]
   end:   [2022, 1, 14]
   type: item_random
@@ -2616,7 +2616,7 @@
           Lore: *mc118_dripstone_caves_lore
 
 - name: &mc118_etc minecraft 1.18アップデート記念 その他祭り
-  start: [2021, 12, 1]
+  start: [2022, 1, 1]
   end:   [2022, 1, 21]
   type: item_random
   table:
