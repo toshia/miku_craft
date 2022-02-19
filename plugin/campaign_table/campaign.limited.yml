@@ -1276,8 +1276,8 @@
               - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
 
 - name: &mc117_amethyst 【復刻】minecraft 1.17アップデート記念　Amethyst祭り
-  start: [2021, 12, 19]
-  end:   [2022, 1, 19]
+  start: [2022, 2, 20]
+  end:   [2022, 2, 27]
   type: item_random
   table:
     - id: 'minecraft:small_amethyst_bud'
@@ -1358,8 +1358,8 @@
             - "Basaltを焼くことでも入手できます"
 
 - name: &mc117_plants 【復刻】minecraft 1.17アップデート記念　植物祭り
-  start: [2021, 12, 26]
-  end:   [2022, 1, 26]
+  start: [2022, 2, 27]
+  end:   [2022, 3, 6]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -1378,8 +1378,8 @@
             - "放置では木にならず、骨粉が必要です"
 
 - name: &mc117_copper 【復刻】minecraft 1.17アップデート記念　銅祭り
-  start: [2022, 1, 2]
-  end:   [2022, 2, 2]
+  start: [2022, 3, 6]
+  end:   [2022, 3, 13]
   type: item_random
   table:
     - id: 'minecraft:copper_ingot'
@@ -1499,8 +1499,8 @@
             - "クラフトすると、raw copperになります"
 
 - name: &mc117_candle 【復刻】minecraft 1.17アップデート記念　キャンドル祭り
-  start: [2022, 1, 9]
-  end:   [2022, 2, 9]
+  start: [2022, 3, 13]
+  end:   [2022, 3, 20]
   type: item_random
   table:
     - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray light_gray cyan purple blue brown green red black>.map { "#{_1}_" } ].sample %>candle'
@@ -1515,8 +1515,8 @@
             - "同じマスに4つまで設置できます"
 
 - name: &mc117_plants2 【復刻】minecraft 1.17アップデート記念　植物祭り2
-  start: [2022, 1, 16]
-  end:   [2022, 2, 16]
+  start: [2022, 3, 20]
+  end:   [2022, 3, 27]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -1583,8 +1583,8 @@
             - "明るさレベル7なので、湧きつぶしには使えません"
 
 - name: &mc117_stone 【復刻】minecraft 1.17アップデート記念　原石祭り
-  start: [2022, 1, 23]
-  end:   [2022, 2, 23]
+  start: [2022, 3, 27]
+  end:   [2022, 4, 3]
   type: item_random
   table:
     - id: 'minecraft:coal'      # very common 16
@@ -1866,8 +1866,8 @@
             - *mc117_stone
 
 - name: &mc118_ore_255 minecraft 1.18アップデート記念　Y255〜224の鉱石祭り
-  start: [2021, 12, 19]
-  end:   [2021, 12, 25]
+  start: [2022, 3, 1]
+  end:   [2022, 4, 1]
   type: item_random
   table:
     - id: 'minecraft:iron_ore'
@@ -1913,8 +1913,8 @@
             - "荒野においてはY=256以下で生成。"
 
 - name: &mc118_ore_223 minecraft 1.18アップデート記念　Y223〜192の鉱石祭り
-  start: [2021, 12, 26]
-  end:   [2022, 1, 1]
+  start: [2022, 4, 1]
+  end:   [2022, 5, 1]
   type: item_random
   table:
     - id: 'minecraft:iron_ore'
@@ -1960,8 +1960,8 @@
             - "荒野においてはY=256以下で生成。"
 
 - name: &mc118_ore_191 minecraft 1.18アップデート記念　Y191〜160の鉱石祭り
-  start: [2022, 1, 2]
-  end:   [2022, 1, 8]
+  start: [2022, 5, 1]
+  end:   [2022, 6, 1]
   type: item_random
   table:
     - id: 'minecraft:iron_ore'
@@ -2017,8 +2017,8 @@
             - "Y=0～192で斜状分布（最大Y=96）"
 
 - name: &mc118_ore_159 minecraft 1.18アップデート記念　Y159〜128の鉱石祭り
-  start: [2022, 1, 9]
-  end:   [2022, 1, 15]
+  start: [2022, 6, 1]
+  end:   [2022, 7, 1]
   type: item_random
   table:
     - id: 'minecraft:iron_ore'
@@ -2074,8 +2074,8 @@
             - "Y=0～192で斜状分布（最大Y=96）"
 
 - name: &mc118_ore_127 minecraft 1.18アップデート記念　Y127〜96の鉱石祭り
-  start: [2022, 1, 16]
-  end:   [2022, 1, 22]
+  start: [2022, 7, 1]
+  end:   [2022, 8, 1]
   type: item_random
   table:
     - id: 'minecraft:iron_ore'
@@ -2130,8 +2130,8 @@
             - "Y=-16～112で斜状分布（最大Y=48）"
 
 - name: &mc118_ore_95 minecraft 1.18アップデート記念　Y95〜64の鉱石祭り
-  start: [2022, 1, 23]
-  end:   [2022, 1, 29]
+  start: [2022, 8, 1]
+  end:   [2022, 9, 1]
   type: item_random
   table:
     - id: 'minecraft:emerald_ore'
@@ -2186,8 +2186,8 @@
             - "Y=-64～72で均一分布"
 
 - name: &mc118_ore_63 minecraft 1.18アップデート記念　Y63〜32の鉱石祭り
-  start: [2022, 1, 30]
-  end:   [2022, 2, 5]
+  start: [2022, 9, 1]
+  end:   [2022, 10, 1]
   type: item_random
   table:
     - id: 'minecraft:emerald_ore'
@@ -2263,8 +2263,8 @@
             - "Y=32～-32で斜状分布（最大Y=0）"
 
 - name: &mc118_ore_63 minecraft 1.18アップデート記念　Y31〜0の鉱石祭り
-  start: [2022, 2, 6]
-  end:   [2022, 2, 12]
+  start: [2022, 10, 1]
+  end:   [2022, 11, 1]
   type: item_random
   table:
     - id: 'minecraft:emerald_ore'
@@ -2369,8 +2369,8 @@
             - "Y=32～-32で斜状分布（最大Y=0）"
 
 - name: &mc118_ore_-1 minecraft 1.18アップデート記念　Y-1〜-32の鉱石祭り
-  start: [2022, 2, 13]
-  end:   [2022, 2, 19]
+  start: [2022, 11, 1]
+  end:   [2022, 12, 1]
   type: item_random
   table:
     - id: 'minecraft:deepslate_emerald_ore'
@@ -2465,8 +2465,8 @@
             - "Y=32～-32で斜状分布（最大Y=0）"
 
 - name: &mc118_ore_-33 minecraft 1.18アップデート記念　Y-33〜-64の鉱石祭り
-  start: [2022, 2, 20]
-  end:   [2022, 2, 26]
+  start: [2022, 12, 1]
+  end:   [2023, 1, 1]
   type: item_random
   table:
     - id: 'minecraft:deepslate_gold_ore'
@@ -2543,8 +2543,8 @@
             - "Y=-64～-32で斜状分布（最大Y=-64）"
 
 - name: &mc118_lush_caves minecraft 1.18アップデート記念 繁茂した洞窟祭り
-  start: [2021, 12, 19]
-  end:   [2022, 1, 2]
+  start: [2023, 1, 1]
+  end:   [2023, 2, 1]
   type: item_random
   table:
     - id: 'minecraft:azalea'
@@ -2600,8 +2600,8 @@
           Lore: *mc118_lush_caves_lore
 
 - name: &mc118_dripstone_caves minecraft 1.18アップデート記念 鍾乳洞祭り
-  start: [2021, 12, 31]
-  end:   [2022, 1, 14]
+  start: [2023, 2, 1]
+  end:   [2023, 3, 1]
   type: item_random
   table:
     - id: 'minecraft:dripstone_block'
@@ -2616,8 +2616,8 @@
           Lore: *mc118_dripstone_caves_lore
 
 - name: &mc118_etc minecraft 1.18アップデート記念 その他祭り
-  start: [2022, 1, 1]
-  end:   [2022, 1, 21]
+  start: [2023, 3, 1]
+  end:   [2023, 4, 1]
   type: item_random
   table:
     - id: 'minecraft:enchanting_table'
