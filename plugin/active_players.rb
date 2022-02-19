@@ -48,30 +48,30 @@ Plugin.create :active_players do
     end
   end
 
-  on_give_wabiishi do |name, victim|
-    Plugin.call(:giftbox_keep,
-                name,
-                "#{Time.now}頃にサーバがクラッシュしました。記念に詫び石をプレゼントします！",
-                {
-                  id: 'minecraft:flint',
-                  count: 1,
-                  tag: {
-                    display: {
-                      Name:"詫び石",
-                      Lore:["ヽ('ω')ﾉ三ヽ('ω')ﾉ"]
-                    },
-                    AttributeModifiers: [
-                      {
-                        AttributeName: "generic.attackDamage",
-                        Name: "generic.attackDamage",
-                        Amount: victim.size,
-                        Operation: 0,
-                        UUIDMost:62013,
-                        UUIDLeast:896789
-                      }
-                    ]
-                  }
-                }
-               )
-  end
+  # on_give_wabiishi do |name, victim|
+  #   Plugin.call(:giftbox_keep,
+  #               name,
+  #               "#{Time.now}頃にサーバがクラッシュしました。記念に詫び石をプレゼントします！",
+  #               {
+  #                 id: 'minecraft:flint',
+  #                 count: 1,
+  #                 tag: {
+  #                   display: {
+  #                     Name:"詫び石",
+  #                     Lore:["ヽ('ω')ﾉ三ヽ('ω')ﾉ"]
+  #                   },
+  #                   AttributeModifiers: [
+  #                     {
+  #                       AttributeName: "generic.attackDamage",
+  #                       Name: "generic.attackDamage",
+  #                       Amount: victim.size,
+  #                       Operation: 0,
+  #                       UUIDMost:62013,
+  #                       UUIDLeast:896789
+  #                     }
+  #                   ]
+  #                 }
+  #               }
+  #              )
+  # end
 end
