@@ -89,7 +89,8 @@ Plugin.create :meshiuma do
 
   subscribe(:died, :slain).each do |advice|
     if advice[:assailant] == 'Zombie'
-      Plugin.call(:minecraft_execute, advice[:player], "summon minecraft:zombie ~ ~ ~ {CustomName:'[{\"text\":\"#{advice[:player]}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b}")
+      player = advice[:player]
+      Plugin.call(:minecraft_execute, player, "summon minecraft:zombie ~ ~ ~ {CustomName:'[{\"text\":\"#{player}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},{id:\"minecraft:player_head\",Count:1,tag:{SkullOwner:\"#{player}\"}}],ArmorDropChances:[0f,0f,0f,1.00f]}")
     end
   end
 end
