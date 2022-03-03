@@ -67,21 +67,15 @@ Plugin.create :meshiuma do
     generate(:died, target_type) do |yielder|
       puts "subscribe #{tras.inspect}"
       subscribe(:server_raw_output, :stdout).each do |line|
-        matched, advices = tras.lazy.map { |_, r, a = {}|
-          [r.match(line), a]
-        }.select { |r, _|
-          r
+        matched, advices = tras.lazy.filter_map { |_, r, a = {}|
+          r.match(line)&.then { [_1, a] }
         }.first
         if matched
-          suffixes.each do |r|
-            m = r.match(line)
-            advices = { **advices, **m.named_captures.to_h { |k, v| [k.to_sym, v] } } if m
-          end
-          advices = {
-            **advices,
-            **matched.named_captures.to_h { |k, v| [k.to_sym, v] }
-          }.freeze
-          yielder << advices
+          yielder << matched_to_advice(
+            advices,
+            *suffixes.filter_map { _1.match(line) },
+            matched
+          ).freeze
         end
       end
     end
@@ -91,6 +85,12 @@ Plugin.create :meshiuma do
     if advice[:assailant] == 'Zombie'
       player = advice[:player]
       Plugin.call(:minecraft_execute, player, "summon minecraft:zombie ~ ~ ~ {CustomName:'[{\"text\":\"#{player}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},{id:\"minecraft:player_head\",Count:1,tag:{SkullOwner:\"#{player}\"}}],ArmorDropChances:[0f,0f,0f,1.00f]}")
+    end
+  end
+
+  def matched_to_advice(base, *matches)
+    matches.inject(base) do |memo, m|
+      { **memo, **m.named_captures.to_h { |k, v| [k.to_sym, v] } }
     end
   end
 end
