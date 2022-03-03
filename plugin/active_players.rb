@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'time'
 require 'set'
+require_relative 'campaign/mc_json'
 
 Plugin.create :active_players do
   defevent :active_players, prototype: [Pluggaloid::COLLECT]
@@ -48,30 +49,37 @@ Plugin.create :active_players do
     end
   end
 
-  # on_give_wabiishi do |name, victim|
-  #   Plugin.call(:giftbox_keep,
-  #               name,
-  #               "#{Time.now}頃にサーバがクラッシュしました。記念に詫び石をプレゼントします！",
-  #               {
-  #                 id: 'minecraft:flint',
-  #                 count: 1,
-  #                 tag: {
-  #                   display: {
-  #                     Name:"詫び石",
-  #                     Lore:["ヽ('ω')ﾉ三ヽ('ω')ﾉ"]
-  #                   },
-  #                   AttributeModifiers: [
-  #                     {
-  #                       AttributeName: "generic.attackDamage",
-  #                       Name: "generic.attackDamage",
-  #                       Amount: victim.size,
-  #                       Operation: 0,
-  #                       UUIDMost:62013,
-  #                       UUIDLeast:896789
-  #                     }
-  #                   ]
-  #                 }
-  #               }
-  #              )
-  # end
+  on_give_wabiishi do |name, victim|
+    time = Time.now.strftime('%Y年%m月%d日 %H時%M分')
+    context = Object.new.instance_eval{ binding }
+    Plugin.call(:giftbox_keep,
+                name,
+                "#{time}頃にサーバがクラッシュしました。記念に詫び石をプレゼントします！",
+                {
+                  id: 'minecraft:flint',
+                  count: 1,
+                  tag: {
+                    display: {
+                      Name: {
+                        'text' => '詫び石'
+                      }.to_mcjson(context).to_s,
+                      Lore: [
+                        { 'text' => "ヽ('ω')ﾉ三ヽ('ω')ﾉ" }.to_mcjson(context).to_s,
+                        { 'text' => "#{time}頃のクラッシュのお詫びです" }.to_mcjson(context).to_s
+                      ]
+                    },
+                    AttributeModifiers: [
+                      {
+                        AttributeName: 'generic.attack_damage',
+                        Name: 'generic.attack_damage',
+                        Amount: victim.size,
+                        Operation: 0,
+                        UUID: 'MINECRAFT_UUID',
+                        Slot: 'mainhand'
+                      }
+                    ]
+                  }
+                }
+               )
+  end
 end
