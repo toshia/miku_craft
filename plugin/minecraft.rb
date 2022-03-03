@@ -64,7 +64,7 @@ Plugin.create :minecraft do
   end
 
   on_minecraft_execute do |user_name, command|
-    Plugin.call :minecraft_run_command, "execute #{user_name} ~ ~ ~ #{command}"
+    Plugin.call :minecraft_run_command, "execute at #{user_name} run #{command}"
   end
 
   on_minecraft_give_item do |user_name, item_name, count, datatag|
