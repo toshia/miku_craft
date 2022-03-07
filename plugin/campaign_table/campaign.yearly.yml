@@ -193,7 +193,7 @@
             - {Pattern: bt,  Color: 2}
             - {Pattern: mc,  Color: 0}
             - {Pattern: ts,  Color: 2}
-    - id: 'minecraft:light_bluebanner'
+    - id: 'minecraft:light_blue_banner'
       amount: 2
       variant: 0
       NBT:
