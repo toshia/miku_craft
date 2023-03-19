@@ -27,7 +27,7 @@ describe 'Campaign Plugin' do
     before do
       plugin do
         filter_campaign_table do |x|
-          [YAML.load(<<YML)] end end end
+          [YAML.safe_load(<<YML)] end end end
 ---
 - name: "キャンペーンA"
   start: [1, 2]

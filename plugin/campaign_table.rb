@@ -7,13 +7,13 @@ Plugin.create :campaign_table do
     [table +
      JSON.parse(
        JSON.generate(
-         YAML.load_file(File.join(__dir__, 'campaign_table', 'campaign.yearly.yml'))
+         YAML.safe_load_file(File.join(__dir__, 'campaign_table', 'campaign.yearly.yml'), aliases: true)
        ),
        symbolize_names: true
      ) +
      JSON.parse(
        JSON.generate(
-         YAML.load_file(File.join(__dir__, 'campaign_table', 'campaign.limited.yml'))
+         YAML.safe_load_file(File.join(__dir__, 'campaign_table', 'campaign.limited.yml'), aliases: true)
        ),
        symbolize_names: true
      )]

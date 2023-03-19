@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'fileutils'
 
-ITEM_STACK = YAML.load_file(File.join(__dir__, 'stack.yml'))
+ITEM_STACK = YAML.safe_load_file(File.join(__dir__, 'stack.yml'))
 
 Plugin.create :giftbox do
   save_dir = File.expand_path(File.join(__dir__, '..', 'config', 'giftbox'))

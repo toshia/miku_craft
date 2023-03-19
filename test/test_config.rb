@@ -26,8 +26,8 @@ module Minitest::Assertions
     end
   end
 
-  def plugin
-    Plugin.create(TESTING_PLUGIN_SLUG, &Proc.new)
+  def plugin(&)
+    Plugin.create(TESTING_PLUGIN_SLUG, &)
   end
 
   def assert_events(events)

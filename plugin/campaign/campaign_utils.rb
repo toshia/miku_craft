@@ -2,6 +2,8 @@
 
 require_relative 'mc_json'
 
+require 'date'
+
 module Plugin::Campaign
   class Campaign
     attr_accessor :range

@@ -32,6 +32,12 @@ class String
   end
 end
 
+class Symbol
+  def to_mcjson(bind)
+    MCJsonString.new('"' + to_s.gsub('"', '\"') + '"')
+  end
+end
+
 class Numeric
   def to_mcjson(_)
     MCJsonString.new(inspect)
