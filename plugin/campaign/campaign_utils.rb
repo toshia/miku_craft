@@ -147,8 +147,9 @@ module Plugin::Campaign
     def rich_text(text, context)
       case text
       when String
-        Hashie::Mash.new(text: text).to_mcjson(context).to_s
+        Hashie::Mash.new(text: text, italic: 0).to_mcjson(context).to_s
       when Hash
+        text = {italic: 0, **text} unless text[:italic]
         text.to_mcjson(context).to_s
       end
     end

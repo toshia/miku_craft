@@ -12,6 +12,16 @@ Plugin.create :continuous_login do
     Plugin.call(:scan_continuous_login_bonus, name)
   end
 
+  def rich_text(text, context=binding)
+    case text
+    when String
+      Hashie::Mash.new(text: text, italic: 0).to_mcjson(context).to_s
+    when Hash
+      text = {italic: 0, **text} unless text[:italic]
+      text.to_mcjson(context).to_s
+    end
+  end
+
   def daily_check(tomorrow)
     tomorrow.freeze
     Delayer.new(delay: tomorrow.to_time) do
@@ -51,7 +61,7 @@ Plugin.create :continuous_login do
                     count: 1,
                     tag: {
                       display: {
-                        Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                        Lore: [rich_text("#{days}日ログイン記念に#{name}がもらった")]
                       }
                     }
                   }
@@ -65,7 +75,7 @@ Plugin.create :continuous_login do
                     count: 1,# 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
                     tag: {
                       display: {
-                        Lore: ["#{days}日ログイン記念に#{name}がもらった"]
+                        Lore: [rich_text("#{days}日ログイン記念に#{name}がもらった")]
                       }
                     }
                   }
@@ -80,8 +90,8 @@ Plugin.create :continuous_login do
                     count: 1,
                     tag: {
                       display: {
-                        Name: Hashie::Mash.new(text: food.to_s).to_mcjson(binding),
-                        Lore:["#{days}日記念"]
+                        Name: rich_text(food.to_s),
+                        Lore: [rich_text("#{days}日記念")]
                       }
                     }
                   }
@@ -94,7 +104,7 @@ Plugin.create :continuous_login do
                     count: 1,
                     tag: {
                       display: {
-                        Name: Hashie::Mash.new(text: '味噌汁').to_mcjson(binding)
+                        Name: rich_text('味噌汁')
                       }
                     }
                   }
