@@ -507,7 +507,7 @@
         display:
           Name: "船鉾"
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
-    - id: 'minecraft:dark_oak_boat'
+    - id: 'minecraft:cherry_boat'
       NBT:
         display:
           Name: "花傘"
