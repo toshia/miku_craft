@@ -2528,3 +2528,135 @@
           Lore:
             - *mc120_etc
 
+- name: &win_tigers_in_league_2023 阪神タイガースリーグ優勝記念
+  start: [2023, 9, 24]
+  end:   [2023, 9, 30]
+  type: item_random
+  table:
+    - id: 'minecraft:leather_chestplate'
+      amount: 18
+      NBT:
+        display:
+          color: 0xffffff
+          Name: "ユニフォーム（上）"
+          Lore:
+            - *win_tigers_in_league_2023
+        Trim:
+          pattern: wayfinder
+          material: gold
+        Enchantments:
+          - {id: binding_curse, lvl: 1}
+          - {id: protection,    lvl: 18}
+          - {id: mending,       lvl: 1}
+        RepairCost: 99
+        AttributeModifiers:
+          - AttributeName: "generic.armor"
+            Amount: 18
+            Slot: chest
+            Name: "generic.armor"
+            UUID: MINECRAFT_UUID
+    - id: 'minecraft:leather_leggings'
+      amount: 18
+      NBT:
+        display:
+          color: 0xffffff
+          Name: "ユニフォーム（下）"
+          Lore:
+            - *win_tigers_in_league_2023
+        Trim:
+          pattern: shaper
+          material: netherite
+        Enchantments:
+          - {id: binding_curse, lvl: 1}
+          - {id: swift_sneak,   lvl: 18}
+          - {id: mending,       lvl: 1}
+        RepairCost: 99
+        AttributeModifiers:
+          - AttributeName: "generic.max_health"
+            Amount: 18
+            Slot: legs
+            Name: "generic.max_health"
+            UUID: MINECRAFT_UUID
+    - id: 'minecraft:player_head'
+      amount: 18
+      NBT:
+        display:
+          Name: "公式球"
+          Lore:
+            - *win_tigers_in_league_2023
+        SkullOwner:
+          Id:
+            _type: intarray
+            value: [1507541719,-1943516529,-1879511494,-823281287]
+          Properties:
+            textures:
+              - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmVhNzNhNmMxM2FmZjY2YTkyMjg2NTViNDkwYTA1ODQyOTE2OTYzNTEwNzU2Yjk2ZmFjMjZiNjUxOWVlZjJjNyJ9fX0="
+        Enchantments:
+          - {id: binding_curse,         lvl: 1}
+          - {id: projectile_protection, lvl: 18}
+          - {id: mending,               lvl: 1}
+        RepairCost: 99
+        AttributeModifiers:
+          - AttributeName: "generic.armor_toughness"
+            Amount: 18
+            Slot: head
+            Name: "generic.armor_toughness"
+            UUID: MINECRAFT_UUID
+    - id: 'minecraft:leather_boots'
+      amount: 18
+      NBT:
+        display:
+          color: 0xffffff
+          Name: "野球シューズ"
+          Lore:
+            - *win_tigers_in_league_2023
+        Trim:
+          pattern: snout
+          material: gold
+        Enchantments:
+          - {id: binding_curse,   lvl: 1}
+          - {id: feather_falling, lvl: 18}
+          - {id: mending,         lvl: 1}
+        RepairCost: 99
+        AttributeModifiers:
+          - AttributeName: "generic.movement_speed"
+            Amount: 0.18
+            Slot: feet
+            Operation: 2
+            Name: "generic.movement_speed"
+            UUID: MINECRAFT_UUID
+    - id: 'minecraft:wooden_sword'
+      amount: 18
+      NBT:
+        display:
+          Name: "バット"
+          Lore:
+            - *win_tigers_in_league_2023
+        Enchantments:
+          - {id: binding_curse, lvl: 1}
+          - {id: knockback,     lvl: 18}
+          - {id: mending,       lvl: 1}
+        RepairCost: 99
+        AttributeModifiers:
+          - AttributeName: "generic.attack_damage"
+            Amount: 18
+            Slot: mainhand
+            Name: "generic.attack_damage"
+            UUID: MINECRAFT_UUID
+    - id: 'minecraft:enchanted_golden_apple'
+      amount: 18
+      NBT:
+        display:
+          Name: "パインアレ"
+          Lore:
+            - *win_tigers_in_league_2023
+            - 岡田監督がベンチで食べていた飴
+        Enchantments:
+          - {id: looting, lvl: 18}
+        AttributeModifiers:
+          - AttributeName: "generic.attack_damage"
+            Amount: 18
+            Slot: offhand
+            Name: "generic.attack_damage"
+            UUID: MINECRAFT_UUID
+

@@ -513,6 +513,28 @@
           Name: "花傘"
           Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
 
+- name: パインアメの日キャンペーン
+  start: [8, 8]
+  end:   [8, 8]
+  type: item_random
+  table:
+    - id: 'minecraft:enchanted_golden_apple'
+      NBT:
+        display:
+          Name: "パインアレ"
+          Lore:
+            - 8/8はパインアメの日
+            - 2023年阪神タイガースリーグ優勝記念のとき
+            - 岡田監督がベンチで食べていた飴
+        Enchantments:
+          - {id: looting, lvl: 18}
+        AttributeModifiers:
+          - AttributeName: "generic.attack_damage"
+            Amount: 18
+            Slot: offhand
+            Name: "generic.attack_damage"
+            UUID: MINECRAFT_UUID
+
 - name: 山の日キャンペーン
   start: [8, 11]
   end:   [8, 11]
