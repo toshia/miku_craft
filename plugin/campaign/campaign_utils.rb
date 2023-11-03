@@ -121,7 +121,7 @@ module Plugin::Campaign
         end
       end
       if item.dig(:NBT, :Enchantments)
-        item[:NBT][:Enchantments] = item[:NBT][:Enchantments].map{|ench|
+        item[:NBT][:Enchantments] = item[:NBT][:Enchantments].flatten.map{|ench|
           case ench[:lvl]
           when String
             r = ERB.new(ench[:lvl]).result(context)
@@ -131,6 +131,18 @@ module Plugin::Campaign
           end
         }.select{|ench|
           ench[:lvl] != 0
+        }
+      end
+      if item.dig(:NBT, :AttributeModifiers)
+        item[:NBT][:AttributeModifiers] = item[:NBT][:AttributeModifiers].flatten.map{|attr|
+          attr[:Name] = attr[:AttributeName]
+          attr[:Amount] = ERB.new(attr[:Amount].to_s).result(context).to_f
+          attr[:Operation] ||= 0
+          attr
+        }.reject{|attr|
+          attr[:Amount] == 0 && attr[:Operation] == 0 || # +0
+            attr[:Amount] == 0 && attr[:Operation] == 1 || # +0.0 (Multiply Additive)
+            attr[:Amount] == 1 && attr[:Operation] == 2 # *1 (Multiply Multiply)
         }
       end
       Plugin.call(:giftbox_keep,
