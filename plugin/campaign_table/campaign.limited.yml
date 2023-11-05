@@ -2534,7 +2534,7 @@
   type: item_random
   table:
     - id: 'minecraft:leather_helmet'
-      amount: 1
+      amount: 38
       NBT:
         display:
           color: 0xffffff
@@ -2576,7 +2576,7 @@
             UUID: MINECRAFT_UUID
             Slot: head
     - id: 'minecraft:leather_chestplate'
-      amount: 1
+      amount: 38
       NBT:
         display:
           color: 0xffffff
@@ -2600,7 +2600,7 @@
             UUID: MINECRAFT_UUID
             Slot: chest
     - id: 'minecraft:elytra'
-      amount: 1
+      amount: 38
       NBT:
         display:
           Name: "日本一ユニフォーム（翼）"
@@ -2618,7 +2618,7 @@
             UUID: MINECRAFT_UUID
             Slot: chest
     - id: 'minecraft:leather_leggings'
-      amount: 1
+      amount: 38
       NBT:
         display:
           color: 0xffffff
@@ -2640,7 +2640,7 @@
             UUID: MINECRAFT_UUID
             Slot: legs
     - id: 'minecraft:leather_boots'
-      amount: 1
+      amount: 38
       NBT:
         display:
           color: 0xffffff
@@ -2663,12 +2663,12 @@
             Slot: feet
 
 - name: 阪神タイガース日本一記念(2023)
-  start: [2023, 11, 06]
-  end:   [2023, 11, 13]
+  start: [2023, 11, 13]
+  end:   [2023, 11, 20]
   type: item_random
   table:
     - id: 'minecraft:trident'
-      amount: 1
+      amount: 38
       NBT:
         display:
           Name: "日本一トライデント"
@@ -2703,7 +2703,7 @@
             Slot: mainhand
             UUID: MINECRAFT_UUID
     - id: 'minecraft:bow'
-      amount: 1
+      amount: 38
       NBT:
         display:
           Name: "日本一弓"
@@ -2719,7 +2719,7 @@
           - <<: *tigers_champion_of_japan_2023_attr_modifiers
             Slot: mainhand
     - id: 'minecraft:<%= [*%w[stick shears brush], *%w[wooden stone iron diamond golden netherite].product(%w[pickaxe axe shovel hoe sword]).map{_1.join(?_)}].sample %>'
-      amount: 1
+      amount: 38
       NBT:
         display:
           Name: "日本一ツール"
