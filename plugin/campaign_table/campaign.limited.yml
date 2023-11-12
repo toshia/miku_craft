@@ -2559,8 +2559,8 @@
             - {id: aqua_affinity,         lvl: '<%= [0, 1].sample * rand(0..1) %>'}
             - &tigers_champion_of_japan_2023_common
               - {id: unbreaking,            lvl: '<%= 38 * rand(0..1) %>'}
-              - {id: mending,               lvl: rand(0..1)}
-        RepairCost: &tigers_champion_of_japan_2023_cost 37
+              - {id: mending,               lvl: '<%= rand(0..1) %>'}
+        RepairCost: &tigers_champion_of_japan_2023_cost 38
         AttributeModifiers:
           - &tigers_champion_of_japan_2023_attr_modifiers
             AttributeName: "generic.<%= c2569=%w[armor armor_toughness attack_damage attack_knockback attack_speed knockback_resistance luck max_health movement_speed].sample %>"
@@ -2680,20 +2680,20 @@
           - {id: channeling,            lvl: '<%= rand(0..1) %>'}
           - {id: riptide,               lvl: '<%= rand(0..3) * rand(0..1) %>'}
           - &tigers_champion_of_japan_2023_tool
-            - {id: bane_of_arthropods,    lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
+            - {id: bane_of_arthropods,    lvl: '<%= r=rand(3) ; r==0 ? [0, 1, 18, 38].sample * rand(0..1) : 0 %>'}
             - {id: efficiency,            lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
             - {id: fire_aspect,           lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: sharpness,             lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: smite,                 lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
+            - {id: sharpness,             lvl: '<%= r==1 ? [0, 1, 18].sample * rand(0..1) : 0 %>'}
+            - {id: smite,                 lvl: '<%= r==2 ? [0, 1, 18, 38].sample * rand(0..1) : 0 %>'}
             - {id: sweeping,              lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
             - {id: silk_touch,            lvl: '<%= st=rand(0..1) %>'}
-            - {id: fortune,               lvl: '<%= (~st+2) * rand(0..4) * rand(0..1) %>'}
+            - {id: fortune,               lvl: '<%= st=0 ? rand(0..4) * rand(0..1) : 0 %>'}
         RepairCost: *tigers_champion_of_japan_2023_cost
         AttributeModifiers:
           - <<: *tigers_champion_of_japan_2023_attr_modifiers
             Slot: mainhand
           - AttributeName: "generic.attack_damage"
-            Amount: 9
+            Amount: '<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>'
             Name: "generic.attack_damage"
             Slot: mainhand
             UUID: MINECRAFT_UUID
@@ -2733,7 +2733,12 @@
           - <<: *tigers_champion_of_japan_2023_attr_modifiers
             Slot: mainhand
           - AttributeName: "generic.attack_damage"
-            Amount: '<%= rand(0..8) %>'
+            Amount: '<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>'
             Name: "generic.attack_damage"
+            Slot: mainhand
+            UUID: MINECRAFT_UUID
+          - AttributeName: "generic.attack_speed"
+            Amount: 1.6
+            Name: "generic.attack_speed"
             Slot: mainhand
             UUID: MINECRAFT_UUID
