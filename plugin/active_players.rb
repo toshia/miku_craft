@@ -41,7 +41,7 @@ Plugin.create :active_players do
     on_minecraft_server_crashed do
       mutation.rewind do |ary|
         ary.each do |name|
-          Plugin.call(:give_wabiishi, name, collect(:active_players))
+          Plugin.call(:give_wabiishi, name, ary)
         end
         log_file.puts "#{Time.now.iso8601} crash server"
         []
@@ -72,7 +72,7 @@ Plugin.create :active_players do
                       {
                         AttributeName: 'generic.attack_damage',
                         Name: 'generic.attack_damage',
-                        Amount: victim.size,
+                        Amount: victim.size || 1,
                         Operation: 0,
                         UUID: 'MINECRAFT_UUID',
                         Slot: 'mainhand'
