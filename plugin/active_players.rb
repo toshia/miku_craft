@@ -40,9 +40,9 @@ Plugin.create :active_players do
 
     on_minecraft_server_crashed do
       mutation.rewind do |ary|
-        ary.each do |name|
-          Plugin.call(:give_wabiishi, name, ary)
-        end
+        # ary.each do |name|
+        #   Plugin.call(:give_wabiishi, name, ary)
+        # end
         log_file.puts "#{Time.now.iso8601} crash server"
         []
       end
