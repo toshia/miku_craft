@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'fileutils'
+require_relative '../lib/minecraft_item'
 
 ITEM_STACK = YAML.safe_load_file(File.join(__dir__, 'stack.yml'))
 
@@ -13,9 +14,9 @@ Plugin.create :giftbox do
     box << {
       message: message,
       item: {
-        name: opts[:id],
-        amount: opts[:count] || 1,
-        tag: opts[:tag] || {}
+        name: opts[:id],           # 'minecraft:dirt'
+        amount: opts[:count] || 1, # 1
+        tag: opts[:tag]            # NBT::Compound | nil
       }
     }
     store[name] = box
@@ -36,11 +37,10 @@ Plugin.create :giftbox do
         next
       when 1
         case box
-        in [{item: {name: item_name, amount: amount, tag: tag}}]
-          tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
+        in [{item: {name: item_name, amount: amount, tag: MinecraftItem | nil => tag}}]
           Plugin.call(:minecraft_give_item, name, item_name, amount, tag)
         in [{item: {name: item_name, amount: amount}}]
-          Plugin.call(:minecraft_give_item, name, item_name, amount, '{}')
+          Plugin.call(:minecraft_give_item, name, item_name, amount, nil)
         else
           warn "unknown gift payload! #{box.inspect}"
           nil
@@ -48,9 +48,8 @@ Plugin.create :giftbox do
       when (2..)
         gifts, capa_over = box.filter_map do |gift|
           case gift
-          in {item: {name: item_name, amount: amount, tag: tag}}
-            tag = Hashie::Mash.new(tag.to_h).to_mcjson(binding) if tag.respond_to?(:to_h)
-            Hashie::Mash.new({id: item_name, Count: amount, tag: tag})
+          in {item: {name: item_name, amount: amount, tag: MinecraftItem | nil => tag}}
+            {id: item_name, Count: amount, tag: tag}
           else
             nil
           end

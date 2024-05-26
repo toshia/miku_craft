@@ -9,10 +9,12 @@ class MinecraftItem
     @id = id.freeze
     @nbt = tag
 
-    sanitize_name
-    sanitize_lore
-    sanitize_enchantments
-    sanitize_attribute_modifier
+    if tag
+      sanitize_name
+      sanitize_lore
+      sanitize_enchantments
+      sanitize_attribute_modifier
+    end
   end
 
   def tag = @nbt
@@ -24,7 +26,7 @@ class MinecraftItem
 
   # "{tag}" を返す
   def snbt
-    @nbt.snbt
+    @nbt&.snbt || ''
   end
 
   # アイテムの表示名を返す。
@@ -37,17 +39,16 @@ class MinecraftItem
   # テキスト装飾は欠落する。
   # 例: "abc"
   def display_name_plain_text
-    display_name
-    name.map { |n| n['text'] }.join
+    display_name&.map { |n| n['text'] }&.join
   end
 
   # アイテム名を、リッチテキスト形式で返す。
   # JSONパース済みのArray<Hash>を返す。
   # 例: [{"text":"a","italic":false,"underlined":true},{"text":"b","italic":false,"strikethrough":true},{"text":"c","italic":false}]
   def display_name
-    raw_name = @nbt.dig('display', 'Name')
+    raw_name = @nbt&.dig('display', 'Name')
     if raw_name
-      name = JSON.parse(raw_name.to_s)
+      JSON.parse(raw_name.to_s)
     end
   end
 
@@ -56,13 +57,26 @@ class MinecraftItem
   def sanitize_name
     # あー、ここで吸収できるならcampaign table書き換えなくてよかったかもなあ
     if name = @nbt.dig('display', 'Name')
-      @nbt = @nbt.cow(['display', 'Name'], name.to_json)
+      if name.is_a?(NBT::NBTString) # 省略記法
+        @nbt = @nbt.cow(['display', 'Name'], [{text: name, italic: false}].to_json)
+      else
+        @nbt = @nbt.cow(['display', 'Name'], name.to_json)
+      end
     end
   end
 
   def sanitize_lore
     if lore = @nbt.dig('display', 'Lore')
-      @nbt = @nbt.cow(['display', 'Lore'], NBT::NBTList.new(lore.to_enum.map(&:to_json)))
+      if lore.is_a?(NBT::NBTString) # 省略記法
+        # loreの省略記法の場合、文字列内に改行があったらいい感じに処理する
+        # minecraftのtextが悪い感じなだけという話もある
+        @nbt = @nbt.cow(
+          ['display', 'Lore'],
+          NBT::NBTList.new(lore.to_s.each_line.map { [{text: _1.chomp, italic: false}].to_json })
+        )
+      else
+        @nbt = @nbt.cow(['display', 'Lore'], NBT::NBTList.new(lore.to_enum.map(&:to_json)))
+      end
     end
   end
 

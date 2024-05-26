@@ -16,6 +16,17 @@ describe 'Minecraft Item' do
       assert_equal 'foobar', item.display_name.dig(0, 'text')
       assert_equal false, item.display_name.dig(0, 'italic')
     end
+
+    it '省略記法(string)' do
+      nbt = NBT.build(
+        { 'display' => { 'Name' => 'foobar' } }
+      )
+      item = MinecraftItem.new('dirt', tag: nbt)
+
+      assert_equal '{display:{Name:"[{\"text\":\"foobar\",\"italic\":false}]"}}', item.snbt
+      assert_equal 'foobar', item.display_name.dig(0, 'text')
+      assert_equal false, item.display_name.dig(0, 'italic')
+    end
   end
 
   describe 'Lore' do
@@ -29,6 +40,16 @@ describe 'Minecraft Item' do
 
       assert_equal '{display:{Lore:["[{\"text\":\"line 1\",\"italic\":false}]","[{\"text\":\"line 2\",\"italic\":false}]"]}}', item.snbt
     end
+
+    it '省略記法(string)' do
+      nbt = NBT.build(
+        { 'display' => { 'Lore' => "五月雨を\n集めてはやし\n最上川" } }
+      )
+      item = MinecraftItem.new('dirt', tag: nbt)
+
+      assert_equal '{display:{Lore:["[{\"text\":\"五月雨を\",\"italic\":false}]","[{\"text\":\"集めてはやし\",\"italic\":false}]","[{\"text\":\"最上川\",\"italic\":false}]"]}}', item.snbt
+    end
+
   end
 
   describe 'Enchantments' do

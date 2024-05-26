@@ -51,6 +51,7 @@ Plugin.create :continuous_login do
   end
 
   on_give_continuous_login_bonus do |name, days|
+    next
     case
     when (days % 31) == 0
       Plugin.call(:giftbox_keep,

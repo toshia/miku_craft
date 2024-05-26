@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 require_relative 'mc_json'
+require_relative '../../lib/nbt'
+require_relative '../../lib/minecraft_item'
 
 require 'date'
 
@@ -106,7 +108,8 @@ module Plugin::Campaign
       item_id = ERB.new(item_raw['id']).result(context)
       # item_name = item.dig('NBT', 'display', 'Name') || item_id
       # r_name = name(context)
-      item = MinecraftItem.new(id: item_id, tag: NBT.build(item_raw['NBT'], bind: context))
+      pp item_raw['NBT']
+      item = MinecraftItem.new(item_id, tag: NBT.build(item_raw['NBT'], bind: context, allow_nil: true))
 
       # if item.dig('NBT', 'Enchantments')
       #   # エンチャントのlvlが0だった場合にエンチャント自体を消す特例。 -> 残す
@@ -114,9 +117,6 @@ module Plugin::Campaign
       #     ench['lvl'] != 0
       #   }
       # end
-      if item.has_enchantment?
-        item.destroy_level0_enchantments
-      end
 
       # if item.dig(:NBT, :AttributeModifiers)
       #   item[:NBT][:AttributeModifiers] = item[:NBT][:AttributeModifiers].reject{|attr|
@@ -126,16 +126,13 @@ module Plugin::Campaign
       #       attr[:Amount] == 1 && attr[:Operation] == 2 # *1 (Multiply Multiply)
       #   }
       # end
-      if item.has_attribute_modifiers?
-        item.destroy_0_attribute_modifiers
-      end
       Plugin.call(:giftbox_keep,
                   user_name,
-                  "#{description(context) || r_name}！#{item_name}をプレゼント",
+                  "#{description(context) || name(context)}！#{item.item_name}をプレゼント",
                   {
                     id: item_id,
-                    count: context.eval(item.amount.to_s) || 1,
-                    tag: item.snbt })
+                    count: context.eval(item_raw['amount'].to_s) || 1,
+                    tag: item })
     end
   end
 

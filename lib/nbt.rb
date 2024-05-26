@@ -10,7 +10,7 @@ module NBT
   module NBTObjectType; end # NBT型の一種であることを示すmix-in
 
   # _obj_ をMinecraftのNBT形式に変換し、NBTテキストをStringで返す
-  def self.build(obj, bind: nil)
+  def self.build(obj, bind: nil, allow_nil: false)
     case obj
     in NBTObjectType
       obj
@@ -40,6 +40,8 @@ module NBT
       else
         NBTCompound.new(obj, bind:)
       end
+    in nil
+      raise NBT::TypeError, "NBT.build に nil を渡した" unless allow_nil
     end
   rescue NoMatchingPatternError => e
     raise NBT::TypeError, "#{obj.class} の取り扱い方は不明"

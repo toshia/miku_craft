@@ -68,7 +68,7 @@ Plugin.create :minecraft do
   end
 
   on_minecraft_give_item do |user_name, item_name, count, datatag|
-    Plugin.call :minecraft_run_command, "give #{user_name} #{item_name}#{datatag} #{count}"
+    Plugin.call :minecraft_run_command, "give #{user_name} #{datatag} #{count}"
   end
 
   on_minecraft_tell do |user_name, message|
