@@ -1,13 +1,13 @@
 - name: 年末年始キャンペーン
   start: [1, 1]
-  end:   [1, 5]
+  end:   [5, 28]
   type: item_random
   table: &nenmatsunenshi_camapign_table
     - id: 'minecraft:sea_pickle'
       NBT:
         display:
-          Name: "門松"
-          Lore: ["メリーお正月！"]
+          Name: {"門松", italic: false}
+          Lore: [{text: "メリーお正月！", italic: false}]
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -18,14 +18,14 @@
     - id: 'minecraft:tipped_arrow'
       NBT:
         display:
-          Name: "破魔矢"
-          Lore: ["メリーお正月！"]
+          Name: {text: "破魔矢", italic: false}
+          Lore: [{text: "メリーお正月！", italic: false}]
         Potion: strong_healing
     - id: 'minecraft:wooden_sword'
       NBT:
         display:
-          Name: "羽子板"
-          Lore: ["メリーお正月！"]
+          Name: {text: "羽子板", italic: false}
+          Lore: [{text: "メリーお正月！", italic: false}]
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -35,11 +35,11 @@
             Slot: mainhand
         HideFlags: 2
     - id: 'minecraft:player_head'
-      variant: 3
       NBT:
+        Damage: 3
         display:
-          Name: "獅子舞"
-          Lore: ["メリーお正月！"]
+          Name: {text: "獅子舞", italic: false}
+          Lore: [{text: "メリーお正月！", italic: false}]
         SkullOwner: "<%= user_name %>"
         AttributeModifiers:
           - AttributeName: "generic.max_health"
@@ -58,30 +58,32 @@
     - id: 'minecraft:packed_ice'
       NBT:
         display:
-          Name: "realDonaldTrump"
-          Lore: [*make_america_great_again]
+          Name: {text: "realDonaldTrump", italic: false}
+          Lore: [{text: *make_america_great_again, italic: false}]
         Enchantments:
           - id: frost_walker
             lvl: 5
     - id: 'minecraft:blue_ice'
       NBT:
         display:
-          Name: "realDonaldTrump"
-          Lore: [*make_america_great_again]
+          Name: {text: "realDonaldTrump", italic: false}
+          Lore: [{text: *make_america_great_again, italic: false}]
         Enchantments:
           - id: frost_walker
             lvl: 10
     - id: 'minecraft:leather_helmet'
       NBT:
         display:
-          Name: "MAGA cap"
-          Lore: [*make_america_great_again]
+          Name: {text: "MAGA cap", italic: false}
+          Lore: [{text: *make_america_great_again, italic: false}]
           color: 0xff0000
         Enchantments:
           - id: loyalty
             lvl: 1
           - id: lure
-            lvl: "<%= rand(0..3) %>"
+            lvl:
+              _type: byte
+              value: "rand(0..3)"
           - id: feather_falling
             lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
           - id: frost_walker
@@ -91,7 +93,9 @@
         AttributeModifiers:
           - AttributeName: "generic.armor"
             Name: "generic.armor"
-            Amount: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1%>"
+            Amount:
+              _type: byte
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
             Operation: 0
             UUID: MINECRAFT_UUID
             Slot: head
@@ -104,21 +108,23 @@
     - id: 'minecraft:spider_eye'
       NBT:
         display:
-          Name: "蜘蛛の目"
-          Lore: ["自殺強化月間記念"]
+          Name: {text: "蜘蛛の目", italic: false}
+          Lore: [{text: "自殺強化月間記念", italic: false}]
     - id: 'minecraft:lead'
       NBT:
         display:
-          Name: "首綱"
-          Lore: ["自殺強化月間記念"]
+          Name: {text: "首綱", italic: false}
+          Lore: [{text: "自殺強化月間記念", italic: false}]
     - id: 'minecraft:flint_and_steel'
       NBT: &chakkaman
         display:
-          Name: "チャッカマン"
-          Lore: ["自殺強化月間記念"]
+          Name: {text: "チャッカマン", italic: false}
+          Lore: [{text: "自殺強化月間記念", italic: false}]
         Enchantments:
           - id: fire_aspect,
-            lvl: "<%= rand(0..10) %>"
+            lvl:
+              _type: byte
+              value: "rand(0..10)"
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -130,8 +136,8 @@
     - id: 'minecraft:anvil'
       NBT:
         display:
-          Name: "金床"
-          Lore: ["自殺強化月間記念"]
+          Name: {text: "金床", italic: false}
+          Lore: [{text: "自殺強化月間記念", italic: false}]
         AttributeModifiers:
           - AttributeName: "generic.knockback_resistance"
             Name: "generic.knockback_resistance"
@@ -156,13 +162,13 @@
       amount: 1
       NBT:
         display:
-          Name: "SARS-CoV-2"
+          Name: {text: "SARS-CoV-2", italic: false}
           Lore:
-            - 自殺強化月間記念
-            - 飲むと新型コロナウィルス感染症で死にます
+            - {text: "自殺強化月間記念", italic: false}
+            - {text: "飲むと新型コロナウィルス感染症で死にます", italic: false}
         CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
+          _type: auto
+          value: 'rand(0..0xff_ff_ff)'
         CustomPotionEffects:
           - Id: 2
             Duration: 2147483647
@@ -180,10 +186,10 @@
   table:
     - id: 'minecraft:magenta_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -195,10 +201,10 @@
             - {Pattern: ts,  Color: 2}
     - id: 'minecraft:light_blue_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -210,10 +216,10 @@
             - {Pattern: ts,  Color: 3}
     - id: 'minecraft:yellow_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -225,10 +231,10 @@
             - {Pattern: ts,  Color: 4}
     - id: 'minecraft:lime_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -240,10 +246,10 @@
             - {Pattern: ts,  Color: 5}
     - id: 'minecraft:pink_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -255,10 +261,10 @@
             - {Pattern: ts,  Color: 6}
     - id: 'minecraft:gray_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -270,10 +276,10 @@
             - {Pattern: ts,  Color: 7}
     - id: 'minecraft:light_gray_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -285,10 +291,10 @@
             - {Pattern: ts,  Color: 8}
     - id: 'minecraft:cyan_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -300,10 +306,10 @@
             - {Pattern: ts,  Color: 9}
     - id: 'minecraft:purple_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -315,10 +321,10 @@
             - {Pattern: ts,  Color: 10}
     - id: 'minecraft:blue_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -330,10 +336,10 @@
             - {Pattern: ts,  Color: 11}
     - id: 'minecraft:brown_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -345,10 +351,10 @@
             - {Pattern: ts,  Color: 12}
     - id: 'minecraft:green_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -360,10 +366,10 @@
             - {Pattern: ts,  Color: 13}
     - id: 'minecraft:red_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -375,10 +381,10 @@
             - {Pattern: ts,  Color: 14}
     - id: 'minecraft:black_banner'
       amount: 2
-      variant: 0
       NBT:
+        Damage: 0
         display:
-          Name: "ドイツのトリタペストリー"
+          Name: {text: "ドイツのトリタペストリー", italic: false}
         BlockEntityTag:
           Patterns:
             - {Pattern: cre, Color: 1}
@@ -397,16 +403,16 @@
     - id: 'minecraft:packed_ice'
       NBT:
         display:
-          Name: "re4k"
-          Lore: ["レニウム垢BAN記念"]
+          Name: {text: "re4k", italic: false}
+          Lore: [{text: "レニウム垢BAN記念", italic: false}]
         Enchantments:
           - id: frost_walker
             lvl: 5
     - id: 'minecraft:blue_ice'
       NBT:
         display:
-          Name: "cn"
-          Lore: ["レニウム垢BAN記念"]
+          Name: {text: "cn", italic: false}
+          Lore: [{text: "レニウム垢BAN記念", italic: false}]
         Enchantments:
           - id: frost_walker
             lvl: 10
@@ -420,11 +426,13 @@
     - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>].sample %>_terracotta'
       NBT:
         display:
-          Name: "燃えない羊毛"
-          Lore: ["Favstar プレミアムユーザ垢BAN記念"]
+          Name: {text: "燃えない羊毛", italic: false}
+          Lore: [{text: "Favstar プレミアムユーザ垢BAN記念", italic: false}]
         Enchantments:
           - id: fire_protection
-            lvl: "<%= rand(0..10) %>"
+            lvl:
+              _type: byte
+              value: "rand(0..10)"
 
 - name: 七夕キャンペーン
   start: [7, 7]
@@ -434,8 +442,8 @@
     - id: 'minecraft:name_tag'
       NBT:
         display:
-          Name: "短冊"
-          Lore: ["右クリックすると、MOBが短冊になってしまう不思議な札"]
+          Name: {text: "短冊", italic: false}
+          Lore: [{text: "右クリックすると、MOBが短冊になってしまう不思議な札", italic: false}]
 
 - name: 前祭
   start: [7, 11]
@@ -446,42 +454,41 @@
     - id: 'minecraft:oak_boat'
       NBT:
         display:
-          Name: "舁山"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "舁山", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:spruce_boat'
       NBT:
         display:
-          Name: "鉾"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "鉾", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:birch_boat'
       NBT:
         display:
-          Name: "曳山"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "曳山", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:jungle_boat'
       NBT:
         display:
-          Name: "船鉾"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "船鉾", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:acacia_boat'
       NBT:
         display:
-          Name: "傘鉾"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "傘鉾", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:player_head'
-      variant: 3
       NBT:
+        Damage: 3
         display:
-          Name: "御神体メット"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "御神体メット", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
         SkullOwner: "<%= user_name %>"
         AttributeModifiers:
           - AttributeName: "generic.max_health"
             Name: "generic.max_health"
             Amount: 2
             Operation: 0
-            UUIDMost: 115414
-            UUIDLeast: 420
+            UUID: MINECRAFT_UUID
             Slot: head
         Enchantments:
           - id: fire_protection
@@ -495,23 +502,23 @@
     - id: 'minecraft:oak_boat'
       NBT:
         display:
-          Name: "舁山"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "舁山", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:birch_boat'
       NBT:
         display:
-          Name: "曳山"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "曳山", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:jungle_boat'
       NBT:
         display:
-          Name: "船鉾"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "船鉾", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
     - id: 'minecraft:cherry_boat'
       NBT:
         display:
-          Name: "花傘"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"]
+          Name: {text: "花傘", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]
 
 - name: パインアメの日キャンペーン
   start: [8, 8]
@@ -521,18 +528,19 @@
     - id: 'minecraft:enchanted_golden_apple'
       NBT:
         display:
-          Name: "パインアレ"
+          Name: {text: "パインアレ", italic: false}
           Lore:
-            - 8/8はパインアメの日
-            - 2023年阪神タイガースリーグ優勝記念のとき
-            - 岡田監督がベンチで食べていた飴
+            - {text: "8/8はパインアメの日", italic: false}
+            - {text: "2023年阪神タイガースリーグ優勝記念のとき", italic: false}
+            - {text: "岡田監督がベンチで食べていた飴", italic: false}
         Enchantments:
           - {id: looting, lvl: 18}
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
+            Name: "generic.attack_damage"
             Amount: 18
             Slot: offhand
-            Name: "generic.attack_damage"
+            Operation: 0
             UUID: MINECRAFT_UUID
 
 - name: 山の日キャンペーン
@@ -543,7 +551,7 @@
     - id: 'minecraft:dirt'
       NBT:
         display:
-          Name: "山を構成する土ブロック"
+          Name: {text: "山を構成する土ブロック", italic: false}
 
 - name: 京都五山送り火キャンペーン(8/19まで)
   start: [8, 13]
@@ -553,19 +561,19 @@
     - id: 'minecraft:dark_oak_boat'
       NBT:
         display:
-          Name: "船形"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+          Name: {text: "船形", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]
     - id: 'minecraft:flint_and_steel'
       NBT:
         <<: *chakkaman
         display:
-          Name: "チャッカマン"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+          Name: {text: "チャッカマン", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]
     - id: 'minecraft:netherrack'
       NBT:
         display:
-          Name: "火床"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+          Name: {text: "火床", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]
     - id: 'minecraft:enchanted_book'
       NBT:
         StoredEnchantments:
@@ -576,8 +584,8 @@
           - id: flame
             lvl: 8
         display:
-          Name: "わざマシン38"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+          Name: {text: "わざマシン38", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]
     - id: 'minecraft:lingering_potion'
       amount: 4
       NBT:
@@ -586,8 +594,8 @@
             Amplifier: 2
             Duration: 600
         display:
-          Name: "ドローン"
-          Lore: ["<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", "五山送り火記念"]
+          Name: {text: "ドローン", italic: false}
+          Lore: [{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]
 
 - name: 初音ミクコラボ(9/3まで)
   start: [8, 28]
@@ -595,11 +603,11 @@
   type: item_random
   table:
     - id: 'minecraft:diamond_sword'
-      variant: 1550
       NBT:
+        Damage: 1550
         display:
-          Name: "ネギ"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          Name: {text: "ネギ", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -614,15 +622,15 @@
             UUID: MINECRAFT_UUID
             Slot: mainhand
     - id: 'minecraft:player_head'
-      variant: 3
       NBT:
+        Damage: 3
         display:
-          Name: "みくみくメット"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>", "設置しないように注意!"]
+          Name: {text: "みくみくメット", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}, {text: "設置しないように注意!", italic: false}]
         SkullOwner:
           Id:
             _type: intarray
-            value: [1064006426,504186341,-1426176507,-1689067329]
+            value: '[1064006426,504186341,-1426176507,-1689067329]'
           Properties:
             textures:
               - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTc5M2UxODkwMmJhNjZlYzIzMzVkY2M5M2U3NTZiNjc1YTlhNTFmYmI3ZmRkZjlhOWU4OWUzNThlMTY2NSJ9fX0="
@@ -653,8 +661,8 @@
     - id: 'minecraft:leather_chestplate'
       NBT:
         display:
-          Name: "ミクコス"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          Name: {text: "ミクコス", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]
           color: 0xffffff
         AttributeModifiers:
           - AttributeName: "generic.armor"
@@ -678,8 +686,8 @@
     - id: 'minecraft:leather_leggings'
       NBT:
         display:
-          Name: "スカート"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          Name: {text: "スカート", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]
           color: 0x6b696e
         AttributeModifiers:
           - AttributeName: "generic.armor"
@@ -703,8 +711,8 @@
     - id: 'minecraft:leather_boots'
       NBT:
         display:
-          Name: "ニーソ"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          Name: {text: "ニーソ", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]
           color: 0x4a4853
         AttributeModifiers:
           - AttributeName: "generic.armor"
@@ -728,8 +736,8 @@
     - id: 'minecraft:shield'
       NBT:
         display:
-          Name: "みくみくシールド"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          Name: {text: "みくみくシールド", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]
         BlockEntityTag:
           Base: 6
           Patterns:
@@ -752,8 +760,8 @@
       amount: 1
       NBT:
         display:
-          Name: "初音ミクちゃんのおぱんつドリップコーヒー"
-          Lore: ["初音ミクコラボ<%= Time.now.year%>"]
+          Name: {text: "初音ミクちゃんのおぱんつドリップコーヒー", italic: false}
+          Lore: [{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]
         CustomPotionEffects:
           - Id: 10
             Amplifier: 1
@@ -779,7 +787,7 @@
     - id: 'minecraft:paper'
       NBT:
         display:
-          Name: 一日乗車券
+          Name: {text: "一日乗車券", italic: false}
 
 - name: mikutter<%= Time.now.year - 2009 %>周年記念キャンペーン
   start: [12, 20]
@@ -789,8 +797,8 @@
     - id: 'minecraft:cake'
       NBT:
         display:
-          Name: "誕生日ケーキ"
-          Lore: ["mikutterの誕生日記念"]
+          Name: {text: "誕生日ケーキ", italic: false}
+          Lore: [{text: "mikutterの誕生日記念", italic: false}]
 - name: 年末年始キャンペーン
   start: [12, 25]
   end:   [12, 31]
