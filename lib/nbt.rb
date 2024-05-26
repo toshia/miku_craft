@@ -87,6 +87,7 @@ module NBT
     end
 
     def to_json(...) = @obj.to_json(...)
+    def hash = [@obj, self.class].hash
   end
 
   class NBTIntArray
@@ -105,6 +106,7 @@ module NBT
     end
 
     def to_json(...) = @obj.to_json(...)
+    def hash = [@obj, self.class].hash
   end
 
   class NBTLongArray
@@ -123,6 +125,7 @@ module NBT
     end
 
     def to_json(...) = @obj.to_json(...)
+    def hash = [@obj, self.class].hash
   end
 
   class NBTCompound
@@ -149,6 +152,8 @@ module NBT
     end
 
     def to_json(...) = @obj.to_json(...)
+    def to_h = @obj
+    def hash = [@obj, self.class].hash
 
     def [](k)
       return nil unless k in String | Symbol
@@ -203,6 +208,8 @@ module NBT
 
     def to_json(...) = @obj.to_json(...)
     def to_enum = @obj.to_enum
+    def to_a = @obj
+    def hash = [@obj, self.class].hash
 
     def [](k)
       return nil unless k in Integer
@@ -262,10 +269,12 @@ module NBT
 
     def to_json(...) = @obj.to_json(...)
     def to_s = @obj
+    def hash = [@obj, self.class].hash
   end
 
   class Integral
     include NBTObjectType
+    include Comparable
 
     def initialize(obj, bind: nil)
       raise NBTRangeError unless self.class::RANGE.include?(obj)
@@ -274,6 +283,11 @@ module NBT
 
     def snbt = "#{@obj}#{self.class::SUFFIX}"
     def to_json(...) = @obj.to_json(...)
+    def to_i = @obj.to_i
+    def to_f = @obj.to_f
+    def hash = [@obj, self.class].hash
+    def <=>(other) = (other <=> @obj)&.-@
+
     private def cnv(a) = a.to_i
   end
 
