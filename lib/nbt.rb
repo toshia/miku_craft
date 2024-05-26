@@ -144,6 +144,23 @@ module NBT
       ].join
     end
 
+    def [](k)
+      return nil unless k in String | Symbol
+      key = k.to_s
+      @obj[key]
+    end
+
+    def dig(*path)
+      k, *rest = path.flatten
+      return nil unless k in String | Symbol
+      key = k.to_s
+      if rest.empty?
+        self[key]
+      else
+        self[key]&.dig(*rest)
+      end
+    end
+
     # pathの内容をvalueに変更したオブジェクトを返す。
     # selfは変化させない。
     def cow(path, value)
@@ -176,6 +193,23 @@ module NBT
         *@obj.map(&:snbt).join(','),
         ']'
       ].join
+    end
+
+    def [](k)
+      return nil unless k in Integer
+      key = k.to_i
+      @obj[key]
+    end
+
+    def dig(*path)
+      k, *rest = path.flatten
+      return nil unless k in Integer
+      key = k.to_i
+      if rest.empty?
+        self[key]
+      else
+        self[key]&.dig(*rest)
+      end
     end
 
     def cow(path, value)

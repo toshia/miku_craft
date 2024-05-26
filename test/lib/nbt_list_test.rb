@@ -19,6 +19,44 @@ describe 'NBT list' do
     assert_equal '["dirt",1B,"gravel",2B]', a.snbt
   end
 
+  describe '[]' do
+    it 'take value' do
+      a = NBT::NBTList.new([1])
+      b = a[0]
+      assert_equal '1B', b.snbt
+    end
+
+    it 'key does not exists' do
+      a = NBT::NBTList.new([])
+      b = a[0]
+      assert_nil b
+    end
+  end
+
+  describe 'dig' do
+    it 'take value' do
+      a = NBT::NBTList.new([1])
+      b = a.dig(0)
+      assert_equal '1B', b.snbt
+    end
+
+    it 'key does not exists' do
+      a = NBT::NBTList.new([])
+      b = a.dig(0)
+      assert_nil b
+    end
+
+    it 'nested key' do
+      a = NBT::NBTList.new([[[1]]])
+      b = a.dig(0, 0, 0)
+      c = a.dig(0, 0)
+      d = a.dig(0)
+      assert_equal '1B', b.snbt
+      assert_equal '[1B]', c.snbt
+      assert_equal '[[1B]]', d.snbt
+    end
+  end
+
   describe 'cow' do
     it 'key create' do
       a = NBT::NBTList.new([])
