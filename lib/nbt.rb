@@ -14,10 +14,8 @@ module NBT
     case obj
     in NBTObjectType
       obj
-    in true
-      NBTByte.new(1)
-    in false
-      NBTByte.new(0)
+    in true | false
+      NBTBoolean.new(obj)
     in Integer => a if NBTByte::RANGE.include?(a)
       NBTByte.new(obj)
     in Integer => a if NBTShort::RANGE.include?(a)
@@ -87,6 +85,8 @@ module NBT
         ']'
       ].join
     end
+
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTIntArray
@@ -103,6 +103,8 @@ module NBT
         ']'
       ].join
     end
+
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTLongArray
@@ -119,6 +121,8 @@ module NBT
         ']'
       ].join
     end
+
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTCompound
@@ -132,7 +136,7 @@ module NBT
       [
         '{',
         *@obj.map do |k, v|
-          if %r<\A[\d\w\-\.\+]\z>.match(k.to_s)
+          if %r<\A[\d\w\-\.\+]+\z>.match(k.to_s)
             kk = k.to_s
           else
             kk = NBTString.new(k).snbt
@@ -143,6 +147,8 @@ module NBT
         '}'
       ].join
     end
+
+    def to_json(...) = @obj.to_json(...)
 
     def [](k)
       return nil unless k in String | Symbol
@@ -194,6 +200,8 @@ module NBT
         ']'
       ].join
     end
+
+    def to_json(...) = @obj.to_json(...)
 
     def [](k)
       return nil unless k in Integer
@@ -250,6 +258,9 @@ module NBT
     def snbt
       ['"', @obj.gsub('"', '\"'), '"'].join
     end
+
+    def to_json(...) = @obj.to_json(...)
+    def to_s = @obj
   end
 
   class NBTByte
@@ -262,6 +273,7 @@ module NBT
     end
 
     def snbt = "#{@obj}B"
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTShort
@@ -274,6 +286,7 @@ module NBT
     end
 
     def snbt = "#{@obj}S"
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTInteger
@@ -286,6 +299,7 @@ module NBT
     end
 
     def snbt = "#{@obj}"
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTLong
@@ -298,6 +312,7 @@ module NBT
     end
 
     def snbt = "#{@obj}L"
+    def to_json(...) = @obj.to_json(...)
   end
 
   class NBTFloat
@@ -310,5 +325,19 @@ module NBT
     end
 
     def snbt = "#{@obj}F"
+    def to_json(...) = @obj.to_json(...)
   end
+
+  # NBTとしてはないっぽいが、JSONとの相互変換のときにByteと区別がつかなくなるので内部的にもっておく
+  class NBTBoolean
+    include NBTObjectType
+
+    def initialize(obj, bind: nil)
+      @obj = !!obj
+    end
+
+    def snbt = "#{@obj ? 1 : 0}B"
+    def to_json(...) = @obj.to_json(...)
+  end
+
 end
