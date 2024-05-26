@@ -30,4 +30,20 @@ describe 'Minecraft Item' do
       assert_equal '{display:{Lore:["[{\"text\":\"line 1\",\"italic\":false}]","[{\"text\":\"line 2\",\"italic\":false}]"]}}', item.snbt
     end
   end
+
+  describe 'Enchantments' do
+    it 'レベル0エンチャントが削除される' do
+      nbt = NBT.build(
+        {
+          Enchantments: [
+            { lvl: 1, id: 'aqua_affinity' },
+            { lvl: 0, id: 'riptide' }
+          ]
+        }
+      )
+      item = MinecraftItem.new('dirt', tag: nbt)
+
+      assert_equal '{Enchantments:[{lvl:1B,id:"aqua_affinity"}]}', item.snbt
+    end
+  end
 end

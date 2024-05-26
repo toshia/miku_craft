@@ -8,14 +8,10 @@ class MinecraftItem
   def initialize(id, tag: nil)
     @id = id.freeze
     @nbt = tag
-    # あー、ここで吸収できるならcampaign table書き換えなくてよかったかもなあ
-    if name = @nbt.dig('display', 'Name')
-      @nbt = @nbt.cow(['display', 'Name'], name.to_json)
-    end
 
-    if lore = @nbt.dig('display', 'Lore')
-      @nbt = @nbt.cow(['display', 'Lore'], NBT::NBTList.new(lore.to_enum.map(&:to_json)))
-    end
+    sanitize_name
+    sanitize_lore
+    sanitize_enchantments
   end
 
   # "item_id[component]{tag}" を返す
@@ -59,4 +55,33 @@ class MinecraftItem
   def has_attribute_modifiers?
     
   end
+
+  private
+
+  def sanitize_name
+    # あー、ここで吸収できるならcampaign table書き換えなくてよかったかもなあ
+    if name = @nbt.dig('display', 'Name')
+      @nbt = @nbt.cow(['display', 'Name'], name.to_json)
+    end
+  end
+
+  def sanitize_lore
+    if lore = @nbt.dig('display', 'Lore')
+      @nbt = @nbt.cow(['display', 'Lore'], NBT::NBTList.new(lore.to_enum.map(&:to_json)))
+    end
+  end
+
+  # エンチャントレベル0のものがあったら削除する。
+  def sanitize_enchantments
+    if enchs = @nbt['Enchantments']
+      updated = false
+      filtered = enchs.to_enum.reject do |ench|
+        updated = true if ench[:lvl] == 0
+      end
+      if updated
+        @nbt = @nbt.cow(['Enchantments'], NBT::NBTList.new(filtered))
+      end
+    end
+  end
+
 end
