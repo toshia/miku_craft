@@ -202,6 +202,7 @@ module NBT
     end
 
     def to_json(...) = @obj.to_json(...)
+    def to_enum = @obj.to_enum
 
     def [](k)
       return nil unless k in Integer
