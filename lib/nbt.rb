@@ -8,7 +8,7 @@ module NBT
   class NBTRangeError < StandardError; end
 
   # _obj_ をMinecraftのNBT形式に変換し、NBTテキストをStringで返す
-  def self.build(obj)
+  def self.build(obj, bind: nil)
     case obj
     in true
       NBTByte.new(1)
@@ -27,16 +27,16 @@ module NBT
     in 'MINECRAFT_UUID'         # ランダムなUUIDを作る
       NBTIntArray.new(SecureRandom.random_bytes(16).unpack("i4"))
     in String | Symbol
-      NBTString.new(obj)
+      NBTString.new(obj, bind:)
     in Array
-      NBTList.new(obj)
+      NBTList.new(obj, bind:)
     in Hash
       # _typeキーがあるmapは、valueをRubyコードとして処理し、結果を_typeの型にキャストする
       if obj['_type']
         code = obj.fetch('value')
-        NBTProc.new(code, type: obj['_type'])
+        NBTProc.new(code, bind:, type: obj['_type']).nbt
       else
-        NBTCompound.new(obj)
+        NBTCompound.new(obj, bind:)
       end
     end
   rescue NoMatchingPatternError => e
@@ -44,15 +44,14 @@ module NBT
   end
 
   class NBTProc
-    def initialize(code, type:, fname: code.lines.first.slice(0, 20), lineno: 1)
+    attr_reader :nbt
+
+    def initialize(code, bind: nil, type:, fname: code.lines.first.slice(0, 20), lineno: 1)
       @code = code.to_s.freeze
       @type = type
       @fname = fname
       @lineno = lineno
-    end
-
-    def eval_snbt(bind=nil)
-      cast((bind || binding).eval(@code, @fname, @lineno)).eval_snbt
+      @nbt = cast((bind || binding).eval(@code, @fname, @lineno))
     end
 
     private
@@ -62,6 +61,8 @@ module NBT
       when 'auto'
         NBT.build(obj)
       # ↓出力する必要が出てきたら足す
+      when 'byte'
+        NBT::NBTByte.new(obj)
       when 'intarray'
         NBT::NBTIntArray.new(obj)
       end
@@ -69,62 +70,62 @@ module NBT
   end
 
   class NBTByteArray
-    def initialize(obj)
-      @obj = obj.map { NBTByte.new(_1) }.to_a.freeze
+    def initialize(obj, bind: nil)
+      @obj = obj.map { NBTByte.new(_1, bind:) }.to_a.freeze
     end
 
-    def eval_snbt(bind=nil)
+    def snbt
       [
         '[B;',
-        *@obj.map { |x| x.eval_snbt(bind) }.join(','),
+        *@obj.map(&:snbt).join(','),
         ']'
       ].join
     end
   end
 
   class NBTIntArray
-    def initialize(obj)
-      @obj = obj.map { NBTInteger.new(_1) }.to_a.freeze
+    def initialize(obj, bind: nil)
+      @obj = obj.map { NBTInteger.new(_1, bind:) }.to_a.freeze
     end
 
-    def eval_snbt(bind=nil)
+    def snbt
       [
         '[I;',
-        *@obj.map { |x| x.eval_snbt(bind) }.join(','),
+        *@obj.map(&:snbt).join(','),
         ']'
       ].join
     end
   end
 
   class NBTLongArray
-    def initialize(obj)
-      @obj = obj.map { NBTLong.new(_1) }.to_a.freeze
+    def initialize(obj, bind: nil)
+      @obj = obj.map { NBTLong.new(_1, bind:) }.to_a.freeze
     end
 
-    def eval_snbt(bind=nil)
+    def snbt
       [
         '[L;',
-        *@obj.map { |x| x.eval_snbt(bind) }.join(','),
+        *@obj.map(&:snbt).join(','),
         ']'
       ].join
     end
   end
 
   class NBTCompound
-    def initialize(obj)
-      @obj = obj.transform_values { NBT.build(_1) }.freeze
+    def initialize(obj, bind: nil)
+      @obj = obj.transform_values { NBT.build(_1, bind:) }.freeze
     end
 
-    def eval_snbt(bind=nil)
+    def snbt
       [
         '{',
         *@obj.map do |k, v|
           if %r<\A[\d\w\-\.\+]\z>.match(k.to_s)
             kk = k.to_s
           else
-            kk = NBTString.new(k).eval_snbt
+            kk = NBTString.new(k).snbt
           end
-          vv = v.eval_snbt(bind)
+          vv = v.snbt
           "#{kk}:#{vv}"
         end.join(','),
         '}'
@@ -133,79 +134,80 @@ module NBT
   end
 
   class NBTList
-    def initialize(obj)
-      @obj = obj.map { NBT.build(_1) }.to_a.freeze
+    def initialize(obj, bind: nil)
+      @obj = obj.map { NBT.build(_1, bind:) }.to_a.freeze
     end
 
-    def eval_snbt(bind=nil)
+    def snbt
       [
         '[',
-        *@obj.map { |x| x.eval_snbt(bind) }.join(','),
+        *@obj.map(&:snbt).join(','),
         ']'
       ].join
     end
   end
 
   class NBTString
-    def initialize(obj) = @obj = obj.to_s.freeze
-
-    def eval_snbt(bind=nil)
+    def initialize(obj, bind: nil)
       if bind
-        v = ERB.new(@obj).result(bind)
+        @obj = ERB.new(obj).result(bind).freeze
       else
-        v = @obj
+        @obj = obj.to_s.freeze
       end
-      ['"', v.gsub('"', '\"'), '"'].join
+    end
+
+    def snbt
+      ['"', @obj.gsub('"', '\"'), '"'].join
     end
   end
 
   class NBTByte
     RANGE = -0x80..0x7f
-    def initialize(obj)
+    def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
       @obj = obj.to_i
     end
 
-    def eval_snbt(_bind=nil) = "#{@obj}B"
+    def snbt = "#{@obj}B"
   end
 
   class NBTShort
     RANGE = -0x8000..0x7fff
-    def initialize(obj)
+    def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
       @obj = obj.to_i
     end
 
-    def eval_snbt(_bind=nil) = "#{@obj}S"
+    def snbt = "#{@obj}S"
   end
 
   class NBTInteger
     RANGE = -0x80000000..0x7fffffff
-    def initialize(obj)
+    def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
       @obj = obj.to_i
     end
 
-    def eval_snbt(_bind=nil) = "#{@obj}"
+    def snbt = "#{@obj}"
   end
 
   class NBTLong
     RANGE = -0x8000000000000000..0x7fffffffffffffff
-    def initialize(obj)
+    def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
       @obj = obj.to_i
     end
 
-    def eval_snbt(_bind=nil) = "#{@obj}L"
+    def snbt = "#{@obj}L"
   end
 
   class NBTFloat
     RANGE = -1.7E+308..1.7E+308
-    def initialize(obj)
+    def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
       @obj = obj.to_f
     end
 
-    def eval_snbt(_bind=nil) = "#{@obj}F"
+    def snbt = "#{@obj}F"
   end
 end

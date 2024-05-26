@@ -6,12 +6,12 @@ require_relative '../../lib/nbt'
 describe 'NBT byte array' do
   it 'empty byte array' do
     a = NBT::NBTLongArray.new([])
-    assert_equal '[L;]', a.eval_snbt
+    assert_equal '[L;]', a.snbt
   end
 
   it 'some values' do
     a = NBT::NBTLongArray.new([-1,0,1,2,3])
-    assert_equal '[L;-1L,0L,1L,2L,3L]', a.eval_snbt
+    assert_equal '[L;-1L,0L,1L,2L,3L]', a.snbt
   end
 
   it 'huge value' do
