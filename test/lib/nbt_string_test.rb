@@ -25,4 +25,13 @@ describe 'NBT string' do
     a = NBT::NBTString.new('n * 2 = <%= n * 2 %>', bind: bind)
     assert_equal '"n * 2 = 246"', a.snbt
   end
+
+  it 'compare' do
+    a = NBT::NBTString.new('dirt')
+    b = NBT::NBTString.new('dirt')
+    c = NBT::NBTString.new('gravel')
+
+    assert_equal a, b
+    refute_equal a, c
+  end
 end

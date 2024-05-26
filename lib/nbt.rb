@@ -254,6 +254,7 @@ module NBT
 
   class NBTString
     include NBTObjectType
+    include Comparable
 
     def initialize(obj, bind: nil)
       if bind
@@ -270,6 +271,7 @@ module NBT
     def to_json(...) = @obj.to_json(...)
     def to_s = @obj
     def hash = [@obj, self.class].hash
+    def <=>(other) = (other <=> @obj)&.-@
   end
 
   class Integral

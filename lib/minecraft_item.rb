@@ -12,7 +12,10 @@ class MinecraftItem
     sanitize_name
     sanitize_lore
     sanitize_enchantments
+    sanitize_attribute_modifier
   end
+
+  def tag = @nbt
 
   # "item_id[component]{tag}" を返す
   def to_s
@@ -48,14 +51,6 @@ class MinecraftItem
     end
   end
 
-  def has_enchantment?
-    
-  end
-
-  def has_attribute_modifiers?
-    
-  end
-
   private
 
   def sanitize_name
@@ -80,6 +75,21 @@ class MinecraftItem
       end
       if updated
         @nbt = @nbt.cow(['Enchantments'], NBT::NBTList.new(filtered))
+      end
+    end
+  end
+
+  def sanitize_attribute_modifier
+    if attrs = @nbt['AttributeModifiers']
+      updated = false
+      filtered = attrs.to_enum.reject do |attr|
+        case [attr[:Amount], attr[:Operation]]
+        when [0, 0], [0, 1], [1, 2]
+          updated = true
+        end
+      end
+      if updated
+        @nbt = @nbt.cow(['AttributeModifiers'], NBT::NBTList.new(filtered))
       end
     end
   end

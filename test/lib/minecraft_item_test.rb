@@ -46,4 +46,30 @@ describe 'Minecraft Item' do
       assert_equal '{Enchantments:[{lvl:1B,id:"aqua_affinity"}]}', item.snbt
     end
   end
+
+  describe 'AttributeModifiers' do
+    it '変化量0のAttributeModifiersが削除される' do
+      nbt = NBT.build(
+        {
+          AttributeModifiers: [
+            { Amount: 0, Operation: 0, Name: '+0' },
+            { Amount: 1, Operation: 0, Name: '+1' },
+            { Amount: 0, Operation: 1, Name: '+(n*0)' },
+            { Amount: 1, Operation: 1, Name: '+(n*1)' },
+            { Amount: 0, Operation: 2, Name: '*0' },
+            { Amount: 1, Operation: 2, Name: '*1' },
+          ]
+        }
+      )
+      item = MinecraftItem.new('dirt', tag: nbt)
+      a = item.tag['AttributeModifiers'].to_a
+
+      refute a.find { _1['Name'] == '+0' }, '+0 should delete'
+      assert a.find { _1['Name'] == '+1' }, '+1 should remain'
+      refute a.find { _1['Name'] == '+(n*0)' }, '+(n*0) should delete'
+      assert a.find { _1['Name'] == '+(n*1)' }, '+(n*1) should remain'
+      assert a.find { _1['Name'] == '*0' }, '*0 should remain'
+      refute a.find { _1['Name'] == '*1' }, '*1 should delete'
+    end
+  end
 end
