@@ -264,81 +264,49 @@ module NBT
     def to_s = @obj
   end
 
-  class NBTByte
+  class Integral
     include NBTObjectType
 
+    def initialize(obj, bind: nil)
+      raise NBTRangeError unless self.class::RANGE.include?(obj)
+      @obj = cnv(obj)
+    end
+
+    def snbt = "#{@obj}#{self.class::SUFFIX}"
+    def to_json(...) = @obj.to_json(...)
+    private def cnv(a) = a.to_i
+  end
+
+  class NBTByte < Integral
     RANGE = -0x80..0x7f
-    def initialize(obj, bind: nil)
-      raise NBTRangeError unless RANGE.include?(obj)
-      @obj = obj.to_i
-    end
-
-    def snbt = "#{@obj}B"
-    def to_json(...) = @obj.to_json(...)
+    SUFFIX = 'B'
   end
 
-  class NBTShort
-    include NBTObjectType
-
+  class NBTShort < Integral
     RANGE = -0x8000..0x7fff
-    def initialize(obj, bind: nil)
-      raise NBTRangeError unless RANGE.include?(obj)
-      @obj = obj.to_i
-    end
-
-    def snbt = "#{@obj}S"
-    def to_json(...) = @obj.to_json(...)
+    SUFFIX = 'S'
   end
 
-  class NBTInteger
-    include NBTObjectType
-
+  class NBTInteger < Integral
     RANGE = -0x80000000..0x7fffffff
-    def initialize(obj, bind: nil)
-      raise NBTRangeError unless RANGE.include?(obj)
-      @obj = obj.to_i
-    end
-
-    def snbt = "#{@obj}"
-    def to_json(...) = @obj.to_json(...)
+    SUFFIX = ''
   end
 
-  class NBTLong
-    include NBTObjectType
-
+  class NBTLong < Integral
     RANGE = -0x8000000000000000..0x7fffffffffffffff
-    def initialize(obj, bind: nil)
-      raise NBTRangeError unless RANGE.include?(obj)
-      @obj = obj.to_i
-    end
-
-    def snbt = "#{@obj}L"
-    def to_json(...) = @obj.to_json(...)
+    SUFFIX = 'L'
   end
 
-  class NBTFloat
-    include NBTObjectType
-
+  class NBTFloat < Integral
     RANGE = -1.7E+308..1.7E+308
-    def initialize(obj, bind: nil)
-      raise NBTRangeError unless RANGE.include?(obj)
-      @obj = obj.to_f
-    end
-
-    def snbt = "#{@obj}F"
-    def to_json(...) = @obj.to_json(...)
+    SUFFIX = 'F'
+    private def cnv(a) = a.to_f
   end
 
   # NBTとしてはないっぽいが、JSONとの相互変換のときにByteと区別がつかなくなるので内部的にもっておく
-  class NBTBoolean
-    include NBTObjectType
-
-    def initialize(obj, bind: nil)
-      @obj = !!obj
-    end
-
-    def snbt = "#{@obj ? 1 : 0}B"
-    def to_json(...) = @obj.to_json(...)
+  class NBTBoolean < Integral
+    RANGE = [true, false]
+    SUFFIX = 'B'
+    private def cnv(a) = !!a
   end
-
 end
