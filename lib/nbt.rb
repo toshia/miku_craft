@@ -6,10 +6,14 @@ require 'erb'
 module NBT
   class TypeError < StandardError; end
   class NBTRangeError < StandardError; end
+  class KeyError < StandardError; end
+  module NBTObjectType; end # NBT型の一種であることを示すmix-in
 
   # _obj_ をMinecraftのNBT形式に変換し、NBTテキストをStringで返す
   def self.build(obj, bind: nil)
     case obj
+    in NBTObjectType
+      obj
     in true
       NBTByte.new(1)
     in false
@@ -40,7 +44,7 @@ module NBT
       end
     end
   rescue NoMatchingPatternError => e
-    raise NBT::TypeError
+    raise NBT::TypeError, "#{obj.class} の取り扱い方は不明"
   end
 
   class NBTProc
@@ -70,6 +74,8 @@ module NBT
   end
 
   class NBTByteArray
+    include NBTObjectType
+
     def initialize(obj, bind: nil)
       @obj = obj.map { NBTByte.new(_1, bind:) }.to_a.freeze
     end
@@ -84,6 +90,8 @@ module NBT
   end
 
   class NBTIntArray
+    include NBTObjectType
+
     def initialize(obj, bind: nil)
       @obj = obj.map { NBTInteger.new(_1, bind:) }.to_a.freeze
     end
@@ -98,6 +106,8 @@ module NBT
   end
 
   class NBTLongArray
+    include NBTObjectType
+
     def initialize(obj, bind: nil)
       @obj = obj.map { NBTLong.new(_1, bind:) }.to_a.freeze
     end
@@ -112,8 +122,10 @@ module NBT
   end
 
   class NBTCompound
+    include NBTObjectType
+
     def initialize(obj, bind: nil)
-      @obj = obj.transform_values { NBT.build(_1, bind:) }.freeze
+      @obj = obj.to_h { |k, v| [k.to_s, NBT.build(v, bind:)] }.freeze
     end
 
     def snbt
@@ -131,9 +143,29 @@ module NBT
         '}'
       ].join
     end
+
+    # pathの内容をvalueに変更したオブジェクトを返す。
+    # selfは変化させない。
+    def cow(path, value)
+      k, *rest = path
+      raise TypeError, "#{self.class}#cow: キーは String|Symbol (実際に渡したのは #{k.class})" unless k in String | Symbol
+      key = k.to_s
+      if rest.empty?
+        NBTCompound.new(@obj.merge({ key.to_s => value }))
+      else
+        child = @obj[key.to_s]
+        if child
+          NBTCompound.new(@obj.merge({ key.to_s => child.cow(rest, value) }))
+        else
+          raise KeyError, "#{self.class}#cow: #{k.inspect} キーが存在しないため追加できない"
+        end
+      end
+    end
   end
 
   class NBTList
+    include NBTObjectType
+
     def initialize(obj, bind: nil)
       @obj = obj.map { NBT.build(_1, bind:) }.to_a.freeze
     end
@@ -145,9 +177,34 @@ module NBT
         ']'
       ].join
     end
+
+    def cow(path, value)
+      k, *rest = path
+      raise TypeError, "#{self.class}#cow: キーは Integer (実際に渡したのは #{k.class})" unless k in Integer
+      key = k.to_i
+      unless (0..@obj.size).include?(key)
+        raise KeyError, "#{self.class}#cow: Listsizeは #{@obj.size} (index: #{k.inspect})"
+      end
+      if rest.empty?
+        ary = @obj.dup
+        ary[key] = value
+        NBTList.new(ary)
+      else
+        child = @obj[key]
+        if child
+          ary = @obj.dup
+          ary[key] = @obj[key].cow(rest, value)
+          NBTList.new(ary)
+        else
+          raise KeyError, "#{self.class}#cow: #{k.inspect} キーが存在しないため追加できない"
+        end
+      end
+    end
   end
 
   class NBTString
+    include NBTObjectType
+
     def initialize(obj, bind: nil)
       if bind
         @obj = ERB.new(obj).result(bind).freeze
@@ -162,6 +219,8 @@ module NBT
   end
 
   class NBTByte
+    include NBTObjectType
+
     RANGE = -0x80..0x7f
     def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
@@ -172,6 +231,8 @@ module NBT
   end
 
   class NBTShort
+    include NBTObjectType
+
     RANGE = -0x8000..0x7fff
     def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
@@ -182,6 +243,8 @@ module NBT
   end
 
   class NBTInteger
+    include NBTObjectType
+
     RANGE = -0x80000000..0x7fffffff
     def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
@@ -192,6 +255,8 @@ module NBT
   end
 
   class NBTLong
+    include NBTObjectType
+
     RANGE = -0x8000000000000000..0x7fffffffffffffff
     def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)
@@ -202,6 +267,8 @@ module NBT
   end
 
   class NBTFloat
+    include NBTObjectType
+
     RANGE = -1.7E+308..1.7E+308
     def initialize(obj, bind: nil)
       raise NBTRangeError unless RANGE.include?(obj)

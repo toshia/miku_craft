@@ -18,4 +18,39 @@ describe 'NBT list' do
     a = NBT::NBTList.new(['dirt', 1, 'gravel', 2])
     assert_equal '["dirt",1B,"gravel",2B]', a.snbt
   end
+
+  describe 'cow' do
+    it 'key create' do
+      a = NBT::NBTList.new([])
+      b = a.cow([0], 1)
+      assert_equal '[1B]', b.snbt
+      assert_equal '[]', a.snbt
+    end
+
+    it 'key update' do
+      a = NBT::NBTList.new([1])
+      b = a.cow([0], 2)
+      assert_equal '[2B]', b.snbt
+      assert_equal '[1B]', a.snbt
+    end
+
+    it 'nested compound' do
+      a = NBT::NBTList.new([[[1]]])
+      b = a.cow([0,0,0], 2)
+      assert_equal '[[[2B]]]', b.snbt
+      assert_equal '[[[1B]]]', a.snbt
+    end
+
+    it 'string key' do
+      a = NBT::NBTList.new([])
+      assert_raises(NBT::TypeError) { a.cow(['1'], 2) }
+      assert_equal '[]', a.snbt
+    end
+
+    it 'invalid hierarchy' do
+      a = NBT::NBTList.new([])
+      assert_raises(NBT::KeyError) { a.cow([0, 1], 2) }
+      assert_equal '[]', a.snbt
+    end
+  end
 end
