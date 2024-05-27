@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 require_relative 'mc_json'
+require_relative '../../lib/nbt'
+require_relative '../../lib/minecraft_item'
 
 require 'date'
 
@@ -99,71 +101,38 @@ module Plugin::Campaign
     type :item_random
 
     def daily(user_name:, login_count:)
-      item = @table.sample
+      # 先に、itemをnbtにして、計算は全部やっておく。
+      # 以下は、その内容を読んでアイテムのコンバートを行う。
       context = CampaignArgs.new(user_name, login_count).context
-      item_id = ERB.new(item.id).result(context)
-      item_name = item.dig(:NBT, :display, :Name) || item_id
-      r_name = name(context)
-      variant = item.variant
-      if variant && !item.dig(:NBT, :Damage)
-        if item[:NBT].is_a?(Hash)
-          item[:NBT][:Damage] = context.eval(variant.to_s)
-        else
-          item[:NBT] = {Damage: context.eval(variant.to_s)}
-        end
-      end
-      item.dig(:NBT, :display, :Name)&.yield_self do |text|
-        item[:NBT][:display][:Name] = rich_text(text, context)
-      end
-      if item.dig(:NBT, :display, :Lore).is_a?(Array)
-        item[:NBT][:display][:Lore] = item.dig(:NBT, :display, :Lore).map do |lore|
-          rich_text(lore, context)
-        end
-      end
-      if item.dig(:NBT, :Enchantments)
-        item[:NBT][:Enchantments] = item[:NBT][:Enchantments].flatten.map{|ench|
-          case ench[:lvl]
-          when String
-            r = ERB.new(ench[:lvl]).result(context)
-            ench.merge(lvl: r.to_i)
-          else
-            ench
-          end
-        }.select{|ench|
-          ench[:lvl] != 0
-        }
-      end
-      if item.dig(:NBT, :AttributeModifiers)
-        item[:NBT][:AttributeModifiers] = item[:NBT][:AttributeModifiers].flatten.map{|attr|
-          attr[:Name] = attr[:AttributeName]
-          attr[:Amount] = ERB.new(attr[:Amount].to_s).result(context).to_f
-          attr[:Operation] ||= 0
-          attr
-        }.reject{|attr|
-          attr[:Amount] == 0 && attr[:Operation] == 0 || # +0
-            attr[:Amount] == 0 && attr[:Operation] == 1 || # +0.0 (Multiply Additive)
-            attr[:Amount] == 1 && attr[:Operation] == 2 # *1 (Multiply Multiply)
-        }
-      end
+      item_raw = @table.sample
+      item_id = ERB.new(item_raw['id']).result(context)
+      # item_name = item.dig('NBT', 'display', 'Name') || item_id
+      # r_name = name(context)
+      pp item_raw['NBT']
+      item = MinecraftItem::Item.new(item_id, tag: NBT.build(item_raw['NBT'], bind: context, allow_nil: true))
+
+      # if item.dig('NBT', 'Enchantments')
+      #   # エンチャントのlvlが0だった場合にエンチャント自体を消す特例。 -> 残す
+      #   item['NBT']['Enchantments'] = item['NBT']['Enchantments'].select { |ench|
+      #     ench['lvl'] != 0
+      #   }
+      # end
+
+      # if item.dig(:NBT, :AttributeModifiers)
+      #   item[:NBT][:AttributeModifiers] = item[:NBT][:AttributeModifiers].reject{|attr|
+      #     # 数値変動がないA.M.をすべて削除
+      #     attr[:Amount] == 0 && attr[:Operation] == 0 || # +0
+      #       attr[:Amount] == 0 && attr[:Operation] == 1 || # +0.0 (Multiply Additive)
+      #       attr[:Amount] == 1 && attr[:Operation] == 2 # *1 (Multiply Multiply)
+      #   }
+      # end
       Plugin.call(:giftbox_keep,
                   user_name,
-                  "#{description(context) || r_name}！#{item_name}をプレゼント",
+                  "#{description(context) || name(context)}！#{item.item_name}をプレゼント",
                   {
                     id: item_id,
-                    count: context.eval(item.amount.to_s) || 1,
-                    tag: item.NBT&.to_mcjson(context) || '{}' })
-    end
-
-    private
-
-    def rich_text(text, context)
-      case text
-      when String
-        Hashie::Mash.new(text: text, italic: 0).to_mcjson(context).to_s
-      when Hash
-        text = {italic: 0, **text} unless text[:italic]
-        text.to_mcjson(context).to_s
-      end
+                    count: context.eval(item_raw['amount'].to_s) || 1,
+                    tag: item })
     end
   end
 

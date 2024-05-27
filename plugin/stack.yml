@@ -107,7 +107,6 @@ minecraft:exposed_copper: 64
 minecraft:exposed_cut_copper: 64
 minecraft:fire_coral_fan: 64
 minecraft:flint_and_steel: 1
-minecraft:flint_and_steel: 64
 minecraft:flowering_azalea: 64
 minecraft:glass_pane: 64
 minecraft:glow_berries: 64
@@ -115,6 +114,7 @@ minecraft:glow_lichen: 64
 minecraft:gold_ingot: 64
 minecraft:gold_nugget: 64
 minecraft:gold_ore: 64
+minecraft:gravel: 64
 minecraft:gray_banner: 16
 minecraft:gray_candle: 64
 minecraft:gray_terracotta: 64
@@ -139,7 +139,7 @@ minecraft:leather_helmet: 1
 minecraft:lectern: 64
 minecraft:light_blue_banner: 16
 minecraft:light_bluecandle: 64
-minecraft:light_blueterracotta: 64
+minecraft:light_blue_terracotta: 64
 minecraft:light_gray_banner: 16
 minecraft:light_gray_candle: 64
 minecraft:light_gray_terracotta: 64
@@ -159,6 +159,8 @@ minecraft:moss_carpet: 64
 minecraft:mushroom_stew: 1
 minecraft:name_tag: 64
 minecraft:nether_gold_ore: 64
+minecraft:netherrack: 64
+minecraft:campfire: 64
 minecraft:nether_quartz_ore: 64
 minecraft:netherite_ingot: 64
 minecraft:netherite_scrap: 64
@@ -206,6 +208,7 @@ minecraft:spruce_door: 64
 minecraft:spruce_hanging_sign: 16
 minecraft:spyglass: 1
 minecraft:stick: 64
+minecraft:stone: 64
 minecraft:stonecutter: 64
 minecraft:stripped_bamboo_plank: 64
 minecraft:stripped_dark_oak_log: 64
