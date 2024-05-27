@@ -51,83 +51,67 @@ Plugin.create :continuous_login do
   end
 
   on_give_continuous_login_bonus do |name, days|
-    next
+    lore = "#{Time.now.year}/#{Time.now.month}/#{Time.now.day} 通算ログインボーナス\n#{days}日ログイン記念に#{name}がもらった"
     case
     when (days % 31) == 0
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！ダイヤのクワをプレゼント",
-                  {
-                    id: 'minecraft:diamond_hoe',
-                    count: 1,
-                    tag: {
-                      display: {
-                        Lore: [rich_text("#{days}日ログイン記念に#{name}がもらった")]
-                      }
-                    }
-                  }
+                  MinecraftItem::Stack.new(
+                    MinecraftItem::Item.new(:diamond_hoe,
+                                            tag: NBT.build(
+                                              {
+                                                display: {
+                                                  Name: 'ダイヤのクワ',
+                                                  Lore: lore
+                                                }
+                                              })
+                                           ),
+                    1)
                  )
     when (days % 17) == 0
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！マインカートをプレゼント",
-                  {
-                    id: 'minecraft:minecart',
-                    count: 1,# 0, "{display:{Lore:[\"#{days}日ログイン記念に#{name}がもらった\"]}}")
-                    tag: {
-                      display: {
-                        Lore: [rich_text("#{days}日ログイン記念に#{name}がもらった")]
-                      }
-                    }
-                  }
+                  MinecraftItem::Stack.new(
+                    MinecraftItem::Item.new(:minecart,
+                                            tag: NBT.build(
+                                              {
+                                                display: {
+                                                  Lore: "#{lore}\nteocraft全線では駅乗降車場所への\nマインカート放置は禁止されています"
+                                                }
+                                              })
+                                           ),
+                    1)
                  )
     when (days % 7) == 0
       food = Matsuya.order.gsub(/[　（）]/, '　'=>'', '（'=>'(', '）'=>')')
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！#{food}をプレゼント",
-                  {
-                    id: 'minecraft:rabbit_stew',
-                    count: 1,
-                    tag: {
-                      display: {
-                        Name: rich_text(food.to_s),
-                        Lore: [rich_text("#{days}日記念")]
-                      }
-                    }
-                  }
+                  MinecraftItem::Stack.new(
+                    MinecraftItem::Item.new(:rabbit_stew,
+                                            tag: NBT.build({ display: { Name: food.to_s, Lore: lore }})),
+                    1)
                  )
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   name,
                   nil,
-                  {
-                    id: 'minecraft:mushroom_stew',
-                    count: 1,
-                    tag: {
-                      display: {
-                        Name: rich_text('味噌汁')
-                      }
-                    }
-                  }
+                  MinecraftItem::Stack.new(
+                    MinecraftItem::Item.new(:mushroom_stew,
+                                            tag: NBT.build({display: { Name: '味噌汁', Lore: lore }})),
+                    1)
                  )
     when (days % 5) == 0
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！経験値ボトルをプレゼント",
-                  {
-                    id: 'minecraft:experience_bottle',
-                    count: 1
-                  }
-                 )
+                  MinecraftItem::Stack.new(MinecraftItem::Item.new(:experience_bottle), 1))
     else
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   name,
                   "ログイン#{days}日目！棒をプレゼント",
-                  {
-                    id: 'minecraft:stick',
-                    count: 1
-                  }
-                 )
+                  MinecraftItem::Stack.new(MinecraftItem::Item.new(:stick), 1))
     end
   end
 end

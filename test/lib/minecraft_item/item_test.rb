@@ -1,16 +1,32 @@
 # frozen_string_literal: true
 
-require_relative '../test_config'
-require_relative '../../lib/nbt'
-require_relative '../../lib/minecraft_item'
+require_relative '../../test_config'
+require_relative '../../../lib/nbt'
+require_relative '../../../lib/minecraft_item'
 
 describe 'Minecraft Item' do
+  describe 'id' do
+    it 'minecraft:dirt' do
+      item = MinecraftItem::Item.new('minecraft:dirt', tag: nil)
+      assert_equal 'minecraft:dirt', item.id
+      assert_equal 'minecraft', item.namespace
+      assert_equal 'dirt', item.local_id
+    end
+
+    it 'dirt' do
+      item = MinecraftItem::Item.new('dirt', tag: nil)
+      assert_equal 'minecraft:dirt', item.id
+      assert_equal 'minecraft', item.namespace
+      assert_equal 'dirt', item.local_id
+    end
+  end
+
   describe 'Name' do
     it '省略されていない' do
       nbt = NBT.build(
         { 'display' => { 'Name' => [{text: 'foobar', italic: false}] } }
       )
-      item = MinecraftItem.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', tag: nbt)
 
       assert_equal '{display:{Name:"[{\"text\":\"foobar\",\"italic\":false}]"}}', item.snbt
       assert_equal 'foobar', item.display_name.dig(0, 'text')
@@ -21,7 +37,7 @@ describe 'Minecraft Item' do
       nbt = NBT.build(
         { 'display' => { 'Name' => 'foobar' } }
       )
-      item = MinecraftItem.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', tag: nbt)
 
       assert_equal '{display:{Name:"[{\"text\":\"foobar\",\"italic\":false}]"}}', item.snbt
       assert_equal 'foobar', item.display_name.dig(0, 'text')
@@ -36,7 +52,7 @@ describe 'Minecraft Item' do
                            [{text: 'line 1', italic: false}],
                            [{text: 'line 2', italic: false}]] } }
       )
-      item = MinecraftItem.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', tag: nbt)
 
       assert_equal '{display:{Lore:["[{\"text\":\"line 1\",\"italic\":false}]","[{\"text\":\"line 2\",\"italic\":false}]"]}}', item.snbt
     end
@@ -45,7 +61,7 @@ describe 'Minecraft Item' do
       nbt = NBT.build(
         { 'display' => { 'Lore' => "五月雨を\n集めてはやし\n最上川" } }
       )
-      item = MinecraftItem.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', tag: nbt)
 
       assert_equal '{display:{Lore:["[{\"text\":\"五月雨を\",\"italic\":false}]","[{\"text\":\"集めてはやし\",\"italic\":false}]","[{\"text\":\"最上川\",\"italic\":false}]"]}}', item.snbt
     end
@@ -62,7 +78,7 @@ describe 'Minecraft Item' do
           ]
         }
       )
-      item = MinecraftItem.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', tag: nbt)
 
       assert_equal '{Enchantments:[{lvl:1B,id:"aqua_affinity"}]}', item.snbt
     end
@@ -82,7 +98,7 @@ describe 'Minecraft Item' do
           ]
         }
       )
-      item = MinecraftItem.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', tag: nbt)
       a = item.tag['AttributeModifiers'].to_a
 
       refute a.find { _1['Name'] == '+0' }, '+0 should delete'

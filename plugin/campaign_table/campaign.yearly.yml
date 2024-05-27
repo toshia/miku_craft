@@ -6,8 +6,8 @@
     - id: 'minecraft:sea_pickle'
       NBT:
         display:
-          Name: [{text: "門松", italic: false}]
-          Lore: [[{text: "メリーお正月！", italic: false}]]
+          Name: "門松"
+          Lore: "メリーお正月！"
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -18,14 +18,14 @@
     - id: 'minecraft:tipped_arrow'
       NBT:
         display:
-          Name: [{text: "破魔矢", italic: false}]
-          Lore: [[{text: "メリーお正月！", italic: false}]]
+          Name: "破魔矢"
+          Lore: "メリーお正月！"
         Potion: strong_healing
     - id: 'minecraft:wooden_sword'
       NBT:
         display:
-          Name: [{text: "羽子板", italic: false}]
-          Lore: [[{text: "メリーお正月！", italic: false}]]
+          Name: "羽子板"
+          Lore: "メリーお正月！"
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -38,8 +38,8 @@
       NBT:
         Damage: 3
         display:
-          Name: [{text: "獅子舞", italic: false}]
-          Lore: [[{text: "メリーお正月！", italic: false}]]
+          Name: "獅子舞"
+          Lore: "メリーお正月！"
         SkullOwner: "<%= user_name %>"
         AttributeModifiers:
           - AttributeName: "generic.max_health"
@@ -166,7 +166,7 @@
       amount: 1
       NBT:
         display:
-          Name: [{text: "SARS-CoV-2", italic: false}]
+          Name: "SARS-CoV-2"
           Lore: "自殺強化月間記念\n飲むと新型コロナウィルス感染症で死にます"
         CustomPotionColor:
           _type: auto
@@ -181,6 +181,7 @@
           - id: wither
             amplifier: 2
             duration: 2147483647
+
 - name: あしゅりーおじさん600ユーロスられ記念
   start: [3, 7]
   end: [3, 10]
@@ -425,11 +426,11 @@
   description: 喫茶室長が羊毛ブロックは燃えないと勘違いしていた記念
   type: item_random
   table:
-    - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>].sample %>_terracotta'
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray silver cyan purple blue brown green red black>.sample %>_terracotta'
       NBT:
         display:
-          Name: [{text: "燃えない羊毛", italic: false}]
-          Lore: [[{text: "Favstar プレミアムユーザ垢BAN記念", italic: false}]]
+          Name: "燃えない羊毛"
+          Lore: "Favstar プレミアムユーザ垢BAN記念"
         Enchantments:
           - id: fire_protection
             lvl:
@@ -444,8 +445,8 @@
     - id: 'minecraft:name_tag'
       NBT:
         display:
-          Name: [{text: "短冊", italic: false}]
-          Lore: [[{text: "右クリックすると、MOBが短冊になってしまう不思議な札", italic: false}]]
+          Name: "短冊"
+          Lore: "右クリックすると、MOBが短冊になってしまう不思議な札"
 
 - name: 前祭
   start: [7, 11]
@@ -456,34 +457,34 @@
     - id: 'minecraft:oak_boat'
       NBT:
         display:
-          Name: [{text: "舁山", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "舁山"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:spruce_boat'
       NBT:
         display:
-          Name: [{text: "鉾", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "鉾"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:birch_boat'
       NBT:
         display:
-          Name: [{text: "曳山", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "曳山"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:jungle_boat'
       NBT:
         display:
-          Name: [{text: "船鉾", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "船鉾"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:acacia_boat'
       NBT:
         display:
-          Name: [{text: "傘鉾", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "傘鉾"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:player_head'
       NBT:
         Damage: 3
         display:
-          Name: [{text: "御神体メット", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "御神体メット"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
         SkullOwner: "<%= user_name %>"
         AttributeModifiers:
           - AttributeName: "generic.max_health"
@@ -504,23 +505,23 @@
     - id: 'minecraft:oak_boat'
       NBT:
         display:
-          Name: [{text: "舁山", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "舁山"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:birch_boat'
       NBT:
         display:
-          Name: [{text: "曳山", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "曳山"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:jungle_boat'
       NBT:
         display:
-          Name: [{text: "船鉾", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "船鉾"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
     - id: 'minecraft:cherry_boat'
       NBT:
         display:
-          Name: [{text: "花傘", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ", italic: false}]]
+          Name: "花傘"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
 
 - name: パインアメの日キャンペーン
   start: [8, 8]
@@ -566,19 +567,19 @@
     - id: 'minecraft:dark_oak_boat'
       NBT:
         display:
-          Name: [{text: "船形", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]]
+          Name: "船形"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>\n京都五山送り火記念キャンペーン"
     - id: 'minecraft:flint_and_steel'
       NBT:
         <<: *chakkaman
         display:
-          Name: [{text: "チャッカマン", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]]
-    - id: 'minecraft:netherrack'
+          Name: "チャッカマン"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>\n京都五山送り火記念キャンペーン"
+    - id: 'minecraft:campfire'
       NBT:
         display:
-          Name: [{text: "火床", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]]
+          Name: "火床"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>\n京都五山送り火記念キャンペーン"
     - id: 'minecraft:enchanted_book'
       NBT:
         StoredEnchantments:
@@ -589,8 +590,8 @@
           - id: flame
             lvl: 8
         display:
-          Name: [{text: "わざマシン38", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]]
+          Name: "わざマシン38"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>\n京都五山送り火記念キャンペーン"
     - id: 'minecraft:lingering_potion'
       amount: 4
       NBT:
@@ -599,8 +600,8 @@
             amplifier: 2
             duration: 600
         display:
-          Name: [{text: "ドローン", italic: false}]
-          Lore: [[{text: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>", italic: false}, {text: "五山送り火記念", italic: false}]]
+          Name: "ドローン"
+          Lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>\n京都五山送り火記念キャンペーン"
 
 - name: 初音ミクコラボ(9/3まで)
   start: [8, 28]
@@ -611,8 +612,8 @@
       NBT:
         Damage: 1550
         display:
-          Name: [{text: "ネギ", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]]
+          Name: "ネギ"
+          Lore: "初音ミクコラボ<%= Time.now.year%>"
         AttributeModifiers:
           - AttributeName: "generic.attack_damage"
             Name: "generic.attack_damage"
@@ -634,8 +635,8 @@
       NBT:
         Damage: 3
         display:
-          Name: [{text: "みくみくメット", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}, {text: "設置しないように注意!", italic: false}]]
+          Name: "みくみくメット"
+          Lore: "初音ミクコラボ<%= Time.now.year%>\n設置しないように注意！"
         SkullOwner:
           Id:
             _type: intarray
@@ -674,8 +675,8 @@
     - id: 'minecraft:leather_chestplate'
       NBT:
         display:
-          Name: [{text: "ミクコス", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]]
+          Name: "ミクコス"
+          Lore: "初音ミクコラボ<%= Time.now.year%>"
           color: 0xffffff
         AttributeModifiers:
           - AttributeName: "generic.armor"
@@ -701,8 +702,8 @@
     - id: 'minecraft:leather_leggings'
       NBT:
         display:
-          Name: [{text: "スカート", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]]
+          Name: "スカート"
+          Lore: "初音ミクコラボ<%= Time.now.year%>"
           color: 0x6b696e
         AttributeModifiers:
           - AttributeName: "generic.armor"
@@ -728,8 +729,8 @@
     - id: 'minecraft:leather_boots'
       NBT:
         display:
-          Name: [{text: "ニーソ", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]]
+          Name: "ニーソ"
+          Lore: "初音ミクコラボ<%= Time.now.year%>"
           color: 0x4a4853
         AttributeModifiers:
           - AttributeName: "generic.armor"
@@ -755,8 +756,8 @@
     - id: 'minecraft:shield'
       NBT:
         display:
-          Name: [{text: "みくみくシールド", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]]
+          Name: "みくみくシールド"
+          Lore: "初音ミクコラボ<%= Time.now.year%>"
         BlockEntityTag:
           Base: 6
           Patterns:
@@ -781,8 +782,8 @@
       amount: 1
       NBT:
         display:
-          Name: [{text: "初音ミクちゃんのおぱんつドリップコーヒー", italic: false}]
-          Lore: [[{text: "初音ミクコラボ<%= Time.now.year%>", italic: false}]]
+          Name: "初音ミクちゃんのおぱんつドリップコーヒー"
+          Lore: "初音ミクコラボ<%= Time.now.year%>"
         custom_potion_effects:
           - id: regeneration
             amplifier: 1
@@ -818,7 +819,7 @@
     - id: 'minecraft:cake'
       NBT:
         display:
-          Name: [{text: "誕生日ケーキ", italic: false}]
+          Name: "誕生日ケーキ"
           Lore: |-
             mikutterの誕生日記念
             <%= Time.now.year - 2009 %>周年

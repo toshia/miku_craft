@@ -109,7 +109,7 @@ module Plugin::Campaign
       # item_name = item.dig('NBT', 'display', 'Name') || item_id
       # r_name = name(context)
       pp item_raw['NBT']
-      item = MinecraftItem.new(item_id, tag: NBT.build(item_raw['NBT'], bind: context, allow_nil: true))
+      item = MinecraftItem::Item.new(item_id, tag: NBT.build(item_raw['NBT'], bind: context, allow_nil: true))
 
       # if item.dig('NBT', 'Enchantments')
       #   # エンチャントのlvlが0だった場合にエンチャント自体を消す特例。 -> 残す
