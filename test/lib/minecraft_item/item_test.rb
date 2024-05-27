@@ -7,14 +7,14 @@ require_relative '../../../lib/minecraft_item'
 describe 'Minecraft Item' do
   describe 'id' do
     it 'minecraft:dirt' do
-      item = MinecraftItem::Item.new('minecraft:dirt', tag: nil)
+      item = MinecraftItem::Item.new('minecraft:dirt')
       assert_equal 'minecraft:dirt', item.id
       assert_equal 'minecraft', item.namespace
       assert_equal 'dirt', item.local_id
     end
 
     it 'dirt' do
-      item = MinecraftItem::Item.new('dirt', tag: nil)
+      item = MinecraftItem::Item.new('dirt')
       assert_equal 'minecraft:dirt', item.id
       assert_equal 'minecraft', item.namespace
       assert_equal 'dirt', item.local_id
@@ -24,22 +24,22 @@ describe 'Minecraft Item' do
   describe 'Name' do
     it '省略されていない' do
       nbt = NBT.build(
-        { 'display' => { 'Name' => [{text: 'foobar', italic: false}] } }
+        { 'custom_name' => [{text: 'foobar', italic: false}] }
       )
-      item = MinecraftItem::Item.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '{display:{Name:"[{\"text\":\"foobar\",\"italic\":false}]"}}', item.snbt
+      assert_equal '[custom_name="[{\"text\":\"foobar\",\"italic\":false}]"]', item.component_string
       assert_equal 'foobar', item.display_name.dig(0, 'text')
       assert_equal false, item.display_name.dig(0, 'italic')
     end
 
     it '省略記法(string)' do
       nbt = NBT.build(
-        { 'display' => { 'Name' => 'foobar' } }
+        { 'custom_name' => 'foobar' }
       )
-      item = MinecraftItem::Item.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '{display:{Name:"[{\"text\":\"foobar\",\"italic\":false}]"}}', item.snbt
+      assert_equal '[custom_name="[{\"text\":\"foobar\",\"italic\":false}]"]', item.component_string
       assert_equal 'foobar', item.display_name.dig(0, 'text')
       assert_equal false, item.display_name.dig(0, 'italic')
     end
@@ -47,23 +47,21 @@ describe 'Minecraft Item' do
 
   describe 'Lore' do
     it '省略されていない' do
-      nbt = NBT.build(
-        { 'display' => { 'Lore' => [
-                           [{text: 'line 1', italic: false}],
-                           [{text: 'line 2', italic: false}]] } }
-      )
-      item = MinecraftItem::Item.new('dirt', tag: nbt)
+      nbt = NBT.build({
+                        'lore' => [
+                          [{text: 'line 1', italic: false}],
+                          [{text: 'line 2', italic: false}]]
+                      })
+      item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '{display:{Lore:["[{\"text\":\"line 1\",\"italic\":false}]","[{\"text\":\"line 2\",\"italic\":false}]"]}}', item.snbt
+      assert_equal '[lore=["[{\"text\":\"line 1\",\"italic\":false}]","[{\"text\":\"line 2\",\"italic\":false}]"]]', item.component_string
     end
 
     it '省略記法(string)' do
-      nbt = NBT.build(
-        { 'display' => { 'Lore' => "五月雨を\n集めてはやし\n最上川" } }
-      )
-      item = MinecraftItem::Item.new('dirt', tag: nbt)
+      nbt = NBT.build({ 'lore' => "五月雨を\n集めてはやし\n最上川" })
+      item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '{display:{Lore:["[{\"text\":\"五月雨を\",\"italic\":false}]","[{\"text\":\"集めてはやし\",\"italic\":false}]","[{\"text\":\"最上川\",\"italic\":false}]"]}}', item.snbt
+      assert_equal '[lore=["[{\"text\":\"五月雨を\",\"italic\":false}]","[{\"text\":\"集めてはやし\",\"italic\":false}]","[{\"text\":\"最上川\",\"italic\":false}]"]]', item.component_string
     end
 
   end
@@ -72,15 +70,17 @@ describe 'Minecraft Item' do
     it 'レベル0エンチャントが削除される' do
       nbt = NBT.build(
         {
-          Enchantments: [
-            { lvl: 1, id: 'aqua_affinity' },
-            { lvl: 0, id: 'riptide' }
-          ]
+          enchantments: {
+            levels: {
+              aqua_affinity: 1,
+              riptide: 0
+            }
+          }
         }
       )
-      item = MinecraftItem::Item.new('dirt', tag: nbt)
+      item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '{Enchantments:[{lvl:1B,id:"aqua_affinity"}]}', item.snbt
+      assert_equal '[enchantments={levels:{aqua_affinity:1B}}]', item.component_string
     end
   end
 
@@ -88,25 +88,58 @@ describe 'Minecraft Item' do
     it '変化量0のAttributeModifiersが削除される' do
       nbt = NBT.build(
         {
-          AttributeModifiers: [
-            { Amount: 0, Operation: 0, Name: '+0' },
-            { Amount: 1, Operation: 0, Name: '+1' },
-            { Amount: 0, Operation: 1, Name: '+(n*0)' },
-            { Amount: 1, Operation: 1, Name: '+(n*1)' },
-            { Amount: 0, Operation: 2, Name: '*0' },
-            { Amount: 1, Operation: 2, Name: '*1' },
-          ]
+          attribute_modifiers: {
+            modifiers: [
+              { amount: 0, operation: 'add_value', name: '+0' },
+              { amount: 1, operation: 'add_value', name: '+1' },
+              { amount: 0, operation: 'add_multiplied_total', name: '+(N*0)' },
+              { amount: 1, operation: 'add_multiplied_total', name: '+(N*1)' },
+              { amount: 0, operation: 'add_multiplied_base', name: '*0' },
+              { amount: 1, operation: 'add_multiplied_base', name: '*1' },
+            ]
+          }
         }
       )
-      item = MinecraftItem::Item.new('dirt', tag: nbt)
-      a = item.tag['AttributeModifiers'].to_a
+      item = MinecraftItem::Item.new('dirt', component: nbt)
+      a = item.component.dig(:attribute_modifiers, :modifiers).to_a
+      b = Set.new(a) { _1[:name].to_s }
+      assert_equal Set['+1', '+(N*1)', '*0'], b
+    end
 
-      refute a.find { _1['Name'] == '+0' }, '+0 should delete'
-      assert a.find { _1['Name'] == '+1' }, '+1 should remain'
-      refute a.find { _1['Name'] == '+(n*0)' }, '+(n*0) should delete'
-      assert a.find { _1['Name'] == '+(n*1)' }, '+(n*1) should remain'
-      assert a.find { _1['Name'] == '*0' }, '*0 should remain'
-      refute a.find { _1['Name'] == '*1' }, '*1 should delete'
+    it '動的要素は計算後の値を参照してattribute_modifiersが削除される' do
+      nbt = NBT.build(
+        {
+          attribute_modifiers: {
+            modifiers: [
+              { amount: {
+                  _type: 'byte',
+                  value: '0'
+                },
+                operation: {
+                  _type: 'auto',
+                  value: '"add_value"'
+                },
+                name: 'a'
+              },
+              { amount: {
+                  _type: 'byte',
+                  value: '1'
+                },
+                operation: {
+                  _type: 'auto',
+                  value: '"add_value"'
+                },
+                name: 'b'
+              }
+            ]
+          }
+        },
+        bind: binding
+      )
+      item = MinecraftItem::Item.new('dirt', component: nbt)
+      a = item.component.dig(:attribute_modifiers, :modifiers).to_a
+      b = Set.new(a) { _1[:name].to_s }
+      assert_equal Set['b'], b
     end
   end
 end

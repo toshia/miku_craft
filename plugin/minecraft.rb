@@ -8,6 +8,9 @@ Plugin.create :minecraft do
   mc_stdin = mc_stdout = mc_stderr = wait_thr = stdout_thread = stderr_thread = watch_thread = nil
   on_boot_server do
     mc_stdin, mc_stdout, mc_stderr, wait_thr = Open3.popen3('java -Xmx8192M -Xms1024M -jar /server.jar nogui')
+    mc_stdin.set_encoding(Encoding::UTF_8)
+    mc_stdout.set_encoding(Encoding::UTF_8)
+    mc_stderr.set_encoding(Encoding::UTF_8)
     stdout_thread = Thread.new do
       generate(:server_raw_output, :stdout) do |yielder|
         mc_stdout.each(&yielder.method(:<<))

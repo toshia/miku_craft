@@ -40,9 +40,9 @@ Plugin.create :active_players do
 
     on_minecraft_server_crashed do
       mutation.rewind do |ary|
-        # ary.each do |name|
-        #   Plugin.call(:give_wabiishi, name, ary)
-        # end
+        ary.each do |name|
+          Plugin.call(:give_wabiishi, name, ary)
+        end
         log_file.puts "#{Time.now.iso8601} crash server"
         []
       end
@@ -51,35 +51,29 @@ Plugin.create :active_players do
 
   on_give_wabiishi do |name, victim|
     time = Time.now.strftime('%Y年%m月%d日 %H時%M分')
-    context = Object.new.instance_eval{ binding }
-    Plugin.call(:giftbox_keep,
+    Plugin.call(:giftbox_keep_stack,
                 name,
                 "#{time}頃にサーバがクラッシュしました。記念に詫び石をプレゼントします！",
-                {
-                  id: 'minecraft:flint',
-                  count: 1,
-                  tag: {
-                    display: {
-                      Name: {
-                        'text' => '詫び石'
-                      }.to_mcjson(context).to_s,
-                      Lore: [
-                        { 'text' => "ヽ('ω')ﾉ三ヽ('ω')ﾉ" }.to_mcjson(context).to_s,
-                        { 'text' => "#{time}頃のクラッシュのお詫びです" }.to_mcjson(context).to_s
-                      ]
-                    },
-                    AttributeModifiers: [
-                      {
-                        AttributeName: 'generic.attack_damage',
-                        Name: 'generic.attack_damage',
-                        Amount: victim.size || 1,
-                        Operation: 0,
-                        UUID: 'MINECRAFT_UUID',
-                        Slot: 'mainhand'
-                      }
-                    ]
-                  }
-                }
+                MinecraftItem::Stack.new(
+                  MinecraftItem::Item.new(
+                    'minecraft:flint',
+                    tag: NBT.build({
+                                     display: {
+                                       Name: '詫び石',
+                                       Lore: "ヽ('ω')ﾉ三ヽ('ω')ﾉ\n#{time}頃のクラッシュのお詫びです"
+                                     },
+                                     AttributeModifiers: [
+                                       {
+                                         AttributeName: 'generic.attack_damage',
+                                         Name: 'generic.attack_damage',
+                                         Amount: victim.size || 1,
+                                         Operation: 0,
+                                         UUID: 'MINECRAFT_UUID',
+                                         Slot: 'mainhand'
+                                       }
+                                     ]
+                                   })),
+                  1)
                )
   end
 end

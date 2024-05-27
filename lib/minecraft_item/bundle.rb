@@ -82,31 +82,31 @@ class MinecraftItem::Bundle < MinecraftItem::Item
   end
 
   # _append_stack_ を追加してバンドルを作成する。
-  # 既に _tag_ に含まれているアイテムは上書きされず、追加される。
+  # 既に _component_ に含まれているアイテムは上書きされず、追加される。
   # 追加することでバンドルのキャパシティを越えた場合も、バンドルは作成される。
   # @param [Enumerable<MinecraftItem::Stack>] append_stacks 追加するスタック
-  # @param [NBT] tag データタグ
-  def initialize(append_stacks=[], tag: nil)
-    native_stacks = tag&.dig(:Items)
+  # @param [NBT] component アイテムコンポーネント
+  def initialize(append_stacks=[], component: nil)
+    native_stacks = component&.dig(:bundle_contents)
     if native_stacks || !append_stacks.empty?
       append_stacks += _stacks_by_items(native_stacks) if native_stacks
       items = append_stacks.map do |stack|
-        payload = { id: stack.item.id, Count: stack.amount }
-        payload[:tag] = stack.item.tag if stack.item.tag
+        payload = { id: stack.item.id, count: stack.amount }
+        payload[:components] = stack.item.component if stack.item.component
         NBT.build(payload)
       end
-      if tag
-        tag = tag.cow(['Items'], items)
+      if component
+        component = component.cow([:bundle_contents], items)
       else
-        tag = NBT.build({ Items: items })
+        component = NBT.build({ bundle_contents: items })
       end
     end
-    super('minecraft:bundle', tag:)
+    super('minecraft:bundle', component:)
   end
 
   # 入っているスタックを列挙する
   def stacks
-    items = tag&.dig('Items')
+    items = component&.dig(:bundle_contents)
     if items
       _stacks_by_items(items)
     else
@@ -122,7 +122,7 @@ class MinecraftItem::Bundle < MinecraftItem::Item
     return self if newstack.weight == 0
     raise 'bundleがいっぱい！' if full?
     took, remain = newstack.partition(1 - bundle_inner_weight)
-    [self.class.new([took], tag:), remain]
+    [self.class.new([took], component:), remain]
   end
 
   # バンドル内の残容量
@@ -139,8 +139,8 @@ class MinecraftItem::Bundle < MinecraftItem::Item
   private
   def _stacks_by_items(items)
     items.to_a.map do |payload|
-      item = MinecraftItem::Item.new(payload[:id], tag: payload[:tag])
-      MinecraftItem::Stack.new(item, payload[:Count].to_i)
+      item = MinecraftItem::Item.new(payload[:id], component: payload[:components])
+      MinecraftItem::Stack.new(item, payload[:count].to_i)
     end
   end
 end

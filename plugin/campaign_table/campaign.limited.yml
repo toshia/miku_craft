@@ -1,2744 +1,738 @@
-- name: &go_to_nether "Go To ネザーキャンペーン！"
-  start: [2020, 7, 20]
-  end:   [2020, 7, 26]
+- name: "1.20.6アップデートキャンペーン！小さい装備祭り"
+  start: [2024, 6, 9]
+  end:   [2024, 6, 16]
   type: item_random
   table:
-    - id: 'minecraft:netherite_scrap'
+    - id: 'minecraft:chainmail_helmet'
       amount: 2
       NBT:
-        display:
-          Name: 'ネザライトスクラップ'
-          Lore:
-            - *go_to_nether
-            - 4つ集めて金と組み合わせたらネザライトインゴットが作れるよ
-    - id: 'minecraft:golden_helmet'
+        custom_name: '小さいヘルメット'
+        lore: |-
+          1.20.6アップデートキャンペーン！小さい装備祭り
+          かなり小さい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: -0.25
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: -0.4
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+    - id: 'minecraft:chainmail_chestplate'
+      amount: 2
       NBT:
-        display:
-          Name: '金のヘルメット'
-          Lore:
-            - *go_to_nether
-            - ネザー旅行に便利なエンチャントを揃えました
-        Enchantments:
-          - id: "minecraft:fire_protection"
-            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
-          - id: "minecraft:blast_protection"
-            lvl: "<%= 5.times.map{rand(0..13)}.min %>"
-          - id: "minecraft:projectile_protection"
-            lvl: "<%= 5.times.map{rand(0..10)}.min %>"
-          - id: "minecraft:protection"
-            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
-    - id: 'minecraft:golden_chestplate'
+        custom_name: '小さい服'
+        lore: |-
+          1.20.6アップデートキャンペーン！小さい装備祭り
+          かなり小さい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: -0.25
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: -0.4
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+    - id: 'minecraft:chainmail_leggings'
+      amount: 2
       NBT:
-        display:
-          Name: '金の鎧'
-          Lore:
-            - *go_to_nether
-            - ネザー旅行に便利なエンチャントを揃えました
-        Enchantments:
-          - id: "minecraft:fire_protection"
-            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
-          - id: "minecraft:blast_protection"
-            lvl: "<%= 5.times.map{rand(0..13)}.min %>"
-          - id: "minecraft:projectile_protection"
-            lvl: "<%= 5.times.map{rand(0..10)}.min %>"
-          - id: "minecraft:protection"
-            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
-    - id: 'minecraft:golden_leggings'
+        custom_name: '小さいレギンス'
+        lore: |-
+          1.20.6アップデートキャンペーン！小さい装備祭り
+          かなり小さい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: -0.25
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: -0.4
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+    - id: 'minecraft:chainmail_boots'
+      amount: 2
       NBT:
-        display:
-          Name: '金のおぱんちゅ'
-          Lore:
-            - *go_to_nether
-            - ネザー旅行に便利なエンチャントを揃えました
-        Enchantments:
-          - id: "minecraft:fire_protection"
-            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
-          - id: "minecraft:blast_protection"
-            lvl: "<%= 5.times.map{rand(0..13)}.min %>"
-          - id: "minecraft:projectile_protection"
-            lvl: "<%= 5.times.map{rand(0..10)}.min %>"
-          - id: "minecraft:protection"
-            lvl: "<%= 5.times.map{rand(0..20)}.min %>"
-    - id: 'minecraft:golden_boots'
-      NBT:
-        display:
-          Name: '金の靴'
-          Lore:
-            - *go_to_nether
-            - ネザー旅行に便利なエンチャントを揃えました
-        Enchantments:
-          - id: "minecraft:fire_protection"
-            lvl: "<%= 2.times.map{rand(0..8)}.min %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:soul_speed"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:frost_walker"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
-          - id: "minecraft:feather_falling"
-            lvl: "<%= 5.times.map{rand(0..7)}.min %>"
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "次亜塩素酸水"
-          Lore:
-            - *go_to_nether
-            - ネザーでの水分補給にぴったりのドリンクです
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 12
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
+        custom_name: '小さい靴'
+        lore: |-
+          1.20.6アップデートキャンペーン！小さい装備祭り
+          かなり小さい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: -0.25
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: -0.4
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
 
-- name: &tokyo2020 "東京オリンピック2020記念キャンペーン！"
-  start: [2021, 7, 2]
-  end:   [2021, 8, 8]
+- name: "1.20.6アップデートキャンペーン！大きい装備祭り"
+  start: [2024, 6, 2]
+  end:   [2024, 6, 9]
   type: item_random
   table:
-    - id: 'minecraft:bow'
+    - id: 'minecraft:chainmail_helmet'
+      amount: 2
       NBT:
-        display:
-          Name: 'リカーブボウ'
-          Lore:
-            - *tokyo2020
-            - 弓を使う競技のやつです
-        Enchantments:
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= rand(0..1) %>"
-          - id: "minecraft:infinity"
-            lvl: "<%= rand(0..1) %>"
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
+        custom_name: '大きいヘルメット'
+        lore: |-
+          1.20.6アップデートキャンペーン！大きい装備祭り
+          かなり大きい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "player.block_interaction_range"
+              name: "player.block_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+            - type: "player.entity_interaction_range"
+              name: "player.entity_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: head
+    - id: 'minecraft:chainmail_chestplate'
+      amount: 2
       NBT:
-        display:
-          Name: "ドーピング剤（ウエイトリフティング）"
-          Lore:
-            - *tokyo2020
-            - ウエイトリフティング選手が使うドーピング剤です
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - &tokyo2020_potion_strength
-            Id: 5
-            Amplifier:
-              advice: to_i
-              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-    - id: 'minecraft:dark_oak_boat'
+        custom_name: '大きい服'
+        lore: |-
+          1.20.6アップデートキャンペーン！大きい装備祭り
+          かなり大きい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "player.block_interaction_range"
+              name: "player.block_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+            - type: "player.entity_interaction_range"
+              name: "player.entity_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: chest
+    - id: 'minecraft:chainmail_leggings'
+      amount: 2
       NBT:
-        display:
-          Name: "カヌー"
-          Lore:
-            - *tokyo2020
-            - 主に滋賀県で使われている乗り物です
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
+        custom_name: '大きいレギンス'
+        lore: |-
+          1.20.6アップデートキャンペーン！大きい装備祭り
+          かなり大きい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "player.block_interaction_range"
+              name: "player.block_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+            - type: "player.entity_interaction_range"
+              name: "player.entity_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: legs
+    - id: 'minecraft:chainmail_boots'
+      amount: 2
       NBT:
-        display:
-          Name: "ドーピング剤（トライアスロン）"
-          Lore:
-            - *tokyo2020
-            - トライアスロン選手が使うドーピング剤です
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - &tokyo2020_potion_speed
-            Id: 1
-            Amplifier:
-              advice: to_i
-              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - &tokyo2020_potion_jump_boost
-            Id: 8
-            Amplifier:
-              advice: to_i
-              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - &tokyo2020_potion_regeneration
-            Id: 10
-            Amplifier:
-              advice: to_i
-              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - &tokyo2020_potion_water_breathing
-            Id: 13
-            Duration:
-              advice: to_i
-              value: "<%= 3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "ドーピング剤（トランポリン）"
-          Lore:
-            - *tokyo2020
-            - トランポリン選手が使うドーピング剤です
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - *tokyo2020_potion_jump_boost
-          - &tokyo2020_potion_levitation
-            Id: 25
-            Amplifier:
-              advice: to_i
-              value: "<%= (1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)) * [1, -1].sample %>"
-            Duration:
-              advice: to_i
-              value: "<%= 200 + 100 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-    - id: 'minecraft:<%= %w[wooden stone iron diamond golden netherite].sample %>_sword'
-      NBT:
-        display:
-          Name: "剣（フェンシング）"
-          Lore:
-            - *tokyo2020
-        AttributeModifiers:
-          - AttributeName: "generic.attack_damage"
-            Name: "generic.attack_damage"
-            Amount:
-              advice: to_i
-              value: "<%= (1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)) %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: mainhand
-          - AttributeName: "generic.attack_speed"
-            Name: "generic.attack_speed"
-            Amount: 1.2
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: mainhand
-        Enchantments:
-          - id: "minecraft:sharpness"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:smite"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:bane_of_arthropods"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:impaling"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-    - id: 'minecraft:turtle_helmet'
-      NBT:
-        display:
-          Name: '水泳帽'
-          Lore:
-            - *tokyo2020
-            - 競泳などの競技で使われる水着です
-        Enchantments:
-          - id: "minecraft:respiration"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:feather_falling"
-            lvl: "<%= rand(0..1) %>"
-    - id: 'minecraft:leather_chestplate'
-      NBT:
-        display:
-          Name: '競泳水着'
-          Lore:
-            - *tokyo2020
-            - 競泳などの競技で使われる水着です
-          color: 0x333c5e
-        Enchantments:
-          - id: "minecraft:respiration"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:thorns"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-        AttributeModifiers:
-          - AttributeName: "generic.armor"
-            Name: "generic.armor"
-            Amount:
-              advice: to_i
-              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: chest
-          - AttributeName: "generic.armor_toughness"
-            Name: "generic.armor_toughness"
-            Amount:
-              advice: to_i
-              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: chest
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "ドーピング剤（競泳）"
-          Lore:
-            - *tokyo2020
-            - 競泳選手が使うドーピング剤です
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - *tokyo2020_potion_jump_boost
-          - *tokyo2020_potion_water_breathing
-          - &tokyo2020_potion_dolphins_grace
-            Id: 30
-            Duration:
-              advice: to_i
-              value: "<%= 360 + 600 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-    - id: 'minecraft:leather_horse_armor'
-      NBT:
-        display:
-          Name: "馬鎧（馬術）"
-          Lore:
-            - *tokyo2020
-    - id: 'minecraft:leather_chestplate'
-      NBT:
-        display:
-          Name: '柔道着'
-          Lore:
-            - *tokyo2020
-            - 柔道で使われる服です
-          color:
-            advice: to_i
-            value: "<%= [0xcccccc, 0x3333cc].sample %>"
-        Enchantments:
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:thorns"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-        AttributeModifiers:
-          - AttributeName: "generic.armor"
-            Name: "generic.armor"
-            Amount:
-              advice: to_i
-              value: "<%= 1 + Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: chest
-          - AttributeName: "generic.armor_toughness"
-            Name: "generic.armor_toughness"
-            Amount:
-              advice: to_i
-              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: chest
-          - AttributeName: "generic.knockback_resistance"
-            Name: "generic.knockback_resistance"
-            Amount:
-              advice: to_f
-              value: "<%= Rational([Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1), 28].min, 32).to_f %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: chest
-    - id: 'minecraft:leather_boots'
-      NBT:
-        display:
-          Name: 'ズームX ヴェイパーフライ ネクスト％ 2'
-          Lore:
-            - *tokyo2020
-            - 陸上選手が履いている靴です
-          color: 0xfcfcfc
-        Enchantments:
-          - id: "minecraft:soul_speed"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:thorns"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-        AttributeModifiers:
-          - AttributeName: "generic.armor"
-            Name: "generic.armor"
-            Amount:
-              advice: to_i
-              value: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: feet
-          - AttributeName: "generic.movement_speed"
-            Name: "generic.movement_speed"
-            Amount: 0.0208
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: feet
+        custom_name: '大きい靴'
+        lore: |-
+          1.20.6アップデートキャンペーン！大きい装備祭り
+          かなり大きい
+        repair_cost: 40
+        attribute_modifiers:
+          show_in_tooltip: false
+          modifiers:
+            - type: "generic.scale"
+              name: "generic.scale"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.step_height"
+              name: "generic.step_height"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.safe_fall_distance"
+              name: "generic.safe_fall_distance"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.fall_damage_multiplier"
+              name: "generic.fall_damage_multiplier"
+              amount: -0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.jump_strength"
+              name: "generic.jump_strength"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.movement_speed"
+              name: "generic.movement_speed"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "generic.gravity"
+              name: "generic.gravity"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "player.block_interaction_range"
+              name: "player.block_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
+            - type: "player.entity_interaction_range"
+              name: "player.entity_interaction_range"
+              amount: 0.5
+              operation: add_multiplied_total
+              uuid: MINECRAFT_UUID
+              slot: feet
 
-- name: &go_to_eat "Go To Eatキャンペーン！"
-  start: [2020, 10, 9]
-  end:   [2021, 1, 7]
+- name: "1.20.6アップデートキャンペーン！食べ物祭り"
+  start: [2024, 6, 16]
+  end:   [2024, 6, 23]
   type: item_random
   table:
-    - &go_to_eat_yakitori
-      id: 'minecraft:cooked_chicken'
-      amount: 1
+    - id: 'minecraft:glistering_melon_slice'
+      amount: 'rand(1..99)'
       NBT:
-        display:
-          Name: 'もも貴族焼（たれ）'
-          Lore:
-            - *go_to_eat
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もも貴族焼（塩）",         Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もも貴族焼（スパイス）",   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（たれ）",       Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（塩）",         Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね貴族焼（スパイス）",   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ちからこぶ塩",             Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "三角（ぼんじり）",         Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "手羽先",                   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくね塩",                 Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ささみ",                   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ハート塩",                 Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "砂ずり（砂肝）",           Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "かわ塩",                   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "やげんなんこつ",           Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ひざなんこつ",             Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "せせり",                   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ちからこぶたれ",           Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "みたれ（もも肉）",         Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくねチーズ焼",           Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "つくねたれ",               Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "かわたれ",                 Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ハートたれ",               Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "骨付まつばのスパイス焼",   Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ピーマン肉詰",             Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "ささみわさび焼",           Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "むね肉明太マヨネーズ風焼", Lore: [*go_to_eat] } } }
-    - { <<: *go_to_eat_yakitori, "NBT": { "display": { "Name": "もちもちチーズ焼",         Lore: [*go_to_eat] } } }
-    - id: 'minecraft:cooked_beef'
-      amount: 1
+        max_stack_size: 99
+        custom_name: '食べられる金のスイカ'
+        lore: |-
+          1.20.6アップデートキャンペーン！食べ物祭り
+          食えないアイテムを食えるように設定できるのでやってみました
+          どうして金スイカだけ食えないんですかね
+        food:
+          nutrition: 10
+          saturation: 10
+          can_always_eat: true
+          eat_seconds: 1.2
+          effects:
+            - probability: 1
+              effect:
+                id: instant_health
+                amplifier: 1
+    - id: 'minecraft:stick'
+      amount: 'rand(1..99)'
       NBT:
-        display:
-          Name: '牛串焼'
-          Lore:
-            - *go_to_eat
-    - id: 'minecraft:cooked_porkchop'
-      amount: 1
-      NBT:
-        display:
-          Name: '豚バラ串焼'
-          Lore:
-            - *go_to_eat
-    - id: 'minecraft:lever'
-      amount: 1
-      NBT:
-        display:
-          Name: 'きも（レバー）'
-          Lore:
-            - *go_to_eat
-
-- name: &super_smash_bros "大乱闘スマッシュブラザーズ SPECIAL スティーブ・アレックス参戦記念キャンペーン"
-  start: [2020, 10, 16]
-  end:   [2020, 10, 25]
-  type: item_random
-  table:
-    - id: 'minecraft:cooked_beef'
-      amount: 1
-      NBT:
-        display:
-          Name: 'ポケットモンスター'
-          Lore:
-            - *super_smash_bros
-
-- name: &emergency_state_6 "緊急事態宣言コラボキャンペーン！"
-  start: [2021, 7, 12]
-  end:   [2021, 8, 22]
-  type: item_random
-  table:
-    - id: 'minecraft:milk_bucket'
-      amount: 1
-      NBT:
-        display:
-          Name: 'レムデシビル'
-          Lore:
-            - *emergency_state_6
-            - '飲むとコロナが治る治療薬です'
-    - id: 'minecraft:milk_bucket'
-      amount: 1
-      NBT:
-        display:
-          Name: 'デキサメタゾン'
-          Lore:
-            - *emergency_state_6
-            - '飲むとコロナが治る治療薬です'
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "SARS-CoV-2"
-          Lore:
-            - *emergency_state_6
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects: &custom_potion_effects_SARS_CoV_2
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-    - id: 'minecraft:honey_bottle'
-      amount: 1
-      NBT:
-        display:
-          Name: '密閉'
-          Lore:
-            - *emergency_state_6
-            - '密です！密です！密です！ソーシャルディスタンス！！！'
-    - id: 'minecraft:honeycomb'
-      amount: 1
-      NBT:
-        display:
-          Name: '密集'
-          Lore:
-            - *emergency_state_6
-            - '密です！密です！密です！ソーシャルディスタンス！！！'
-    - id: 'minecraft:honey_block'
-      amount: 1
-      NBT:
-        display:
-          Name: '密接'
-          Lore:
-            - *emergency_state_6
-            - '密です！密です！密です！ソーシャルディスタンス！！！'
-    - id: 'minecraft:gold_nugget'
-      amount: 1
-      NBT:
-        display:
-          Name: '時短要請協力金'
-          Lore:
-            - *emergency_state_6
-    - id: 'minecraft:bow'
-      NBT:
-        display:
-          Name: 'ソーシャルディスタンス'
-          Lore:
-            - *emergency_state_6
-        Enchantments:
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-          - id: "minecraft:infinity"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-          - id: "minecraft:knockback"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
-          - id: "minecraft:punch"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1 %>"
-    - id: 'minecraft:pufferfish'
-      amount: 1
-      NBT:
-        display:
-          Name: 'マンボウ'
-          Lore:
-            - *emergency_state_6
-    - id: 'minecraft:tipped_arrow'
-      amount: 6
-      NBT:
-        display:
-          Name: "BNT162b2"
-          Lore:
-            - *emergency_state_6
-            - ファイザー製mRNAワクチン　コミナティ筋注
-            - 新型コロナウィルスに感染しても、死ぬことがなくなります
-        CustomPotionEffects:
-          - {Id: 10, Amplifier: 3, Duration: 2147483647}
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-    - id: 'minecraft:tipped_arrow'
-      amount: 6
-      NBT:
-        display:
-          Name: "mRNA-1273"
-          Lore:
-            - *emergency_state_6
-            - モデルナ製mRNAワクチン　モデルナ筋注
-            - 新型コロナウィルスに感染しても、死ぬことがなくなります
-        CustomPotionEffects:
-          - {Id: 10, Amplifier: 3, Duration: 2147483647}
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-    - id: 'minecraft:tipped_arrow'
-      amount: 6
-      NBT:
-        display:
-          Name: "ChAdOx1"
-          Lore:
-            - *emergency_state_6
-            - アストラゼネカ製ウイルスベクターワクチン　バキスゼブリア筋注
-            - 新型コロナウィルスに感染しても、死ぬことがなくなります
-        CustomPotionEffects:
-          - {Id: 10, Amplifier: 3, Duration: 2147483647}
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-
-# 100万人刻みで開催していく
-- name: &covid19_infection_1M_in_japan "新型コロナウィルス感染症感染者国内100万人突破記念キャンペーン！"
-  start: [2021, 8, 9]
-  end:   [2021, 8, 16]
-  type: item_random
-  table:
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "SARS-CoV-2"
-          Lore:
-            - *covid19_infection_1M_in_japan
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects: *custom_potion_effects_SARS_CoV_2
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "SARS-CoV-2 (N501Y)"
-          Lore:
-            - *covid19_infection_1M_in_japan
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 3
-            Duration: 2147483647
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "SARS-CoV-2 (E484K)"
-          Lore:
-            - *covid19_infection_1M_in_japan
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 1
-            Duration: 2147483647
-          - Id: 23
-            Amplifier: 1
-            Duration: 2147483647
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
-      amount: 1
-      NBT:
-        display:
-          Name: "SARS-CoV-2 (L452R)"
-          Lore:
-            - *covid19_infection_1M_in_japan
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 1
-            Duration: 2147483647
-          - Id: 19
-            Amplifier: 1
-            Duration: 2147483647
-    - id: 'minecraft:crossbow'
-      NBT:
-        display:
-          Name: 'コロナビーム'
-          Lore:
-            - *covid19_infection_1M_in_japan
-            - 敵をコロナに感染させます
-        Enchantments:
-          - id: "minecraft:quick_charge"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:multishot"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-          - id: "minecraft:piercing"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-          - id: "minecraft:infinity"
-            lvl: "<%= rand(0..10) == 0 ? 1 : 0 %>"
-        ChargedProjectiles:
-          - id: 'minecraft:tipped_arrow'
-            Count: 1
-            tag:
-              Potion: "minecraft:water"
-              CustomPotionEffects: *custom_potion_effects_SARS_CoV_2
-        Charged: 1
+        max_stack_size: 99
+        custom_name: 'うまい棒'
+        lore: |-
+          1.20.6アップデートキャンペーン！食べ物祭り
+          実は通算ログインボーナスの棒も食えるようになってます
+        food:
+          nutrition: 1
+          saturation: 1
+          eat_seconds: 0.8
     - id: 'minecraft:gold_ingot'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
+      amount: 'rand(1..99)'
       NBT:
-        display:
-          Name: '金メダル'
-          Lore:
-            - *covid19_infection_1M_in_japan
-            - '「ぜひ東京大会はCOVID19との戦いで'
-            - '金メダルを取りたいと思います」'
+        max_stack_size: 99
+        custom_name: '卵焼き'
+        lore: |-
+          1.20.6アップデートキャンペーン！食べ物祭り
+          甘くて美味しい！
+        food:
+          nutrition: 6
+          saturation: 6
+          effects:
+            - probability: 1
+              effect:
+                id: health_boost
+                amplifier: 0
+                duration: 6000
+    - id: 'minecraft:paper'
+      amount: 'rand(1..99)'
+      NBT:
+        max_stack_size: 99
+        custom_name: 'キムワイプ'
+        lore: |-
+          1.20.6アップデートキャンペーン！食べ物祭り
+          キムワイプおいしい！キムワイプおいしい！！！
+        food:
+          nutrition: 2
+          saturation: 0
+          effects:
+            - probability: 1
+              effect:
+                id: hunger
+                amplifier: 0
+                duration: 200
+    - id: 'minecraft:sugar'
+      amount: 'rand(1..99)'
+      NBT:
+        max_stack_size: 99
+        custom_name: '砂糖'
+        lore: |-
+          1.20.6アップデートキャンペーン！食べ物祭り
+          ガンギマリ
+        food:
+          nutrition: 1
+          saturation: 0
+          can_always_eat: true
+          eat_seconds: 0.05
+          effects:
+            - probability: 0.15
+              effect:
+                id: absorption
+                amplifier: 0
+                duration: 200
+            - probability: 0.15
+              effect:
+                id: blindness
+                amplifier: 0
+                duration: 6000
+            - probability: 0.15
+              effect:
+                id: darkness
+                amplifier: 0
+                duration: 6000
+            - probability: 0.15
+              effect:
+                id: luck
+                amplifier: 0
+                duration: 6000
+    - id: 'minecraft:glowstone_dust'
+      amount: 'rand(1..99)'
+      NBT:
+        max_stack_size: 99
+        custom_name: 'ハッピーターンの粉'
+        lore: |-
+          1.20.6アップデートキャンペーン！食べ物祭り
+          食ってみな、トぶぞ
+        food:
+          nutrition: 1
+          saturation: 0
+          can_always_eat: true
+          eat_seconds: 0.05
+          effects:
+            - probability: 0.15
+              effect:
+                id: absorption
+                amplifier: 0
+                duration: 200
+            - probability: 0.15
+              effect:
+                id: glowing
+                amplifier: 0
+                duration: 6000
+            - probability: 0.15
+              effect:
+                id: levitation
+                amplifier: 0
+                duration: 200
+            - probability: 0.15
+              effect:
+                id: luck
+                amplifier: 0
+                duration: 6000
 
-
-# 1000万人刻みで開催していく
-- name: &covid19_infection_100M_in_world "新型コロナウィルス感染症感染者世界1億人突破記念キャンペーン！"
-  start: [2021, 2, 4]
-  end:   [2021, 2, 10]
+- name: "1.20.6アップデートキャンペーン！道具祭り"
+  start: [2024, 6, 23]
+  end:   [2024, 6, 30]
   type: item_random
   table:
-    - id: 'minecraft:elytra'
+    - id: 'minecraft:diamond_hoe'
       amount: 1
       NBT:
-        Damage: 432
-        display:
-          Name: "ボロ雑巾"
-          Lore:
-            - *covid19_infection_100M_in_world
-            - "意味わからんくらい感染が拡がっているので意味わからんものを差し上げます"
-        Enchantments:
-          - id: "minecraft:fire_protection"
-            lvl: "<%= 7.times.map{rand(0..8)}.min %>"
-          - id: "minecraft:unbreaking"
-            lvl: "<%= Enumerator.new{|y| loop{ y << [1, rand(4)].min } }.find_index(1) %>"
-          - id: "minecraft:mending"
-            lvl: "<%= 3.times.map{rand(0..1)}.min %>"
-          - id: "minecraft:blast_protection"
-            lvl: "<%= 7.times.map{rand(0..13)}.min %>"
-          - id: "minecraft:projectile_protection"
-            lvl: "<%= 7.times.map{rand(0..10)}.min %>"
-          - id: "minecraft:protection"
-            lvl: "<%= 7.times.map{rand(0..20)}.min %>"
-        AttributeModifiers:
-          - AttributeName: "generic.armor"
-            Name: "generic.armor"
-            Amount:
-              advice: to_i
-              value: "<%= Enumerator.new{|y| loop{ y << [1, rand(3)].min } }.find_index(1) + 1 %>"
-            Operation: 0
-            UUID: MINECRAFT_UUID
-            Slot: chest
-
-- name: &covid19_death_10K_in_japan "新型コロナウィルス感染症死者国内1万人突破記念キャンペーン！"
-  start: [2021, 5, 3]
-  end:   [2021, 5, 9]
-  type: item_random
-  table:
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+        custom_name: 'ピッケルクワ'
+        lore: |-
+          1.20.6アップデートキャンペーン！道具祭り
+          ピッケルとしても使える
+        damage: 0
+        max_damage: 1400
+        tool:
+          damage_per_block: 1
+          default_mining_speed: 0.5
+          rules:
+            - blocks: "#minecraft:mineable/pickaxe"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+          rules:
+            - blocks: "#minecraft:mineable/hoe"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+    - id: 'minecraft:diamond_hoe'
       amount: 1
       NBT:
-        display:
-          Name: "SARS-CoV-2"
-          Lore:
-            - *covid19_death_10K_in_japan
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-    - id: 'minecraft:oak_boat'
-      NBT:
-        display:
-          Name: "クルーズ船"
-          Lore:
-            - *covid19_death_10K_in_japan
-
-# 100万人刻みで開催していく
-- name: &covid19_death_4M_in_world "新型コロナウィルス感染症死者世界400万人突破記念キャンペーン！"
-  start: [2021, 7, 19]
-  end:   [2021, 7, 25]
-  type: item_random
-  table:
-    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+        custom_name: '斧クワ'
+        lore: |-
+          1.20.6アップデートキャンペーン！道具祭り
+          斧としても使える
+        damage: 0
+        max_damage: 1400
+        tool:
+          damage_per_block: 1
+          default_mining_speed: 0.5
+          rules:
+            - blocks: "#minecraft:mineable/axe"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+          rules:
+            - blocks: "#minecraft:mineable/hoe"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+    - id: 'minecraft:diamond_hoe'
       amount: 1
       NBT:
-        display:
-          Name: "SARS-CoV-2"
-          Lore:
-            - *covid19_death_4M_in_world
-            - 飲むと新型コロナウィルス感染症で死にます
-        CustomPotionColor:
-          advice: to_i
-          value: "<%= rand(0..0xff_ff_ff) %>"
-        CustomPotionEffects:
-          - Id: 2
-            Duration: 2147483647
-          - Id: 4
-            Duration: 2147483647
-          - Id: 9
-            Duration: 2147483647
-          - Id: 20
-            Amplifier: 2
-            Duration: 2147483647
-    - id: 'minecraft:player_head'
+        custom_name: 'スコップクワ'
+        lore: |-
+          1.20.6アップデートキャンペーン！道具祭り
+          シャベルとしても使える
+        damage: 0
+        max_damage: 1400
+        tool:
+          damage_per_block: 1
+          default_mining_speed: 0.5
+          rules:
+            - blocks: "#minecraft:mineable/shovel"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+          rules:
+            - blocks: "#minecraft:mineable/hoe"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+    - id: 'minecraft:diamond_hoe'
       amount: 1
       NBT:
-        display:
-          Name: "マスク"
-          Lore:
-            - *covid19_death_4M_in_world
-            - "装備せずに外に出ると、大変なことになるぞ"
-        SkullOwner:
-          Id:
-            _type: intarray
-            value: [-782859848,-672904883,-1799219801,-293348862]
-          Properties:
-            textures:
-              - Value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzU0MmEzZTI3MjViYTU1Mzc2MjcxZTdkNGE2NzczNTZhNTU2NDgyYThlMmYxYzU5MjQzZmZhNDkyNGYwYTMifX19"
-
-- name: &mc117_amethyst 【復刻】minecraft 1.17アップデート記念　Amethyst祭り
-  start: [2022, 2, 20]
-  end:   [2022, 2, 27]
-  type: item_random
-  table:
-    - id: 'minecraft:small_amethyst_bud'
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-    - id: 'minecraft:medium_amethyst_bud'
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-    - id: 'minecraft:large_amethyst_bud'
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-    - id: 'minecraft:amethyst_cluster'
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "破壊するとamethystが入手できます"
-            - "fortuneつきつるはしでドロップ数増えます"
-    - id: 'minecraft:amethyst_shard'
-      amount:
-        advice: to_i
-        value: "<%= rand(2..12) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "4つをクラフトするとblock of amethystになります"
-    - id: 'minecraft:amethyst_block'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "乗ったり投擲物を当てたりするときれいな音が鳴ります"
-    - id: 'minecraft:spyglass'
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "amethystとcopper ingotでクラフトできます"
-            - "手に持って右クリックすると、遠くがよく見えます"
-    - id: 'minecraft:tinted_glass'
-      amount:
-        advice: to_i
-        value: "<%= rand(4..28) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "amethystとglassでクラフトできます"
-            - "普通のglassと違って光を通しません"
-    - id: 'minecraft:calcite'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "Amethyst Geodeの外側のブロック"
-    - id: 'minecraft:smooth_basalt'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_amethyst
-            - "Amethyst Geodeの外側のブロック"
-            - "Basaltを焼くことでも入手できます"
-
-- name: &mc117_plants 【復刻】minecraft 1.17アップデート記念　植物祭り
-  start: [2022, 2, 27]
-  end:   [2022, 3, 6]
-  type: item_random
-  table:
-    - id: 'minecraft:azalea'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants
-            - "bone mealをかけたら木が生えます"
-            - "放置では木にならず、骨粉が必要です"
-    - id: 'minecraft:flowering_azalea'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants
-            - "bone mealをかけたら木が生えます"
-            - "放置では木にならず、骨粉が必要です"
-
-- name: &mc117_copper 【復刻】minecraft 1.17アップデート記念　銅祭り
-  start: [2022, 3, 6]
-  end:   [2022, 3, 13]
-  type: item_random
-  table:
-    - id: 'minecraft:copper_ingot'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-    - id: 'minecraft:lightning_rod'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "周囲32×4×32ブロック以内に落ちる雷はlightning rodに落ちます"
-    - id: 'minecraft:spyglass'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "amethystとcopper ingotでクラフトできます"
-            - "手に持って右クリックすると、遠くがよく見えます"
-    - id: 'minecraft:copper_block'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-    - id: 'minecraft:<%= %w[exposed weathered oxidized].sample %>_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "設置して斧で右クリックすると錆が1段階取れます"
-    - id: 'minecraft:cut_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "block of copper4つをクラフトすると作れます"
-    - id: 'minecraft:<%= %w[exposed weathered oxidized].sample %>_cut_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "同じ錆具合の銅ブロック4つをクラフトすると作れます"
-    - id: 'minecraft:waxed_copper_block'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "普通の銅ブロックと違って錆びません"
-            - "設置して斧で右クリックすると時間経過で錆びるようになります"
-    - id: 'minecraft:waxed_<%= %w[exposed weathered].sample %>_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "普通の銅ブロックと違って時間経過で錆が進行しません"
-            - "設置して斧で右クリックすると時間経過で錆びるようになります"
-    - id: 'minecraft:waxed_oxidized_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "普通の銅ブロックと違って時間経過で錆が進行しません"
-            - "設置して斧で右クリックすると時間経過で錆びるようになります"
-            - "まあこれ以上錆びないんですが…"
-    - id: 'minecraft:waxed_cut_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "block of copper4つをクラフトすると作れます"
-            - "普通の銅ブロックと違って錆びません"
-            - "設置して斧で右クリックすると時間経過で錆びるようになります"
-    - id: 'minecraft:waxed_<%= %w[exposed weathered].sample %>_cut_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "同じ錆具合の銅ブロック4つをクラフトすると作れます"
-            - "普通の銅ブロックと違って時間経過で錆が進行しません"
-            - "設置して斧で右クリックすると時間経過で錆びるようになります"
-    - id: 'minecraft:waxed_oxidized_cut_copper'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "同じ錆具合の銅ブロック4つをクラフトすると作れます"
-            - "普通の銅ブロックと違って時間経過で錆が進行しません"
-            - "設置して斧で右クリックすると時間経過で錆びるようになります"
-            - "まあこれ以上錆びないんですが…"
-    - id: 'minecraft:copper_ore'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-    - id: 'minecraft:deepslate_copper_ore'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-    - id: 'minecraft:raw_copper'
-      amount: 9
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "精錬するとcopper ingotになります"
-            - "9つまとめてクラフトすると、block of raw copperになります"
-    - id: 'minecraft:raw_copper_block'
-      NBT:
-        display:
-          Lore:
-            - *mc117_copper
-            - "クラフトすると、raw copperになります"
-
-- name: &mc117_candle 【復刻】minecraft 1.17アップデート記念　キャンドル祭り
-  start: [2022, 3, 13]
-  end:   [2022, 3, 20]
-  type: item_random
-  table:
-    - id: 'minecraft:<%= ["", *%w<white orange magenta light_blue yellow lime pink gray light_gray cyan purple blue brown green red black>.map { "#{_1}_" } ].sample %>candle'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_candle
-            - "設置してFlint and Steelで着火すると光源になります"
-            - "同じマスに4つまで設置できます"
-
-- name: &mc117_plants2 【復刻】minecraft 1.17アップデート記念　植物祭り2
-  start: [2022, 3, 20]
-  end:   [2022, 3, 27]
-  type: item_random
-  table:
-    - id: 'minecraft:azalea'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "bone mealをかけたら木が生えます"
-            - "放置では木にならず、骨粉が必要です"
-    - id: 'minecraft:flowering_azalea'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "bone mealをかけたら木が生えます"
-            - "放置では木にならず、骨粉が必要です"
-    - id: 'minecraft:small_dripleaf'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "骨粉を掛けると、大きなドリップリーフになります"
-            - "鋏でしか回収できません"
-    - id: 'minecraft:big_dripleaf'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "1.5秒間上に乗っていると落とされます"
-    - id: 'minecraft:hanging_roots'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "根っこですよこれ全部！"
-    - id: 'minecraft:spore_blossom'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "天井に植える花です"
-            - "1.17では入手できません"
-    - id: 'minecraft:glow_berries'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "天井に植える植物です"
-            - "強い光を放ちます"
-            - "食べることができます"
-            - "キツネに与えることができます"
-    - id: 'minecraft:sculk_sensor'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "周囲の振動を検知すると、レッドストーン出力します"
-            - "1.17では入手できません"
-    - id: 'minecraft:glow_lichen'
-      NBT:
-        display:
-          Lore:
-            - *mc117_plants2
-            - "明るさレベル7なので、湧きつぶしには使えません"
-
-- name: &mc117_stone 【復刻】minecraft 1.17アップデート記念　原石祭り
-  start: [2022, 3, 27]
-  end:   [2022, 4, 3]
-  type: item_random
-  table:
-    - id: 'minecraft:coal'      # very common 16
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりました"
-    - id: 'minecraft:deepslate_coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..128) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:raw_copper' # common
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:copper_ingot'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:deepslate_copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:lapis_lazuli' # rare
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりました"
-    - id: 'minecraft:deepslate_lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:raw_iron' # common
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:iron_ingot'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:deepslate_iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:raw_gold' # uncommon
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:gold_ingot'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:deepslate_gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:nether_gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:redstone' # uncommon
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:redstone_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりました"
-    - id: 'minecraft:deepslate_redstone_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:diamond' # rare
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:diamond_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりました"
-    - id: 'minecraft:deepslate_diamond_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:emerald' # very rare
-      amount:
-        advice: to_i
-        value: "<%= rand(1..2) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりました"
-    - id: 'minecraft:deepslate_emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "深層で見つかるブロックです"
-    - id: 'minecraft:quartz' # very common
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:nether_quartz_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりませんでした"
-    - id: 'minecraft:ancient_debris' # very rare
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-            - "テクスチャが変わりませんでした"
-    - id: 'minecraft:netherite_scrap'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..2) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-    - id: 'minecraft:netherite_ingot'
-      amount: 1
-      NBT:
-        display:
-          Lore:
-            - *mc117_stone
-
-- name: &mc118_ore_255 minecraft 1.18アップデート記念　Y255〜224の鉱石祭り
-  start: [2022, 3, 1]
-  end:   [2022, 4, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_255
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_255
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_255
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_255
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-
-- name: &mc118_ore_223 minecraft 1.18アップデート記念　Y223〜192の鉱石祭り
-  start: [2022, 4, 1]
-  end:   [2022, 5, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_223
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_223
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_223
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_223
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-
-- name: &mc118_ore_191 minecraft 1.18アップデート記念　Y191〜160の鉱石祭り
-  start: [2022, 5, 1]
-  end:   [2022, 6, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_191
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_191
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_191
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_191
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_191
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-
-- name: &mc118_ore_159 minecraft 1.18アップデート記念　Y159〜128の鉱石祭り
-  start: [2022, 6, 1]
-  end:   [2022, 7, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_159
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_159
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_159
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_159
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_159
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-
-- name: &mc118_ore_127 minecraft 1.18アップデート記念　Y127〜96の鉱石祭り
-  start: [2022, 7, 1]
-  end:   [2022, 8, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_127
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_127
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_127
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_127
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_127
-            - "Y=-16～112で斜状分布（最大Y=48）"
-
-- name: &mc118_ore_95 minecraft 1.18アップデート記念　Y95〜64の鉱石祭り
-  start: [2022, 8, 1]
-  end:   [2022, 9, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_95
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_95
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_95
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_95
-            - "Y=-16～112で斜状分布（最大Y=48）"
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_95
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-
-- name: &mc118_ore_63 minecraft 1.18アップデート記念　Y63〜32の鉱石祭り
-  start: [2022, 9, 1]
-  end:   [2022, 10, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-16～112で斜状分布（最大Y=48）"
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～64で均一分布"
-            - "Y=32～-32で斜状分布（最大Y=0）"
-
-- name: &mc118_ore_63 minecraft 1.18アップデート記念　Y31〜0の鉱石祭り
-  start: [2022, 10, 1]
-  end:   [2022, 11, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:coal_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=136～256で均一分布"
-            - "Y=0～192で斜状分布（最大Y=96）"
-    - id: 'minecraft:gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-16～112で斜状分布（最大Y=48）"
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～64で均一分布"
-            - "Y=32～-32で斜状分布（最大Y=0）"
-    - id: 'minecraft:redstone_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～15で均一分布"
-            - "Y=-64～-32で斜状分布（最大Y=-64）"
-    - id: 'minecraft:diamond_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～16で斜状分布（最大Y=-64）"
-    - id: 'minecraft:lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_63
-            - "Y=-64～64で均一分布"
-            - "Y=32～-32で斜状分布（最大Y=0）"
-
-- name: &mc118_ore_-1 minecraft 1.18アップデート記念　Y-1〜-32の鉱石祭り
-  start: [2022, 11, 1]
-  end:   [2022, 12, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:deepslate_emerald_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..4) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "山岳と吹きさらしの丘において Y=-16～256で斜状分布（最大Y=256）"
-    - id: 'minecraft:deepslate_gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:deepslate_copper_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=-16～112で斜状分布（最大Y=48）"
-    - id: 'minecraft:deepslate_iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:deepslate_iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:deepslate_lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=-64～64で均一分布"
-            - "Y=32～-32で斜状分布（最大Y=0）"
-    - id: 'minecraft:deepslate_redstone_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=-64～15で均一分布"
-            - "Y=-64～-32で斜状分布（最大Y=-64）"
-    - id: 'minecraft:deepslate_diamond_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=-64～16で斜状分布（最大Y=-64）"
-    - id: 'minecraft:deepslate_lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-1
-            - "Y=-64～64で均一分布"
-            - "Y=32～-32で斜状分布（最大Y=0）"
-
-- name: &mc118_ore_-33 minecraft 1.18アップデート記念　Y-33〜-64の鉱石祭り
-  start: [2022, 12, 1]
-  end:   [2023, 1, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:deepslate_gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:deepslate_iron_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..32) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=80～256で斜状分布（最大Y=256）"
-            - "Y=-24～57で斜状分布（最大Y=16）"
-            - "Y=-64～72で均一分布"
-    - id: 'minecraft:deepslate_redstone_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=-64～15で均一分布"
-            - "Y=-64～-32で斜状分布（最大Y=-64）"
-    - id: 'minecraft:deepslate_diamond_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=-64～16で斜状分布（最大Y=-64）"
-    - id: 'minecraft:deepslate_lapis_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..8) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=-64～64で均一分布"
-            - "Y=32～-32で斜状分布（最大Y=0）"
-    - id: 'minecraft:deepslate_gold_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=-64～32で斜状分布（最大Y=-16）"
-            - "Y=-64～-48で均一分布"
-            - "荒野においてはY=256以下で生成。"
-    - id: 'minecraft:deepslate_redstone_ore'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..16) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc118_ore_-33
-            - "Y=-64～15で均一分布"
-            - "Y=-64～-32で斜状分布（最大Y=-64）"
-
-- name: &mc118_lush_caves minecraft 1.18アップデート記念 繁茂した洞窟祭り
-  start: [2023, 1, 1]
-  end:   [2023, 2, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:azalea'
-      NBT:
-        display:
-          Lore: &mc118_lush_caves_lore
-            - *mc118_lush_caves
-            - "繁茂した洞窟に生成されます"
-            - "繁茂した洞窟は、ツツジの木の下にあるよ"
-    - id: 'minecraft:flowering_azalea'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:small_dripleaf'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:big_dripleaf'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:hanging_roots'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:spore_blossom'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:glow_berries'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:glow_lichen'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:clay'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:moss_block'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:moss_carpet'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-    - id: 'minecraft:rooted_dirt'
-      NBT:
-        display:
-          Lore: *mc118_lush_caves_lore
-
-- name: &mc118_dripstone_caves minecraft 1.18アップデート記念 鍾乳洞祭り
-  start: [2023, 2, 1]
-  end:   [2023, 3, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:dripstone_block'
-      NBT:
-        display:
-          Lore: &mc118_dripstone_caves_lore
-            - *mc118_dripstone_caves
-            - "鍾乳洞に生成されます"
-    - id: 'minecraft:pointed_dripstone'
-      NBT:
-        display:
-          Lore: *mc118_dripstone_caves_lore
-
-- name: &mc118_etc minecraft 1.18アップデート記念 その他祭り
-  start: [2023, 3, 1]
-  end:   [2023, 4, 1]
-  type: item_random
-  table:
-    - id: 'minecraft:enchanting_table'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "レベル7の光を発するようになった"
-            - "GUI上のラピスラズリのアイコンが変わった"
-    - id: 'minecraft:glow_berries'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "ハサミを先端に使用すると、成長が止まるようになった"
-    - id: 'minecraft:kelp'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "ハサミを先端に使用すると、成長が止まるようになった"
-    - id: 'minecraft:twisting_vines'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "ハサミを先端に使用すると、成長が止まるようになった"
-    - id: 'minecraft:weeping_vines'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "ハサミを先端に使用すると、成長が止まるようになった"
-    - id: 'minecraft:copper_ore'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "ドロップ数が2-5個に増加"
-    - id: 'minecraft:stonecutter'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "銅ブロックを4つの切り込み入りの銅に加工できるようになった"
-    - id: 'minecraft:conduit'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "破壊に最適なツールがツルハシになった"
-    - id: 'minecraft:comparator'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変わった"
-    - id: 'minecraft:anvil'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "GUI内のハンマーのテクスチャが変更された"
-    - id: 'minecraft:carrot'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "成長段階がStage3のときのテクスチャが変更された"
-    - id: 'minecraft:cocoa_beans'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "カカオの実のテクスチャのstage0とstage1が変更された"
-    - id: 'minecraft:cartography_table'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:oak_door'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:spruce_door'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:iron_door'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:red_stained_glass'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:blue_stained_glass'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:glass_pane'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:lectern'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:crimson_stem'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:warped_stem'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-    - id: 'minecraft:stripped_dark_oak_log'
-      NBT:
-        display:
-          Lore:
-            - *mc118_etc
-            - "テクスチャが変更された"
-
-- name: &mc120_bamboo minecraft 1.20アップデート記念 竹祭り
-  start: [2023, 9, 24]
-  end:   [2023, 10, 24]
-  type: item_random
-  table:
-    - id: 'minecraft:bamboo_<%= %w[plank button door fence fence_gate pressure_plate sign hanging_sign stairs slab trapdoor raft chest_raft].sample %>'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..12) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_bamboo
-
-- name: &mc120_bamboo_block minecraft 1.20アップデート記念 竹ブロック祭り
-  start: [2023, 10, 8]
-  end:   [2023, 11, 8]
-  type: item_random
-  table:
-    - id: 'minecraft:bamboo'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_bamboo_block
-            - "様々なアイテムをクラフトできるようになった"
-    - id: 'minecraft:bamboo_block'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..7) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_bamboo_block
-            - "竹をブロックにできるようになった"
-    - id: 'minecraft:stripped_bamboo_block'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..7) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_bamboo_block
-            - "竹ブロックを斧で剥げるようになった"
-
-- name: &mc120_bamboo_mosaic minecraft 1.20アップデート記念 竹細工祭り
-  start: [2023, 10, 22]
-  end:   [2023, 11, 22]
-  type: item_random
-  table:
-    - id: 'minecraft:bamboo'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..64) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_bamboo_mosaic
-            - "様々なアイテムをクラフトできるようになった"
-    - id: 'minecraft:bamboo_mosaic<%= ["", *%w[_stairs _slab]].sample %>'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..12) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_bamboo_mosaic
-
-- name: &mc120_sculk minecraft 1.20アップデート記念 調律されたスカルクセンサー祭り
-  start: [2023, 11, 5]
-  end:   [2023, 12, 5]
-  type: item_random
-  table:
-    - id: 'minecraft:calibrated_sculk_sensor'
-      NBT:
-        display:
-          Lore:
-            - *mc120_sculk
-    - id: 'minecraft:sculk_sensor'
-      NBT:
-        display:
-          Name: "調律されてないスカルクセンサー"
-          Lore:
-            - *mc120_sculk
-
-- name: &mc120_cherry minecraft 1.20アップデート記念 桜祭り
-  start: [2023, 11, 19]
-  end:   [2023, 12, 19]
-  type: item_random
-  table:
-    - id: 'minecraft:cherry_<%= %w[plank button door fence fence_gate pressure_plate sign hanging_sign stairs slab trapdoor boat chest_boat leaves log].sample %>'
-      amount:
-        advice: to_i
-        value: "<%= rand(1..12) %>"
-      NBT:
-        display:
-          Lore:
-            - *mc120_cherry
-
-- name: &mc120_sign minecraft 1.20アップデート記念 釣り看板祭り
-  start: [2023, 12, 3]
-  end:   [2024, 1, 3]
-  type: item_random
-  table:
-    - id: 'minecraft:<%= %w[oak spruce birch jungle acacia dark_oak mangrove cherry bamboo crimson warped].sample %>_hanging_sign'
-      NBT:
-        display:
-          Lore:
-            - *mc120_sign
-
-- name: &mc120_ancient minecraft 1.20アップデート記念 古代祭り
-  start: [2023, 12, 17]
-  end:   [2024, 1, 17]
-  type: item_random
-  table:
-    - id: 'minecraft:pitcher_plant'
-      NBT:
-        display:
-          Lore:
-            - *mc120_ancient
-    - id: 'minecraft:suspicious_sand'
-      NBT:
-        display:
-          Lore:
-            - *mc120_ancient
-            - 何かが入っている
-            - 設置してブラシで右クリックし続けてみよう
-        BlockEntityTag:
-          item:
-            id: 'minecraft:netherite_scrap'
-            Count: 1
-    - id: 'minecraft:suspicious_gravel'
-      NBT:
-        display:
-          Lore:
-            - *mc120_ancient
-            - 何かが入っている
-            - 設置してブラシで右クリックし続けてみよう
-        BlockEntityTag:
-          item:
-            id: 'minecraft:diamond'
-            Count: 7
-    - id: 'minecraft:brush'
-      NBT:
-        display:
-          Lore:
-            - *mc120_ancient
-
-- name: &mc120_etc minecraft 1.20アップデート記念 その他祭り
-  start: [2023, 12, 31]
-  end:   [2024, 1, 31]
-  type: item_random
-  table:
-    - id: 'minecraft:chiseled_bookshelf'
-      NBT:
-        display:
-          Lore:
-            - *mc120_etc
-    - id: 'minecraft:decorated_pot'
-      NBT:
-        display:
-          Lore:
-            - *mc120_etc
-    - id: 'minecraft:piglin_head'
-      NBT:
-        display:
-          Lore:
-            - *mc120_etc
-    - id: 'minecraft:pink_petals'
-      NBT:
-        display:
-          Lore:
-            - *mc120_etc
-    - id: 'minecraft:torchflower'
-      NBT:
-        display:
-          Lore:
-            - *mc120_etc
-
-- name: &tigers_champion_of_japan_2023 阪神タイガース日本一記念(2023)
-  start: [2023, 11, 06]
-  end:   [2023, 11, 13]
-  type: item_random
-  table:
-    - id: 'minecraft:leather_helmet'
-      amount: 38
-      NBT:
-        display:
-          color: 0xffffff
-          Name: "日本一ユニフォーム（帽）"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Trim:
-          pattern: wayfinder
-          material: gold
-        Enchantments: &tigers_champion_of_japan_2023_enchantments
-            - {id: blast_protection,      lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: protection,            lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: fire_protection,       lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: projectile_protection, lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-          #&tigers_champion_of_japan_2023_armor_exclusive
-            - {id: depth_strider,         lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: feather_falling,       lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: soul_speed,            lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: swift_sneak,           lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: frost_walker,          lvl: '<%= [0, 1].sample * rand(0..1) %>'}
-            - {id: respiration,           lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: aqua_affinity,         lvl: '<%= [0, 1].sample * rand(0..1) %>'}
-            - &tigers_champion_of_japan_2023_common
-              - {id: unbreaking,            lvl: '<%= 38 * rand(0..1) %>'}
-              - {id: mending,               lvl: '<%= rand(0..1) %>'}
-        RepairCost: &tigers_champion_of_japan_2023_cost 38
-        AttributeModifiers:
-          - &tigers_champion_of_japan_2023_attr_modifiers
-            AttributeName: "generic.<%= c2569=%w[armor armor_toughness attack_damage attack_knockback attack_speed knockback_resistance luck max_health movement_speed].sample %>"
-            Amount: 0.38
-            Operation: 1
-            Name: "generic.<%= c2569 %>"
-            UUID: MINECRAFT_UUID
-            Slot: head
-          - AttributeName: "generic.armor"
-            Amount: '<%= rand(1..3) %>'
-            Operation: 0
-            Name: "generic.armor"
-            UUID: MINECRAFT_UUID
-            Slot: head
-    - id: 'minecraft:leather_chestplate'
-      amount: 38
-      NBT:
-        display:
-          color: 0xffffff
-          Name: "日本一ユニフォーム（上）"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Trim:
-          pattern: wayfinder
-          material: gold
-        Enchantments:
-          - *tigers_champion_of_japan_2023_enchantments
-          - {id: thorns,                lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-        RepairCost: *tigers_champion_of_japan_2023_cost
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: chest
-          - AttributeName: "generic.armor"
-            Amount: '<%= rand(3..8) %>'
-            Operation: 0
-            Name: "generic.armor"
-            UUID: MINECRAFT_UUID
-            Slot: chest
-    - id: 'minecraft:elytra'
-      amount: 38
-      NBT:
-        display:
-          Name: "日本一ユニフォーム（翼）"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Enchantments: *tigers_champion_of_japan_2023_enchantments
-        RepairCost: *tigers_champion_of_japan_2023_cost
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: chest
-          - AttributeName: "generic.armor"
-            Amount: '<%= rand(0..3) %>'
-            Operation: 0
-            Name: "generic.armor"
-            UUID: MINECRAFT_UUID
-            Slot: chest
-    - id: 'minecraft:leather_leggings'
-      amount: 38
-      NBT:
-        display:
-          color: 0xffffff
-          Name: "日本一ユニフォーム（下）"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Trim:
-          pattern: wayfinder
-          material: gold
-        Enchantments: *tigers_champion_of_japan_2023_enchantments
-        RepairCost: *tigers_champion_of_japan_2023_cost
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: legs
-          - AttributeName: "generic.armor"
-            Amount: '<%= rand(2..6) %>'
-            Operation: 0
-            Name: "generic.armor"
-            UUID: MINECRAFT_UUID
-            Slot: legs
-    - id: 'minecraft:leather_boots'
-      amount: 38
-      NBT:
-        display:
-          color: 0xffffff
-          Name: "日本一ユニフォーム（靴）"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Trim:
-          pattern: wayfinder
-          material: gold
-        Enchantments: *tigers_champion_of_japan_2023_enchantments
-        RepairCost: *tigers_champion_of_japan_2023_cost
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: feet
-          - AttributeName: "generic.armor"
-            Amount: '<%= rand(1..3) %>'
-            Operation: 0
-            Name: "generic.armor"
-            UUID: MINECRAFT_UUID
-            Slot: feet
-
-- name: 阪神タイガース日本一記念(2023)
-  start: [2023, 11, 13]
-  end:   [2023, 11, 20]
-  type: item_random
-  table:
-    - id: 'minecraft:trident'
-      amount: 38
-      NBT:
-        display:
-          Name: "日本一トライデント"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Enchantments:
-          - *tigers_champion_of_japan_2023_common
-          - {id: loyalty,               lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-          - {id: channeling,            lvl: '<%= rand(0..1) %>'}
-          - {id: riptide,               lvl: '<%= rand(0..3) * rand(0..1) %>'}
-          - &tigers_champion_of_japan_2023_tool
-            - {id: bane_of_arthropods,    lvl: '<%= r=rand(3) ; r==0 ? [0, 1, 18, 38].sample * rand(0..1) : 0 %>'}
-            - {id: efficiency,            lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: fire_aspect,           lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: sharpness,             lvl: '<%= r==1 ? [0, 1, 18].sample * rand(0..1) : 0 %>'}
-            - {id: smite,                 lvl: '<%= r==2 ? [0, 1, 18, 38].sample * rand(0..1) : 0 %>'}
-            - {id: sweeping,              lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-            - {id: silk_touch,            lvl: '<%= st=rand(0..1) %>'}
-            - {id: fortune,               lvl: '<%= st=0 ? rand(0..4) * rand(0..1) : 0 %>'}
-        RepairCost: *tigers_champion_of_japan_2023_cost
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: mainhand
-          - AttributeName: "generic.attack_damage"
-            Amount: '<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>'
-            Name: "generic.attack_damage"
-            Slot: mainhand
-            UUID: MINECRAFT_UUID
-          - AttributeName: "generic.attack_speed"
-            Amount: 1.1
-            Name: "generic.attack_speed"
-            Slot: mainhand
-            UUID: MINECRAFT_UUID
-    - id: 'minecraft:bow'
-      amount: 38
-      NBT:
-        display:
-          Name: "日本一弓"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        RepairCost: *tigers_champion_of_japan_2023_cost
-        Enchantments:
-          - *tigers_champion_of_japan_2023_common
-          - {id: power,         lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-          - {id: infinity,      lvl: '<%= rand(0..1) %>'}
-          - {id: flame,         lvl: '<%= [0, 1, 18, 38].sample * rand(0..1) %>'}
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: mainhand
-    - id: 'minecraft:<%= [*%w[stick shears brush], *%w[wooden stone iron diamond golden netherite].product(%w[pickaxe axe shovel hoe sword]).map{_1.join(?_)}].sample %>'
-      amount: 38
-      NBT:
-        display:
-          Name: "日本一ツール"
-          Lore:
-            - *tigers_champion_of_japan_2023
-        Enchantments:
-          - *tigers_champion_of_japan_2023_common
-          - *tigers_champion_of_japan_2023_tool
-        RepairCost: 38
-        AttributeModifiers:
-          - <<: *tigers_champion_of_japan_2023_attr_modifiers
-            Slot: mainhand
-          - AttributeName: "generic.attack_damage"
-            Amount: '<%= Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) %>'
-            Name: "generic.attack_damage"
-            Slot: mainhand
-            UUID: MINECRAFT_UUID
-          - AttributeName: "generic.attack_speed"
-            Amount: 1.6
-            Name: "generic.attack_speed"
-            Slot: mainhand
-            UUID: MINECRAFT_UUID
+        custom_name: 'ソードクワ'
+        lore: |-
+          1.20.6アップデートキャンペーン！道具祭り
+          剣としても使える
+        damage: 0
+        max_damage: 1400
+        tool:
+          damage_per_block: 1
+          default_mining_speed: 0.5
+          rules:
+            - blocks: "#minecraft:sword_efficient"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+          rules:
+            - blocks: "#minecraft:mineable/hoe"
+              correct_for_drops: true
+              speed:
+                _type: auto
+                value: 'rand(2.0..8.0)'
+        attribute_modifiers:
+          modifiers:
+            - type: "generic.attack_damage"
+              name: "generic.attack_damage"
+              amount: 6
+              operation: add_value
+              uuid: MINECRAFT_UUID
+              slot: mainhand
+            - type: "generic.attack_speed"
+              name: "generic.attack_speed"
+              amount: -2.4
+              operation: add_value
+              uuid: MINECRAFT_UUID
+              slot: mainhand

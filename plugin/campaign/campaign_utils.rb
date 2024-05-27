@@ -10,6 +10,8 @@ module Plugin::Campaign
   class Campaign
     attr_accessor :range
 
+    CampaignMetadata = Struct.new(:name, :start, :end, :type, :description, :table, keyword_init: true)
+
     class << self
       def inherited(klass)
         types << klass
@@ -20,8 +22,8 @@ module Plugin::Campaign
         @types ||= Set.new
       end
 
-      def generate(_record)
-        record = Hashie::Mash.new(_record)
+      def generate(raw_record)
+        record = CampaignMetadata.new(**raw_record.transform_keys(&:to_sym))
         type = Array(record.type).first.to_sym
         campaign_class = @types.find{|cc| cc.type == type }
         raise "Campaign type `#{record.type}' does not found in `#{record.name}'" unless campaign_class
@@ -30,7 +32,6 @@ module Plugin::Campaign
                            range: Range.new(Date.new(*(date_default[0...(3-record.start.size)] + record.start)),
                                             Date.new(*(date_default[0...(3-record.end.size)] + record.end)),
                                             false),
-                           variable: record.variable || Hashie::Mash.new,
                            table: record.table,
                            description: record.description)
       end
@@ -49,8 +50,8 @@ module Plugin::Campaign
 
     end
 
-    def initialize(name:, range:, variable:, table:, description:)
-      @name, @range, @variable, @table, @description = name, range, variable, table, description
+    def initialize(name:, range:, table:, description:)
+      @name, @range, @table, @description = name, range, table, description
     end
 
     def name(context=nil)
@@ -105,34 +106,36 @@ module Plugin::Campaign
       # 以下は、その内容を読んでアイテムのコンバートを行う。
       context = CampaignArgs.new(user_name, login_count).context
       item_raw = @table.sample
-      item_id = ERB.new(item_raw['id']).result(context)
-      # item_name = item.dig('NBT', 'display', 'Name') || item_id
-      # r_name = name(context)
-      pp item_raw['NBT']
-      item = MinecraftItem::Item.new(item_id, tag: NBT.build(item_raw['NBT'], bind: context, allow_nil: true))
+      item_id = ERB.new(item_raw[:id]).result(context)
+      item = MinecraftItem::Item.new(item_id, component: NBT.build(item_raw[:NBT], bind: context, allow_nil: true))
 
-      # if item.dig('NBT', 'Enchantments')
-      #   # エンチャントのlvlが0だった場合にエンチャント自体を消す特例。 -> 残す
-      #   item['NBT']['Enchantments'] = item['NBT']['Enchantments'].select { |ench|
-      #     ench['lvl'] != 0
-      #   }
-      # end
-
-      # if item.dig(:NBT, :AttributeModifiers)
-      #   item[:NBT][:AttributeModifiers] = item[:NBT][:AttributeModifiers].reject{|attr|
-      #     # 数値変動がないA.M.をすべて削除
-      #     attr[:Amount] == 0 && attr[:Operation] == 0 || # +0
-      #       attr[:Amount] == 0 && attr[:Operation] == 1 || # +0.0 (Multiply Additive)
-      #       attr[:Amount] == 1 && attr[:Operation] == 2 # *1 (Multiply Multiply)
-      #   }
-      # end
-      Plugin.call(:giftbox_keep,
+      Plugin.call(:giftbox_keep_stack,
                   user_name,
                   "#{description(context) || name(context)}！#{item.item_name}をプレゼント",
-                  {
-                    id: item_id,
-                    count: context.eval(item_raw['amount'].to_s) || 1,
-                    tag: item })
+                  MinecraftItem::Stack.new(
+                    item,
+                    context.eval(item_raw[:amount].to_s) || 1))
+    end
+  end
+
+  class GiveAllItem < Campaign
+    type :give_all_item
+
+    def daily(user_name:, login_count:)
+      # 先に、itemをnbtにして、計算は全部やっておく。
+      # 以下は、その内容を読んでアイテムのコンバートを行う。
+      context = CampaignArgs.new(user_name, login_count).context
+      @table.each do |item_raw|
+        item_id = ERB.new(item_raw[:id]).result(context)
+        item = MinecraftItem::Item.new(item_id, component: NBT.build(item_raw[:NBT], bind: context, allow_nil: true))
+
+        Plugin.call(:giftbox_keep_stack,
+                    user_name,
+                    "#{description(context) || name(context)}！#{item.item_name}をプレゼント",
+                    MinecraftItem::Stack.new(
+                      item,
+                      context.eval(item_raw[:amount].to_s) || 1))
+      end
     end
   end
 

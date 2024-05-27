@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'set'
-require 'hashie'
 require_relative 'campaign/campaign_utils'
 
 Plugin.create :campaign do

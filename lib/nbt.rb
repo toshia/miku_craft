@@ -9,7 +9,8 @@ module NBT
   class KeyError < StandardError; end
   module NBTObjectType; end # NBT型の一種であることを示すmix-in
 
-  # _obj_ をMinecraftのNBT形式に変換し、NBTテキストをStringで返す
+  # _obj_ をMinecraftのNBT形式に変換する。
+  # @return [NBT] NBTオブジェクト
   def self.build(obj, bind: nil, allow_nil: false)
     case obj
     in NBTObjectType
@@ -34,9 +35,10 @@ module NBT
       NBTList.new(obj, bind:)
     in Hash
       # _typeキーがあるmapは、valueをRubyコードとして処理し、結果を_typeの型にキャストする
-      if obj['_type']
-        code = obj.fetch('value')
-        NBTProc.new(code, bind:, type: obj['_type']).nbt
+      type = obj['_type'] || obj[:_type]
+      if type
+        code = obj.fetch('value') { obj.fetch(:value) }
+        NBTProc.new(code, bind:, type:).nbt
       else
         NBTCompound.new(obj, bind:)
       end
@@ -325,6 +327,6 @@ module NBT
   class NBTBoolean < Integral
     RANGE = [true, false]
     SUFFIX = 'B'
-    private def cnv(a) = !!a
+    private def cnv(a) = a ? 1 : 0
   end
 end

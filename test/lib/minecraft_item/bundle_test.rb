@@ -11,7 +11,7 @@ describe 'Bundle' do
     end
 
     it '0/64' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 0)
       c = MinecraftItem::Bundle.new([b])
       assert_equal 1, c.stacks.size
@@ -19,7 +19,7 @@ describe 'Bundle' do
     end
 
     it '65/64' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.generate(a, 65)
       c = MinecraftItem::Bundle.new(b)
       assert_equal 2, c.stacks.size
@@ -29,7 +29,7 @@ describe 'Bundle' do
 
   describe 'append_stacks' do
     it '空を入れる' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 0)
       c = MinecraftItem::Bundle.new
       d, e = c.append_stack(b)
@@ -39,7 +39,7 @@ describe 'Bundle' do
     end
 
     it '1/64を入れる' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 1)
       c = MinecraftItem::Bundle.new
       d, e = c.append_stack(b)
@@ -51,7 +51,7 @@ describe 'Bundle' do
     end
 
     it '64/64と1/64を入れる' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 65)
       c = MinecraftItem::Bundle.new
       d, e = c.append_stack(b)
@@ -63,10 +63,10 @@ describe 'Bundle' do
     end
 
     it 'もともと内容物があるところに入れる' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 32)
       c = MinecraftItem::Bundle.new([b])
-      d = MinecraftItem::Item.new('stone', tag: nil)
+      d = MinecraftItem::Item.new('stone')
       e = MinecraftItem::Stack.new(a, 16)
       f, g = c.append_stack(e)
       assert_equal 1, c.stacks.size
@@ -79,10 +79,10 @@ describe 'Bundle' do
 
 
     it 'もともと内容物があるところに入れて、溢れる' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 48)
       c = MinecraftItem::Bundle.new([b])
-      d = MinecraftItem::Item.new('stone', tag: nil)
+      d = MinecraftItem::Item.new('stone')
       e = MinecraftItem::Stack.new(a, 32)
       f, g = c.append_stack(e)
       assert_equal 1, c.stacks.size
@@ -101,7 +101,7 @@ describe 'Bundle' do
     end
 
     it 'dirt 1' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 1)
       c = MinecraftItem::Bundle.generate([b])
       assert_equal 1, c.size
@@ -109,9 +109,9 @@ describe 'Bundle' do
     end
 
     it 'dirt 1 and stone 1' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 1)
-      c = MinecraftItem::Item.new('stone', tag: nil)
+      c = MinecraftItem::Item.new('stone')
       d = MinecraftItem::Stack.new(c, 1)
       e = MinecraftItem::Bundle.generate([b, d])
       assert_equal 1, e.size
@@ -124,11 +124,11 @@ describe 'Bundle' do
     end
 
     it 'dirt 48 and stone 48 and gravel 32' do
-      a = MinecraftItem::Item.new('dirt', tag: nil)
+      a = MinecraftItem::Item.new('dirt')
       b = MinecraftItem::Stack.new(a, 48)
-      c = MinecraftItem::Item.new('stone', tag: nil)
+      c = MinecraftItem::Item.new('stone')
       d = MinecraftItem::Stack.new(c, 48)
-      e = MinecraftItem::Item.new('gravel', tag: nil)
+      e = MinecraftItem::Item.new('gravel')
       f = MinecraftItem::Stack.new(e, 32)
       g = MinecraftItem::Bundle.generate([b, d, f])
       assert_equal 2, g.size
@@ -159,7 +159,7 @@ describe 'Bundle' do
         bamboo_mosaic
         bamboo_mosaic_slab
         bamboo_mosaic_stairs
-      ].map { MinecraftItem::Item.new(_1, tag: nil) }
+      ].map { MinecraftItem::Item.new(_1) }
       b = a.map.with_index { |item, i| MinecraftItem::Stack.new(item, (i + 1)*4) }
       g = MinecraftItem::Bundle.generate(b)
       assert_equal 8, g.size
@@ -236,6 +236,23 @@ describe 'Bundle' do
         end
       end
       assert_equal(a.transform_values { 0 }, check_table)
+    end
+
+    it 'keep component' do
+      a = MinecraftItem::Stack.new(
+        MinecraftItem::Item.new(
+          :diamond_hoe,
+          component: NBT.build(
+            {
+              custom_name: 'ダイヤのクワ',
+              lore: 'lore test'
+            })
+        ),
+        1)
+      b = MinecraftItem::Bundle.generate([a])
+      assert_equal 1, b.size
+      assert_equal 'diamond_hoe', b.first.item.local_id
+      assert_equal a.item.component_string, b.first.item.component_string
     end
   end
 end
