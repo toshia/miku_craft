@@ -1,6 +1,6 @@
 - name: 年末年始キャンペーン
   start: [1, 1]
-  end:   [5, 30] #[1, 7]
+  end:   [1, 7]
   type: item_random
   table: &nenmatsunenshi_camapign_table
     - id: 'minecraft:sea_pickle'
