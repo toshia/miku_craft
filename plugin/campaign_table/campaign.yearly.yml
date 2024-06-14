@@ -236,7 +236,7 @@
   start: [6, 11]
   end:   [7, 18]
   description: 祇園祭・前祭キャンペーン(前祭の山鉾巡行は17日です)
-  type: give_all_item
+  type: item_random
   table:
     - id: 'minecraft:oak_boat'
       NBT:
