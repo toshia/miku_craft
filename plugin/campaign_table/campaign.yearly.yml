@@ -10,10 +10,9 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.attack_damage"
-              name: "generic.attack_damage"
               amount: 6
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
     - id: 'minecraft:tipped_arrow'
       NBT:
@@ -28,10 +27,9 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.attack_damage"
-              name: "generic.attack_damage"
               amount: 16
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
     - id: 'minecraft:player_head'
       NBT:
@@ -43,10 +41,9 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.max_health"
-              name: "generic.max_health"
               amount: 2
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
 
 - name: &make_america_great_again ドナルド・トランプ永久凍結<%= Time.now.year - 2021 %>周年記念イベント
@@ -91,12 +88,11 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.armor"
-              name: "generic.armor"
               amount:
                 _type: byte
                 value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
 
 - name: 自殺強化月間
@@ -124,10 +120,9 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.attack_damage"
-              name: "generic.attack_damage"
               amount: 4
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
     - id: 'minecraft:anvil'
       NBT:
@@ -136,22 +131,19 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.knockback_resistance"
-              name: "generic.knockback_resistance"
               amount: 0.25
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
               amount: -0.05
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
             - type: "generic.attack_damage"
-              name: "generic.attack_damage"
               amount: 5
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
         enchantments:
           levels:
@@ -241,10 +233,10 @@
         lore: "右クリックすると、MOBが短冊になってしまう不思議な札"
 
 - name: 前祭
-  start: [7, 11]
+  start: [6, 11]
   end:   [7, 18]
   description: 祇園祭・前祭キャンペーン(前祭の山鉾巡行は17日です)
-  type: item_random
+  type: give_all_item
   table:
     - id: 'minecraft:oak_boat'
       NBT:
@@ -275,10 +267,9 @@
         attribute_modifiers:
           modifiers:
           - type: "generic.max_health"
-            name: "generic.max_health"
             amount: 2
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: head
         enchantments:
           levels:
@@ -324,11 +315,10 @@
         attribute_modifiers:
           modifiers:
           - type: "generic.attack_damage"
-            name: "generic.attack_damage"
             amount: 18
             slot: offhand
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
 
 - name: 山の日キャンペーン
   start: [8, 11]
@@ -392,20 +382,18 @@
         lore: "初音ミクコラボ<%= Time.now.year%>"
         attribute_modifiers:
           - type: "generic.attack_damage"
-            name: "generic.attack_damage"
             amount:
               _type: auto
               value: 'Time.now.year - 2007'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: mainhand
           - type: "generic.attack_speed"
-            name: "generic.attack_speed"
             amount:
               _type: auto
               value: '(Time.now.year - 2007).to_f / 10'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: mainhand
     - id: 'minecraft:player_head'
       NBT:
@@ -419,26 +407,23 @@
               value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTEzN2NjOGFjOTEyY2ExMDljMDlmYzNiN2FiNjg5Y2YzMjFiYWFlMjYwNjJiM2NlZTFmYzU5MzFhZmIxNDU2In19fQ=="
         attribute_modifiers:
           - type: "generic.max_health"
-            name: "generic.max_health"
             amount:
               _type: byte
               value: 'Math.sqrt(Time.now.year - 2007)'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: head
           - type: "generic.armor"
-            name: "generic.armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: head
           - type: "generic.luck"
-            name: "generic.luck"
             amount: 0.05
             operation: add_multiplied_base
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: head
         enchantments:
           levels:
@@ -451,24 +436,21 @@
         dyed_color: { rgb: 0xffffff }
         attribute_modifiers:
           - type: "generic.armor"
-            name: "generic.armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: chest
           - type: "generic.armor_toughness"
-            name: "generic.armor_toughness"
             amount: 2
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: chest
           - type: "generic.luck"
-            name: "generic.luck"
             amount: 0.05
             operation: add_multiplied_base
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: chest
     - id: 'minecraft:leather_leggings'
       NBT:
@@ -478,24 +460,21 @@
         attribute_modifiers:
           modifiers:
           - type: "generic.armor"
-            name: "generic.armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: legs
           - type: "generic.armor_toughness"
-            name: "generic.armor_toughness"
             amount: 2
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: legs
           - type: "generic.luck"
-            name: "generic.luck"
             amount: 0.05
             operation: add_multiplied_base
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: legs
     - id: 'minecraft:leather_boots'
       NBT:
@@ -504,24 +483,21 @@
         dyed_color: { rgb: 0x4a4853 }
         attribute_modifiers:
           - type: "generic.armor"
-            name: "generic.armor"
             amount: 3
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: feet
           - type: "generic.armor_toughness"
-            name: "generic.armor_toughness"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: feet
           - type: "generic.luck"
-            name: "generic.luck"
             amount: 0.05
             operation: add_multiplied_base
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: feet
     - id: 'minecraft:shield'
       NBT:
@@ -533,18 +509,16 @@
           - {color: 'cyan', pattern: "triangle_bottom"}
         attribute_modifiers:
           - type: "generic.armor"
-            name: "generic.armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: offhand
           - type: "generic.armor_toughness"
-            name: "generic.armor_toughness"
             amount: 1
             operation: add_value
-            uuid: MINECRAFT_UUID
+            id: '<%= SecureRandom.uuid %>'
             slot: offhand
     - id: 'minecraft:potion'
       amount: 1
