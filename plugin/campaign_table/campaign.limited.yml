@@ -15,46 +15,46 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
     - id: 'minecraft:chainmail_chestplate'
       amount: 1
@@ -68,46 +68,46 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
     - id: 'minecraft:chainmail_leggings'
       amount: 1
@@ -121,46 +121,46 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
     - id: 'minecraft:chainmail_boots'
       amount: 1
@@ -174,46 +174,46 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
     - id: 'minecraft:chainmail_helmet'
       amount: 1
@@ -227,58 +227,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
     - id: 'minecraft:chainmail_chestplate'
       amount: 1
@@ -292,58 +292,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
     - id: 'minecraft:chainmail_leggings'
       amount: 1
@@ -357,58 +357,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
     - id: 'minecraft:chainmail_boots'
       amount: 1
@@ -422,58 +422,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
 
 - name: "1.20.6アップデートキャンペーン！小さい装備祭り"
@@ -493,46 +493,39 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
               slot: head
+              id: '<%= SecureRandom.uuid %>'
             - type: "generic.step_height"
-              name: "generic.step_height"
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.gravity"
-              name: "generic.gravity"
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
     - id: 'minecraft:chainmail_chestplate'
       amount: 2
@@ -546,46 +539,45 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
     - id: 'minecraft:chainmail_leggings'
       amount: 2
@@ -599,46 +591,46 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
     - id: 'minecraft:chainmail_boots'
       amount: 2
@@ -652,46 +644,46 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: -0.25
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: -0.4
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
 
 - name: "1.20.6アップデートキャンペーン！大きい装備祭り"
@@ -711,58 +703,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: head
     - id: 'minecraft:chainmail_chestplate'
       amount: 2
@@ -776,58 +768,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: chest
     - id: 'minecraft:chainmail_leggings'
       amount: 2
@@ -841,58 +833,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: legs
     - id: 'minecraft:chainmail_boots'
       amount: 2
@@ -906,58 +898,58 @@
           show_in_tooltip: false
           modifiers:
             - type: "generic.scale"
-              name: "generic.scale"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.step_height"
-              name: "generic.step_height"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.safe_fall_distance"
-              name: "generic.safe_fall_distance"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.fall_damage_multiplier"
-              name: "generic.fall_damage_multiplier"
+
               amount: -0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.jump_strength"
-              name: "generic.jump_strength"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.movement_speed"
-              name: "generic.movement_speed"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "generic.gravity"
-              name: "generic.gravity"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "player.block_interaction_range"
-              name: "player.block_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
             - type: "player.entity_interaction_range"
-              name: "player.entity_interaction_range"
+
               amount: 0.5
               operation: add_multiplied_total
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: feet
 
 - name: "1.20.6アップデートキャンペーン！食べ物祭り"
@@ -1203,14 +1195,14 @@
         attribute_modifiers:
           modifiers:
             - type: "generic.attack_damage"
-              name: "generic.attack_damage"
+
               amount: 6
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
             - type: "generic.attack_speed"
-              name: "generic.attack_speed"
+
               amount: -2.4
               operation: add_value
-              uuid: MINECRAFT_UUID
+              id: '<%= SecureRandom.uuid %>'
               slot: mainhand
