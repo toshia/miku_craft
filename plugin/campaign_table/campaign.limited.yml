@@ -1206,3 +1206,277 @@
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
               slot: mainhand
+
+- name: "1.21アップデートキャンペーン！銅祭り"
+  start: [2024, 7, 6]
+  end:   [2024, 7, 20]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_bulb'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！銅祭り
+          酸化されるほど明るさが落ちる
+          斧で錆を落とすことができ、ハニカムで錆止めができる
+          オン・オフの状態があり、RS入力する度に切り替えることができる
+          コンパレーターは、点灯中はレベル15の信号を出力する
+    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_door'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！銅祭り
+          石切台でもクラフトできる
+          斧で錆を落とすことができ、ハニカムで錆止めができる
+          素手でもRS信号でも開閉できる
+          村人も開けることができる
+    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_trapdoor'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！銅祭り
+          石切台でもクラフトできる
+          斧で錆を落とすことができ、ハニカムで錆止めができる
+    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_grate'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！銅祭り
+          石切台でもクラフトできる
+          斧で錆を落とすことができ、ハニカムで錆止めができる
+          光を透過する
+          中にいても窒息しない。
+          レッドストーン信号を伝導しない。
+          この上には敵対Mobは自然スポーンしない。
+          水没でき、内部の水を流出させず保持できる。
+    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>chiseled_copper'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！銅祭り
+          石切台でもクラフトできる
+          斧で錆を落とすことができ、ハニカムで錆止めができる
+
+- name: "1.21アップデートキャンペーン！凝灰岩祭り"
+  start: [2024, 7, 13]
+  end:   [2024, 7, 27]
+  type: item_random
+  table:
+    - id: 'minecraft:tuff_<%= %w[stairs slab wall].sample %>'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！凝灰岩祭り
+    - id: 'minecraft:chiseled_tuff'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！凝灰岩祭り
+
+- name: "1.21アップデートキャンペーン！磨かれた凝灰岩祭り"
+  start: [2024, 7, 20]
+  end:   [2024, 8, 3]
+  type: item_random
+  table:
+    - id: 'minecraft:polished_tuff_<%= %w[stairs slab wall].sample %>'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！磨かれた凝灰岩祭り
+    - id: 'minecraft:polished_tuff'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！磨かれた凝灰岩祭り
+
+- name: "1.21アップデートキャンペーン！凝灰岩レンガ祭り"
+  start: [2024, 7, 27]
+  end:   [2024, 8, 10]
+  type: item_random
+  table:
+    - id: 'minecraft:tuff_brick_<%= %w[stairs slab wall].sample %>'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！凝灰岩レンガ祭り
+    - id: 'minecraft:tuff_bricks'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！凝灰岩レンガ祭り
+
+- name: "1.21アップデートキャンペーン！自動作業台祭り"
+  start: [2024, 8, 3]
+  end:   [2024, 8, 17]
+  type: item_random
+  table:
+    - id: 'minecraft:crafter'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！自動作業台祭り
+    - id: 'minecraft:crafting_table'
+      amount: 1
+      NBT:
+        custom_name: 手動作業台
+        lore: |-
+          1.21アップデートキャンペーン！自動作業台祭り
+
+- name: "1.21アップデートキャンペーン！レッドストーン祭り"
+  start: [2024, 8, 10]
+  end:   [2024, 8, 24]
+  type: item_random
+  table:
+    - id: 'minecraft:redstone'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！レッドストーン祭り
+          ウィッチが確定で2-3個落とすよう上方修正された
+    - id: 'minecraft:crafter'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！レッドストーン祭り
+    - id: 'minecraft:comparator'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！レッドストーン祭り
+          自動作業台のスロット数を出力できるようになった
+    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_bulb'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21アップデートキャンペーン！レッドストーン祭り
+          酸化されるほど明るさが落ちる
+          斧で錆を落とすことができ、ハニカムで錆止めができる
+          オン・オフの状態があり、RS入力する度に切り替えることができる
+          コンパレーターは、点灯中はレベル15の信号を出力する
+
+- name: "1.21アップデートキャンペーン！戦闘祭り"
+  start: [2024, 8, 17]
+  end:   [2024, 8, 31]
+  type: item_random
+  table:
+    - id: 'minecraft:totem_of_undying'
+      amount: 8
+      NBT:
+        custom_name: みがわり人形
+        lore: |-
+          1.21アップデートキャンペーン！戦闘祭り
+        max_stack_size: 16
+        attribute_modifiers:
+          modifiers:
+          - type: "generic.max_health"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: hand
+    - id: 'minecraft:potion'
+      amount: 8
+      NBT:
+        custom_name: "初音ミクちゃんのおぱんつドリップコーヒー"
+        lore: |-
+          1.21アップデートキャンペーン！戦闘祭り
+        max_stack_size: 8
+        potion_contents:
+          custom_effects:
+          - id: regeneration
+            amplifier: 1
+            duration: 36000
+          - id: resistance
+            amplifier: 0
+            duration: 36000
+          - id: saturation
+            amplifier: 0
+            duration: 40000
+          - id: health_boost
+            amplifier: 0
+            duration: 24000
+          - id: absorption
+            amplifier: 0
+            duration: 32000
+    - id: 'minecraft:stick'
+      NBT:
+        custom_name: コンバットソードの柄
+        lore: |-
+          1.21アップデートキャンペーン！戦闘祭り
+        damage: 0
+        max_damage: 156
+        repair_cost: 40
+        tool:
+          damage_per_block: 2
+          default_mining_speed: 1.0
+          rules:
+            - blocks: "#minecraft:sword_efficient"
+              correct_for_drops: true
+              speed: 1.0
+        attribute_modifiers:
+          modifiers:
+            - type: "generic.attack_damage"
+              amount: 8
+              operation: add_value
+              id: '<%= SecureRandom.uuid %>'
+              slot: mainhand
+            - type: "generic.attack_speed"
+              amount: -2.4
+              operation: add_value
+              id: '<%= SecureRandom.uuid %>'
+              slot: mainhand
+        enchantments:
+          levels:
+            looting:
+              _type: auto
+              value: 'a=rand(0..4)'
+            unbreaking:
+              _type: auto
+              value: 'x=rand(0..(4-a))'
+            smite:
+              _type: auto
+              value: 'a=rand(0..5)'
+            bane_of_arthropods:
+              _type: auto
+              value: 'b=rand(0..(5-a))'
+            sharpness:
+              _type: auto
+              value: 'rand(0..(5-a-b))'
+            sweeping_edge:
+              _type: auto
+              value: 'a=rand(0..5)'
+            fire_aspect:
+              _type: auto
+              value: 'b=rand(0..(5-a))'
+            thorns:
+              _type: auto
+              value: 'rand(0..(5-a-b))+x+1'
+    - id: 'minecraft:tipped_arrow'
+      amount: 99
+      max_stack_size: 99
+      NBT:
+        custom_name: "SARS-CoV-2"
+        lore: |-
+          1.21アップデートキャンペーン！戦闘祭り
+          新型コロナウィルスが塗ってある恐ろしい矢
+        potion_contents:
+          custom_color:
+            _type: auto
+            value: 'rand(0..0xff_ff_ff)'
+          custom_effects:
+            - id: slowness
+              dration: 2147483647
+            - id: mining_fatigue
+              duration: 2147483647
+            - id: nausea
+              duration: 2147483647
+            - id: wither
+              amplifier: 2
+              duration: 2147483647
+
+# - name: "1.21アップデートキャンペーン！トライアルチャンバー祭り"
+#   - 鍵、ブリーズロッド、ウィンドチャージ、不吉な瓶
+
+# - name: "1.21アップデートキャンペーン！ステータス効果祭り"
+#   - 新ステータス効果のポーション、矢
+
+# - name: "1.21アップデートキャンペーン！エンチャント祭り"

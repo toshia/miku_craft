@@ -142,12 +142,12 @@ class MinecraftItem::Item
     attrs = @component.dig('attribute_modifiers', 'modifiers')
     if attrs
       updated = false
-      filtered = attrs.to_enum.reject do |attr|
-        case [attr[:amount].to_f, attr[:operation].to_s]
-        when [0, 'add_value'], [0, 'add_multiplied_total'], [1, 'add_multiplied_base']
-          updated = true
-        end
-      end
+      # filtered = attrs.to_enum.reject do |attr|
+      #   case [attr[:amount].to_f, attr[:operation].to_s]
+      #   when [0, 'add_value'], [0, 'add_multiplied_total'], [1, 'add_multiplied_base']
+      #     updated = true
+      #   end
+      # end
       if updated
         @component = @component.cow(['attribute_modifiers', 'modifiers'], NBT::NBTList.new(filtered))
       end
