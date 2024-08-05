@@ -1473,6 +1473,29 @@
               amplifier: 2
               duration: 2147483647
 
+- name: "ニコニコ復活記念キャンペーン"
+  start: [2024, 8, 6]
+  end:   [2024, 8, 13]
+  type: item_random
+  table:
+    - id: 'minecraft:totem_of_undying'
+      amount: 1
+      NBT:
+        custom_name: ロシア人形
+        lore: |-
+          2024年8月　ニコニコ復活記念
+        max_stack_size: 8
+        attribute_modifiers:
+          modifiers:
+          - type: "generic.max_health"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: 'tadaima_niconico'
+            slot: hand
+        enchantments:
+          levels:
+            blast_protection: 10
+
 # - name: "1.21アップデートキャンペーン！トライアルチャンバー祭り"
 #   - 鍵、ブリーズロッド、ウィンドチャージ、不吉な瓶
 
