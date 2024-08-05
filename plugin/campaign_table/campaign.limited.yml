@@ -1495,6 +1495,12 @@
         enchantments:
           levels:
             blast_protection: 10
+    - id: 'minecraft:tnt'
+      amount: 1
+      NBT:
+        custom_name: ニコニコ本社
+        lore: |-
+          2024年8月　ニコニコ復活記念
 
 # - name: "1.21アップデートキャンペーン！トライアルチャンバー祭り"
 #   - 鍵、ブリーズロッド、ウィンドチャージ、不吉な瓶
