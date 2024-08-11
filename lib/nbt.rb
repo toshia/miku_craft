@@ -28,7 +28,7 @@ module NBT
     in Float | Rational => a if NBTFloat::RANGE.include?(a)
       NBTFloat.new(obj)         # Floatとdoubleは区別しないことにした
     in 'MINECRAFT_UUID'         # ランダムなUUIDを作る
-      NBTIntArray.new(SecureRandom.random_bytes(16).unpack("i4"))
+      NBTIntArray.new(SecureRandom.random_bytes(16).unpack('i4'))
     in String | Symbol
       NBTString.new(obj, bind:)
     in Array
@@ -43,16 +43,16 @@ module NBT
         NBTCompound.new(obj, bind:)
       end
     in nil
-      raise NBT::TypeError, "NBT.build に nil を渡した" unless allow_nil
+      raise NBT::TypeError, 'NBT.build に nil を渡した' unless allow_nil
     end
-  rescue NoMatchingPatternError => e
+  rescue NoMatchingPatternError => exception
     raise NBT::TypeError, "#{obj.class} の取り扱い方は不明"
   end
 
   class NBTProc
     attr_reader :nbt
 
-    def initialize(code, bind: nil, type:, fname: code.lines.first.slice(0, 20), lineno: 1)
+    def initialize(code, type:, bind: nil, fname: code.lines.first.slice(0, 20), lineno: 1)
       @code = code.to_s.freeze
       @type = type
       @fname = fname
@@ -142,15 +142,15 @@ module NBT
     def snbt
       [
         '{',
-        *@obj.map do |k, v|
-          if %r<\A[\d\w\-\.\+]+\z>.match(k.to_s)
-            kk = k.to_s
+        *@obj.map { |k, v|
+          kk = if %r<\A[\d\w\-\.\+]+\z>.match(k.to_s)
+                 k.to_s
           else
-            kk = NBTString.new(k).snbt
-          end
+            NBTString.new(k).snbt
+               end
           vv = v.snbt
           "#{kk}:#{vv}"
-        end.join(','),
+        }.join(','),
         '}'
       ].join
     end
@@ -261,11 +261,11 @@ module NBT
     include Comparable
 
     def initialize(obj, bind: nil)
-      if bind
-        @obj = ERB.new(obj).result(bind).freeze
+      @obj = if bind
+               ERB.new(obj).result(bind).freeze
       else
-        @obj = obj.to_s.freeze
-      end
+        obj.to_s.freeze
+             end
     end
 
     def snbt

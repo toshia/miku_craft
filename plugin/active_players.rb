@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 require 'time'
 require 'set'
 require_relative 'campaign/mc_json'
@@ -72,8 +73,9 @@ Plugin.create :active_players do
                                          Slot: 'mainhand'
                                        }
                                      ]
-                                   })),
-                  1)
-               )
+                                   })
+                  ),
+                  1
+                ))
   end
 end

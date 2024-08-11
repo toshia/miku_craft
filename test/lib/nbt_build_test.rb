@@ -118,12 +118,12 @@ describe 'NBT' do
 
   describe 'hash with _type' do
     it 'byte' do
-      a = NBT.build({'_type' => 'auto', 'value' => '1 + 2'})
+      a = NBT.build({ '_type' => 'auto', 'value' => '1 + 2' })
       assert_equal '3B', a.snbt
     end
 
     it 'intarray' do
-      a = NBT.build({'_type' => 'intarray', 'value' => '[0x0f000000, 0x0f0000ff, 0x0f00ff00, 0x0fff0000]'})
+      a = NBT.build({ '_type' => 'intarray', 'value' => '[0x0f000000, 0x0f0000ff, 0x0f00ff00, 0x0fff0000]' })
       assert_equal '[I;251658240,251658495,251723520,268369920]', a.snbt
     end
   end
@@ -131,7 +131,7 @@ describe 'NBT' do
   describe 'MINECRAFT_UUID' do
     it do
       a = NBT.build('MINECRAFT_UUID')
-      assert_match /\A\[I;(\-?\d+,){3}(\-?\d+)\]\z/, a.snbt
+      assert_match(/\A\[I;(-?\d+,){3}(-?\d+)\]\z/, a.snbt)
     end
   end
 end

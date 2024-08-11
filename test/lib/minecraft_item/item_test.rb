@@ -24,7 +24,7 @@ describe 'Minecraft Item' do
   describe 'Name' do
     it '省略されていない' do
       nbt = NBT.build(
-        { 'custom_name' => [{text: 'foobar', italic: false}] }
+        { 'custom_name' => [{ text: 'foobar', italic: false }] }
       )
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
@@ -49,8 +49,9 @@ describe 'Minecraft Item' do
     it '省略されていない' do
       nbt = NBT.build({
                         'lore' => [
-                          [{text: 'line 1', italic: false}],
-                          [{text: 'line 2', italic: false}]]
+                          [{ text: 'line 1', italic: false }],
+                          [{ text: 'line 2', italic: false }]
+                        ]
                       })
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
@@ -63,7 +64,6 @@ describe 'Minecraft Item' do
 
       assert_equal '[lore=["[{\"text\":\"五月雨を\",\"italic\":false}]","[{\"text\":\"集めてはやし\",\"italic\":false}]","[{\"text\":\"最上川\",\"italic\":false}]"]]', item.component_string
     end
-
   end
 
   describe 'Enchantments' do
@@ -95,7 +95,7 @@ describe 'Minecraft Item' do
               { amount: 0, operation: 'add_multiplied_total', name: '+(N*0)' },
               { amount: 1, operation: 'add_multiplied_total', name: '+(N*1)' },
               { amount: 0, operation: 'add_multiplied_base', name: '*0' },
-              { amount: 1, operation: 'add_multiplied_base', name: '*1' },
+              { amount: 1, operation: 'add_multiplied_base', name: '*1' }
             ]
           }
         }
@@ -119,8 +119,7 @@ describe 'Minecraft Item' do
                   _type: 'auto',
                   value: '"add_value"'
                 },
-                name: 'a'
-              },
+                name: 'a' },
               { amount: {
                   _type: 'byte',
                   value: '1'
@@ -129,8 +128,7 @@ describe 'Minecraft Item' do
                   _type: 'auto',
                   value: '"add_value"'
                 },
-                name: 'b'
-              }
+                name: 'b' }
             ]
           }
         },

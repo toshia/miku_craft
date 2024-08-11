@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 require_relative 'campaign/campaign_utils'
 
 Plugin.create :campaign do
@@ -8,9 +9,3 @@ Plugin.create :campaign do
     end
   end
 end
-
-
-
-
-
-

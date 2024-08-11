@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require_relative '../../test_config.rb'
+require_relative '../../test_config'
 require File.join(MikuCraftRoot, 'plugin', 'campaign', 'mc_json')
 
 describe 'Minecraft JSON' do

@@ -20,9 +20,12 @@ describe 'NBT string' do
   end
 
   it 'erb' do
-    bind = -> { n = 123; binding }.()
+    bind = -> {
+      n = 123
+      binding
+    }.()
     n = 0
-    a = NBT::NBTString.new('n * 2 = <%= n * 2 %>', bind: bind)
+    a = NBT::NBTString.new('n * 2 = <%= n * 2 %>', bind:)
     assert_equal '"n * 2 = 246"', a.snbt
   end
 

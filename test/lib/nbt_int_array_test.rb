@@ -10,7 +10,7 @@ describe 'NBT byte array' do
   end
 
   it 'some values' do
-    a = NBT::NBTIntArray.new([-1,0,1,2,3])
+    a = NBT::NBTIntArray.new([-1, 0, 1, 2, 3])
     assert_equal '[I;-1,0,1,2,3]', a.snbt
   end
 

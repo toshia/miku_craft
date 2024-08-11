@@ -160,10 +160,10 @@ describe 'Bundle' do
         bamboo_mosaic_slab
         bamboo_mosaic_stairs
       ].map { MinecraftItem::Item.new(_1) }
-      b = a.map.with_index { |item, i| MinecraftItem::Stack.new(item, (i + 1)*4) }
+      b = a.map.with_index { |item, i| MinecraftItem::Stack.new(item, (i + 1) * 4) }
       g = MinecraftItem::Bundle.generate(b)
       assert_equal 8, g.size
-      bundles, items = g.partition{ _1.item.local_id == 'bundle' }
+      bundles, items = g.partition { _1.item.local_id == 'bundle' }
       assert_equal 1, items.size
       assert_equal 32, items.first.amount
       assert_equal 'bamboo_block', items.first.item.local_id
@@ -179,7 +179,7 @@ describe 'Bundle' do
     end
 
     it 'monkey test 1' do
-      a = {"minecraft:dirt"=>29, "minecraft:stone"=>48, "minecraft:gravel"=>47}
+      a = { 'minecraft:dirt' => 29, 'minecraft:stone' => 48, 'minecraft:gravel' => 47 }
       stacks = a.map do |id, amount|
         MinecraftItem::Stack.new(
           MinecraftItem::Item.new(id), amount
@@ -199,7 +199,7 @@ describe 'Bundle' do
     end
 
     it 'monkey test 2' do
-      a = {"minecraft:black_banner"=>5, "minecraft:dirt"=>49, "minecraft:stone"=>46}
+      a = { 'minecraft:black_banner' => 5, 'minecraft:dirt' => 49, 'minecraft:stone' => 46 }
       stacks = a.map do |id, amount|
         MinecraftItem::Stack.new(
           MinecraftItem::Item.new(id), amount
@@ -219,7 +219,7 @@ describe 'Bundle' do
     end
 
     it 'monkey test 3' do
-      a = {"minecraft:iron_ingot"=>54, "minecraft:spruce_hanging_sign"=>3, "minecraft:bamboo_mosaic_stairs"=>61, "minecraft:cherry_boat"=>1}
+      a = { 'minecraft:iron_ingot' => 54, 'minecraft:spruce_hanging_sign' => 3, 'minecraft:bamboo_mosaic_stairs' => 61, 'minecraft:cherry_boat' => 1 }
       stacks = a.map do |id, amount|
         MinecraftItem::Stack.new(
           MinecraftItem::Item.new(id), amount
@@ -246,9 +246,11 @@ describe 'Bundle' do
             {
               custom_name: 'ダイヤのクワ',
               lore: 'lore test'
-            })
+            }
+          )
         ),
-        1)
+        1
+      )
       b = MinecraftItem::Bundle.generate([a])
       assert_equal 1, b.size
       assert_equal 'diamond_hoe', b.first.item.local_id

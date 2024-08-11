@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require "minitest/autorun"
+require 'minitest/autorun'
 require 'bundler/setup'
 Bundler.require(:default)
 Bundler.require(:test)
@@ -9,7 +9,7 @@ MikuCraftRoot = File.expand_path(File.join(__dir__, '..'))
 
 include Pluggaloid
 
-Delayer.default = Delayer.generate_class(priority: %i<high normal low>, default: :normal)
+Delayer.default = Delayer.generate_class(priority: %i[high normal low], default: :normal)
 
 module Minitest::Assertions
   TESTING_PLUGIN_SLUG = :_test
@@ -20,7 +20,7 @@ module Minitest::Assertions
 
   # 全部実行してから出直せ
   def delayer_run
-    while !Delayer.empty?
+    until Delayer.empty?
       Delayer.run
       sleep 0.05
     end

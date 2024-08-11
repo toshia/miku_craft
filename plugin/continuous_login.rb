@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+
 require 'date'
 
 Plugin.create :continuous_login do
   defevent :active_players, prototype: [Pluggaloid::COLLECT]
 
   save_file = File.join(__dir__, 'count.dat')
-  counter = FileTest.exist?(save_file) ? Marshal.load(File.open(save_file, &:read)) : {}
+  counter = FileTest.exist?(save_file) ? Marshal.load(File.read(save_file)) : {}
   @last_check = Date.today.freeze
 
   subscribe(:active_players__add).each do |name|
@@ -27,7 +28,7 @@ Plugin.create :continuous_login do
   daily_check(Date.today + 1)
 
   on_scan_continuous_login_bonus do |name|
-    counter[name] ||= {last: Date.today - 1, count: 0}
+    counter[name] ||= { last: Date.today - 1, count: 0 }
     if Date.today != counter[name][:last]
       counter[name][:last] = Date.today
       counter[name][:count] += 1
@@ -42,8 +43,7 @@ Plugin.create :continuous_login do
 
   on_give_continuous_login_bonus do |name, days|
     lore = "#{Time.now.year}/#{Time.now.month}/#{Time.now.day} 通算ログインボーナス\n#{days}日ログイン記念に#{name}がもらった"
-    case
-    when (days % 31) == 0
+    if (days % 31) == 0
       Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！ダイヤのクワをプレゼント",
@@ -53,12 +53,13 @@ Plugin.create :continuous_login do
                       component: NBT.build(
                         {
                           custom_name: 'ダイヤのクワ',
-                          lore: lore
-                        })
+                          lore:
+                        }
+                      )
                     ),
-                    1)
-                 )
-    when (days % 17) == 0
+                    1
+                  ))
+    elsif (days % 17) == 0
       Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！マインカートをプレゼント",
@@ -67,14 +68,13 @@ Plugin.create :continuous_login do
                       :minecart,
                       component: NBT.build(
                         { lore: "#{lore}\nteocraft全線では駅乗降車場所への\nマインカート放置は禁止されています",
-                          max_stack_size: 8
-                        }
+                          max_stack_size: 8 }
                       )
                     ),
-                    1)
-                 )
-    when (days % 7) == 0
-      food = Matsuya.order.gsub(/[　（）]/, '　'=>'', '（'=>'(', '）'=>')')
+                    1
+                  ))
+    elsif (days % 7) == 0
+      food = Matsuya.order.gsub(/[　（）]/, '　' => '', '（' => '(', '）' => ')')
       Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！#{food}をプレゼント",
@@ -82,10 +82,11 @@ Plugin.create :continuous_login do
                     MinecraftItem::Item.new(
                       :rabbit_stew,
                       component: NBT.build(
-                        { custom_name: food.to_s, lore: lore, max_stack_size: 8 }
-                      )),
-                    1)
-                 )
+                        { custom_name: food.to_s, lore:, max_stack_size: 8 }
+                      )
+                    ),
+                    1
+                  ))
       Plugin.call(:giftbox_keep_stack,
                   name,
                   nil,
@@ -93,11 +94,12 @@ Plugin.create :continuous_login do
                     MinecraftItem::Item.new(
                       :mushroom_stew,
                       component: NBT.build(
-                        { custom_name: '味噌汁', lore: lore, max_stack_size: 8 }
-                      )),
-                    1)
-                 )
-    when (days % 5) == 0
+                        { custom_name: '味噌汁', lore:, max_stack_size: 8 }
+                      )
+                    ),
+                    1
+                  ))
+    elsif (days % 5) == 0
       Plugin.call(:giftbox_keep_stack,
                   name,
                   "#{days}日記念！経験値ボトルをプレゼント",
@@ -112,7 +114,8 @@ Plugin.create :continuous_login do
                       component: NBT.build(
                         { food: { nutrition: 1, saturation: 2 } }
                       )
-                    ), 1))
+                    ), 1
+                  ))
     end
   end
 end

@@ -74,7 +74,7 @@ describe 'NBT list' do
 
     it 'nested compound' do
       a = NBT::NBTList.new([[[1]]])
-      b = a.cow([0,0,0], 2)
+      b = a.cow([0, 0, 0], 2)
       assert_equal '[[[2B]]]', b.snbt
       assert_equal '[[[1B]]]', a.snbt
     end

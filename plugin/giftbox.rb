@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 require 'fileutils'
 require_relative '../lib/minecraft_item'
 
@@ -12,7 +13,7 @@ Plugin.create :giftbox do
   on_giftbox_keep do |name, message, opts|
     box = store[name] || []
     box << {
-      message: message,
+      message:,
       item: {
         name: opts[:id],           # 'minecraft:dirt'
         amount: opts[:count] || 1, # 1

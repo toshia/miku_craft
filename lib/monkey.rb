@@ -27,7 +27,7 @@ def complex
 end
 
 at_exit do
-  puts "finish."
+  puts 'finish.'
   puts "#{$test_count} test ran, #{$error_count} errors detected."
 end
 
@@ -35,9 +35,9 @@ loop do
   target_items = nil
   begin
     Timeout.timeout(1.0) do
-      target_items = MinecraftItem::Stack::ITEM_STACK.keys.sample(rand(1..complex)).to_h do |n|
+      target_items = MinecraftItem::Stack::ITEM_STACK.keys.sample(rand(1..complex)).to_h { |n|
         [n, rand(1..MinecraftItem::Stack::ITEM_STACK[n])]
-      end.freeze
+      }.freeze
 
       stacks = target_items.map do |id, amount|
         MinecraftItem::Stack.new(
@@ -60,12 +60,11 @@ loop do
         report('最後まで実行できたが、個数が誤っている', target_items)
       end
     end
-  rescue Timeout::Error => e
-    report(e.to_s, target_items)
-  rescue => e
-    report(e.to_s, target_items)
+  rescue Timeout::Error => exception
+    report(exception.to_s, target_items)
+  rescue StandardError => exception
+    report(exception.to_s, target_items)
   end
   $test_count += 1
   puts "$test_count = #{$test_count}, complex = #{complex}" if $test_count % 100_000 == 0
 end
-

@@ -32,7 +32,7 @@ describe 'NBT' do
       b = NBT::NBTByte.new(0)
       c = NBT::NBTByte.new(1)
       assert_equal 0, a <=> b
-      assert_equal -1, a <=> c
+      assert_equal(-1, a <=> c)
       assert_equal 1, c <=> a
       assert a == b
       assert a < c

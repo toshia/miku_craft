@@ -7,7 +7,6 @@ require 'json'
 # アイテムタグ情報。
 # display.Nameやdisplay.Lore内部はJSONにしなくても勝手にJSONにする
 class MinecraftItem::Bundle < MinecraftItem::Item
-
   # _stacks_ 内部のアイテムをいくつかのバンドルにまとめる。
   # 1/1スタックのアイテムはバンドルに入らず、そのまま戻り値に含まれる。
   # @param [Enumerable<MinecraftItem::Stack>] stacks まとめるアイテムスタック
@@ -19,7 +18,7 @@ class MinecraftItem::Bundle < MinecraftItem::Item
 
     # step1 bundleの作成または空きbundleに詰める
     # スタックの断片化はさせない。
-    while !remains.empty?
+    until remains.empty?
       stack = remains.shift
       i = bundles.find_index { _1.capacity >= stack.weight }
       if i                      # 既存bundleに格納できるスペースがある
@@ -33,8 +32,8 @@ class MinecraftItem::Bundle < MinecraftItem::Item
     # step2 小さいbundleの中身をより大きいbundleの空きに詰め替える
     # 断片化を許容する。
     if bundles.size >= 2
-      i = bundles.size - 1      # 詰め替え元
-      while i > 0             # 空きが多いものから反復する
+      i = bundles.size - 1 # 詰め替え元
+      while i > 0 # 空きが多いものから反復する
         if bundles[i].full?
           i -= 1
           next
@@ -95,11 +94,11 @@ class MinecraftItem::Bundle < MinecraftItem::Item
         payload[:components] = stack.item.component if stack.item.component
         NBT.build(payload)
       end
-      if component
-        component = component.cow([:bundle_contents], items)
+      component = if component
+                    component.cow([:bundle_contents], items)
       else
-        component = NBT.build({ bundle_contents: items })
-      end
+        NBT.build({ bundle_contents: items })
+                  end
     end
     super('minecraft:bundle', component:)
   end
@@ -137,6 +136,7 @@ class MinecraftItem::Bundle < MinecraftItem::Item
   end
 
   private
+
   def _stacks_by_items(items)
     items.to_a.map do |payload|
       item = MinecraftItem::Item.new(payload[:id], component: payload[:components])

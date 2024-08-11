@@ -11,9 +11,12 @@ describe 'NBT' do
     end
 
     it 'erb' do
-      bind = -> { x = 123; binding }.()
+      bind = -> {
+        x = 123
+        binding
+      }.()
       x = 0 # for scope test
-      a = NBT::NBTProc.new('[1, x]', bind: bind, type: 'auto').nbt
+      a = NBT::NBTProc.new('[1, x]', bind:, type: 'auto').nbt
       assert_equal '[1B,123B]', a.snbt
     end
   end
