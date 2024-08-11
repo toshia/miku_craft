@@ -103,7 +103,7 @@ describe 'Minecraft Item' do
       item = MinecraftItem::Item.new('dirt', component: nbt)
       a = item.component.dig(:attribute_modifiers, :modifiers).to_a
       b = Set.new(a) { _1[:name].to_s }
-      assert_equal Set['+1', '+(N*1)', '*0'], b
+      assert_equal Set['+1', '+(N*1)', '*1'], b
     end
 
     it '動的要素は計算後の値を参照してattribute_modifiersが削除される' do
