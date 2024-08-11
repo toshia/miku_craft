@@ -327,6 +327,14 @@ module NBT
   class NBTBoolean < Integral
     RANGE = [true, false]
     SUFFIX = 'B'
+    def to_json(...)
+      case @obj
+      when 0
+        false.to_json(...)
+      when 1
+        true.to_json(...)
+      end
+    end
     private def cnv(a) = a ? 1 : 0
   end
 end
