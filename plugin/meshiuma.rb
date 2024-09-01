@@ -85,8 +85,20 @@ Plugin.create :meshiuma do
   subscribe(:died, :slain).each do |advice|
     if advice[:assailant] == 'Zombie'
       player = advice[:player]
+      head = MinecraftItem::Stack.new(
+        MinecraftItem::Item.new(
+          :player_head,
+          component: NBT.build(
+            {
+              custom_name: "#{player}の頭",
+              lore: "#{Time.now.iso8601}\n#{player}が#{advice[:assailant]}に殺された記念",
+              profile: { name: player }
+            }
+          )
+        ), 1
+      )
       Plugin.call(:minecraft_execute, player,
-                  "summon minecraft:zombie ~ ~ ~ {CustomName:'[{\"text\":\"#{player}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},{id:\"minecraft:player_head\",Count:1,tag:{SkullOwner:\"#{player}\"}}],ArmorDropChances:[0f,0f,0f,1.00f]}")
+                  "summon minecraft:zombie ~ ~ ~ {CustomName:'[{\"text\":\"#{player}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},#{head.snbt}],ArmorDropChances:[0f,0f,0f,1.00f]}")
     end
   end
 

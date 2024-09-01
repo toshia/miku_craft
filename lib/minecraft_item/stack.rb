@@ -34,4 +34,20 @@ class MinecraftItem::Stack
     return self if desire_amount >= @amount
     [self.class.new(item, desire_amount), self.class.new(item, @amount - desire_amount)]
   end
+
+  # SNBT形式の文字列を返す。
+  # `minecraft:container` や MOBのNBTデータとして使われる形式。
+  # giveコマンドはこの形式に該当せず、このメソッドは使われない。
+  def snbt
+    nbt = NBT::NBTCompound.new(
+      {
+        id: @item.id,
+        count: @amount
+      }
+    )
+    if @item.component
+      nbt = nbt.cow(%i[components], @item.component)
+    end
+    nbt.snbt
+  end
 end
