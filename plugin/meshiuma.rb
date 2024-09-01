@@ -47,7 +47,7 @@ Plugin.create :meshiuma do
     [:magic, %r<(?<player>[A-Za-z0-9_]+) was killed by (?<assailant>[^\s]+) using magic>],
     [:magic, %r<(?<player>[A-Za-z0-9_]+) was killed by (?<assailant>[^\s]+) using (?<weapon_named>[^\s]+)>],
     [:twitter, %r<(?<player>[A-Za-z0-9_]+) was frozen to death>],
-    [:slain, %r<(?<player>[A-Za-z0-9_]+) was slain by (?<assailant>[^\s]+)>],
+    [:slain, %r<(?<player>[A-Za-z0-9_]+) was slain by (?<assailant>.+)>],
     [:fireball, %r<(?<player>[A-Za-z0-9_]+) was fireballed by (?<assailant>[^\s]+)>],
     [:bee, %r<(?<player>[A-Za-z0-9_]+) was stung to death>],
     [:wither, %r<(?<player>[A-Za-z0-9_]+) was shot by a skull from (?<assailant>[^\s]+)>],
@@ -82,8 +82,8 @@ Plugin.create :meshiuma do
     end
   end
 
-  subscribe(:died, :slain).each do |advice|
-    if advice[:assailant] == 'Zombie'
+  on_died do |_reason, advices|
+    advices.each do |advice|
       player = advice[:player]
       head = MinecraftItem::Stack.new(
         MinecraftItem::Item.new(
@@ -97,9 +97,28 @@ Plugin.create :meshiuma do
           )
         ), 1
       )
-      Plugin.call(:minecraft_execute, player,
-                  "summon minecraft:zombie ~ ~ ~ {CustomName:'[{\"text\":\"#{player}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},#{head.snbt}],ArmorDropChances:[0f,0f,0f,1.00f]}")
+      case advice[:assailant]
+      when /Zombie/
+        Plugin.call(:summon_tombstone, player, 'minecraft:zombie', advice[:assailant], head)
+      when /Husk/
+        Plugin.call(:summon_tombstone, player, 'minecraft:husk', advice[:assailant], head)
+      when /Drowned/
+        Plugin.call(:summon_tombstone, player, 'minecraft:drowned', advice[:assailant], head)
+      when /Wither Skeleton/
+        Plugin.call(:summon_tombstone, player, 'minecraft:wither_skeleton', advice[:assailant], head)
+      when /Skeleton/
+        Plugin.call(:summon_tombstone, player, 'minecraft:skeleton', advice[:assailant], head)
+      when /Bogged/
+        Plugin.call(:summon_tombstone, player, 'minecraft:bogged', advice[:assailant], head)
+      when /Stray/
+        Plugin.call(:summon_tombstone, player, 'minecraft:stray', advice[:assailant], head)
+      end
     end
+  end
+
+  on_summon_tombstone do |player, mob_id, mob_name, head|
+    Plugin.call(:minecraft_execute, player,
+                "summon #{mob_id} ~ ~ ~ {CustomName:'[{\"text\":\"#{mob_name} of #{player}\"}]',Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},#{head.snbt}],ArmorDropChances:[0f,0f,0f,1.00f]}")
   end
 
   def matched_to_advice(base, *matches)
