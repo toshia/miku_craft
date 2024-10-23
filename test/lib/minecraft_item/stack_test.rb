@@ -123,7 +123,7 @@ describe 'Stack' do
     end
 
     it 'コンポーネント入り' do
-      a = MinecraftItem::Item.new('player_head', component: {profile: {name: 'toshi_a'} })
+      a = MinecraftItem::Item.new('player_head', component: { profile: { name: 'toshi_a' } })
       b = MinecraftItem::Stack.new(a, 1)
       assert_equal '{id:"minecraft:player_head",count:1B,components:{profile:{name:"toshi_a"}}}', b.snbt
     end
