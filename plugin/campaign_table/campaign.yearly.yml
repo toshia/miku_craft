@@ -9,7 +9,7 @@
         lore: "メリーお正月！"
         attribute_modifiers:
           modifiers:
-            - type: "generic.attack_damage"
+            - type: "attack_damage"
               amount: 6
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
@@ -26,7 +26,7 @@
         lore: "メリーお正月！"
         attribute_modifiers:
           modifiers:
-            - type: "generic.attack_damage"
+            - type: "attack_damage"
               amount: 16
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
@@ -40,7 +40,7 @@
           name: "<%= user_name %>"
         attribute_modifiers:
           modifiers:
-            - type: "generic.max_health"
+            - type: "max_health"
               amount: 2
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
@@ -87,7 +87,7 @@
               value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
         attribute_modifiers:
           modifiers:
-            - type: "generic.armor"
+            - type: "armor"
               amount:
                 _type: byte
                 value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
@@ -119,7 +119,7 @@
               value: "rand(0..10)"
         attribute_modifiers:
           modifiers:
-            - type: "generic.attack_damage"
+            - type: "attack_damage"
               amount: 4
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
@@ -130,17 +130,17 @@
         lore: "自殺強化月間記念"
         attribute_modifiers:
           modifiers:
-            - type: "generic.knockback_resistance"
+            - type: "knockback_resistance"
               amount: 0.25
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
               slot: mainhand
-            - type: "generic.movement_speed"
+            - type: "movement_speed"
               amount: -0.05
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
               slot: mainhand
-            - type: "generic.attack_damage"
+            - type: "attack_damage"
               amount: 5
               operation: add_value
               id: '<%= SecureRandom.uuid %>'
@@ -266,7 +266,7 @@
         profile: { name: "<%= user_name %>" }
         attribute_modifiers:
           modifiers:
-          - type: "generic.max_health"
+          - type: "max_health"
             amount: 2
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
@@ -314,7 +314,7 @@
             looting: 18
         attribute_modifiers:
           modifiers:
-          - type: "generic.attack_damage"
+          - type: "attack_damage"
             amount: 18
             slot: offhand
             operation: add_value
@@ -381,46 +381,50 @@
         custom_name: "ネギ"
         lore: "初音ミクコラボ<%= Time.now.year%>"
         attribute_modifiers:
-          - type: "generic.attack_damage"
+          - type: "attack_damage"
             amount:
               _type: auto
               value: 'Time.now.year - 2007'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: mainhand
-          - type: "generic.attack_speed"
+          - type: "attack_speed"
             amount:
               _type: auto
               value: '(Time.now.year - 2007).to_f / 10'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: mainhand
+        max_damage: 158
+        damage: 1
+        enchantable: { value: 22 }
+        repairable:
+          items: 'minecraft:bamboo'
     - id: 'minecraft:player_head'
       NBT:
         custom_name: "みくみくメット"
         lore: "初音ミクコラボ<%= Time.now.year%>\n設置しないように注意！"
-        # /give @p minecraft:player_head[minecraft:custom_name='{"text":"Hatsune Miku","color":"gold","underlined":true,"bold":true,"italic":false}',minecraft:lore=['{"text":"Custom Head ID: 61919","color":"gray","italic":false}','{"text":"www.minecraft-heads.com","color":"blue","italic":false}'],profile={id:[I;1276831889,-155956764,-1491969687,-1219496898],properties:[{name:"textures",value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTEzN2NjOGFjOTEyY2ExMDljMDlmYzNiN2FiNjg5Y2YzMjFiYWFlMjYwNjJiM2NlZTFmYzU5MzFhZmIxNDU2In19fQ=="}]}] 1
         profile:
           id: { _type: intarray, value: '[1276831889,-155956764,-1491969687,-1219496898]' }
           properties:
             - name: "textures"
               value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTEzN2NjOGFjOTEyY2ExMDljMDlmYzNiN2FiNjg5Y2YzMjFiYWFlMjYwNjJiM2NlZTFmYzU5MzFhZmIxNDU2In19fQ=="
         attribute_modifiers:
-          - type: "generic.max_health"
+          - type: "max_health"
             amount:
               _type: byte
               value: 'Math.sqrt(Time.now.year - 2007)'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: head
-          - type: "generic.armor"
+          - type: "armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: head
-          - type: "generic.luck"
+          - type: "luck"
             amount: 0.05
             operation: add_multiplied_base
             id: '<%= SecureRandom.uuid %>'
@@ -435,19 +439,19 @@
         lore: "初音ミクコラボ<%= Time.now.year%>"
         dyed_color: { rgb: 0xffffff }
         attribute_modifiers:
-          - type: "generic.armor"
+          - type: "armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: chest
-          - type: "generic.armor_toughness"
+          - type: "armor_toughness"
             amount: 2
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: chest
-          - type: "generic.luck"
+          - type: "luck"
             amount: 0.05
             operation: add_multiplied_base
             id: '<%= SecureRandom.uuid %>'
@@ -459,19 +463,19 @@
         dyed_color: { rgb: 0x6b696e }
         attribute_modifiers:
           modifiers:
-          - type: "generic.armor"
+          - type: "armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: legs
-          - type: "generic.armor_toughness"
+          - type: "armor_toughness"
             amount: 2
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: legs
-          - type: "generic.luck"
+          - type: "luck"
             amount: 0.05
             operation: add_multiplied_base
             id: '<%= SecureRandom.uuid %>'
@@ -482,19 +486,19 @@
         lore: "初音ミクコラボ<%= Time.now.year%>"
         dyed_color: { rgb: 0x4a4853 }
         attribute_modifiers:
-          - type: "generic.armor"
+          - type: "armor"
             amount: 3
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: feet
-          - type: "generic.armor_toughness"
+          - type: "armor_toughness"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: feet
-          - type: "generic.luck"
+          - type: "luck"
             amount: 0.05
             operation: add_multiplied_base
             id: '<%= SecureRandom.uuid %>'
@@ -508,14 +512,14 @@
           - {color: 'cyan', pattern: "triangle_top"}
           - {color: 'cyan', pattern: "triangle_bottom"}
         attribute_modifiers:
-          - type: "generic.armor"
+          - type: "armor"
             amount:
               _type: auto
               value: '(Time.now.year - 2007)'
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: offhand
-          - type: "generic.armor_toughness"
+          - type: "armor_toughness"
             amount: 1
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
