@@ -1,1527 +1,437 @@
-- name: "1.20.6アップデートスタートダッシュキャンペーン！"
-  start: [2024, 5, 31]
-  end:   [2024, 6, 1]
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！バンドル祭り"
+  start: [2024, 11, 2]
+  end:   [2024, 11, 16]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray light_gray cyan purple blue brown green red black>.sample %>_bundle'
+      NBT:
+        custom_name: カラーバンドル
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          バンドル祭り
+          染色できるようになった
+          マウスホイールで取り出すアイテムを選べるようになった
+        max_stack_size: 64
+
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！旗の模様祭り"
+  start: [2024, 11, 2]
+  end:   [2024, 11, 23]
+  type: item_random
+  table:
+    - id: 'minecraft:field_masoned_banner_pattern'
+      NBT:
+        custom_name: レンガの旗の模様
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          旗の模様祭り
+          統合版にあったレンガ模様が追加された
+          紙とレンガブロックをクラフトすれば作れる
+        death_protection: &death_protection1212
+          death_effects:
+            - type: clear_all_effects
+            - type: apply_effects
+              effects:
+                - id: absorption
+                  amplifier: 0
+                  duration: 200
+                - id: regeneration
+                  amplifier: 4
+                  duration: 200
+                - id: fire_resistance
+                  duration: 200
+                - id: water_breathing
+                  duration: 200
+                - id: invisibility
+                  duration: 200
+            - type: teleport_randomly
+
+    - id: 'minecraft:bordure_indented_banner_pattern'
+      NBT:
+        custom_name: 山形波の縁取りの旗の模様
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          旗の模様祭り
+          統合版にあったレンガ模様が追加された
+          紙と蔦をクラフトすれば作れる
+        death_protection: *death_protection1212
+
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！装備祭り"
+  start: [2024, 11, 16]
+  end:   [2024, 11, 30]
   type: item_random
   table:
     - id: 'minecraft:chainmail_helmet'
-      amount: 1
       NBT:
-        custom_name: '小さいヘルメット'
+        custom_name: 'タケコプター'
         lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-    - id: 'minecraft:chainmail_chestplate'
-      amount: 1
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          頭に被っているとエリトラのように空を飛べる
+        glider: {}
+    - id: 'minecraft:glass'
       NBT:
-        custom_name: '小さい服'
+        custom_name: 'ガラス'
         lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-    - id: 'minecraft:chainmail_leggings'
-      amount: 1
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          頭に被っていると長時間呼吸ができる
+        equippable:
+          slot: head
+          equip_sound: minecraft:block.glass.break
+    - id: 'minecraft:lightning_rod'
       NBT:
-        custom_name: '小さいレギンス'
+        custom_name: 'ヘッドアンテナ'
         lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-    - id: 'minecraft:chainmail_boots'
-      amount: 1
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          頭に被るとアンテナみたいになります
+        equippable:
+          slot: head
+    - id: 'minecraft:brush'
       NBT:
-        custom_name: '小さい靴'
+        custom_name: '松屋の卵'
         lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-    - id: 'minecraft:chainmail_helmet'
-      amount: 1
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          手に持っているとエリトラのように空を飛べる
+          耐久値∞のぶっ壊れアイテムです
+        death_protection: *death_protection1212
+        glider: {}
+        equippable:
+          slot: mainhand
+    - id: 'minecraft:shield'
       NBT:
-        custom_name: '大きいヘルメット'
+        custom_name: '盾'
         lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.fall_damage_multiplier"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-    - id: 'minecraft:chainmail_chestplate'
-      amount: 1
-      NBT:
-        custom_name: '大きい服'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-    - id: 'minecraft:chainmail_leggings'
-      amount: 1
-      NBT:
-        custom_name: '大きいレギンス'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-    - id: 'minecraft:chainmail_boots'
-      amount: 1
-      NBT:
-        custom_name: '大きい靴'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-
-- name: "1.20.6アップデートキャンペーン！小さい装備祭り"
-  start: [2024, 6, 9]
-  end:   [2024, 6, 16]
-  type: item_random
-  table:
-    - id: 'minecraft:chainmail_helmet'
-      amount: 2
-      NBT:
-        custom_name: '小さいヘルメット'
-        lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-              amount: -0.5
-              operation: add_multiplied_total
-              slot: head
-              id: '<%= SecureRandom.uuid %>'
-            - type: "generic.step_height"
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.safe_fall_distance"
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.fall_damage_multiplier"
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.jump_strength"
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.movement_speed"
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.gravity"
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-    - id: 'minecraft:chainmail_chestplate'
-      amount: 2
-      NBT:
-        custom_name: '小さい服'
-        lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-    - id: 'minecraft:chainmail_leggings'
-      amount: 2
-      NBT:
-        custom_name: '小さいレギンス'
-        lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-    - id: 'minecraft:chainmail_boots'
-      amount: 2
-      NBT:
-        custom_name: '小さい靴'
-        lore: |-
-          1.20.6アップデートキャンペーン！小さい装備祭り
-          かなり小さい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.step_height"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.safe_fall_distance"
-
-              amount: -0.25
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.jump_strength"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.movement_speed"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.gravity"
-
-              amount: -0.4
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-
-- name: "1.20.6アップデートキャンペーン！大きい装備祭り"
-  start: [2024, 6, 2]
-  end:   [2024, 6, 9]
-  type: item_random
-  table:
-    - id: 'minecraft:chainmail_helmet'
-      amount: 2
-      NBT:
-        custom_name: '大きいヘルメット'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.fall_damage_multiplier"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
-    - id: 'minecraft:chainmail_chestplate'
-      amount: 2
-      NBT:
-        custom_name: '大きい服'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: chest
-    - id: 'minecraft:chainmail_leggings'
-      amount: 2
-      NBT:
-        custom_name: '大きいレギンス'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: legs
-    - id: 'minecraft:chainmail_boots'
-      amount: 2
-      NBT:
-        custom_name: '大きい靴'
-        lore: |-
-          1.20.6アップデートキャンペーン！大きい装備祭り
-          かなり大きい
-        repair_cost: 40
-        attribute_modifiers:
-          show_in_tooltip: false
-          modifiers:
-            - type: "generic.scale"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.step_height"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.safe_fall_distance"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.fall_damage_multiplier"
-
-              amount: -0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.jump_strength"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.movement_speed"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "generic.gravity"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "player.block_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-            - type: "player.entity_interaction_range"
-
-              amount: 0.5
-              operation: add_multiplied_total
-              id: '<%= SecureRandom.uuid %>'
-              slot: feet
-
-- name: "1.20.6アップデートキャンペーン！食べ物祭り"
-  start: [2024, 6, 16]
-  end:   [2024, 6, 23]
-  type: item_random
-  table:
-    - id: 'minecraft:glistering_melon_slice'
-      amount: 'rand(1..99)'
-      NBT:
-        max_stack_size: 99
-        custom_name: '食べられる金のスイカ'
-        lore: |-
-          1.20.6アップデートキャンペーン！食べ物祭り
-          食えないアイテムを食えるように設定できるのでやってみました
-          どうして金スイカだけ食えないんですかね
-        food:
-          nutrition: 10
-          saturation: 10
-          can_always_eat: true
-          eat_seconds: 1.2
-          effects:
-            - probability: 1
-              effect:
-                id: instant_health
-                amplifier: 1
-    - id: 'minecraft:stick'
-      amount: 'rand(1..99)'
-      NBT:
-        max_stack_size: 99
-        custom_name: 'うまい棒'
-        lore: |-
-          1.20.6アップデートキャンペーン！食べ物祭り
-          実は通算ログインボーナスの棒も食えるようになってます
-        food:
-          nutrition: 1
-          saturation: 1
-          eat_seconds: 0.8
-    - id: 'minecraft:gold_ingot'
-      amount: 'rand(1..99)'
-      NBT:
-        max_stack_size: 99
-        custom_name: '卵焼き'
-        lore: |-
-          1.20.6アップデートキャンペーン！食べ物祭り
-          甘くて美味しい！
-        food:
-          nutrition: 6
-          saturation: 6
-          effects:
-            - probability: 1
-              effect:
-                id: health_boost
-                amplifier: 0
-                duration: 6000
-    - id: 'minecraft:paper'
-      amount: 'rand(1..99)'
-      NBT:
-        max_stack_size: 99
-        custom_name: 'キムワイプ'
-        lore: |-
-          1.20.6アップデートキャンペーン！食べ物祭り
-          キムワイプおいしい！キムワイプおいしい！！！
-        food:
-          nutrition: 2
-          saturation: 0
-          effects:
-            - probability: 1
-              effect:
-                id: hunger
-                amplifier: 0
-                duration: 200
-    - id: 'minecraft:sugar'
-      amount: 'rand(1..99)'
-      NBT:
-        max_stack_size: 99
-        custom_name: '砂糖'
-        lore: |-
-          1.20.6アップデートキャンペーン！食べ物祭り
-          ガンギマリ
-        food:
-          nutrition: 1
-          saturation: 0
-          can_always_eat: true
-          eat_seconds: 0.05
-          effects:
-            - probability: 0.15
-              effect:
-                id: absorption
-                amplifier: 0
-                duration: 200
-            - probability: 0.15
-              effect:
-                id: blindness
-                amplifier: 0
-                duration: 6000
-            - probability: 0.15
-              effect:
-                id: darkness
-                amplifier: 0
-                duration: 6000
-            - probability: 0.15
-              effect:
-                id: luck
-                amplifier: 0
-                duration: 6000
-    - id: 'minecraft:glowstone_dust'
-      amount: 'rand(1..99)'
-      NBT:
-        max_stack_size: 99
-        custom_name: 'ハッピーターンの粉'
-        lore: |-
-          1.20.6アップデートキャンペーン！食べ物祭り
-          食ってみな、トぶぞ
-        food:
-          nutrition: 1
-          saturation: 0
-          can_always_eat: true
-          eat_seconds: 0.05
-          effects:
-            - probability: 0.15
-              effect:
-                id: absorption
-                amplifier: 0
-                duration: 200
-            - probability: 0.15
-              effect:
-                id: glowing
-                amplifier: 0
-                duration: 6000
-            - probability: 0.15
-              effect:
-                id: levitation
-                amplifier: 0
-                duration: 200
-            - probability: 0.15
-              effect:
-                id: luck
-                amplifier: 0
-                duration: 6000
-
-- name: "1.20.6アップデートキャンペーン！道具祭り"
-  start: [2024, 6, 23]
-  end:   [2024, 6, 30]
-  type: item_random
-  table:
-    - id: 'minecraft:diamond_hoe'
-      amount: 1
-      NBT:
-        custom_name: 'ピッケルクワ'
-        lore: |-
-          1.20.6アップデートキャンペーン！道具祭り
-          ピッケルとしても使える
-        damage: 0
-        max_damage: 1400
-        tool:
-          damage_per_block: 1
-          default_mining_speed: 0.5
-          rules:
-            - blocks: "#minecraft:mineable/pickaxe"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-          rules:
-            - blocks: "#minecraft:mineable/hoe"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-    - id: 'minecraft:diamond_hoe'
-      amount: 1
-      NBT:
-        custom_name: '斧クワ'
-        lore: |-
-          1.20.6アップデートキャンペーン！道具祭り
-          斧としても使える
-        damage: 0
-        max_damage: 1400
-        tool:
-          damage_per_block: 1
-          default_mining_speed: 0.5
-          rules:
-            - blocks: "#minecraft:mineable/axe"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-          rules:
-            - blocks: "#minecraft:mineable/hoe"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-    - id: 'minecraft:diamond_hoe'
-      amount: 1
-      NBT:
-        custom_name: 'スコップクワ'
-        lore: |-
-          1.20.6アップデートキャンペーン！道具祭り
-          シャベルとしても使える
-        damage: 0
-        max_damage: 1400
-        tool:
-          damage_per_block: 1
-          default_mining_speed: 0.5
-          rules:
-            - blocks: "#minecraft:mineable/shovel"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-          rules:
-            - blocks: "#minecraft:mineable/hoe"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-    - id: 'minecraft:diamond_hoe'
-      amount: 1
-      NBT:
-        custom_name: 'ソードクワ'
-        lore: |-
-          1.20.6アップデートキャンペーン！道具祭り
-          剣としても使える
-        damage: 0
-        max_damage: 1400
-        tool:
-          damage_per_block: 1
-          default_mining_speed: 0.5
-          rules:
-            - blocks: "#minecraft:sword_efficient"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-          rules:
-            - blocks: "#minecraft:mineable/hoe"
-              correct_for_drops: true
-              speed:
-                _type: auto
-                value: 'rand(2.0..8.0)'
-        attribute_modifiers:
-          modifiers:
-            - type: "generic.attack_damage"
-
-              amount: 6
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
-            - type: "generic.attack_speed"
-
-              amount: -2.4
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
-
-- name: "1.21アップデートキャンペーン！銅祭り"
-  start: [2024, 7, 6]
-  end:   [2024, 7, 20]
-  type: item_random
-  table:
-    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_bulb'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！銅祭り
-          酸化されるほど明るさが落ちる
-          斧で錆を落とすことができ、ハニカムで錆止めができる
-          オン・オフの状態があり、RS入力する度に切り替えることができる
-          コンパレーターは、点灯中はレベル15の信号を出力する
-    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_door'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！銅祭り
-          石切台でもクラフトできる
-          斧で錆を落とすことができ、ハニカムで錆止めができる
-          素手でもRS信号でも開閉できる
-          村人も開けることができる
-    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_trapdoor'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！銅祭り
-          石切台でもクラフトできる
-          斧で錆を落とすことができ、ハニカムで錆止めができる
-    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_grate'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！銅祭り
-          石切台でもクラフトできる
-          斧で錆を落とすことができ、ハニカムで錆止めができる
-          光を透過する
-          中にいても窒息しない。
-          レッドストーン信号を伝導しない。
-          この上には敵対Mobは自然スポーンしない。
-          水没でき、内部の水を流出させず保持できる。
-    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>chiseled_copper'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！銅祭り
-          石切台でもクラフトできる
-          斧で錆を落とすことができ、ハニカムで錆止めができる
-
-- name: "1.21アップデートキャンペーン！凝灰岩祭り"
-  start: [2024, 7, 13]
-  end:   [2024, 7, 27]
-  type: item_random
-  table:
-    - id: 'minecraft:tuff_<%= %w[stairs slab wall].sample %>'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！凝灰岩祭り
-    - id: 'minecraft:chiseled_tuff'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！凝灰岩祭り
-
-- name: "1.21アップデートキャンペーン！磨かれた凝灰岩祭り"
-  start: [2024, 7, 20]
-  end:   [2024, 8, 3]
-  type: item_random
-  table:
-    - id: 'minecraft:polished_tuff_<%= %w[stairs slab wall].sample %>'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！磨かれた凝灰岩祭り
-    - id: 'minecraft:polished_tuff'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！磨かれた凝灰岩祭り
-
-- name: "1.21アップデートキャンペーン！凝灰岩レンガ祭り"
-  start: [2024, 7, 27]
-  end:   [2024, 8, 10]
-  type: item_random
-  table:
-    - id: 'minecraft:tuff_brick_<%= %w[stairs slab wall].sample %>'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！凝灰岩レンガ祭り
-    - id: 'minecraft:tuff_bricks'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！凝灰岩レンガ祭り
-
-- name: "1.21アップデートキャンペーン！自動作業台祭り"
-  start: [2024, 8, 3]
-  end:   [2024, 8, 17]
-  type: item_random
-  table:
-    - id: 'minecraft:crafter'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！自動作業台祭り
-    - id: 'minecraft:crafting_table'
-      amount: 1
-      NBT:
-        custom_name: 手動作業台
-        lore: |-
-          1.21アップデートキャンペーン！自動作業台祭り
-
-- name: "1.21アップデートキャンペーン！レッドストーン祭り"
-  start: [2024, 8, 10]
-  end:   [2024, 8, 24]
-  type: item_random
-  table:
-    - id: 'minecraft:redstone'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！レッドストーン祭り
-          ウィッチが確定で2-3個落とすよう上方修正された
-    - id: 'minecraft:crafter'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！レッドストーン祭り
-    - id: 'minecraft:comparator'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！レッドストーン祭り
-          自動作業台のスロット数を出力できるようになった
-    - id: 'minecraft:<%= ["","waxed_"].sample %><%= ["","exposed_","weathered_","oxidized_"].sample %>copper_bulb'
-      amount: 1
-      NBT:
-        lore: |-
-          1.21アップデートキャンペーン！レッドストーン祭り
-          酸化されるほど明るさが落ちる
-          斧で錆を落とすことができ、ハニカムで錆止めができる
-          オン・オフの状態があり、RS入力する度に切り替えることができる
-          コンパレーターは、点灯中はレベル15の信号を出力する
-
-- name: "1.21アップデートキャンペーン！戦闘祭り"
-  start: [2024, 8, 17]
-  end:   [2024, 8, 31]
-  type: item_random
-  table:
-    - id: 'minecraft:totem_of_undying'
-      amount: 8
-      NBT:
-        custom_name: みがわり人形
-        lore: |-
-          1.21アップデートキャンペーン！戦闘祭り
-        max_stack_size: 16
-        attribute_modifiers:
-          modifiers:
-          - type: "generic.max_health"
-            amount: -0.5
-            operation: add_multiplied_total
-            id: '<%= SecureRandom.uuid %>'
-            slot: hand
-    - id: 'minecraft:potion'
-      amount: 8
-      NBT:
-        custom_name: "初音ミクちゃんのおぱんつドリップコーヒー"
-        lore: |-
-          1.21アップデートキャンペーン！戦闘祭り
-        max_stack_size: 8
-        potion_contents:
-          custom_effects:
-          - id: regeneration
-            amplifier: 1
-            duration: 36000
-          - id: resistance
-            amplifier: 0
-            duration: 36000
-          - id: saturation
-            amplifier: 0
-            duration: 40000
-          - id: health_boost
-            amplifier: 0
-            duration: 24000
-          - id: absorption
-            amplifier: 0
-            duration: 32000
-    - id: 'minecraft:stick'
-      NBT:
-        custom_name: コンバットソードの柄
-        lore: |-
-          1.21アップデートキャンペーン！戦闘祭り
-        damage: 0
-        max_damage: 156
-        repair_cost: 40
-        tool:
-          damage_per_block: 2
-          default_mining_speed: 1.0
-          rules:
-            - blocks: "#minecraft:sword_efficient"
-              correct_for_drops: true
-              speed: 1.0
-        attribute_modifiers:
-          modifiers:
-            - type: "generic.attack_damage"
-              amount: 8
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
-            - type: "generic.attack_speed"
-              amount: -2.4
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          模様が見やすいよう、エンチャントのオーラが防具と同様に弱くなった
+        death_protection: *death_protection1212
+        glider: {}
         enchantments:
           levels:
-            looting:
-              _type: auto
-              value: 'a=rand(0..4)'
             unbreaking:
               _type: auto
-              value: 'x=rand(0..(4-a))'
-            smite:
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)'
+        attribute_modifiers:
+          - type: "armor"
+            amount:
               _type: auto
-              value: 'a=rand(0..5)'
-            bane_of_arthropods:
-              _type: auto
-              value: 'b=rand(0..(5-a))'
-            sharpness:
-              _type: auto
-              value: 'rand(0..(5-a-b))'
-            sweeping_edge:
-              _type: auto
-              value: 'a=rand(0..5)'
-            fire_aspect:
-              _type: auto
-              value: 'b=rand(0..(5-a))'
-            thorns:
-              _type: auto
-              value: 'rand(0..(5-a-b))+x+1'
-    - id: 'minecraft:tipped_arrow'
-      amount: 99
-      max_stack_size: 99
-      NBT:
-        custom_name: "SARS-CoV-2"
-        lore: |-
-          1.21アップデートキャンペーン！戦闘祭り
-          新型コロナウィルスが塗ってある恐ろしい矢
-        potion_contents:
-          custom_color:
-            _type: auto
-            value: 'rand(0..0xff_ff_ff)'
-          custom_effects:
-            - id: slowness
-              dration: 2147483647
-            - id: mining_fatigue
-              duration: 2147483647
-            - id: nausea
-              duration: 2147483647
-            - id: wither
-              amplifier: 2
-              duration: 2147483647
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: offhand
 
-- name: "ニコニコ復活記念キャンペーン"
-  start: [2024, 8, 6]
-  end:   [2024, 8, 13]
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！その他祭り"
+  start: [2024, 11, 23]
+  end:   [2024, 12, 7]
   type: item_random
   table:
-    - id: 'minecraft:totem_of_undying'
-      amount: 1
+    - id: 'minecraft:redstone_torch'
       NBT:
-        custom_name: ロシア人形
+        custom_name: レッドストーントーチ
         lore: |-
-          2024年8月　ニコニコ復活記念
-        max_stack_size: 8
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          見た目が変わった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:repeater'
+      NBT:
+        custom_name: レッドストーンリピータ
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          レッドストーントーチ部分の見た目が変わった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:comparator'
+      NBT:
+        custom_name: レッドストーンコンパレータ
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          レッドストーントーチ部分の見た目が変わった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:slime_block'
+      NBT:
+        custom_name: スライムブロック
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          スニークしたまま落下した場合も、落下ダメージが無効化されるようになった
+          ジャンプキーを押したまま落下しても、弾みがリセットされなくなった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:bee_nest'
+      NBT:
+        custom_name: ミツバチの巣
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          マウスホバーで、中にいる蜂の数がわかるようになった
+          蜜の溜まり具合がわかるようになった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:beehive'
+      NBT:
+        custom_name: 養蜂箱
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          マウスホバーで、中にいる蜂の数がわかるようになった
+          蜜の溜まり具合がわかるようになった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:ender_pearl'
+      NBT:
+        custom_name: エンダーパール
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          その他祭り
+          投げられたエンダーパールは、現在いるチャンクを強制読み込みさせるようになった
+          ・TNTキャノンでロードチャンク外に飛ばしてもワープできる
+          ・水流エレベータと組み合わせると、チャンクローダーとして機能する
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！レア度下方修正祭り"
+  start: [2024, 11, 30]
+  end:   [2024, 12, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:golden_apple'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度下方修正祭り
+          レア度が下がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:end_crystal'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度下方修正祭り
+          レア度が下がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:enchanted_golden_apple'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度下方修正祭り
+          希少度がEpicからRareに変更された。
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:mojang_banner_pattern'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          希少度がEpicからRareになった。
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！レア度上方修正祭り"
+  start: [2024, 12, 7]
+  end:   [2024, 12, 21]
+  type: item_random
+  table:
+    - id: 'minecraft:sniffer_egg'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:chainmail_helmet'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          レア度上方修正祭り
+          レア度が上がった
+        glider: {}
         attribute_modifiers:
-          modifiers:
-          - type: "generic.max_health"
-            amount: -0.5
-            operation: add_multiplied_total
-            id: 'tadaima_niconico'
-            slot: hand
-        enchantments:
-          levels:
-            blast_protection: 10
-    - id: 'minecraft:tnt'
-      amount: 1
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: armor
+    - id: 'minecraft:chainmail_chestplate'
       NBT:
-        custom_name: ニコニコ本社
         lore: |-
-          2024年8月　ニコニコ復活記念
-    - id: 'minecraft:potion'
-      amount: 2
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          レア度上方修正祭り
+          レア度が上がった
+        glider: {}
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: armor
+    - id: 'minecraft:chainmail_leggings'
       NBT:
-        custom_name: ハッカ油
         lore: |-
-          2024年8月　ニコニコ復活記念
-          キンタマに塗ってください
-        max_stack_size: 16
-        potion_contents:
-          custom_effects:
-          - id: hero_of_the_village
-            amplifier: 2
-            duration: 12000
-          - id: wither
-            amplifier: 0
-            duration: 12000
-
-# - name: "1.21アップデートキャンペーン！トライアルチャンバー祭り"
-#   - 鍵、ブリーズロッド、ウィンドチャージ、不吉な瓶
-
-# - name: "1.21アップデートキャンペーン！ステータス効果祭り"
-#   - 新ステータス効果のポーション、矢
-
-# - name: "1.21アップデートキャンペーン！エンチャント祭り"
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          レア度上方修正祭り
+          レア度が上がった
+        glider: {}
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: armor
+    - id: 'minecraft:chainmail_boots'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          レア度上方修正祭り
+          レア度が上がった
+        glider: {}
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: armor
+    - id: 'minecraft:recovery_compass'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:disc_fragment_5'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:nautilus_shell'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:echo_shard'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:goat_horn'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:ominous_bottle'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          レア度が上がった
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+        ominous_bottle_amplifier:
+          _type: auto
+          value: 'rand(5)'
+    - id: 'minecraft:trident'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          希少度がCommonからUncommonになった。
+        attribute_modifiers:
+          - type: "attack_damage"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 4)**2*10'
+        glider: {}
+    - id: 'minecraft:nether_star'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          希少度がUncommonからRareに変更された。
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:dragon_head'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          希少度がUncommonからEpicに変更された。
+          耐久力の概念がなく一生飛び続けられるぶっ壊れアイテムです
+        glider: {}
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+    - id: 'minecraft:wither_skeleton_skull'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          希少度がUncommonからRareに変更された。
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+    - id: 'minecraft:skull_banner_pattern'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          レア度上方修正祭り
+          希少度がUncommonからRareになった。
+        death_protection: *death_protection1212
+        equippable: { slot: head }
+    - id: 'minecraft:elytra'
+      NBT:
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン
+          レア度上方修正祭り
+          希少度がUncommonからEpicに変更された。
+        glider: {}
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: armor
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 6)**2*10'

@@ -45,7 +45,7 @@ module NBT
     in nil
       raise NBT::TypeError, 'NBT.build に nil を渡した' unless allow_nil
     end
-  rescue NoMatchingPatternError => exception
+  rescue NoMatchingPatternError
     raise NBT::TypeError, "#{obj.class} の取り扱い方は不明"
   end
 
