@@ -555,7 +555,18 @@
   table:
     - id: 'minecraft:paper'
       NBT:
-        custom_name: "一日乗車券"
+        custom_name: "地下鉄・バス1日券"
+        death_protection:
+          death_effects:
+            - type: clear_all_effects
+            - type: apply_effects
+              effects:
+                - id: absorption
+                  amplifier: 0
+                  duration: 200
+                - id: regeneration
+                  amplifier: 1
+                  duration: 200
 
 - name: mikutter<%= Time.now.year - 2009 %>周年記念キャンペーン
   start: [12, 20]
