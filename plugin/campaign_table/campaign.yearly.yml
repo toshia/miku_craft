@@ -548,6 +548,46 @@
             amplifier: 0
             duration: 32000
 
+- name: ポッキーの日
+  start: [11, 8]
+  end:   [11, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:stick'
+      amount: 34
+      NBT:
+        custom_name: "ポッキー"
+        consumable:
+          consume_seconds: 1.2
+          on_consume_effects:
+            - type: apply_effects
+              effects:
+                - id: instant_health
+                  duration: 1
+                  amplifier: 0
+              probability: 0.9
+        food:
+          nutrition: 1
+          saturation: 1
+          can_always_eat: true
+    - id: 'minecraft:stick'
+      amount: 50
+      NBT:
+        custom_name: "極細ポッキー"
+        consumable:
+          consume_seconds: 0.6
+          on_consume_effects:
+            - type: apply_effects
+              effects:
+                - id: instant_health
+                  duration: 1
+                  amplifier: 0
+              probability: 0.7
+        food:
+          nutrition: 1
+          saturation: 1
+          can_always_eat: true
+
 - name: 人権週間キャンペーン
   start: [12, 4]
   end:   [12, 10]
