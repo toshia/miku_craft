@@ -14,7 +14,7 @@
         max_stack_size: 64
 
 - name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！旗の模様祭り"
-  start: [2024, 11, 2]
+  start: [2024, 11, 9]
   end:   [2024, 11, 23]
   type: item_random
   table:
@@ -44,7 +44,6 @@
                 - id: invisibility
                   duration: 200
             - type: teleport_randomly
-
     - id: 'minecraft:bordure_indented_banner_pattern'
       NBT:
         custom_name: 山形波の縁取りの旗の模様
@@ -53,6 +52,34 @@
           旗の模様祭り
           統合版にあったレンガ模様が追加された
           紙と蔦をクラフトすれば作れる
+        death_protection: *death_protection1212
+
+- name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！旗の模様祭り開催期間の誤りに関するお詫び"
+  start: [2024, 11, 3]
+  end:   [2024, 11, 3]
+  type: item_random
+  table:
+    - id: 'minecraft:field_masoned_banner_pattern'
+      NBT:
+        custom_name: レンガの旗の模様
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          旗の模様祭りの開催期間が以下の通り誤っておりました。
+          (正)11/9-11/23 (誤)11/2-11/23
+          11/3未明にデータ修正を行い、配信を停止しました。
+          11/2、11/3に当該景品を受け取られた方は、そのままお持ち下さい。
+          11/3停止後にログインされた方には、補填として本品をプレゼント！
+        death_protection: *death_protection1212
+    - id: 'minecraft:bordure_indented_banner_pattern'
+      NBT:
+        custom_name: 山形波の縁取りの旗の模様
+        lore: |-
+          1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          旗の模様祭りの開催期間が以下の通り誤っておりました。
+          (正)11/9-11/23 (誤)11/2-11/23
+          11/3未明にデータ修正を行い、配信を停止しました。
+          11/2、11/3に当該景品を受け取られた方は、そのままお持ち下さい。
+          11/3停止後にログインされた方には、補填として本品をプレゼント！
         death_protection: *death_protection1212
 
 - name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！装備祭り"
