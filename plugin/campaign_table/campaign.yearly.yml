@@ -548,7 +548,7 @@
             amplifier: 0
             duration: 32000
 
-- name: ポッキーの日
+- name: ポッキー＆プリッツの日
   start: [11, 8]
   end:   [11, 14]
   type: item_random
@@ -581,6 +581,78 @@
               effects:
                 - id: instant_health
                   duration: 1
+                  amplifier: 0
+              probability: 0.7
+        food:
+          nutrition: 1
+          saturation: 1
+          can_always_eat: true
+
+    - id: 'minecraft:blaze_rod'
+      amount: 46
+      NBT:
+        custom_name: "プリッツ〈旨サラダ〉"
+        consumable:
+          consume_seconds: 1.2
+          on_consume_effects:
+            - type: apply_effects
+              effects:
+                - id: instant_health
+                  duration: 1
+                  amplifier: 0
+              probability: 0.7
+            - type: apply_effects
+              effects:
+                - id: resistance
+                  duration: 200
+                  amplifier: 0
+              probability: 0.7
+        food:
+          nutrition: 1
+          saturation: 1
+          can_always_eat: true
+
+    - id: 'minecraft:blaze_rod'
+      amount: 42
+      NBT:
+        custom_name: "トマトプリッツ"
+        consumable:
+          consume_seconds: 1.2
+          on_consume_effects:
+            - type: apply_effects
+              effects:
+                - id: instant_health
+                  duration: 1
+                  amplifier: 0
+              probability: 0.7
+            - type: apply_effects
+              effects:
+                - id: fire_resistance
+                  duration: 200
+                  amplifier: 0
+              probability: 0.7
+        food:
+          nutrition: 1
+          saturation: 1
+          can_always_eat: true
+
+    - id: 'minecraft:blaze_rod'
+      amount: 52
+      NBT:
+        custom_name: "プリッツ〈ロースト塩バター〉"
+        consumable:
+          consume_seconds: 1.0
+          on_consume_effects:
+            - type: apply_effects
+              effects:
+                - id: instant_health
+                  duration: 1
+                  amplifier: 0
+              probability: 0.7
+            - type: apply_effects
+              effects:
+                - id: slow_falling
+                  duration: 200
                   amplifier: 0
               probability: 0.7
         food:
