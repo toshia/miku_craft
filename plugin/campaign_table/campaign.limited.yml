@@ -84,7 +84,7 @@
 
 - name: "1.21.2アップデート(Bundles of Bravery)キャンペーン！装備祭り"
   start: [2024, 11, 16]
-  end:   [2024, 11, 30]
+  end:   [2024, 11, 23]
   type: item_random
   table:
     - id: 'minecraft:chainmail_helmet'
@@ -462,3 +462,101 @@
         max_damage:
           _type: auto
           value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 6)**2*10'
+
+- name: "【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！装備祭り"
+  start: [2024, 12, 14]
+  end:   [2024, 12, 28]
+  type: item_random
+  table:
+    - id: 'minecraft:chainmail_helmet'
+      NBT:
+        custom_name: 'タケコプター'
+        lore: |-
+          【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          装備祭り
+          頭に被っているとエリトラのように空を飛べる
+        glider: {}
+    - id: 'minecraft:glass'
+      NBT:
+        custom_name: 'ガラス'
+        lore: |-
+          【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          装備祭り
+          頭に被っていると長時間呼吸ができる
+        equippable:
+          slot: head
+          equip_sound: minecraft:block.glass.break
+    - id: 'minecraft:lightning_rod'
+      NBT:
+        custom_name: 'ヘッドアンテナ'
+        lore: |-
+          【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          装備祭り
+          頭に被るとアンテナみたいになります
+        equippable:
+          slot: head
+    - id: 'minecraft:egg'
+      NBT:
+        custom_name: '松屋の卵'
+        lore: |-
+          【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          装備祭り
+          手に持っているとエリトラのように空を飛べる
+          耐久値∞のぶっ壊れアイテムです
+        death_protection: *death_protection1212
+        glider: {}
+        equippable:
+          slot: mainhand
+    - id: 'minecraft:shield'
+      NBT:
+        custom_name: '盾'
+        lore: |-
+          【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          装備祭り
+          模様が見やすいよう、エンチャントのオーラが防具と同様に弱くなった
+        death_protection: *death_protection1212
+        glider: {}
+        enchantments:
+          levels:
+            unbreaking:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)'
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: offhand
+    - id: 'minecraft:brush'
+      NBT:
+        custom_name: 'マギア・スモニトラ'
+        lore: |-
+          【復刻】1.21.2アップデート(Bundles of Bravery)キャンペーン！
+          装備祭り
+          武器として使うことができ、
+          手に持っているとエリトラのように空を飛べます
+        attribute_modifiers:
+          - type: "attack_damage"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*16'
+        glider: {}
+        equippable:
+          slot: mainhand
+        enchantments:
+          levels:
+            unbreaking:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)'
+            looting:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)'
+        repair_cost: 40
