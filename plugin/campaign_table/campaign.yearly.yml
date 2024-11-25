@@ -667,7 +667,7 @@
   table:
     - id: 'minecraft:paper'
       NBT:
-        custom_name: "地下鉄・バス1日券"
+        custom_name: "地下鉄・人権侵害バス1日券"
         death_protection:
           death_effects:
             - type: clear_all_effects
