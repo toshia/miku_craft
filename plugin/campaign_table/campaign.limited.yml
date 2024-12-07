@@ -560,3 +560,337 @@
               _type: auto
               value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)'
         repair_cost: 40
+
+- name: "1.21.4アップデート(The Garden Awakens)キャンペーン！仕様変更祭り！"
+  start: [2024, 12, 8]          # 12/8 - 12/
+  end:   [2024, 12, 29]
+  type: item_random
+  table:
+    - id: 'minecraft:carved_pumpkin'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          被っていると、クリーキングを見ていても襲われる
+    - id: 'minecraft:brewing_stand'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:stone_pressure_plate'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:polished_blackstone_pressure_plate'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:light_weighted_pressure_plate'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:heavy_weighted_pressure_plate'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:iron_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:exposed_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:weathered_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:oxidized_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:waxed_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:waxed_exposed_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:waxed_weathered_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:waxed_oxidized_copper_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:soul_lantern'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:lantern'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:bell'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で回収できるようになった
+    - id: 'minecraft:ender_chest'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          素手で壊すと、黒曜石8個をドロップするようになった
+    - id: 'minecraft:nether_bricks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          テクスチャが変更された
+    - id: 'minecraft:chiseled_nether_bricks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          テクスチャが変更された
+    - id: 'minecraft:cracked_nether_bricks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          テクスチャが変更された
+    - id: 'minecraft:red_nether_bricks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          テクスチャが変更された
+    - id: 'minecraft:sculk_sensor'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          レジンが生成される度、強度13の信号を発するようになった
+    - id: 'minecraft:conduit'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          効果範囲にいる間、酸素量が回復するようになった
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 64
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          仕様変更祭り
+          効果時間中、水中にいても酸素量が回復するようになった
+        potion_contents:
+          potion: long_water_breathing
+        max_stack_size: 64
+
+- name: "1.21.4アップデート(The Garden Awakens)キャンペーン！ペールオーク祭り！"
+  start: [2024, 12, 22]
+  end:   [2025, 1, 5]
+  type: item_random
+  table:
+    - id: 'minecraft:pale_oak_log'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_planks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_stairs'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_slab'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_sign'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_hanging_sign'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_button'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_chest_boat'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_boat'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_trapdoor'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_fence_gate'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_fence'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_door'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_pressure_plate'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+    - id: 'minecraft:pale_oak_sapling'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールオーク祭り
+
+- name: "1.21.4アップデート(The Garden Awakens)キャンペーン！レジン祭り！"
+  start: [2024, 12, 29]
+  end:   [2025, 1, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:resin_brick'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:resin_clump'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:resin_brick_wall'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:resin_brick_stairs'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:resin_brick_slab'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:resin_bricks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:resin_block'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+    - id: 'minecraft:chiseled_resin_bricks'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          レジン祭り
+
+- name: "1.21.4アップデート(The Garden Awakens)キャンペーン！ペールガーデン祭り！"
+  start: [2025, 1, 5]
+  end:   [2025, 1, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:closed_eyeblossom'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
+    - id: 'minecraft:open_eyeblossom'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
+    - id: 'minecraft:pale_oak_sapling'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
+    - id: 'minecraft:pale_oak_leaves'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
+    - id: 'minecraft:pale_moss_carpet'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
+    - id: 'minecraft:pale_moss_block'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
+    - id: 'minecraft:pale_hanging_moss'
+      NBT:
+        lore: |-
+          1.21.4アップデート(The Garden Awakens)キャンペーン！
+          ペールガーデン祭り
