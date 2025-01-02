@@ -869,11 +869,6 @@
         lore: |-
           1.21.4アップデート(The Garden Awakens)キャンペーン！
           ペールガーデン祭り
-    - id: 'minecraft:pale_oak_sapling'
-      NBT:
-        lore: |-
-          1.21.4アップデート(The Garden Awakens)キャンペーン！
-          ペールガーデン祭り
     - id: 'minecraft:pale_oak_leaves'
       NBT:
         lore: |-
