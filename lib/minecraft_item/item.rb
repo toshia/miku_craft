@@ -65,60 +65,58 @@ class MinecraftItem::Item
   # テキスト装飾は欠落する。
   # 例: "abc"
   def display_name_plain_text
-    display_name&.map { |n| n['text'] }&.join
+    display_name&.to_enum&.map { |n| n['text'] }&.join
   end
 
   # アイテム名を、リッチテキスト形式で返す。
   # JSONパース済みのArray<Hash>を返す。
   # 例: [{"text":"a","italic":false,"underlined":true},{"text":"b","italic":false,"strikethrough":true},{"text":"c","italic":false}]
-  def display_name
-    raw_name = @component&.dig('custom_name')
-    if raw_name
-      JSON.parse(raw_name.to_s)
-    end
-  end
+  # @return 
+  def display_name = @component&.dig('custom_name')
 
   private
 
   def sanitize_name
     # あー、ここで吸収できるならcampaign table書き換えなくてよかったかもなあ
-    if name = @component&.dig('custom_name')
-      if name.is_a?(NBT::NBTString)
-        unless /\A\[\{.+\}\]\z/.match?(name.to_s)
-          # ここには本来リッチテキストを置く必要がある。
-          # リッチテキストとは、フォーマットに従ったJSON配列を文字列にしたものである。
-          # ↑の正規表現で雑に判定している。
-          # リッチテキストフォーマットでない場合省略記法と判断し、リッチテキストフォーマット
-          # にコンバートする。
-          @component = @component.cow(['custom_name'], [{ text: name, italic: false }].to_json)
-        end
-      else
-        @component = @component.cow(['custom_name'], name.to_json)
-      end
+    name = @component&.dig('custom_name')
+    if name&.is_a?(NBT::NBTString)
+      # ここには本来リッチテキストを置く必要がある。
+      # リッチテキストとは、フォーマットに従ったNBTリストである。
+      @component = @component.cow(['custom_name'], [{ text: name, italic: false }])
     end
   end
 
   # loreの省略記法
+  # loreの記法には以下の3つがある
+  # ## 本来の記法
+  # `[[{text:'line 1',italic:false}],[{text:'line 2',italic:false}]]`
+  # Minecraftの仕様どおりの記法。
+  # ## 要素単位の文字列リテラル
+  # `['line 1',[{text:'line 2',italic:false}]]`
+  # リストの要素に文字列が含まれる場合、{text:_1,italic:false}に置き換える。
+  # ## 全部文字列リテラル
+  # `"line 1\nline 2"`
+  # 全てが文字列リテラルの場合、行ごとに文字列を分割して、要素単位の文字列リテラル
+  # と同じように扱う。
   def sanitize_lore
     if lore = @component&.dig('lore')
-      if lore.is_a?(NBT::NBTString) # 省略記法1
-        # loreが単一の文字列だった場合、文字列内に改行があったら行ごとに分けてそれぞれ
-        # JSONにフォーマットし、それらをリストにする。
+      if lore.is_a?(NBT::NBTString) # 全部文字列リテラル
         @component = @component.cow(
           ['lore'],
-          NBT::NBTList.new(lore.to_s.each_line.map { [{ text: _1.chomp, italic: false }].to_json })
+          NBT::NBTList.new(lore.to_s.each_line.map { [{ text: _1.chomp, italic: false }] })
         )
       else
         updated = false
         new_lore = lore.to_enum.map do |line|
           # loreがリストの場合、各行について以下の方法で省略記法を判定する。
-          # - 文字列の場合、常にJSON変換後と判定する。
-          # - リストの場合、JSONにフォーマットする。
-          if line.is_a?(NBT::NBTString)
+          # - リストの場合、常にJSON変換後と判定する。
+          # - 文字列の場合、省略記法と判定する。
+          case line
+          when NBT::NBTList # 本来の記法
             line
-          else
+          when NBT::NBTString # 要素単位の文字列リテラル
             updated = true
-            line.to_json
+            [{ text: line.chomp, italic: false }]
           end
         end
         if updated
@@ -130,17 +128,17 @@ class MinecraftItem::Item
 
   # エンチャントレベル0のものがあったら削除する。
   def sanitize_enchantments
-    enchs = @component.dig('enchantments', 'levels')&.to_h&.dup
+    enchs = @component.dig('enchantments')&.to_h&.dup
     if enchs
       updated = enchs.reject! { |_, lvl| lvl == 0 }
       if updated
-        @component = @component.cow(['enchantments', 'levels'], NBT::NBTCompound.new(enchs))
+        @component = @component.cow(['enchantments'], NBT::NBTCompound.new(enchs))
       end
     end
   end
 
   def sanitize_attribute_modifier
-    attrs = @component.dig('attribute_modifiers', 'modifiers')
+    attrs = @component.dig('attribute_modifiers')
     if attrs
       updated = false
       filtered = attrs.to_enum.reject do |attr|
@@ -150,7 +148,7 @@ class MinecraftItem::Item
         end
       end
       if updated
-        @component = @component.cow(['attribute_modifiers', 'modifiers'], NBT::NBTList.new(filtered))
+        @component = @component.cow(['attribute_modifiers'], NBT::NBTList.new(filtered))
       end
     end
   end

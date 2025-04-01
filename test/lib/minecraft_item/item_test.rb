@@ -28,8 +28,8 @@ describe 'Minecraft Item' do
       )
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '[custom_name="[{\"text\":\"foobar\",\"italic\":false}]"]', item.component_string
-      assert_equal 'foobar', item.display_name.dig(0, 'text')
+      assert_equal '[custom_name=[{text:"foobar",italic:0B}]]', item.component_string
+      assert_equal NBT::NBTString.new('foobar'), item.display_name.dig(0, 'text')
       assert_equal false, item.display_name.dig(0, 'italic')
     end
 
@@ -39,8 +39,8 @@ describe 'Minecraft Item' do
       )
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '[custom_name="[{\"text\":\"foobar\",\"italic\":false}]"]', item.component_string
-      assert_equal 'foobar', item.display_name.dig(0, 'text')
+      assert_equal '[custom_name=[{text:"foobar",italic:0B}]]', item.component_string
+      assert_equal NBT::NBTString.new('foobar'), item.display_name.dig(0, 'text')
       assert_equal false, item.display_name.dig(0, 'italic')
     end
   end
@@ -55,14 +55,14 @@ describe 'Minecraft Item' do
                       })
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '[lore=["[{\"text\":\"line 1\",\"italic\":false}]","[{\"text\":\"line 2\",\"italic\":false}]"]]', item.component_string
+      assert_equal '[lore=[[{text:"line 1",italic:0B}],[{text:"line 2",italic:0B}]]]', item.component_string
     end
 
     it '省略記法(string)' do
       nbt = NBT.build({ 'lore' => "五月雨を\n集めてはやし\n最上川" })
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '[lore=["[{\"text\":\"五月雨を\",\"italic\":false}]","[{\"text\":\"集めてはやし\",\"italic\":false}]","[{\"text\":\"最上川\",\"italic\":false}]"]]', item.component_string
+      assert_equal '[lore=[[{text:"五月雨を",italic:0B}],[{text:"集めてはやし",italic:0B}],[{text:"最上川",italic:0B}]]]', item.component_string
     end
   end
 
