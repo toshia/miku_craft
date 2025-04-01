@@ -8,12 +8,11 @@
         custom_name: "門松"
         lore: "メリーお正月！"
         attribute_modifiers:
-          modifiers:
-            - type: "attack_damage"
-              amount: 6
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
+          - type: "attack_damage"
+            amount: 6
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
     - id: 'minecraft:tipped_arrow'
       NBT:
         custom_name: "破魔矢"
@@ -25,12 +24,11 @@
         custom_name: "羽子板"
         lore: "メリーお正月！"
         attribute_modifiers:
-          modifiers:
-            - type: "attack_damage"
-              amount: 16
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
+          - type: "attack_damage"
+            amount: 16
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
     - id: 'minecraft:player_head'
       NBT:
         damage: 3
@@ -39,12 +37,11 @@
         profile:
           name: "<%= user_name %>"
         attribute_modifiers:
-          modifiers:
-            - type: "max_health"
-              amount: 2
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
+          - type: "max_health"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
 
 - name: &make_america_great_again ドナルド・トランプ永久凍結<%= Time.now.year - 2021 %>周年記念イベント
   start: [1, 9]
@@ -56,44 +53,40 @@
         custom_name: "realDonaldTrump"
         lore: *make_america_great_again
         enchantments:
-          levels:
-            frost_walker: 5
+          frost_walker: 5
     - id: 'minecraft:blue_ice'
       NBT:
         custom_name: "realDonaldTrump"
         lore: *make_america_great_again
         enchantments:
-          levels:
-            frost_walker: 10
+          frost_walker: 10
     - id: 'minecraft:leather_helmet'
       NBT:
         custom_name: "MAGA cap"
         lore: *make_america_great_again
-        dyed_color: { rgb: 0xff0000 }
+        dyed_color: 0xff0000
         enchantments:
-          levels:
-            loyalty: 1
-            lure:
-              _type: byte
-              value: "rand(0..3)"
-            feather_falling:
-              _type: byte
-              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
-            frost_walker:
-              _type: byte
-              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
-            projectile_protection:
-              _type: byte
-              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          loyalty: 1
+          lure:
+            _type: byte
+            value: "rand(0..3)"
+          feather_falling:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          frost_walker:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          projectile_protection:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
         attribute_modifiers:
-          modifiers:
-            - type: "armor"
-              amount:
-                _type: byte
-                value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: head
+          - type: "armor"
+            amount:
+              _type: byte
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
 
 - name: 自殺強化月間
   start: [3, 1]
@@ -113,41 +106,37 @@
         custom_name: "チャッカマン"
         lore: "自殺強化月間記念"
         enchantments:
-          levels:
-            fire_aspect:
-              _type: byte
-              value: "rand(0..10)"
+          fire_aspect:
+            _type: byte
+            value: "rand(0..10)"
         attribute_modifiers:
-          modifiers:
-            - type: "attack_damage"
-              amount: 4
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
+          - type: "attack_damage"
+            amount: 4
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
     - id: 'minecraft:anvil'
       NBT:
         custom_name: "金床"
         lore: "自殺強化月間記念"
         attribute_modifiers:
-          modifiers:
-            - type: "knockback_resistance"
-              amount: 0.25
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
-            - type: "movement_speed"
-              amount: -0.05
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
-            - type: "attack_damage"
-              amount: 5
-              operation: add_value
-              id: '<%= SecureRandom.uuid %>'
-              slot: mainhand
+          - type: "knockback_resistance"
+            amount: 0.25
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "movement_speed"
+            amount: -0.05
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "attack_damage"
+            amount: 5
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
         enchantments:
-          levels:
-            knockback: 1
+          knockback: 1
     - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
       amount: 1
       NBT:
@@ -196,15 +185,25 @@
         custom_name: "re4k"
         lore: "レニウム垢BAN記念"
         enchantments:
-          levels:
-            frost_walker: 5
+          frost_walker: 5
+        attribute_modifiers:
+          - type: "movement_speed"
+            amount: -0.1
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
     - id: 'minecraft:blue_ice'
       NBT:
         custom_name: 'cn'
         lore: "レニウム垢BAN記念"
         enchantments:
-          levels:
-            frost_walker: 10
+          frost_walker: 10
+        attribute_modifiers:
+          - type: "movement_speed"
+            amount: -0.1
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
 
 - name: Favstar プレミアムユーザ垢BAN記念キャンペーン
   start: [3, 12]
@@ -217,10 +216,9 @@
         custom_name: "燃えない羊毛"
         lore: "Favstar プレミアムユーザ垢BAN記念"
         enchantments:
-          levels:
-            fire_protection:
-              _type: byte
-              value: "rand(0..10)"
+          fire_protection:
+            _type: byte
+            value: "rand(0..10)"
 
 - name: 七夕キャンペーン
   start: [7, 7]
@@ -265,15 +263,13 @@
         lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ"
         profile: { name: "<%= user_name %>" }
         attribute_modifiers:
-          modifiers:
           - type: "max_health"
             amount: 2
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: head
         enchantments:
-          levels:
-            fire_protection: 4
+          fire_protection: 4
 - name: 後祭
   start: [7, 18]
   end:   [7, 24]
@@ -310,15 +306,25 @@
             2023年阪神タイガースリーグ優勝記念のとき
             岡田監督がベンチで食べていた飴
         enchantments:
-          levels:
-            looting: 18
+          looting: 18
         attribute_modifiers:
-          modifiers:
           - type: "attack_damage"
             amount: 18
             slot: offhand
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
+        death_protection:
+          death_effects:
+            - type: clear_all_effects
+            - type: apply_effects
+              effects:
+                - id: absorption
+                  amplifier: 0
+                  duration: 2000
+                - id: regeneration
+                  amplifier: 1
+                  duration: 2000
+
 
 - name: 山の日キャンペーン
   start: [8, 11]
@@ -353,10 +359,9 @@
     - id: 'minecraft:enchanted_book'
       NBT:
         stored_enchantments:
-          levels:
-            fire_protection: 8
-            fire_aspect: 8
-            flame: 8
+          fire_protection: 8
+          fire_aspect: 8
+          flame: 8
         custom_name: "わざマシン38"
         lore: "<%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>\n京都五山送り火記念キャンペーン"
     - id: 'minecraft:lingering_potion'
@@ -430,14 +435,13 @@
             id: '<%= SecureRandom.uuid %>'
             slot: head
         enchantments:
-          levels:
-            fire_protection: 2
-            projectile_protection: 10
+          fire_protection: 2
+          projectile_protection: 10
     - id: 'minecraft:leather_chestplate'
       NBT:
         custom_name: "ミクコス"
         lore: "初音ミクコラボ<%= Time.now.year%>"
-        dyed_color: { rgb: 0xffffff }
+        dyed_color: 0xffffff
         attribute_modifiers:
           - type: "armor"
             amount:
@@ -460,9 +464,8 @@
       NBT:
         custom_name: "スカート"
         lore: "初音ミクコラボ<%= Time.now.year%>"
-        dyed_color: { rgb: 0x6b696e }
+        dyed_color: 0x6b696e
         attribute_modifiers:
-          modifiers:
           - type: "armor"
             amount:
               _type: auto
@@ -484,7 +487,7 @@
       NBT:
         custom_name: "ニーソ"
         lore: "初音ミクコラボ<%= Time.now.year%>"
-        dyed_color: { rgb: 0x4a4853 }
+        dyed_color: 0x4a4853
         attribute_modifiers:
           - type: "armor"
             amount: 3
@@ -551,7 +554,7 @@
 - name: ポッキー＆プリッツの日
   start: [11, 8]
   end:   [11, 14]
-  type: item_random
+  type: give_all_item
   table:
     - id: 'minecraft:stick'
       amount: 34
