@@ -10,8 +10,9 @@ class MinecraftItem::Bundle < MinecraftItem::Item
   # _stacks_ 内部のアイテムをいくつかのバンドルにまとめる。
   # 1/1スタックのアイテムはバンドルに入らず、そのまま戻り値に含まれる。
   # @param [Enumerable<MinecraftItem::Stack>] stacks まとめるアイテムスタック
+  # @param [NBT] bundle_component バンドルに共通で付与するコンポーネント
   # @return [Enumerable<MinecraftItem::Stack>] stacksをまとめた結果のバンドルと、バンドルに入れる必要がなかったアイテムのリスト
-  def self.generate(stacks)
+  def self.generate(stacks, bundle_component: nil)
     remains = stacks.sort_by { -_1.weight }.to_a # 重い順
     directs = [] # バンドルに入れないもの
     bundles = [] # 作成したバンドル
@@ -24,7 +25,7 @@ class MinecraftItem::Bundle < MinecraftItem::Item
       if i                      # 既存bundleに格納できるスペースがある
         bundles[i], = bundles[i].append_stack(stack)
       else                      # 空いているbundleがない場合: 新たに作る
-        bundles << new([stack])
+        bundles << new([stack], component: bundle_component)
       end
       bundles.sort_by!(&:capacity) # 空きが少ないものから順番に
     end

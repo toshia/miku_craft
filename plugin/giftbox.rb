@@ -60,7 +60,8 @@ Plugin.create :giftbox do
           []
         end
       end
-      MinecraftItem::Bundle.generate(item_stacks).each do |stack|
+      bundle_component = [method(:thermal_bundle_component), method(:explosion_resist_bundle_component)].sample.()
+      MinecraftItem::Bundle.generate(item_stacks, bundle_component:).each do |stack|
         Plugin.call(:minecraft_give_item, player_name, stack.item.id, stack.amount, stack.item)
       end
       box.each do |gift|
@@ -74,5 +75,30 @@ Plugin.create :giftbox do
 
   def calc_weight(item)
     Rational((item['Count'] || 1).to_i, ITEM_STACK[item['id'].to_s] || 1)
+  end
+
+  def thermal_bundle_component
+    NBT.build(
+      {
+        custom_name: '耐熱バンドル',
+        lore: "この中に入れておけば火で消えません\n溶岩にも浮きます",
+        damage_resistant: {
+          types: '#minecraft:is_fire'
+        }
+      }
+    )
+  end
+
+  def explosion_resist_bundle_component
+    NBT.build(
+      {
+        custom_name: '耐爆バンドル',
+        lore: "この中に入れておけば爆風で消えません",
+        damage_resistant: {
+          types: '#minecraft:is_explosion'
+        }
+      }
+    )
+
   end
 end
