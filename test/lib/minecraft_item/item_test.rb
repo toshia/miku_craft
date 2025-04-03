@@ -30,7 +30,7 @@ describe 'Minecraft Item' do
 
       assert_equal '[custom_name=[{text:"foobar",italic:0B}]]', item.component_string
       assert_equal NBT::NBTString.new('foobar'), item.display_name.dig(0, 'text')
-      assert_equal false, item.display_name.dig(0, 'italic')
+      assert_equal NBT::NBTBoolean.new(false), item.display_name.dig(0, 'italic')
     end
 
     it '省略記法(string)' do
@@ -41,7 +41,7 @@ describe 'Minecraft Item' do
 
       assert_equal '[custom_name=[{text:"foobar",italic:0B}]]', item.component_string
       assert_equal NBT::NBTString.new('foobar'), item.display_name.dig(0, 'text')
-      assert_equal false, item.display_name.dig(0, 'italic')
+      assert_equal NBT::NBTBoolean.new(false), item.display_name.dig(0, 'italic')
     end
   end
 
@@ -71,16 +71,14 @@ describe 'Minecraft Item' do
       nbt = NBT.build(
         {
           enchantments: {
-            levels: {
-              aqua_affinity: 1,
-              riptide: 0
-            }
+            aqua_affinity: 1,
+            riptide: 0
           }
         }
       )
       item = MinecraftItem::Item.new('dirt', component: nbt)
 
-      assert_equal '[enchantments={levels:{aqua_affinity:1B}}]', item.component_string
+      assert_equal '[enchantments={aqua_affinity:1B}]', item.component_string
     end
   end
 
@@ -88,20 +86,18 @@ describe 'Minecraft Item' do
     it '変化量0のAttributeModifiersが削除される' do
       nbt = NBT.build(
         {
-          attribute_modifiers: {
-            modifiers: [
-              { amount: 0, operation: 'add_value', name: '+0' },
-              { amount: 1, operation: 'add_value', name: '+1' },
-              { amount: 0, operation: 'add_multiplied_total', name: '+(N*0)' },
-              { amount: 1, operation: 'add_multiplied_total', name: '+(N*1)' },
-              { amount: 0, operation: 'add_multiplied_base', name: '*0' },
-              { amount: 1, operation: 'add_multiplied_base', name: '*1' }
-            ]
-          }
+          attribute_modifiers: [
+            { amount: 0, operation: 'add_value', name: '+0' },
+            { amount: 1, operation: 'add_value', name: '+1' },
+            { amount: 0, operation: 'add_multiplied_total', name: '+(N*0)' },
+            { amount: 1, operation: 'add_multiplied_total', name: '+(N*1)' },
+            { amount: 0, operation: 'add_multiplied_base', name: '*0' },
+            { amount: 1, operation: 'add_multiplied_base', name: '*1' }
+          ]
         }
       )
       item = MinecraftItem::Item.new('dirt', component: nbt)
-      a = item.component.dig(:attribute_modifiers, :modifiers).to_a
+      a = item.component.dig(:attribute_modifiers).to_a
       b = Set.new(a) { _1[:name].to_s }
       assert_equal Set['+1', '+(N*1)', '*1'], b
     end
@@ -109,33 +105,31 @@ describe 'Minecraft Item' do
     it '動的要素は計算後の値を参照してattribute_modifiersが削除される' do
       nbt = NBT.build(
         {
-          attribute_modifiers: {
-            modifiers: [
-              { amount: {
-                  _type: 'byte',
-                  value: '0'
-                },
-                operation: {
-                  _type: 'auto',
-                  value: '"add_value"'
-                },
-                name: 'a' },
-              { amount: {
-                  _type: 'byte',
-                  value: '1'
-                },
-                operation: {
-                  _type: 'auto',
-                  value: '"add_value"'
-                },
-                name: 'b' }
-            ]
-          }
+          attribute_modifiers: [
+            { amount: {
+                _type: 'byte',
+                value: '0'
+              },
+              operation: {
+                _type: 'auto',
+                value: '"add_value"'
+              },
+              name: 'a' },
+            { amount: {
+                _type: 'byte',
+                value: '1'
+              },
+              operation: {
+                _type: 'auto',
+                value: '"add_value"'
+              },
+              name: 'b' }
+          ]
         },
         bind: binding
       )
       item = MinecraftItem::Item.new('dirt', component: nbt)
-      a = item.component.dig(:attribute_modifiers, :modifiers).to_a
+      a = item.component.dig(:attribute_modifiers).to_a
       b = Set.new(a) { _1[:name].to_s }
       assert_equal Set['b'], b
     end
