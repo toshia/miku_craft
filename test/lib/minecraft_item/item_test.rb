@@ -43,6 +43,29 @@ describe 'Minecraft Item' do
       assert_equal NBT::NBTString.new('foobar'), item.display_name.dig(0, 'text')
       assert_equal NBT::NBTBoolean.new(false), item.display_name.dig(0, 'italic')
     end
+
+    it 'エスケープ1' do
+      nbt = NBT.build(
+        { 'custom_name' => 'test"' }
+      )
+      assert_equal NBT::NBTString.new('test"'), nbt['custom_name']
+      item = MinecraftItem::Item.new('dirt', component: nbt)
+      assert_equal NBT::NBTString.new('test"'), item.display_name.dig(0, 'text')
+      assert_equal NBT::NBTBoolean.new(false), item.display_name.dig(0, 'italic')
+      assert_equal '[custom_name=[{text:"test\x22",italic:0B}]]', item.component_string
+    end
+
+    it 'エスケープ2' do
+      nbt = NBT.build(
+        { 'custom_name' => 'test\'"\'' }
+      )
+      assert_equal NBT::NBTString.new('test\'"\''), nbt['custom_name']
+      item = MinecraftItem::Item.new('dirt', component: nbt)
+      assert_equal NBT::NBTString.new('test\'"\''), item.display_name.dig(0, 'text')
+      assert_equal NBT::NBTBoolean.new(false), item.display_name.dig(0, 'italic')
+      assert_equal '[custom_name=[{text:"test\x27\x22\x27",italic:0B}]]', item.component_string
+    end
+
   end
 
   describe 'Lore' do

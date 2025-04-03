@@ -269,7 +269,7 @@ module NBT
     end
 
     def snbt
-      ['"', @obj.gsub('"', '\"'), '"'].join
+      ['"', @obj.gsub(/['"]/, {'"' => '\x22', "'" => '\x27'}), '"'].join
     end
 
     def to_json(...) = @obj.to_json(...)

@@ -16,7 +16,26 @@ describe 'NBT string' do
 
   it '大会 "特別賞" 商品' do
     a = NBT::NBTString.new('大会 "特別賞" 商品')
-    assert_equal '"大会 \"特別賞\" 商品"', a.snbt
+    assert_equal '"大会 \x22特別賞\x22 商品"', a.snbt
+  end
+
+  it 'test\'"\"' do
+    a = NBT::NBTString.new('test\'')
+    assert_equal '"test\x27"', a.snbt
+    a = NBT::NBTString.new('test"')
+    assert_equal '"test\x22"', a.snbt
+    a = NBT::NBTString.new('test\'\'')
+    assert_equal '"test\x27\x27"', a.snbt
+    a = NBT::NBTString.new('test""')
+    assert_equal '"test\x22\x22"', a.snbt
+    a = NBT::NBTString.new('test\'"')
+    assert_equal '"test\x27\x22"', a.snbt
+    a = NBT::NBTString.new('test"\'')
+    assert_equal '"test\x22\x27"', a.snbt
+    a = NBT::NBTString.new('test\'"\'')
+    assert_equal '"test\x27\x22\x27"', a.snbt
+    a = NBT::NBTString.new('test"\'"')
+    assert_equal '"test\x22\x27\x22"', a.snbt
   end
 
   it 'erb' do
