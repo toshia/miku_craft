@@ -891,8 +891,8 @@
           ペールガーデン祭り
 
 - name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りA！"
-  start: [2025, 4, 3]
-  end:   [2025, 4, 19]
+  start: [2025, 4, 6]
+  end:   [2025, 4, 20]
   type: item_random
   table:
     - id: 'minecraft:beacon'
@@ -970,8 +970,8 @@
         damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
 
 - name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りB！"
-  start: [2025, 4, 3]
-  end:   [2025, 4, 19]
+  start: [2025, 4, 13]
+  end:   [2025, 4, 27]
   type: item_random
   table:
     - id: 'minecraft:short_grass'
