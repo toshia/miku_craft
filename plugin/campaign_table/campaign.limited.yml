@@ -889,3 +889,473 @@
         lore: |-
           1.21.4アップデート(The Garden Awakens)キャンペーン！
           ペールガーデン祭り
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りA！"
+  start: [2025, 4, 3]
+  end:   [2025, 4, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:beacon'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りA
+          16チャンク以上離れていても光が見えるようになった
+          光の高さが1024ブロックから2048ブロックに変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:dead_bush'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りA
+          耕地に植えられるようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:lodestone'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りA
+          クラフトにネザライトが必要だったのが鉄に変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:powder_snow_bucket'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りA
+          革のブーツを履いて2.5ブロック以上落下してから着地した時
+          突き抜けて下に落ちるようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:leather_boots'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りA
+          革のブーツを履いて2.5ブロック以上落下してから
+          粉雪に着地した時、突き抜けて下に落ちるようになった
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "movement_speed"
+            amount:
+              _type: auto
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1).to_f * 0.05"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+        enchantments:
+          feather_falling:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          frost_walker:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          unbreaking:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りB！"
+  start: [2025, 4, 3]
+  end:   [2025, 4, 19]
+  type: item_random
+  table:
+    - id: 'minecraft:short_grass'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りB
+          草原にまばらに生成されるようになった
+          もとからあった気がするが…
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:<%= %w<white orange magenta light_blue yellow lime pink gray light_gray cyan purple blue brown green red black>.sample %>_bundle'
+      NBT:
+        custom_name: カラーバンドル
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りB
+          村のチェスト内容物として生成されるようになった
+        max_stack_size: 64
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:cake'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りB
+          温帯または冷めた卵でもクラフトできるようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:pumpkin_pie'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りB
+          温帯または冷めた卵でもクラフトできるようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:elytra'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りB
+          滑空中、はしご、足場、蔓などの登れるブロックに当たると
+          滑空状態が解除されるようになった
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+        enchantments:
+          feather_falling:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          unbreaking:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 6)**2*10'
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りC！"
+  start: [2025, 4, 20]
+  end:   [2025, 5, 4]
+  type: item_random
+  table:
+    - id: 'minecraft:saddle'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りC
+          ブタやハゲたおっさんがドロップした鞍のコンポーネントが保持されるようになった
+          付けられたMOBが透明になっても鞍は消えないようになった
+          付けられたMOBがダメージを受けても赤く光らないようになった
+          エンチャントされた鞍を付けたMOBは光るようになった
+          エンチャントのThornとCurse of Bindingが有効になった
+        enchantments:
+          thorns:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:creaking_heart'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りC
+          活性化されたときのテクスチャが変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:open_eyeblossom'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りC
+          一定の時刻で開閉するようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:closed_eyeblossom'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りC
+          一定の時刻で開閉するようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:pale_oak_leaves'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りC
+          地図での色が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りD！"
+  start: [2025, 4, 27]
+  end:   [2025, 5, 11]
+  type: item_random
+  table:
+    - id: 'minecraft:pale_oak_sapling'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りD
+          地図での色が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:iron_bars'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りD
+          効果音が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:iron_block'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りD
+          効果音が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:iron_trapdoor'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りD
+          効果音が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:iron_door'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りD
+          効果音が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！仕様変更祭りE！"
+  start: [2025, 5, 4]
+  end:   [2025, 5, 18]
+  type: item_random
+  table:
+    - id: 'minecraft:heavy_weighted_pressure_plate'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りE
+          効果音が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:cactus'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          仕様変更祭りE
+          稀に伸びる代わりに花をつけるようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！葉ブロック祭り！"
+  start: [2025, 5, 11]
+  end:   [2025, 5, 25]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak mangrove azalea flowering_azalea>.sample %>_leaves'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          葉ブロック祭り
+          下にブロックがないとき、葉が舞い落ちるエフェクトが追加された
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！追加要素祭りA！"
+  start: [2025, 5, 18]
+  end:   [2025, 6, 1]
+  type: item_random
+  table:
+    - id: 'minecraft:bush'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          色んなところに生えてる
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:cactus_flower'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          稀にサボテンが伸びる代わりに花をつけるようになった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:firefly_bush'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          設置すると周囲にホタルのパーティクルが表示される
+          1.19でカエルの餌になるMOBとして追加された時
+          「ホタルは毒やでｗ」とクソリプを受けたことでMojangが
+          拗ねて消したホタルがパーティクルとして復活！！！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:leaf_litter'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          そこらへんに置くことができる落ち葉
+          かまどの燃料になる
+          葉ブロックを精錬すると落ち葉になる(意味不明)
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:short_dry_grass'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          砂漠や荒野に生えている
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！追加要素祭りB！"
+  start: [2025, 5, 25]
+  end:   [2025, 6, 8]
+  type: item_random
+  table:
+    - id: 'minecraft:tall_dry_grass'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          頭に装備すると完全にモヒカン
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:wildflowers'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          そこらへんに生えている
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:blue_egg'
+      NBT:
+        custom_name: チョコミントエッグ
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          冷めたチキンの卵
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:brown_egg'
+      NBT:
+        custom_name: 名古屋コーチンの卵
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          追加要素祭りA
+          温帯鶏がスポーンする
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "1.21.5アップデート(Spring to Life)キャンペーン！装備復刻祭り！"
+  start: [2025, 6, 9]
+  end:   [2025, 6, 15]
+  type: item_random
+  table:
+    - id: 'minecraft:leather_boots'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          装備復刻祭り
+          革のブーツを履いて2.5ブロック以上落下してから
+          粉雪に着地した時、突き抜けて下に落ちるようになった
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "movement_speed"
+            amount:
+              _type: auto
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1).to_f * 0.05"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+        enchantments:
+          feather_falling:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          frost_walker:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          unbreaking:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:elytra'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          装備復刻祭り
+          滑空中、はしご、足場、蔓などの登れるブロックに当たると
+          滑空状態が解除されるようになった
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+        enchantments:
+          feather_falling:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          unbreaking:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 6)**2*10'
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:saddle'
+      NBT:
+        lore: |-
+          1.21.5アップデート(Spring to Life)キャンペーン！
+          装備復刻祭り
+          ブタやハゲたおっさんがドロップした鞍のコンポーネントが保持されるようになった
+          付けられたMOBが透明になっても鞍は消えないようになった
+          付けられたMOBがダメージを受けても赤く光らないようになった
+          エンチャントされた鞍を付けたMOBは光るようになった
+          エンチャントのThornとCurse of Bindingが有効になった
+        enchantments:
+          thorns:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
