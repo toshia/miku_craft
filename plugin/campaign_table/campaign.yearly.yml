@@ -148,7 +148,7 @@
             value: 'rand(0..0xff_ff_ff)'
           custom_effects:
             - id: slowness
-              dration: 2147483647
+              duration: 2147483647
             - id: mining_fatigue
               duration: 2147483647
             - id: nausea
