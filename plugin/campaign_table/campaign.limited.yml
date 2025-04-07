@@ -1359,3 +1359,36 @@
             _type: byte
             value: "rand(0..1)"
         damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "２０２５年日本国際博覧会記念五百円貨幣引換え開始記念コラボキャンペーン！"
+  start: [2025, 4, 8]
+  end:   [2025, 4, 8]
+  type: item_random
+  table:
+    - id: 'minecraft:ender_eye'
+      amount: 2
+      NBT:
+        custom_name: ミャクミャクコイン
+        lore: |-
+          ２０２５年日本国際博覧会記念五百円貨幣引換え開始を記念して
+          財務省との夢のコラボ開催！
+          全国のゆうちょ、銀行にて交換を承っております
+          ※引換開始日は１人につき、２枚以内とします
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
+- name: "２０２５年日本国際博覧会記念五百円貨幣引換え開始記念コラボキャンペーン！"
+  start: [2025, 4, 8]
+  end:   [2025, 4, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:ender_eye'
+      NBT:
+        custom_name: ミャクミャクコイン
+        lore: |-
+          ２０２５年日本国際博覧会記念五百円貨幣引換え開始を記念して
+          財務省との夢のコラボ開催！
+          全国のゆうちょ、銀行にて交換を承っております
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+
