@@ -1441,13 +1441,33 @@
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
     - id: 'minecraft:honeycomb'
+      amount: 4
       NBT:
         custom_name: ミャクミャクさん
         lore: |-
           2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
           マスコットキャラクターのぬいぐるみ
+          持っていると死んだ時身代わりになってくれます
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+        death_protection:
+          death_effects:
+            - type: clear_all_effects
+            - type: apply_effects
+              effects:
+                - id: absorption
+                  amplifier: 0
+                  duration: 200
+                - id: regeneration
+                  amplifier: 4
+                  duration: 200
+                - id: fire_resistance
+                  duration: 200
+                - id: water_breathing
+                  duration: 200
+                - id: invisibility
+                  duration: 200
+            - type: teleport_randomly
     - id: 'minecraft:petrified_oak_slab'
       NBT:
         custom_name: フィンランド産木材
