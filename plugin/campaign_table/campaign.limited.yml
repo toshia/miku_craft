@@ -1392,3 +1392,93 @@
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
 
+
+- name: "2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾！"
+  start: [2025, 4, 13]
+  end:   [2025, 5, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:sand'
+      NBT:
+        custom_name: 鳥取砂丘の砂
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          鳥取県のパビリオンは、鳥取砂丘の砂の展示です！
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        custom_name: "イソジン"
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          主に大阪で使用されているコロナ治療薬です
+          (2021年2月に配布した新型コロナウィルス感染症死者
+          国内6000人突破記念キャンペーンの復刻景品です)
+        potion_contents:
+          custom_color: 6574154
+          custom_effects:
+          - id: instant_damage
+          - id: saturation
+            amplifier: 3
+          - id: hunger
+            amplifier: 1
+            duration: 2147483647
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:granite'
+      NBT:
+        custom_name: 石のパーゴラの石
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          休憩所2で使用されている石です
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:granite'
+      NBT:
+        custom_name: 残念石
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          トイレ2で使用されている石です
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:honeycomb'
+      NBT:
+        custom_name: ミャクミャクさん
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          マスコットキャラクターのぬいぐるみ
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:petrified_oak_slab'
+      NBT:
+        custom_name: フィンランド産木材
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          国産の木材のみで構成される巨大木造リングを構成する
+          フィンランド産の木材です
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:paper'
+      NBT:
+        custom_name: 紀元２６００年記念万博　入場券
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          今回の万博は、こちらの入場券でもご入場いただけます
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:dragon_breath'
+      NBT:
+        custom_name: メタンガス
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          大阪万博は、爆発事故が発生した場合、対応します！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:end_stone'
+      NBT:
+        custom_name: 月の石
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第一弾
+          アメリカ合衆国のパビリオンに展示されている石です
+          アポロ計画により持って帰ってこられたものです
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
