@@ -1502,3 +1502,26 @@
           アポロ計画により持って帰ってこられたものです
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+- name: "2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン"
+  start: [2025, 4, 15]
+  end:   [2025, 4, 22]
+  type: item_random
+  table:
+    - id: 'minecraft:wet_sponge'
+      NBT:
+        custom_name: 雨漏り
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン
+          巨大木造リングの雨漏りを吸収したスポンジです
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:lightning_rod'
+      NBT:
+        custom_name: QRコード表示用Wi-fiアンテナ
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン
+          入場ゲート付近は電波が通じにくくなっており、入場できません。
+          事前にスクリーンショットを撮るか、印刷するか、
+          紀元２６００年記念万博入場券をお持ち下さい。
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
