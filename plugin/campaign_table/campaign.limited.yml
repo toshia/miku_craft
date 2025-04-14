@@ -1525,3 +1525,12 @@
           紀元２６００年記念万博入場券をお持ち下さい。
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak mangrove cherry pale_oak bamboo crimson warped iron copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_door'
+      NBT:
+        custom_name: トイレのドア
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン
+          万博のトイレは入口と出口が分かれており、混乱したお客様がドアを
+          破壊しています。ドアは破壊しないようよろしくおねがいします。
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
