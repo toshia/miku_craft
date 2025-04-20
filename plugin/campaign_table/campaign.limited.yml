@@ -1536,7 +1536,7 @@
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
 
-- name: "2025年日本国際博覧会(大阪万博)コラボ・初逮捕者記念キャンペーン"
+- name: "2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン2"
   start: [2025, 4, 21]
   end:   [2025, 4, 28]
   type: item_random
@@ -1545,7 +1545,15 @@
       NBT:
         custom_name: キルギス産のハチミツ
         lore: |-
-          2025年日本国際博覧会(大阪万博)コラボ・初逮捕者記念キャンペーン
+          2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン2
           4/16に逮捕された富田林の83歳の男が盗んだハチミツです
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:tnt'
+      NBT:
+        custom_name: バンドルの中に爆弾あるんや
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン2
+          4/15に逮捕された高槻の80歳の男がリュックに入れていなかった爆弾です
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
