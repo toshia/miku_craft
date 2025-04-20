@@ -1502,6 +1502,7 @@
           アポロ計画により持って帰ってこられたものです
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+
 - name: "2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン"
   start: [2025, 4, 15]
   end:   [2025, 4, 22]
@@ -1532,5 +1533,19 @@
           2025年日本国際博覧会(大阪万博)コラボ・スタートダッシュキャンペーン
           万博のトイレは入口と出口が分かれており、混乱したお客様がドアを
           破壊しています。ドアは破壊しないようよろしくおねがいします。
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+
+- name: "2025年日本国際博覧会(大阪万博)コラボ・初逮捕者記念キャンペーン"
+  start: [2025, 4, 21]
+  end:   [2025, 4, 28]
+  type: item_random
+  table:
+    - id: 'minecraft:honey_bottle'
+      NBT:
+        custom_name: キルギス産のハチミツ
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボ・初逮捕者記念キャンペーン
+          4/16に逮捕された富田林の83歳の男が盗んだハチミツです
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
