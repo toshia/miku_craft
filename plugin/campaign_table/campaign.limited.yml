@@ -1557,3 +1557,66 @@
           4/15に逮捕された高槻の80歳の男がリュックに入れていなかった爆弾です
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+
+- name: "2025年日本国際博覧会(大阪万博)コラボキャンペーン第二弾！"
+  start: [2025, 5, 26]
+  end:   [2025, 6, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:suspicious_stew'
+      NBT:
+        custom_name: 究極のえきそば
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第二弾
+          まねき食堂が送る、入場料くらいの値段のえきそばです。
+        suspicious_stew_effects:
+          - id: hero_of_the_village
+            duration: 2400
+          - id: luck
+            duration: 2400
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:minecart'
+      NBT:
+        custom_name: 普通　学研奈良登美ヶ丘駅行
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第二弾
+          teocraft全線では駅乗降車場所への
+          マインカート放置は禁止されています
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:firefly_bush'
+      NBT:
+        custom_name: ユスリカ
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第二弾
+          植えるとユスリカが大量発生します。
+          これであなたのお庭も巨大木造リング！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:wooden_axe'
+      NBT:
+        custom_name: "ハエタタキ"
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第二弾
+          ユスリカ対策アイテムです
+        attribute_modifiers:
+          - type: "movement_efficiency"
+            amount: 0.75
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "entity_interaction_range"
+            amount: 3.5
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        enchantments:
+          bane_of_arthropods:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
