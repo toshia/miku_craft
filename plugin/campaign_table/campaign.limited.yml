@@ -1620,3 +1620,101 @@
           value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+
+- name: "2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾！"
+  start: [2025, 6, 13]
+  end:   [2025, 7, 12]
+  type: item_random
+  table:
+    - id: 'minecraft:granite'
+      NBT:
+        custom_name: 石のパーゴラの石
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾
+          休憩所2で使用されている石です
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:granite'
+      NBT:
+        custom_name: 残念石
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾
+          トイレ2で使用されている石です
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:honeycomb'
+      amount: 4
+      NBT:
+        custom_name: ミャクミャクさん
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾
+          マスコットキャラクターのぬいぐるみ
+          持っていると死んだ時身代わりになってくれます
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+        death_protection:
+          death_effects:
+            - type: clear_all_effects
+            - type: apply_effects
+              effects:
+                - id: absorption
+                  amplifier: 0
+                  duration: 200
+                - id: regeneration
+                  amplifier: 4
+                  duration: 200
+                - id: fire_resistance
+                  duration: 200
+                - id: water_breathing
+                  duration: 200
+                - id: invisibility
+                  duration: 200
+            - type: teleport_randomly
+    - id: 'minecraft:petrified_oak_slab'
+      NBT:
+        custom_name: フィンランド産木材
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾
+          国産の木材のみで構成される巨大木造リングを構成する
+          フィンランド産の木材です
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 3
+      NBT:
+        custom_name: "次亜塩素酸水"
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾
+          万博会場のレジオネラ菌を殺菌するために散布された薬品です
+          (2020年7月20日〜26日に配布した
+           Go To ネザーキャンペーンの復刻景品です)
+        potion_contents:
+          custom_color:
+            _type: auto
+            value: 'rand(0..0xff_ff_ff)'
+          custom_effects:
+          - id: fire_resistance
+            duration:
+              _type: auto
+              value: '3600 + 6000 * Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)'
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
+        max_stack_size: 3
+    - id: 'minecraft:<%= %w[potion splash_potion lingering_potion].sample %>'
+      amount: 1
+      NBT:
+        custom_name: "レジオネラ菌"
+        lore: |-
+          2025年日本国際博覧会(大阪万博)コラボキャンペーン第三弾
+          大阪万博のウォータープラザや静けさの森で検出されたレジオネラ菌です
+        potion_contents:
+          custom_color: 0x400040
+          custom_effects:
+          - id: wither
+            duration: 2400
+          - id: infested
+            duration: 2400
+          - id: oozing
+            duration: 2401
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_explosion' }
