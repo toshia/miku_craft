@@ -1718,3 +1718,217 @@
             duration: 2401
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_explosion' }
+
+- name: "1.21.6アップデートキャンペーン！Harness祭り！"
+  start: [2025, 7, 27]
+  end:   [2025, 8, 3]
+  type: item_random
+  table:
+    - id: 'minecraft:dried_ghast'
+      amount: 1
+      NBT:
+        custom_name: "高野豆腐"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          水中に設置して20分経つと戻ります。
+          おまけでかぶれるようにしておきましたがあんま面白くないです。
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 1'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+        equippable: { slot: head }
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:white_harness'
+      NBT:
+        custom_name: "Small Harness"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          小回りがきくようになります
+        attribute_modifiers:
+          - type: "max_health"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "armor"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "scale"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "step_height"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "safe_fall_distance"
+            amount: -0.25
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "fall_damage_multiplier"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "jump_strength"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "movement_speed"
+            amount: -0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "gravity"
+            amount: -0.4
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:black_harness'
+      NBT:
+        custom_name: "BIG Harness"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          速くデカくなるようにしてみたが、どちらも効果がなかった
+          手に持っているとなぜかプレイヤーには効果があります
+        attribute_modifiers:
+          - type: "max_health"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "armor"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "scale"
+            amount: 0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "step_height"
+            amount: 0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "safe_fall_distance"
+            amount: 0.25
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "fall_damage_multiplier"
+            amount: 0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "jump_strength"
+            amount: 0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "movement_speed"
+            amount: 0.5
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "gravity"
+            amount: 0.4
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:red_harness'
+      NBT:
+        custom_name: "MAGA Harness"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          関税を上げる効果があります
+        attribute_modifiers:
+          - type: "max_health"
+            amount: 4
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "armor"
+            amount: 4
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+        enchantments:
+          projectile_protection: 99
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:orange_harness'
+      NBT:
+        custom_name: "LAVA Harness"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          失った火炎耐性を多少取り戻します
+        attribute_modifiers:
+          - type: "max_health"
+            amount: 4
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "armor"
+            amount: 4
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+        enchantments:
+          fire_protection: 99
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:green_harness'
+      NBT:
+        custom_name: "Protect Harness"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          カッチカチやぞ
+        attribute_modifiers:
+          - type: "max_health"
+            amount: 20
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "armor"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:blue_harness'
+      NBT:
+        custom_name: "Protect Harness"
+        lore: |-
+          1.21.6アップデートキャンペーン！Harness祭り！
+          カッチカチやぞ
+        attribute_modifiers:
+          - type: "max_health"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+          - type: "armor"
+            amount: 10
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: any
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
