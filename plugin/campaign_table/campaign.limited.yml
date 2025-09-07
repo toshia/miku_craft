@@ -1932,3 +1932,156 @@
             slot: any
         glider: {}
         damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: &tigers_champion_of_central_league_2025 阪神タイガースリーグ優勝記念(2025)
+  start: [2025, 9, 8]
+  end:   [2025, 9, 15]
+  type: give_all_item # item_random
+  table:
+    - id: 'minecraft:leather_helmet'
+      amount: &tigers_champion_of_central_league_2025_amount 2
+      NBT:
+        custom_name: "ユニフォーム（帽）"
+        dyed_color: 0xffffff
+        lore: *tigers_champion_of_central_league_2025
+        trim:
+          pattern: wayfinder
+          material: gold
+        enchantments:
+          respiration:           { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          aqua_affinity:         { _type: byte, value: '[0, 1].sample * rand(0..1)' }
+          <<: &tigers_champion_of_central_league_2025_enchantments_armor_exclusive
+            blast_protection:      { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            protection:            { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            fire_protection:       { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            projectile_protection: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: &tigers_champion_of_central_league_2025_enchantments_common
+            unbreaking:            { _type: byte, value: '2 * rand(0..1)' }
+            mending:               { _type: byte, value: 'rand(0..1)' }
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - &tigers_champion_of_central_league_2025_attr_modifiers
+            type: "<%= %w[armor armor_toughness attack_damage attack_knockback attack_speed block_break_speed block_interaction_range camera_distance entity_interaction_range explosion_knockback_resistance fall_damage_multiplier knockback_resistance luck max_health mining_efficiency movement_speed safe_fall_distance scale sneaking_speed step_height submerged_mining_speed sweeping_damage_ratio burning_time gravity].sample %>"
+            amount: &tigers_champion_of_central_league_2025_attribute 0.02
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - &tigers_champion_of_central_league_2025_fastest
+            type: "movement_speed"
+            amount: 0.02
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(1..3)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+    - id: 'minecraft:leather_chestplate'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝ユニフォーム（上）"
+        dyed_color: 0xffffff
+        lore: *tigers_champion_of_central_league_2025
+        trim:
+          pattern: wayfinder
+          material: gold
+        enchantments:
+          thorns: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_armor_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: *tigers_champion_of_central_league_2025_cost
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: chest
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: chest
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(3..8)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+    - id: 'minecraft:elytra'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝ユニフォーム（翼）"
+        dyed_color: 0xffffff
+        lore: *tigers_champion_of_central_league_2025
+        trim:
+          pattern: wayfinder
+          material: gold
+        enchantments:
+          thorns: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: *tigers_champion_of_central_league_2025_cost
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: chest
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: chest
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(0..3)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+    - id: 'minecraft:leather_leggings'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝ユニフォーム（下）"
+        dyed_color: 0xffffff
+        lore: *tigers_champion_of_central_league_2025
+        trim:
+          pattern: wayfinder
+          material: gold
+        enchantments:
+          swift_sneak: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_armor_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: *tigers_champion_of_central_league_2025_cost
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: legs
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: legs
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(2..6)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+    - id: 'minecraft:leather_boots'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝ユニフォーム（靴）"
+        dyed_color: 0xffffff
+        lore: *tigers_champion_of_central_league_2025
+        trim:
+          pattern: wayfinder
+          material: gold
+        enchantments:
+          depth_strider:         { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          feather_falling:       { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          soul_speed:            { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          frost_walker:          { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_armor_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: *tigers_champion_of_central_league_2025_cost
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: feet
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: feet
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(1..3)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
