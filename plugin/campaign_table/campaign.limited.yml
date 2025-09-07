@@ -1933,10 +1933,10 @@
         glider: {}
         damage_resistant: { types: '#minecraft:is_fire' }
 
-- name: &tigers_champion_of_central_league_2025 阪神タイガースリーグ優勝記念(2025)
+- name: &tigers_champion_of_central_league_2025 阪神タイガースリーグ優勝記念(2025前半戦)
   start: [2025, 9, 8]
   end:   [2025, 9, 15]
-  type: give_all_item # item_random
+  type: item_random
   table:
     - id: 'minecraft:leather_helmet'
       amount: &tigers_champion_of_central_league_2025_amount 2
@@ -1989,7 +1989,6 @@
           pattern: wayfinder
           material: gold
         enchantments:
-          thorns: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
           <<: *tigers_champion_of_central_league_2025_enchantments_armor_exclusive
           <<: *tigers_champion_of_central_league_2025_enchantments_common
         repair_cost: *tigers_champion_of_central_league_2025_cost
@@ -2015,7 +2014,6 @@
           pattern: wayfinder
           material: gold
         enchantments:
-          thorns: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
           <<: *tigers_champion_of_central_league_2025_enchantments_common
         repair_cost: *tigers_champion_of_central_league_2025_cost
         attribute_modifiers:
@@ -2085,3 +2083,19 @@
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: feet
+    - id: 'minecraft:shield'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝シールド"
+        dyed_color: 0xffffff
+        lore: *tigers_champion_of_central_league_2025
+        enchantments:
+          thorns: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_armor_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: *tigers_champion_of_central_league_2025_cost
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: offhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: offhand
