@@ -2099,3 +2099,199 @@
             slot: offhand
           - <<: *tigers_champion_of_central_league_2025_fastest
             slot: offhand
+
+- name: &tigers_champion_of_central_league_2025_2 阪神タイガースリーグ優勝記念(2025後半戦)
+  start: [2025, 9, 13]
+  end:   [2025, 9, 20]
+  type: item_random
+  table:
+    - id: 'minecraft:mace'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝メイス"
+        lore: *tigers_champion_of_central_league_2025_2
+        enchantments:
+          density:            { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          wind_burst:         { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          breach:             { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: &tigers_champion_of_central_league_2025_enchantments_meelee_common
+            looting:            { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            knockback:          { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            fire_aspect:        { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: &tigers_champion_of_central_league_2025_enchantments_meelee_exclusive
+            smite:              { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            sharpness:          { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            bane_of_arthropods: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: mainhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:wooden_sword'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝バット"
+        lore: *tigers_champion_of_central_league_2025_2
+        enchantments:
+          sweeping_edge: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_common
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: mainhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:trident'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝トライデント"
+        lore: *tigers_champion_of_central_league_2025_2
+        enchantments:
+          riptide:    { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          loyalty:    { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          impaling:   { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          channeling: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_common
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: mainhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:wooden_axe'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝斧"
+        lore: *tigers_champion_of_central_league_2025_2
+        enchantments:
+          <<: &tigers_champion_of_central_league_2025_enchantments_tool_common
+            efficiency: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: &tigers_champion_of_central_league_2025_enchantments_tool_exclusive
+            fortune:    { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            silk_touch: { _type: byte, value: '[0, 1].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_common
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: mainhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:bow'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝ボウ"
+        lore: *tigers_champion_of_central_league_2025_2
+        enchantments:
+          <<: &tigers_champion_of_central_league_2025_enchantments_projectile_common
+            quick_charge: { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            punch:        { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            power:        { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            piercing:     { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            multishot:    { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            infinity:     { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+            flame:        { _type: byte, value: '[0, 1, 2].sample * rand(0..1)' }
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_common
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: mainhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:crossbow'
+      amount: *tigers_champion_of_central_league_2025_amount
+      NBT:
+        custom_name: "リーグ優勝クロスボウ"
+        lore: *tigers_champion_of_central_league_2025_2
+        enchantments:
+          <<: *tigers_champion_of_central_league_2025_enchantments_projectile_common
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_common
+          <<: *tigers_champion_of_central_league_2025_enchantments_meelee_exclusive
+          <<: *tigers_champion_of_central_league_2025_enchantments_common
+        repair_cost: &tigers_champion_of_central_league_2025_cost 2
+        attribute_modifiers:
+          - <<: *tigers_champion_of_central_league_2025_attr_modifiers
+            slot: mainhand
+          - <<: *tigers_champion_of_central_league_2025_fastest
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+        glider: {}
+        damage_resistant: { types: '#minecraft:is_fire' }
