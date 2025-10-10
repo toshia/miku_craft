@@ -34,6 +34,11 @@ module Plugin::Campaign
                                             false),
                            table: record.table,
                            description: record.description)
+      rescue
+        if record
+          raise "A error occured in #{record.name}"
+        end
+        raise
       end
 
       def active_campaigns

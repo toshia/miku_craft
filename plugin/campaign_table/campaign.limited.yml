@@ -2295,3 +2295,566 @@
           value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
         glider: {}
         damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！銅塊、銅松明祭り！"
+  start: [2025, 10, 12]
+  end:   [2025, 10, 26]
+  type: item_random
+  table:
+    - id: 'minecraft:copper_nugget'
+      amount: 'rand(1..64)'
+      NBT:
+        custom_name: "銅塊"
+        lore: |-
+          1.21.9アップデートキャンペーン！銅塊、銅松明祭り！
+          銅の鎖や銅インゴットのクラフトに使います
+          ラビットハウスでは速攻固めるように設定しました
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:copper_torch'
+      amount: 'rand(1..64)'
+      NBT:
+        custom_name: "ドーチ"
+        lore: |-
+          1.21.9アップデートキャンペーン！銅塊、銅松明祭り！
+          コストが高いだけの松明。
+          周囲が緑色に照らされるということもないです
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！銅の鎖祭り！"
+  start: [2025, 10, 18]
+  end:   [2025, 11, 2]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_chain'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅塊、銅松明祭り！
+          頭に装備できます！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！銅ランタン祭り！"
+  start: [2025, 10, 25]
+  end:   [2025, 11, 9]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_lantern'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅ランタン祭り！
+          頭に装備できます！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！銅格子祭り！"
+  start: [2025, 11, 1]
+  end:   [2025, 11, 16]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_bars'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅格子祭り！
+          頭に装備できます！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！銅チェスト祭り！"
+  start: [2025, 11, 8]
+  end:   [2025, 11, 23]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_chest'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅チェスト祭り！
+          頭に装備できます！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！銅防具祭り！"
+  start: [2025, 11, 15]
+  end:   [2025, 11, 30]
+  type: item_random
+  table:
+    - id: minecraft:copper_horse_armor
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅防具祭り！
+          馬の防具です！！！よかったね！！！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..2) * rand(0..1)' }
+          feather_falling:       { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+    - id: minecraft:copper_helmet
+      NBT: &mc1_12_9_helmet_nbt
+        lore: |-
+          1.21.9アップデートキャンペーン！銅防具祭り！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          respiration:           { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          aqua_affinity:         { _type: byte, value: 'rand(0..1) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          <<: &mc1_12_9_equip_common
+            unbreaking:            { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+            mending:               { _type: byte, value: 'rand(0..1) * rand(0..1)' }
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(1..3)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - type: "max_health"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - type: "camera_distance"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - &mc1_21_9_scale
+            type: "scale"
+            amount:
+              _type: auto
+              value: "[-0.05, 0, 0.05].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+    - id: minecraft:copper_chestplate
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅防具祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(3..8)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+          - type: "max_health"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+          - type: "armor_toughness"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+          - <<: *mc1_21_9_scale
+            slot: chest
+    - id: minecraft:copper_leggings
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅防具祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          swift_sneak:           { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(2..6)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+          - type: "max_health"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+          - type: "jump_strength"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+          - <<: *mc1_21_9_scale
+            slot: legs
+    - id: minecraft:copper_boots
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅防具祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          depth_strider:         { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          feather_falling:       { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          soul_speed:            { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          frost_walker:          { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..5) * rand(0..1)' }
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "rand(1..3)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "max_health"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "step_height"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "fall_damage_multiplier"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "safe_fall_distance"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - <<: *mc1_21_9_scale
+            slot: feet
+
+- name: "1.21.9アップデートキャンペーン！銅武器祭り！"
+  start: [2025, 11, 20]
+  end:   [2025, 12, 7]
+  type: item_random
+  table:
+    - id: minecraft:copper_sword
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅武器祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          sweeping_edge:         { _type: byte, value: 'rand(0..6) * rand(0..1)' }
+          <<: &mc1_12_9_weapon
+            looting:               { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+            knockback:             { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+            fire_aspect:           { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+            sharpness:             { _type: byte, value: 'rand(0..6) * rand(0..1)' }
+            smite:                 { _type: byte, value: 'rand(0..6) * rand(0..1)' }
+            bane_of_arthropods:    { _type: byte, value: 'rand(0..6) * rand(0..1)' }
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "entity_interaction_range"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "attack_speed"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "follow_range"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - <<: *mc1_21_9_scale
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+    - id: minecraft:copper_axe
+      NBT: &mc1_12_9_copper_axe
+        lore: |-
+          1.21.9アップデートキャンペーン！銅武器祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          <<: &mc1_12_9_tool
+            silk_touch:               { _type: byte, value: 'rand(0..1) * rand(0..1)' }
+            fortune:                  { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+            efficiency:               { _type: byte, value: 'rand(0..6) * rand(0..1)' }
+          <<: *mc1_12_9_weapon
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "block_interaction_range"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "attack_damage"
+            amount:
+              _type: byte
+              value: "rand(1..10)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "entity_interaction_range"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "attack_speed"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "follow_range"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - <<: *mc1_21_9_scale
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+
+- name: "1.21.9アップデートキャンペーン！銅ツール祭り！"
+  start: [2025, 11, 29]
+  end:   [2025, 12, 14]
+  type: item_random
+  table:
+    - id: minecraft:copper_axe
+      NBT:
+        <<: *mc1_12_9_copper_axe
+        lore: |-
+          1.21.9アップデートキャンペーン！銅ツール祭り！
+    - id: minecraft:copper_pickaxe
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅ツール祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          <<: *mc1_12_9_tool
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers: &mc1_12_9_tool_modifier
+          - type: "block_interaction_range"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - <<: *mc1_21_9_scale
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+    - id: minecraft:copper_shovel
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅ツール祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          <<: *mc1_12_9_tool
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers: *mc1_12_9_tool_modifier
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+    - id: minecraft:copper_hoe
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅ツール祭り！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          <<: *mc1_12_9_tool
+          <<: *mc1_12_9_equip_common
+        repair_cost: 40
+        attribute_modifiers: *mc1_12_9_tool_modifier
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+
+- name: "1.21.9アップデートキャンペーン！避雷針祭り！"
+  start: [2025, 12, 6]
+  end:   [2025, 12, 21]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<lightning exposed_lightning weathered_lightning oxidized_lightning waxed_lightning waxed_exposed_lightning waxed_weathered_lightning waxed_oxidized_lightning>.sample %>_rod'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！銅格子祭り！
+          ほっといたらサビるようになった
+          頭につけることができます！
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！カッパーゴーレム祭り！"
+  start: [2025, 12, 13]
+  end:   [2025, 12, 28]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_golem_statue'
+      amount: 1
+      NBT:
+        custom_name: 河童ゴーレム
+        lore: |-
+          1.21.9アップデートキャンペーン！カッパーゴーレム祭り！
+          楽しげな人形です
+          頭に被ることができます
+          死亡時に身代わりになってくれます
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+        death_protection:
+          death_effects:
+            - type: clear_all_effects
+            - type: apply_effects
+              effects:
+                - id: absorption
+                  amplifier: 0
+                  duration: 200
+                - id: regeneration
+                  amplifier: 4
+                  duration: 200
+                - id: fire_resistance
+                  duration: 200
+                - id: water_breathing
+                  duration: 200
+                - id: invisibility
+                  duration: 200
+
+- name: "1.21.9アップデートキャンペーン！棚祭り！"
+  start: [2025, 12, 20]
+  end:   [2026, 1, 4]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak mangrove cherry pale_oak bamboo crimson warped>.sample %>_shelf'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！棚祭り！
+          設置すると、3スロットの額縁のように機能します
+          頭に被ることができます
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.9アップデートキャンペーン！仕様変更祭り！"
+  start: [2025, 12, 27]
+  end:   [2026, 1, 11]
+  type: item_random
+  table:
+    - id: 'minecraft:lightning_rod'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！仕様変更祭り！
+          錆びるようになった
+          ハニカムで錆止めできるようになった
+          頭に被ることができます
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:<%= %w<copper exposed_copper weathered_copper oxidized_copper waxed_copper waxed_exposed_copper waxed_weathered_copper waxed_oxidized_copper>.sample %>_trapdoor'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！仕様変更祭り！
+          クラフトに必要な銅が6個から4個になった
+          作成個数が2個から1個に減った
+          頭に被ることができます
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:player_head'
+      NBT:
+        <<: *mc1_12_9_helmet_nbt
+        custom_name: "獅子舞"
+        lore: |-
+          1.21.9アップデートキャンペーン！仕様変更祭り！
+          設置して回収しても名前が維持されるようになった
+          （※さすがにエンチャントなどは消えます）
+          頭に被ることができます
+        profile:
+          name: "<%= user_name %>"
+    - id: 'minecraft:iron_chain'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！仕様変更祭り！
+          「Chain」から「Iron Chain」に名前が変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:<%= bgcolor = %w<magenta light_blue yellow lime pink gray light-gray cyan purple blue brown green red black>.sample %>_dye'
+      amount: 'rand(1..64)'
+      NBT:
+        lore: |-
+          1.21.9アップデートキャンペーン！仕様変更祭り！
+          アイコンが変わった
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_fire' }
