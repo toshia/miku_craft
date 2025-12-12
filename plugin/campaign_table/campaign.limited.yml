@@ -2861,7 +2861,7 @@
 
 - name: "1.21.11アップデートキャンペーン！ラクダハスク祭り！"
   start: [2025, 12, 13]
-  end:   [2026, 12, 27]
+  end:   [2025, 12, 27]
   type: item_random
   table:
     - id: 'minecraft:saddle'
@@ -2871,6 +2871,8 @@
           1.21.1アップデートキャンペーン！ラクダハスク祭り！
           手懐けたラクダハスクにつけることができます
         damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..3) * rand(0..1)' }
     - id: 'minecraft:rabbit_foot'
       amount: 4
       NBT:
@@ -2892,3 +2894,451 @@
           1.21.1アップデートキャンペーン！ラクダハスク祭り！
           ラクダハスクの肉です。生でどうぞ！
         damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.11アップデートキャンペーン！オウムガイ祭り！"
+  start: [2025, 12, 20]
+  end:   [2026, 1, 3]
+  type: item_random
+  table:
+    - id: 'minecraft:saddle'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          手懐けた後、オウムガイを右クリックして搭乗し、インベントリを開くと装備できます
+          装備すると、オウムガイを好きに操作することができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+    - id: 'minecraft:<%= %w[copper copper copper copper iron iron iron gold gold diamond].sample %>_nautilus_armor'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          手懐けたオウムガイに乗ってインベントリを開くと装備できます。
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          respiration:           { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          depth_strider:         { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          feather_falling:       { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          frost_walker:          { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          protection:            { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+    - id: 'minecraft:lead'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイを引っ張ることができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:shears'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          右クリックでオウムガイの鎧かサドルを取り除くことができます
+          わざわざこんなものを使わなくても、乗ってインベントリから取ればいいです
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:pufferfish'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          野生のオウムガイに右クリックで与えると確率で懐きます
+          オウムガイの体力を2回復できます
+          (オウムガイはフグによる状態異常にならない)
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:pufferfish_bucket'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          野生のオウムガイに右クリックで与えると確率で懐きます
+          オウムガイの体力を2回復できます
+          (オウムガイはフグによる状態異常にならない)
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:tropical_fish<%= ["","_bucket"].sample %>'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイの体力を2回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:cod<%= ["","_bucket"].sample %>'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイの体力を4回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:salmon<%= ["","_bucket"].sample %>'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイの体力を4回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:cooked_cod'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイの体力を10回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:cooked_salmon'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイの体力を12回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:nautilus_shell'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！オウムガイ祭り！
+          オウムガイですけど
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.11アップデートキャンペーン！パーチド祭り！"
+  start: [2025, 12, 27]
+  end:   [2026, 1, 10]
+  type: item_random
+  table:
+    - id: 'minecraft:tipped_arrow'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！パーチド祭り！
+          パーチドが放ってくる矢です
+        potion_contents:
+          potion: weakness
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:arrow'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ラクダハスク祭り！
+          パーチドが落とす矢です
+    - id: 'minecraft:bone'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ラクダハスク祭り！
+          パーチドの骨です
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.11アップデートキャンペーン！ゾンビオウムガイ祭り！"
+  start: [2026, 1, 3]
+  end:   [2026, 1, 17]
+  type: item_random
+  table:
+    - id: 'minecraft:saddle'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          手懐けた後、ゾンビオウムガイを右クリックして搭乗し、インベントリを開くと装備できます
+          装備すると、ゾンビオウムガイを好きに操作することができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+    - id: 'minecraft:<%= %w[copper copper copper copper iron iron iron gold gold diamond].sample %>_nautilus_armor'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          手懐けたゾンビオウムガイに乗ってインベントリを開くと装備できます。
+          装備していると、地上にいるときに日光で燃えません
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          respiration:           { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          depth_strider:         { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          feather_falling:       { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          frost_walker:          { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          protection:            { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+    - id: 'minecraft:lead'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイを引っ張ることができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:shears'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          右クリックでゾンビオウムガイの鎧かサドルを取り除くことができます
+          わざわざこんなものを使わなくても、乗ってインベントリから取ればいいです
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:pufferfish'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          野生のゾンビオウムガイに右クリックで与えると確率で懐きます
+          ゾンビオウムガイの体力を2回復できます
+          (ゾンビオウムガイはフグによる状態異常にならない)
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:pufferfish_bucket'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          野生のゾンビオウムガイに右クリックで与えると確率で懐きます
+          ゾンビオウムガイの体力を2回復できます
+          (ゾンビオウムガイはフグによる状態異常にならない)
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:tropical_fish<%= ["","_bucket"].sample %>'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイの体力を2回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:cod<%= ["","_bucket"].sample %>'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイの体力を4回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:salmon<%= ["","_bucket"].sample %>'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイの体力を4回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:cooked_cod'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイの体力を10回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:cooked_salmon'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイの体力を12回復できます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:rotten_flesh'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビオウムガイ祭り！
+          ゾンビオウムガイの肉です。生でどうぞ！
+        damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.11アップデートキャンペーン！ゾンビホース祭り！"
+  start: [2026, 1, 10]
+  end:   [2026, 1, 24]
+  type: item_random
+  table:
+    - id: 'minecraft:saddle'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビホース祭り！
+          手懐けた後、ゾンビホースを右クリックして搭乗し、インベントリを開くと装備できます
+          装備すると、ゾンビホースを好きに操作することができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..3) * rand(0..1)' }
+    - id: 'minecraft:red_mushroom'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビホース祭り！
+          ゾンビホースが好きな食べ物です
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:lead'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビホース祭り！
+          ゾンビホースを引っ張ることができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:rotten_flesh'
+      amount: 1
+      NBT:
+        custom_name: "馬刺し"
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビホース祭り！
+          ゾンビホースの肉です。生でどうぞ！
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:<%= %w[leather copper iron gold diamond].sample %>_horse_armor'
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ゾンビホース祭り！
+          ゾンビホースの防具です！！！よかったね！！！
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..2) * rand(0..1)' }
+          feather_falling:       { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+        attribute_modifiers:
+          - type: "movement_speed"
+            amount: { _type: auto, value: 'rand((-0.02)..(0.02))' }
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: body
+
+- name: "1.21.11アップデートキャンペーン！槍祭り！"
+  start: [2026, 1, 17]
+  end:   [2026, 1, 31]
+  type: item_random
+  table:
+    - id: 'minecraft:<%= %w[wooden stone copper iron gold diamond].sample %>_spear'
+      NBT:
+        lore: |-
+          1.21.11アップデートキャンペーン！槍祭り！
+          竹槍でB-29を撃ち落とせなかったため、投擲はできません
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          lunge:                 { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          looting:               { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          knockback:             { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          fire_aspect:           { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          sharpness:             { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          smite:                 { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          bane_of_arthropods:    { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          unbreaking:            { _type: byte, value: 'Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) * rand(0..1)' }
+          mending:               { _type: byte, value: 'rand(0..1) * rand(0..1)' }
+        repair_cost: 40
+        attribute_modifiers:
+          - type: "entity_interaction_range"
+            amount:
+              _type: auto
+              value: "rand(0..2) * rand(0..1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "attack_speed"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "follow_range"
+            amount:
+              _type: auto
+              value: "[-0.5, -0.33, 0, 0.33, 0.5].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "scale"
+            amount:
+              _type: auto
+              value: "[-0.05, 0, 0.05].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 2)**2*10'
+    - id: 'minecraft:ancient_debris'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！槍祭り！
+          ネザライトの槍にアップグレードするための素材です
+
+- name: "1.21.11アップデートキャンペーン！ネザライトの馬鎧祭り！"
+  start: [2026, 1, 24]
+  end:   [2026, 2, 7]
+  type: item_random
+  table:
+    - id: 'minecraft:ancient_debris'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ネザライトの馬鎧祭り！
+          ダイヤの馬鎧をネザライトの馬鎧にアップグレードするための素材です
+
+- name: "1.21.11アップデートキャンペーン！仕様変更祭り！"
+  start: [2026, 1, 31]
+  end:   [2026, 2, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:decorated_pot'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！仕様変更祭り！
+          破壊時のパーティクルが変わりました
+    - id: 'minecraft:<%= %w<oak spruce birch jungle acacia dark_oak mangrove cherry pale_oak azalea flowering_azalea>.sample %>_leaves'
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！仕様変更祭り！
+          グラフィック設定で葉の透過を無効にした場合
+          透過部分が黒から深緑に変更されました
+        equippable: { slot: head }
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:elytra'
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！仕様変更祭り！
+          滑空中、はしご、足場、蔓などの登れるブロックに当たっても
+          滑空状態が解除されないようになった
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: byte
+              value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+        enchantments:
+          feather_falling:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          unbreaking:
+            _type: byte
+            value: "Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1)"
+          binding_curse:
+            _type: byte
+            value: "rand(0..1)"
+        max_damage:
+          _type: auto
+          value: '(Enumerator.new{|y| loop{ y << rand(2) } }.find_index(1) + 6)**2*10'
+        damage_resistant: { types: '#minecraft:is_<%= %w[fire explosion].sample %>' }
+    - id: 'minecraft:glow_berries'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！仕様変更祭り！
+          エリトラの滑空を解除しないようになった
+    - id: 'minecraft:leather_horse_armor'
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！仕様変更祭り！
+          テクスチャが変わった
+        damage_resistant: { types: '#minecraft:is_fire' }
+        enchantments:
+          thorns:                { _type: byte, value: 'rand(0..2) * rand(0..1)' }
+          feather_falling:       { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          protection:            { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          fire_protection:       { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          projectile_protection: { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+          blast_protection:      { _type: byte, value: 'rand(0..4) * rand(0..1)' }
+        attribute_modifiers:
+          - type: "movement_speed"
+            amount: { _type: auto, value: 'rand((-0.02)..(0.02))' }
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: body
