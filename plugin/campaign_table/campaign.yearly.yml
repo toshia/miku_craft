@@ -6,7 +6,9 @@
     - id: 'minecraft:sea_pickle'
       NBT:
         custom_name: "門松"
-        lore: "メリーお正月！"
+        lore: &nenmatsunenshi_camapign_lore >-
+          メリーお正月！
+          <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>
         attribute_modifiers:
           - type: "attack_damage"
             amount: 6
@@ -16,13 +18,13 @@
     - id: 'minecraft:tipped_arrow'
       NBT:
         custom_name: "破魔矢"
-        lore: "メリーお正月！"
+        lore: *nenmatsunenshi_camapign_lore
         potion_contents:
           potion: strong_healing
     - id: 'minecraft:wooden_sword'
       NBT:
         custom_name: "羽子板"
-        lore: "メリーお正月！"
+        lore: *nenmatsunenshi_camapign_lore
         attribute_modifiers:
           - type: "attack_damage"
             amount: 16
@@ -33,7 +35,7 @@
       NBT:
         damage: 3
         custom_name: "獅子舞"
-        lore: "メリーお正月！"
+        lore: *nenmatsunenshi_camapign_lore
         profile:
           name: "<%= user_name %>"
         attribute_modifiers:
@@ -46,7 +48,7 @@
       NBT:
         damage: 3
         custom_name: "だし巻き卵"
-        lore: "メリーお正月！"
+        lore: *nenmatsunenshi_camapign_lore
         attribute_modifiers:
           - type: "scale"
             amount:
@@ -437,6 +439,7 @@
             8/8はパインアメの日
             2023年阪神タイガースリーグ優勝記念のとき
             岡田監督がベンチで食べていた飴
+            <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%>
         enchantments:
           looting: 18
         attribute_modifiers:
