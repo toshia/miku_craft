@@ -42,6 +42,19 @@
             operation: add_value
             id: '<%= SecureRandom.uuid %>'
             slot: head
+    - id: 'minecraft:golden_nautilus_armor'
+      NBT:
+        damage: 3
+        custom_name: "だし巻き卵"
+        lore: "メリーお正月！"
+        attribute_modifiers:
+          - type: "scale"
+            amount:
+              _type: auto
+              value: "[-0.5, 0, 2].sample"
+            operation: add_multiplied_total
+            id: '<%= SecureRandom.uuid %>'
+            slot: body
 
 - name: &make_america_great_again ドナルド・トランプ永久凍結<%= Time.now.year - 2021 %>周年記念イベント
   start: [1, 9]
@@ -815,6 +828,6 @@
 - name: 年末年始キャンペーン
   start: [12, 25]
   end:   [12, 31]
-  type: item_random
+  type: give_all_item
   table: *nenmatsunenshi_camapign_table
 
