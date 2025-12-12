@@ -2858,3 +2858,37 @@
           アイコンが変わった
         equippable: { slot: head }
         damage_resistant: { types: '#minecraft:is_fire' }
+
+- name: "1.21.11アップデートキャンペーン！ラクダハスク祭り！"
+  start: [2025, 12, 13]
+  end:   [2026, 12, 27]
+  type: item_random
+  table:
+    - id: 'minecraft:saddle'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ラクダハスク祭り！
+          手懐けたラクダハスクにつけることができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:rabbit_foot'
+      amount: 4
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ラクダハスク祭り！
+          ラクダハスクを手懐けることができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:lead'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ラクダハスク祭り！
+          ラクダハスクを引っ張ることができます
+        damage_resistant: { types: '#minecraft:is_fire' }
+    - id: 'minecraft:rotten_flesh'
+      amount: 1
+      NBT:
+        lore: |-
+          1.21.1アップデートキャンペーン！ラクダハスク祭り！
+          ラクダハスクの肉です。生でどうぞ！
+        damage_resistant: { types: '#minecraft:is_fire' }

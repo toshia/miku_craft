@@ -831,6 +831,6 @@
 - name: 年末年始キャンペーン
   start: [12, 25]
   end:   [12, 31]
-  type: give_all_item
+  type: item_random
   table: *nenmatsunenshi_camapign_table
 
