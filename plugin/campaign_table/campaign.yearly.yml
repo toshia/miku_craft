@@ -519,6 +519,7 @@
       NBT:
         custom_name: "ネギ"
         lore: "初音ミクコラボ<%= Time.now.year%>"
+        max_stack_size: 1
         attribute_modifiers:
           - type: "attack_damage"
             amount:
@@ -537,8 +538,6 @@
         max_damage: 158
         damage: 1
         enchantable: { value: 22 }
-        repairable:
-          items: 'minecraft:bamboo'
     - id: 'minecraft:player_head'
       NBT:
         custom_name: "みくみくメット"

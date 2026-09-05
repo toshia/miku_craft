@@ -3342,3 +3342,177 @@
             operation: add_multiplied_total
             id: '<%= SecureRandom.uuid %>'
             slot: body
+
+- name: "初音ミクコラボ不具合詫びキャンペーン"
+  start: [2026, 9, 7]
+  end:   [2026, 9, 14]
+  type: item_random
+  table:
+    - id: 'minecraft:bamboo'
+      NBT:
+        custom_name: "ネギ"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン"
+        max_stack_size: 1
+        attribute_modifiers:
+          - type: "attack_damage"
+            amount:
+              _type: auto
+              value: 'Time.now.year - 2007'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+          - type: "attack_speed"
+            amount:
+              _type: auto
+              value: '(Time.now.year - 2007).to_f / 10'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: mainhand
+        max_damage: 158
+        damage: 1
+        enchantable: { value: 22 }
+    - id: 'minecraft:player_head'
+      NBT:
+        custom_name: "みくみくメット"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン\n設置しないように注意！"
+        profile:
+          id: { _type: intarray, value: '[1276831889,-155956764,-1491969687,-1219496898]' }
+          properties:
+            - name: "textures"
+              value: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTEzN2NjOGFjOTEyY2ExMDljMDlmYzNiN2FiNjg5Y2YzMjFiYWFlMjYwNjJiM2NlZTFmYzU5MzFhZmIxNDU2In19fQ=="
+        attribute_modifiers:
+          - type: "max_health"
+            amount:
+              _type: byte
+              value: 'Math.sqrt(Time.now.year - 2007)'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - type: "armor"
+            amount:
+              _type: auto
+              value: '(Time.now.year - 2007)'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+          - type: "luck"
+            amount: 0.05
+            operation: add_multiplied_base
+            id: '<%= SecureRandom.uuid %>'
+            slot: head
+        enchantments:
+          fire_protection: 2
+          projectile_protection: 10
+    - id: 'minecraft:leather_chestplate'
+      NBT:
+        custom_name: "ミクコス"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン"
+        dyed_color: 0xffffff
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: '(Time.now.year - 2007)'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+          - type: "armor_toughness"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+          - type: "luck"
+            amount: 0.05
+            operation: add_multiplied_base
+            id: '<%= SecureRandom.uuid %>'
+            slot: chest
+    - id: 'minecraft:leather_leggings'
+      NBT:
+        custom_name: "スカート"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン"
+        dyed_color: 0x6b696e
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: '(Time.now.year - 2007)'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+          - type: "armor_toughness"
+            amount: 2
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+          - type: "luck"
+            amount: 0.05
+            operation: add_multiplied_base
+            id: '<%= SecureRandom.uuid %>'
+            slot: legs
+    - id: 'minecraft:leather_boots'
+      NBT:
+        custom_name: "ニーソ"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン"
+        dyed_color: 0x4a4853
+        attribute_modifiers:
+          - type: "armor"
+            amount: 3
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "armor_toughness"
+            amount:
+              _type: auto
+              value: '(Time.now.year - 2007)'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+          - type: "luck"
+            amount: 0.05
+            operation: add_multiplied_base
+            id: '<%= SecureRandom.uuid %>'
+            slot: feet
+    - id: 'minecraft:shield'
+      NBT:
+        custom_name: "みくみくシールド"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン"
+        base_color: light_blue
+        banner_patterns:
+          - {color: 'cyan', pattern: "triangle_top"}
+          - {color: 'cyan', pattern: "triangle_bottom"}
+        attribute_modifiers:
+          - type: "armor"
+            amount:
+              _type: auto
+              value: '(Time.now.year - 2007)'
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: offhand
+          - type: "armor_toughness"
+            amount: 1
+            operation: add_value
+            id: '<%= SecureRandom.uuid %>'
+            slot: offhand
+    - id: 'minecraft:potion'
+      amount: 1
+      NBT:
+        custom_name: "初音ミクちゃんのおぱんつドリップコーヒー"
+        lore: "初音ミクコラボ<%= Time.now.year%>不具合詫びキャンペーン"
+        max_stack_size: 8
+        potion_contents:
+          custom_effects:
+          - id: regeneration
+            amplifier: 1
+            duration: 36000
+          - id: resistance
+            amplifier: 0
+            duration: 36000
+          - id: saturation
+            amplifier: 0
+            duration: 40000
+          - id: health_boost
+            amplifier: 0
+            duration: 24000
+          - id: absorption
+            amplifier: 0
+            duration: 32000
