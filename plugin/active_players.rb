@@ -25,14 +25,14 @@ Plugin.create :active_players do
   collection(:active_players) do |mutation|
     subscribe(:server_raw_output, :stdout).each do |line|
       case line
-      when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) joined the game\Z>
+      when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: System chat: (\w+) joined the game\Z>
         name = Regexp.last_match(1)
         log_file.puts "#{Time.now.iso8601} join #{name}"
         mutation.rewind do |ary|
           ary << name unless ary.include?(name)
           ary
         end
-      when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: (\w+) left the game\Z>
+      when %r<\A\[\d{2}:\d{2}:\d{2}\] \[Server thread/INFO\]: System chat: (\w+) left the game\Z>
         name = Regexp.last_match(1)
         log_file.puts "#{Time.now.iso8601} left #{name}"
         mutation.delete(name)
