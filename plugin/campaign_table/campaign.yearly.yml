@@ -305,49 +305,49 @@
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           霰天神を祀る山
-    - id: 'minecraft:oak_chest_boat'
+    - id: 'minecraft:pale_oak_boat'
       NBT:
         custom_name: "白楽天山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           白楽天と道林禅師の故事の山
-    - id: 'minecraft:spruce_chest_boat'
+    - id: 'minecraft:poplar_boat'
       NBT:
         custom_name: "郭巨山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           郭巨孝行の故事の山
-    - id: 'minecraft:birch_chest_boat'
+    - id: 'minecraft:bamboo_raft'
       NBT:
         custom_name: "芦刈山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           芦刈夫婦の物語の山
-    - id: 'minecraft:jungle_chest_boat'
+    - id: 'minecraft:oak_boat'
       NBT:
         custom_name: "太子山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           聖徳太子に由来する山
-    - id: 'minecraft:acacia_chest_boat'
+    - id: 'minecraft:spruce_boat'
       NBT:
         custom_name: "保昌山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           平井保昌の故事の山
-    - id: 'minecraft:dark_oak_chest_boat'
+    - id: 'minecraft:birch_boat'
       NBT:
         custom_name: "占出山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           神功皇后にちなむ山
-    - id: 'minecraft:mangrove_chest_boat'
+    - id: 'minecraft:jungle_boat'
       NBT:
         custom_name: "山伏山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           役行者にちなむ山
-    - id: 'minecraft:bamboo_raft'
+    - id: 'minecraft:acacia_boat'
       NBT:
         custom_name: "油天神山"
         lore: |-
@@ -360,67 +360,67 @@
   description: 祇園祭・後祭キャンペーン(後祭の山鉾巡行は24日です)
   type: item_random
   table:
-    - id: 'minecraft:cherry_chest_boat'
+    - id: 'minecraft:oak_chest_boat'
       NBT:
         custom_name: "南観音山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           楊柳観音を祀る山
-    - id: 'minecraft:oak_boat'
+    - id: 'minecraft:spruce_chest_boat'
       NBT:
         custom_name: "北観音山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           楊柳観音を祀る山
-    - id: 'minecraft:spruce_boat'
+    - id: 'minecraft:birch_chest_boat'
       NBT:
         custom_name: "鈴鹿山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           鈴鹿権現にちなむ山
-    - id: 'minecraft:birch_boat'
+    - id: 'minecraft:jungle_chest_boat'
       NBT:
         custom_name: "浄妙山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           浄妙僧兵の山
-    - id: 'minecraft:jungle_boat'
+    - id: 'minecraft:acacia_chest_boat'
       NBT:
         custom_name: "黒主山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           大伴黒主の故事の山
-    - id: 'minecraft:acacia_boat'
+    - id: 'minecraft:dark_oak_chest_boat'
       NBT:
         custom_name: "鯉山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           登竜門の故事の山
-    - id: 'minecraft:dark_oak_boat'
+    - id: 'minecraft:mangrove_chest_boat'
       NBT:
         custom_name: "役行者山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           役行者にちなむ山
-    - id: 'minecraft:mangrove_boat'
+    - id: 'minecraft:cherry_chest_boat'
       NBT:
         custom_name: "八幡山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           八幡神を祀る山
-    - id: 'minecraft:bamboo_raft'
+    - id: 'minecraft:pale_oak_chest_boat'
       NBT:
         custom_name: "船鉾"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           神功皇后の船出の鉾
-    - id: 'minecraft:cherry_boat'
+    - id: 'minecraft:poplar_chest_boat'
       NBT:
         custom_name: "岩戸山"
         lore: |-
           <%= Time.now.year%>/<%= Time.now.month%>/<%= Time.now.day%> 祇園祭コラボ
           天岩戸伝説の山
-    - id: 'minecraft:oak_chest_boat'
+    - id: 'minecraft:bamboo_chest_raft'
       NBT:
         custom_name: "木賊山"
         lore: |-
