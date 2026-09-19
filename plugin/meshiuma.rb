@@ -117,9 +117,19 @@ Plugin.create :meshiuma do
   end
 
   on_summon_tombstone do |player, mob_id, mob_name, head|
-    custom_name = NBT.build([{text: '%<mob_name>s of %<player>s' % {mob_name:, player:}}])
+    component = NBT.build(
+      {
+        CustomName: [{text: '%<mob_name>s of %<player>s' % {mob_name:, player:}}],
+        Glowing: 1,
+        CanPickUpLoot: 1,
+        PersistenceRequired: 1,
+        equipment: { head: NBT.build({id: head.item.id, components: head.item.component}) },
+        drop_chances: { head: 1.0 }
+      }
+    )
+    # {CustomName:#{custom_name.snbt},Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},#{head.snbt}],ArmorDropChances:[0f,0f,0f,1.00f]}
     Plugin.call(:minecraft_execute, player,
-                "summon #{mob_id} ~ ~ ~ {CustomName:#{custom_name.snbt},Glowing:1b,CanPickUpLoot:1b,PersistenceRequired:1b,ArmorItems:[{},{},{},#{head.snbt}],ArmorDropChances:[0f,0f,0f,1.00f]}")
+                "summon #{mob_id} ~ ~ ~ #{component.snbt}")
   end
 
   def matched_to_advice(base, *matches)
